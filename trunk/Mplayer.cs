@@ -16,9 +16,16 @@ namespace Power_Mplayer
 		private MyStreamReader stdout;
 		private MyStreamReader stderr;
 		private System.IO.StreamWriter stdin;
-
+		private MplayerState state;
 		private Panel BigScreen;
 
+		public string LastLine
+		{
+			get
+			{
+				return stdout.LastLine;
+			}
+		}
 
 		public Mplayer(Panel bs)
 		{
@@ -28,8 +35,10 @@ namespace Power_Mplayer
 			mplayerProc = null;
 			this.BigScreen = bs;
 
-			stdout = new MyStreamReader();
-			stderr = new MyStreamReader();
+			state = new MplayerState();
+
+			stdout = new MyStreamReader(state);
+			stderr = new MyStreamReader(state);
 		}
 
 
@@ -42,8 +51,16 @@ namespace Power_Mplayer
 			{
 				char[] charBuf = new char[read];
 				int len = Encoding.Default.GetDecoder().GetChars(rs.Buffer, 0, read, charBuf, 0);
-				//string str = new string(charBuf);
-				rs.RequestData.Append(charBuf);
+
+				for(int i=0;i<len;i++)
+				{
+					rs.RequestData.Append(charBuf[i]);
+
+					if(charBuf[i] == '\n')
+					{
+						rs.state.SetState(rs.LastLine);
+					}
+				}
 				
 				rs.stream.BaseStream.BeginRead(rs.Buffer, 0, rs.Buffer.Length, new AsyncCallback(ReadCallBack), rs);
 			}
@@ -70,7 +87,7 @@ namespace Power_Mplayer
 				mplayerProc.StartInfo.WorkingDirectory = @"C:\mplayer";
 
 				mplayerProc.StartInfo.Arguments = "-slave -quiet" + // salve mode
-					" -identify" +	// show ID_ tag , an easy way to extract information
+					" -msglevel identify=6" +	// show ID_ tag , an easy way to extract information
 					" -nokeepaspect"; // to avoid MPlayer-specific bug with non-4:3 displays
 
 				// embed window

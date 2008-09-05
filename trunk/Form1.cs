@@ -330,7 +330,7 @@ namespace Power_Mplayer
 
 		private void btn_stop_Click(object sender, System.EventArgs e)
 		{
-			double a = mp.Length;
+			MessageBox.Show(mp.LastLine);
 
 		}
 
