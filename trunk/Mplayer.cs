@@ -1,3 +1,8 @@
+///////////////////////////////
+// Power Mplayer, Mplayer.cs 
+// Author: hialan.liu@gmail.com
+///////////////////////////////
+
 using System;
 using System.IO;
 using System.Text;
@@ -8,7 +13,7 @@ using System.Windows.Forms;
 namespace Power_Mplayer
 {
 	/// <summary>
-	/// Mplayer 的摘要描述。
+	/// Mplayer Class
 	/// </summary>
 	public class Mplayer
 	{
@@ -16,31 +21,28 @@ namespace Power_Mplayer
 		private MyStreamReader stdout;
 		private MyStreamReader stderr;
 		private System.IO.StreamWriter stdin;
-		private MplayerState state;
+		private MediaInfo minfo;
 		private Panel BigScreen;
 
-		public string LastLine
+		public bool HasInstense
 		{
 			get
 			{
-				return stdout.LastLine;
+				return (mplayerProc != null && !mplayerProc.HasExited);
 			}
 		}
 
+		// constructure
 		public Mplayer(Panel bs)
 		{
-			//
-			// TODO: 在此加入建構函式的程式碼
-			//
 			mplayerProc = null;
 			this.BigScreen = bs;
 
-			state = new MplayerState();
+			minfo = new MediaInfo();
 
-			stdout = new MyStreamReader(state);
-			stderr = new MyStreamReader(state);
+			stdout = new MyStreamReader(minfo);
+			stderr = new MyStreamReader(minfo);
 		}
-
 
 		private static void ReadCallBack(IAsyncResult asyncResult)
 		{
@@ -58,7 +60,7 @@ namespace Power_Mplayer
 
 					if(charBuf[i] == '\n')
 					{
-						rs.state.SetState(rs.LastLine);
+						rs.minfo.SetState(rs.LastLine);
 					}
 				}
 				
@@ -66,7 +68,6 @@ namespace Power_Mplayer
 			}
 
 			return ;
-
 		}
 
 		// create process
@@ -97,7 +98,7 @@ namespace Power_Mplayer
 				//System.Windows.Forms.MessageBox.Show(mplayerProc.StartInfo.Arguments);
 
 				// append filename
-				mplayerProc.StartInfo.Arguments += " " + filename;
+				mplayerProc.StartInfo.Arguments += " " + "\"" + filename + "\"";
 
 				// start mpayer
 				mplayerProc.Start();
@@ -115,21 +116,26 @@ namespace Power_Mplayer
 				//Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
 				//Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
 				this.BigScreen.BackgroundImage = null;
-			}
-			else
-			{
+
 				Pause();
-			}
-			
+				System.Threading.Thread.Sleep(1000);
+				Pause();
+			}			
 		}
 
 		/// <summary>
 		/// controls of movie
 		/// </summary>
+		/// 
+		public void Play()
+		{
+			
+		}
+
 		public void Stop()
 		{
-			stdin.AutoFlush = true;
-			stdin.WriteLine("stop");
+			this.Time_Pos = 0;
+			Pause();
 		}
 
 		public void Pause()
@@ -139,7 +145,7 @@ namespace Power_Mplayer
 
 		public string Read()
 		{
-			return stdout.RequestData.ToString();;
+			return stdout.RequestData.ToString();
 		}
 
 		public void Exit()
@@ -159,36 +165,16 @@ namespace Power_Mplayer
 				stdin.Close();
 				stdout.stream.Close();
 				stderr.stream.Close();
+
+				mplayerProc = null;
 			}
 		}
 
-		/// implement of slave property
-		/// 
-		
 		public string Filename
 		{
 			get
 			{
-				stdin.WriteLine("get_file_name ");
-				return stdout.LastLine;
-			}
-		}
-
-		public int Audio_Bitrate
-		{
-			get
-			{
-				stdin.WriteLine("get_audio_bitrate ");
-				return 0;
-			}
-		}
-
-		public string Audio_Codec
-		{
-			get
-			{
-				stdin.WriteLine("get_audio_codec ");
-				return "";
+				return (string) minfo["FILENAME"];
 			}
 		}
 
@@ -210,20 +196,12 @@ namespace Power_Mplayer
 			get
 			{
 				stdin.WriteLine("get_time_pos ");
-				return 0.0;
+				System.Threading.Thread.Sleep(50);
+				return (double) minfo["TIME_POSITION"];
 			}
 			set
 			{
 				stdin.WriteLine("seek " + value.ToString() + " 2 ");
-			}
-		}
-
-		public double Length
-		{
-			get
-			{
-				stdin.WriteLine("get_time_length ");
-				return 0.0;
 			}
 		}
 
@@ -232,6 +210,20 @@ namespace Power_Mplayer
 			set
 			{
 				stdin.WriteLine("volume " + (value * 10).ToString() + " 1 ");
+			}
+		}
+
+		public double Video_Aspect
+		{
+			get
+			{
+				int wid = (int) minfo["VIDEO_WIDTH"];
+				int hei = (int) minfo["VIDEO_HEIGHT"];
+				
+				if(hei == 0)
+					return 0;
+				else
+					return (double) wid/hei;
 			}
 		}
 	}

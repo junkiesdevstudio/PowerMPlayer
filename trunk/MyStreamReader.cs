@@ -5,7 +5,7 @@ using System.Text;
 namespace Power_Mplayer
 {
 	/// <summary>
-	/// MyStreamReader 的摘要描述。
+	/// MyStreamReader
 	/// </summary>
 	public class MyStreamReader
 	{
@@ -15,17 +15,14 @@ namespace Power_Mplayer
 		public byte[] Buffer;
 		public System.Text.StringBuilder RequestData;
 
-		public MplayerState state;
+		public MediaInfo minfo;
 
-		public MyStreamReader(MplayerState ms)
+		public MyStreamReader(MediaInfo mi)
 		{
-			//
-			// TODO: 在此加入建構函式的程式碼
-			//
 			Buffer = new byte[BUFFER_SIZE];
 			RequestData = new StringBuilder();
 
-			state = ms;
+			minfo = mi;
 		}
 
 		public string LastLine
@@ -53,6 +50,10 @@ namespace Power_Mplayer
 
 				if(end > 0 && start < 0)
 					start = 0;
+
+				// should this happened ? 
+				if(start < 0)
+					return null;
 
 				return RequestData.ToString(start, end-start);
 			}

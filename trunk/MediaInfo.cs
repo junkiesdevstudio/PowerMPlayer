@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Power_Mplayer
 {
-	public struct MValue
+	public class MValue
 	{
 		private string NAME;
 		public Object Value;
@@ -30,14 +30,16 @@ namespace Power_Mplayer
 		{
 			switch(this.ValueType)
 			{
+				case TypeCode.Int32:
+					Value = Int32.Parse(val);
+					break;
 				case TypeCode.Double:
 					Value = double.Parse(val);
 					break;
+
+				default:
 				case TypeCode.String:
 					Value = val;
-					break;
-				case TypeCode.Int32:
-					Value = Int32.Parse(val);
 					break;
 			}
 		}
@@ -46,11 +48,11 @@ namespace Power_Mplayer
 	/// <summary>
 	/// MplayerState 的摘要描述。
 	/// </summary>
-	public class MplayerState
+	public class MediaInfo
 	{
-		ArrayList MValues;
+		private ArrayList MValues;
 
-		public MplayerState()
+		public MediaInfo()
 		{
 			//
 			// TODO: 在此加入建構函式的程式碼
@@ -64,6 +66,7 @@ namespace Power_Mplayer
 		{
 			MValues.Add(new MValue("FILENAME",		TypeCode.String));
 			MValues.Add(new MValue("LENGTH",		TypeCode.Double));
+			MValues.Add(new MValue("DEMUXER",		TypeCode.String));
 
 			// Audio
 
@@ -72,6 +75,7 @@ namespace Power_Mplayer
 			MValues.Add(new MValue("AUDIO_RATE",	TypeCode.Int32));
 			MValues.Add(new MValue("AUDIO_NCH",		TypeCode.Int32));
 			MValues.Add(new MValue("AUDIO_FORMAT",	TypeCode.String));
+			MValues.Add(new MValue("AUDIO_CODEC",	TypeCode.String));
 
 			// Video
 
@@ -82,6 +86,10 @@ namespace Power_Mplayer
 			MValues.Add(new MValue("VIDEO_HEIGHT",	TypeCode.Int32));
 			MValues.Add(new MValue("VIDEO_FPS",		TypeCode.Double));
 			MValues.Add(new MValue("VIDEO_ASPECT",	TypeCode.Double));
+			MValues.Add(new MValue("VIDEO_CODEC",	TypeCode.String));
+
+			// Palyer State
+			MValues.Add(new MValue("TIME_POSITION",	TypeCode.Double));
 		}
 
 		private string isStateString(string str)
@@ -100,12 +108,11 @@ namespace Power_Mplayer
 
 			if(str != null)
 			{
-				//System.Windows.Forms.MessageBox.Show(str);
 				string[] cmds = str.Split('=');
 
 				foreach(MValue val in MValues)
 				{
-					if(cmds[0].Equals(val.Name))
+					if(cmds[0] == val.Name)
 					{
 						val.SetValue(cmds[1]);
 						break;
@@ -113,6 +120,20 @@ namespace Power_Mplayer
 				}
 			}
 			// end of if
+		}
+
+		public Object this[string dataname]
+		{
+			get
+			{
+				foreach(MValue val in MValues)
+				{
+					if(val.Name == dataname)
+						return val.Value;
+				}
+
+				return null;
+			}
 		}
 	}
 }
