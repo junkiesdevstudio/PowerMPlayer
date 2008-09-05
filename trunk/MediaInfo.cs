@@ -52,16 +52,15 @@ namespace Power_Mplayer
 	{
 		private ArrayList MValues;
 
+		// constructure
 		public MediaInfo()
 		{
-			//
-			// TODO: 在此加入建構函式的程式碼
-			//
 			MValues = new ArrayList();
 
 			CreateValues();
 		}
 
+		// create values that used in mplayer
 		private void CreateValues()
 		{
 			MValues.Add(new MValue("FILENAME",		TypeCode.String));
@@ -89,11 +88,15 @@ namespace Power_Mplayer
 			MValues.Add(new MValue("VIDEO_CODEC",	TypeCode.String));
 
 			// Palyer State
-			MValues.Add(new MValue("TIME_POSITION",	TypeCode.Double));
+			MValues.Add(new MValue("TIME_POSITION",		TypeCode.Double));
+			MValues.Add(new MValue("PERCENT_POSITION",	TypeCode.Int32));
 		}
 
 		private string isStateString(string str)
 		{
+			if(str == null)
+				return null;
+
 			if(str.StartsWith("ID_"))
 				return str.Substring(3);
 			else if(str.StartsWith("ANS_"))

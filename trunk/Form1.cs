@@ -348,7 +348,7 @@ namespace Power_Mplayer
 		{
 			double aspect = 0;
 
-			if(mp.HasInstense)
+			if(mp.HasInstense())
 			{
 				aspect = mp.Video_Aspect;
 			}
@@ -443,7 +443,7 @@ namespace Power_Mplayer
 
 		private void button1_Click_1(object sender, System.EventArgs e)
 		{
-			MessageBox.Show(mp.Time_Pos.ToString());
+			MessageBox.Show(mp.Percent_Pos.ToString());
 		}
 
 	}

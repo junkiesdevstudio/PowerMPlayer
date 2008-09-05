@@ -9,6 +9,7 @@ using System.Text;
 using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Power_Mplayer
 {
@@ -24,12 +25,9 @@ namespace Power_Mplayer
 		private MediaInfo minfo;
 		private Panel BigScreen;
 
-		public bool HasInstense
+		public bool HasInstense()
 		{
-			get
-			{
-				return (mplayerProc != null && !mplayerProc.HasExited);
-			}
+			return (mplayerProc != null && !mplayerProc.HasExited);
 		}
 
 		// constructure
@@ -44,6 +42,7 @@ namespace Power_Mplayer
 			stderr = new MyStreamReader(minfo);
 		}
 
+		// receive data from mplayer 
 		private static void ReadCallBack(IAsyncResult asyncResult)
 		{
 			MyStreamReader rs = (MyStreamReader) asyncResult.AsyncState;
@@ -73,6 +72,12 @@ namespace Power_Mplayer
 		// create process
 		public void Start(string filename)
 		{			
+
+			if(this.HasInstense())
+			{
+				this.Quit();
+			}
+
 			if(mplayerProc == null || mplayerProc.HasExited)
 			{
 				mplayerProc = new Process();
@@ -123,6 +128,12 @@ namespace Power_Mplayer
 			}			
 		}
 
+		// wait for response
+		private void WaitForReceive()
+		{
+			Thread.Sleep(50);
+		}
+
 		/// <summary>
 		/// controls of movie
 		/// </summary>
@@ -158,15 +169,16 @@ namespace Power_Mplayer
 			if(mplayerProc != null)
 			{
 				stdin.WriteLine("quit ");
-				stdin.Flush();
 
 				mplayerProc.WaitForExit();
 
+				this.WaitForReceive();
+
 				stdin.Close();
 				stdout.stream.Close();
+				stdout.RequestData.Remove(0, stdout.RequestData.Length);
 				stderr.stream.Close();
-
-				mplayerProc = null;
+				stderr.RequestData.Remove(0, stderr.RequestData.Length);
 			}
 		}
 
@@ -183,7 +195,8 @@ namespace Power_Mplayer
 			get
 			{
 				stdin.WriteLine("get_percent_pos ");
-				return 0;
+				this.WaitForReceive();
+				return (int) minfo["PERCENT_POSITION"];
 			}
 			set
 			{
@@ -196,7 +209,7 @@ namespace Power_Mplayer
 			get
 			{
 				stdin.WriteLine("get_time_pos ");
-				System.Threading.Thread.Sleep(50);
+				this.WaitForReceive();
 				return (double) minfo["TIME_POSITION"];
 			}
 			set
