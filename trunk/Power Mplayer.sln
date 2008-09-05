@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Power Mplayer", "Power Mplayer.csproj", "{DD688880-45E9-4EB2-BF27-77D223CB8A09}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DD688880-45E9-4EB2-BF27-77D223CB8A09}.Debug.ActiveCfg = Debug|.NET
+		{DD688880-45E9-4EB2-BF27-77D223CB8A09}.Debug.Build.0 = Debug|.NET
+		{DD688880-45E9-4EB2-BF27-77D223CB8A09}.Release.ActiveCfg = Release|.NET
+		{DD688880-45E9-4EB2-BF27-77D223CB8A09}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
