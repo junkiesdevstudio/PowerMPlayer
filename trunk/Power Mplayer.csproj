@@ -146,6 +146,26 @@
                     RelPath = "Docs\slave.txt"
                     BuildAction = "Content"
                 />
+                <File
+                    RelPath = "Icons\Mute.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Icons\pause.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Icons\play.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Icons\stop.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Icons\Volume.ico"
+                    BuildAction = "Content"
+                />
             </Include>
         </Files>
     </CSHARP>

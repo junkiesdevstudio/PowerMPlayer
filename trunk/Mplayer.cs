@@ -138,20 +138,40 @@ namespace Power_Mplayer
 		/// controls of movie
 		/// </summary>
 		/// 
-		public void Play()
+		private bool Playing = true;
+		public void Pause()
 		{
-			
+			if(this.HasInstense())
+			{
+				stdin.WriteLine("pause ");
+
+				Playing = !Playing;
+			}
 		}
 
 		public void Stop()
 		{
-			this.Time_Pos = 0;
-			Pause();
+			if(this.HasInstense())
+			{
+				this.Time_Pos = 0;
+				Pause();
+			}
 		}
 
-		public void Pause()
+		private bool Muted = false;
+		public bool Mute()
 		{
-			stdin.WriteLine("pause ");
+			if(Muted)
+			{
+				stdin.WriteLine("mute 0 ");
+			}
+			else
+			{
+				stdin.WriteLine("mute 1 ");
+			}
+			Muted = !Muted;
+
+			return Muted;
 		}
 
 		public string Read()
@@ -166,7 +186,7 @@ namespace Power_Mplayer
 
 		public void Quit()
 		{
-			if(mplayerProc != null)
+			if(this.HasInstense())
 			{
 				stdin.WriteLine("quit ");
 
@@ -176,9 +196,17 @@ namespace Power_Mplayer
 
 				stdin.Close();
 				stdout.stream.Close();
-				stdout.RequestData.Remove(0, stdout.RequestData.Length);
 				stderr.stream.Close();
+				stdout.RequestData.Remove(0, stdout.RequestData.Length);
 				stderr.RequestData.Remove(0, stderr.RequestData.Length);
+			}
+		}
+
+		public void FullScreen()
+		{
+			if(this.HasInstense())
+			{
+				stdin.WriteLine("vo_fullscreen 1 ");
 			}
 		}
 
@@ -222,7 +250,11 @@ namespace Power_Mplayer
 		{
 			set
 			{
-				stdin.WriteLine("volume " + (value * 10).ToString() + " 1 ");
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("volume " + (value * 10).ToString() + " 1 ");
+					Muted = false;
+				}
 			}
 		}
 
@@ -237,6 +269,14 @@ namespace Power_Mplayer
 					return 0;
 				else
 					return (double) wid/hei;
+			}
+		}
+
+		public double Length
+		{
+			get
+			{
+				return (double) minfo["LENGTH"];
 			}
 		}
 	}
