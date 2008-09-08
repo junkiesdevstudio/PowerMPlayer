@@ -24,12 +24,16 @@ namespace Power_Mplayer
 		private System.IO.StreamWriter stdin;
 
 		private MediaInfo minfo;
+		private MplayerSetting msetting;
 
 		private Panel BigScreen;
 
-		public bool HasInstense()
+		public MplayerSetting Setting
 		{
-			return (mplayerProc != null && !mplayerProc.HasExited);
+			get
+			{
+				return msetting;
+			}
 		}
 
 		// constructure
@@ -42,6 +46,13 @@ namespace Power_Mplayer
 
 			stdout = new MyStreamReader(minfo);
 			stderr = new MyStreamReader(minfo);
+
+			msetting = new MplayerSetting();
+		}
+
+		public bool HasInstense()
+		{
+			return (mplayerProc != null && !mplayerProc.HasExited);
 		}
 
 		// receive data from mplayer 
@@ -104,6 +115,8 @@ namespace Power_Mplayer
 
 				//System.Windows.Forms.MessageBox.Show(mplayerProc.StartInfo.Arguments);
 
+				mplayerProc.StartInfo.Arguments += msetting.MplayerArguements;
+
 				// append filename
 				mplayerProc.StartInfo.Arguments += " " + "\"" + filename + "\"";
 
@@ -116,6 +129,8 @@ namespace Power_Mplayer
 				stderr.stream = mplayerProc.StandardError;
 
 				stdin.AutoFlush = true;
+
+				stdout.RequestData.Append(mplayerProc.StartInfo.FileName + " " + mplayerProc.StartInfo.Arguments + "\n\n");
 				stdout.stream.BaseStream.BeginRead(stdout.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stdout);
 				stderr.stream.BaseStream.BeginRead(stderr.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stderr);
 
