@@ -103,6 +103,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "FontSelector.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FontSelector.resx"
+                    DependentUpon = "FontSelector.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
                     RelPath = "Form1.cs"
                     SubType = "Form"
                     BuildAction = "Compile"
@@ -119,6 +129,11 @@
                 />
                 <File
                     RelPath = "Mplayer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "MplayerSetting.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -22,7 +22,9 @@ namespace Power_Mplayer
 		private MyStreamReader stdout;
 		private MyStreamReader stderr;
 		private System.IO.StreamWriter stdin;
+
 		private MediaInfo minfo;
+
 		private Panel BigScreen;
 
 		public bool HasInstense()

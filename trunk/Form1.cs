@@ -471,7 +471,8 @@ namespace Power_Mplayer
 
 		private void button1_Click_1(object sender, System.EventArgs e)
 		{
-			MessageBox.Show(mp.Percent_Pos.ToString());
+			FontSelector fontSelect = new FontSelector();
+			fontSelect.Show();
 		}
 
 		private void menuItem11_Click(object sender, System.EventArgs e)
