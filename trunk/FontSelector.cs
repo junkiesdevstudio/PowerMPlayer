@@ -14,6 +14,7 @@ namespace Power_Mplayer
 	public class FontSelector : System.Windows.Forms.Form
 	{
 		private MplayerSetting msetting;
+		private const string FontRoot = @"%SystemRoot%\Fonts\";
 
 		private PrivateFontCollection[] privateFontCollection;
 		private System.Collections.ArrayList fontList;
@@ -49,6 +50,8 @@ namespace Power_Mplayer
 			fontList = new System.Collections.ArrayList();
 
 			LoadAllFonts();
+
+			this.textBox1.Text = System.Environment.ExpandEnvironmentVariables(mset[MplayerSetting.SUB_FONT]);
 		}
 
 		/// <summary>
@@ -163,7 +166,7 @@ namespace Power_Mplayer
 
 		private void LoadAllFonts()
 		{
-			string FontDir = @"C:\Windows\Fonts\";
+			string FontDir = System.Environment.ExpandEnvironmentVariables(FontRoot);
 			string[] files = System.IO.Directory.GetFiles(FontDir);
 			
 			for(int i=0;i<files.Length;i++)
@@ -188,7 +191,7 @@ namespace Power_Mplayer
 
 		private void btn_OK_Click(object sender, System.EventArgs e)
 		{
-			this.msetting[MplayerSetting.SUB_FONT] = this.textBox1.Text;
+			this.msetting[MplayerSetting.SUB_FONT] = FontRoot + Path.GetFileName(textBox1.Text);
 			this.msetting.WriteSetting();
 
 			this.Dispose();

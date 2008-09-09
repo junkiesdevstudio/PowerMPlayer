@@ -91,9 +91,10 @@ namespace Power_Mplayer
 				this.Quit();
 			}
 
+			System.Environment.CurrentDirectory = System.Windows.Forms.Application.StartupPath;
 			if(!File.Exists(msetting[MplayerSetting.MPLAYER_EXE]))
 			{
-				System.Windows.Forms.MessageBox.Show("找不到 mplayer.exe\n請從[工具]->[選項]中設定。");
+				System.Windows.Forms.MessageBox.Show("找不到 " + Path.GetFullPath(msetting[MplayerSetting.MPLAYER_EXE]) + "\n請從[工具]->[選項]中設定。");
 				return false;
 			}
 
