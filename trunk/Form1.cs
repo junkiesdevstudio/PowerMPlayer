@@ -555,7 +555,10 @@ namespace Power_Mplayer
 			//MovieBar.Value = 100 * e.X / MovieBar.Width;
 			//mp.Percent_Pos = MovieBar.Value;
 			
-			mp.Percent_Pos = 100 * e.X / MovieBar.Width;
+			int val = 100 * e.X / MovieBar.Width;
+
+			mp.Percent_Pos = val;
+			MovieBar.Value = val;
 		}
 
 		// Open File
@@ -573,7 +576,6 @@ namespace Power_Mplayer
 				this.btn_pause.Enabled = true;
 				this.btn_stop.Enabled = true;
 
-				//timer1_Tick(sender, e);
 				timer1.Start();
 			}
 		}
@@ -604,19 +606,19 @@ namespace Power_Mplayer
 			}
 		}
 
-		private int now_pos = -1;
-		private int movie_len = -1;
-
 		private void timer1_Tick(object sender, System.EventArgs e)
 		{
-			now_pos = (int) mp.Time_Pos;
-			movie_len = (int) mp.Length;
+			if(mp.HasInstense())
+			{
+				int now_pos = (int) mp.Time_Pos;
+				int movie_len = (int) mp.Length;
 
-			string str_now_pos = (now_pos / 3600) + ":" + (now_pos / 60) + ":" + (now_pos % 60);
-			string str_movie_len = (movie_len / 3600) + ":" + (movie_len / 60) + ":" + (movie_len % 60);
+				string str_now_pos = (now_pos / 3600) + ":" + (now_pos / 60) + ":" + (now_pos % 60);
+				string str_movie_len = (movie_len / 3600) + ":" + (movie_len / 60) + ":" + (movie_len % 60);
 
-			this.statusPanel1.Text = str_now_pos + " / " + str_movie_len;
-			this.MovieBar.Value = (100 * now_pos) / movie_len;
+				this.statusPanel1.Text = str_now_pos + " / " + str_movie_len;
+				this.MovieBar.Value = (100 * now_pos) / movie_len;
+			}
 		}
 
 		private void BigScreen_DoubleClick(object sender, System.EventArgs e)
@@ -663,7 +665,6 @@ namespace Power_Mplayer
 
 			mp.Setting[MplayerSetting.SUB_AUTOSCALE] = mi.Index.ToString();
 			mp.Setting.WriteSetting();
-		
 		}
 
 	}

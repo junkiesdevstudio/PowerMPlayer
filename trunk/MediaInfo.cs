@@ -22,8 +22,21 @@ namespace Power_Mplayer
 		public MValue(string name, TypeCode code)
 		{
 			NAME = name;
-			Value = null;
 			VType = code;
+
+			switch(code)
+			{
+				case TypeCode.Int32:
+					Value = 0;
+					break;
+				case TypeCode.Double:
+					Value = 0.0;
+					break;
+				default:
+				case TypeCode.String:
+					Value = null;
+					break;
+			}
 		}
 
 		public void SetValue(string val)

@@ -102,8 +102,8 @@ namespace Power_Mplayer
 
 		public void ReadSetting()
 		{
-			//if(!File.Exists(this.SettingFile))
-			//	return;
+			if(!File.Exists(this.SettingFile))
+				return;
 		
 			this.SettingValues.Clear();
 
