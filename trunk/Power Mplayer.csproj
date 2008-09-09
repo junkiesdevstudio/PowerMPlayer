@@ -143,6 +143,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "OptionForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "OptionForm.resx"
+                    DependentUpon = "OptionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
                     RelPath = "ShowLog.cs"
                     SubType = "Form"
                     BuildAction = "Compile"

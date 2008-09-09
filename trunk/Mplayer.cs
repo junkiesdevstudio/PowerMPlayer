@@ -83,12 +83,18 @@ namespace Power_Mplayer
 		}
 
 		// create process
-		public void Start(string filename)
+		public bool Start(string filename)
 		{			
 
 			if(this.HasInstense())
 			{
 				this.Quit();
+			}
+
+			if(!File.Exists(msetting[MplayerSetting.MPLAYER_EXE]))
+			{
+				System.Windows.Forms.MessageBox.Show("找不到 mplayer.exe\n請從[工具]->[選項]中設定。");
+				return false;
 			}
 
 			if(mplayerProc == null || mplayerProc.HasExited)
@@ -102,8 +108,8 @@ namespace Power_Mplayer
 				mplayerProc.StartInfo.RedirectStandardOutput = true;
 
 				// create command
-				mplayerProc.StartInfo.FileName = @"C:\mplayer\mplayer.exe";
-				mplayerProc.StartInfo.WorkingDirectory = @"C:\mplayer";
+				mplayerProc.StartInfo.FileName = msetting[MplayerSetting.MPLAYER_EXE];
+				mplayerProc.StartInfo.WorkingDirectory = Path.GetDirectoryName(mplayerProc.StartInfo.FileName);
 
 				mplayerProc.StartInfo.Arguments = "-slave -quiet" + // salve mode
 					" -msglevel identify=6" +	// show ID_ tag , an easy way to extract information
@@ -143,6 +149,8 @@ namespace Power_Mplayer
 				System.Threading.Thread.Sleep(1000);
 				Pause();
 			}			
+
+			return true;
 		}
 
 		// wait for response

@@ -188,10 +188,10 @@ namespace Power_Mplayer
 
 		private void btn_OK_Click(object sender, System.EventArgs e)
 		{
-			this.Hide();
-
 			this.msetting[MplayerSetting.SUB_FONT] = this.textBox1.Text;
 			this.msetting.WriteSetting();
+
+			this.Dispose();
 		}
 
 		private void listBox1_SelectedIndexChanged(object sender, System.EventArgs e)

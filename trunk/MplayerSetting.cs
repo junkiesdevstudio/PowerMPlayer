@@ -12,6 +12,7 @@ namespace Power_Mplayer
 		public const string SUB_FONT =		"SubFont";
 		public const string SUB_ENCODING =	"SubEncoding";
 		public const string SUB_AUTOSCALE = "SubAutoScale";
+		public const string MPLAYER_EXE =	"MplayerExe";
 
 		private ArrayList SettingValues;
  
@@ -43,9 +44,6 @@ namespace Power_Mplayer
 			this.SettingValues = new ArrayList();
 
 			this.ReadSetting();
-
-			// for debug
-			this[SUB_ENCODING] = "BIG5";
 		}
 
 		private bool HasProperty(string property)
