@@ -27,7 +27,7 @@ namespace Power_Mplayer
 				ReadSetting();
 
 				if(this.HasProperty(SUB_FONT))
-					args += " -font \"" + this[SUB_FONT] + "\"";
+					args += " -font \"" + System.Environment.ExpandEnvironmentVariables(this[SUB_FONT]) + "\"";
 
 				if(this.HasProperty(SUB_ENCODING))
 					args += " -subcp " + this[SUB_ENCODING];

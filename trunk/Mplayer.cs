@@ -305,5 +305,38 @@ namespace Power_Mplayer
 				return (double) minfo["LENGTH"];
 			}
 		}
+
+		public double Sub_Scale
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("sub_scale " + value + " ");
+				}
+			}
+		}
+
+		public int Sub_Pos
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("sub_pos " + value + " ");
+				}
+			}
+		}
+
+		public double Sub_Delay
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("sub_delay " + value + " ");
+				}
+			}
+		}
 	}
 }

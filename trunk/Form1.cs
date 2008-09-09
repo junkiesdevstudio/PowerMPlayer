@@ -40,7 +40,6 @@ namespace Power_Mplayer
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.MenuItem menuItem14;
 		private System.Windows.Forms.MenuItem menuItem15;
-		private System.Windows.Forms.MenuItem menuItem16;
 		private System.Windows.Forms.MenuItem menuItemFont;
 		private System.Windows.Forms.MenuItem menuItem17;
 		private System.Windows.Forms.MenuItem menuItem18;
@@ -51,6 +50,19 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_SubAutoScaleWidth;
 		private System.Windows.Forms.MenuItem MI_SubAutoScaleDiagonal;
 		private System.Windows.Forms.MenuItem MI_Option;
+		private System.Windows.Forms.MenuItem menuItem3;
+		private System.Windows.Forms.MenuItem menuItem22;
+		private System.Windows.Forms.MenuItem menuItem26;
+		private System.Windows.Forms.MenuItem MI_SubDelayLess;
+		private System.Windows.Forms.MenuItem MI_SubDelayMore;
+		private System.Windows.Forms.MenuItem MI_SubPosUp;
+		private System.Windows.Forms.MenuItem MI_SubPosDown;
+		private System.Windows.Forms.MenuItem MI_SubScaleDown;
+		private System.Windows.Forms.MenuItem MI_SubScaleUp;
+		private System.Windows.Forms.MenuItem menuItem9;
+		private System.Windows.Forms.MenuItem menuItem16;
+		private System.Windows.Forms.MenuItem MI_OpenSubFile;
+		private System.Windows.Forms.MenuItem menuItem21;
 		private Mplayer mp;
 
 		public Form1()
@@ -126,7 +138,6 @@ namespace Power_Mplayer
 			this.MI_SubAutoScaleHeight = new System.Windows.Forms.MenuItem();
 			this.MI_SubAutoScaleWidth = new System.Windows.Forms.MenuItem();
 			this.MI_SubAutoScaleDiagonal = new System.Windows.Forms.MenuItem();
-			this.menuItem16 = new System.Windows.Forms.MenuItem();
 			this.menuItem14 = new System.Windows.Forms.MenuItem();
 			this.menuItem15 = new System.Windows.Forms.MenuItem();
 			this.menuItem7 = new System.Windows.Forms.MenuItem();
@@ -137,6 +148,19 @@ namespace Power_Mplayer
 			this.menuItem13 = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.menuItem3 = new System.Windows.Forms.MenuItem();
+			this.MI_SubDelayLess = new System.Windows.Forms.MenuItem();
+			this.MI_SubDelayMore = new System.Windows.Forms.MenuItem();
+			this.menuItem22 = new System.Windows.Forms.MenuItem();
+			this.MI_SubPosUp = new System.Windows.Forms.MenuItem();
+			this.MI_SubPosDown = new System.Windows.Forms.MenuItem();
+			this.MI_SubScaleDown = new System.Windows.Forms.MenuItem();
+			this.menuItem26 = new System.Windows.Forms.MenuItem();
+			this.MI_SubScaleUp = new System.Windows.Forms.MenuItem();
+			this.menuItem9 = new System.Windows.Forms.MenuItem();
+			this.MI_OpenSubFile = new System.Windows.Forms.MenuItem();
+			this.menuItem16 = new System.Windows.Forms.MenuItem();
+			this.menuItem21 = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -290,22 +314,34 @@ namespace Power_Mplayer
 			// 
 			this.menuItem8.Index = 2;
 			this.menuItem8.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																					  this.menuItem14,
+																					  this.MI_OpenSubFile,
+																					  this.menuItem9,
 																					  this.menuItemFont,
 																					  this.menuItem17,
 																					  this.menuItem20,
+																					  this.menuItem3,
+																					  this.MI_SubDelayLess,
+																					  this.MI_SubDelayMore,
+																					  this.menuItem22,
+																					  this.MI_SubPosUp,
+																					  this.MI_SubPosDown,
+																					  this.menuItem26,
+																					  this.MI_SubScaleDown,
+																					  this.MI_SubScaleUp,
 																					  this.menuItem16,
-																					  this.menuItem14});
+																					  this.menuItem21});
 			this.menuItem8.Text = "字幕(&S)";
 			// 
 			// menuItemFont
 			// 
-			this.menuItemFont.Index = 0;
+			this.menuItemFont.Index = 3;
 			this.menuItemFont.Text = "字型";
 			this.menuItemFont.Click += new System.EventHandler(this.menuItemFont_Click);
 			// 
 			// menuItem17
 			// 
-			this.menuItem17.Index = 1;
+			this.menuItem17.Index = 4;
 			this.menuItem17.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					   this.menuItem18,
 																					   this.menuItem19});
@@ -325,7 +361,7 @@ namespace Power_Mplayer
 			// 
 			// menuItem20
 			// 
-			this.menuItem20.Index = 2;
+			this.menuItem20.Index = 5;
 			this.menuItem20.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					   this.MI_NoSubAutoScale,
 																					   this.MI_SubAutoScaleHeight,
@@ -357,14 +393,9 @@ namespace Power_Mplayer
 			this.MI_SubAutoScaleDiagonal.Text = "依對角自動調整";
 			this.MI_SubAutoScaleDiagonal.Click += new System.EventHandler(this.MI_SubAutoScale_Click);
 			// 
-			// menuItem16
-			// 
-			this.menuItem16.Index = 3;
-			this.menuItem16.Text = "-";
-			// 
 			// menuItem14
 			// 
-			this.menuItem14.Index = 4;
+			this.menuItem14.Index = 0;
 			this.menuItem14.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					   this.menuItem15});
 			this.menuItem14.Text = "選擇字幕";
@@ -372,7 +403,7 @@ namespace Power_Mplayer
 			// menuItem15
 			// 
 			this.menuItem15.Index = 0;
-			this.menuItem15.Text = "None";
+			this.menuItem15.Text = "無";
 			// 
 			// menuItem7
 			// 
@@ -416,6 +447,84 @@ namespace Power_Mplayer
 			// 
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
+			// menuItem3
+			// 
+			this.menuItem3.Index = 6;
+			this.menuItem3.Text = "-";
+			// 
+			// MI_SubDelayLess
+			// 
+			this.MI_SubDelayLess.Index = 7;
+			this.MI_SubDelayLess.Shortcut = System.Windows.Forms.Shortcut.CtrlQ;
+			this.MI_SubDelayLess.Text = "延遲 -";
+			this.MI_SubDelayLess.Click += new System.EventHandler(this.MI_SubDelayLess_Click);
+			// 
+			// MI_SubDelayMore
+			// 
+			this.MI_SubDelayMore.Index = 8;
+			this.MI_SubDelayMore.Shortcut = System.Windows.Forms.Shortcut.CtrlW;
+			this.MI_SubDelayMore.Text = "延遲 +";
+			this.MI_SubDelayMore.Click += new System.EventHandler(this.MI_SubDelayMore_Click);
+			// 
+			// menuItem22
+			// 
+			this.menuItem22.Index = 9;
+			this.menuItem22.Text = "-";
+			// 
+			// MI_SubPosUp
+			// 
+			this.MI_SubPosUp.Index = 10;
+			this.MI_SubPosUp.Shortcut = System.Windows.Forms.Shortcut.CtrlA;
+			this.MI_SubPosUp.Text = "上移";
+			this.MI_SubPosUp.Click += new System.EventHandler(this.MI_SubPosUp_Click);
+			// 
+			// MI_SubPosDown
+			// 
+			this.MI_SubPosDown.Index = 11;
+			this.MI_SubPosDown.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
+			this.MI_SubPosDown.Text = "下移";
+			this.MI_SubPosDown.Click += new System.EventHandler(this.MI_SubPosDown_Click);
+			// 
+			// MI_SubScaleDown
+			// 
+			this.MI_SubScaleDown.Index = 13;
+			this.MI_SubScaleDown.Shortcut = System.Windows.Forms.Shortcut.CtrlZ;
+			this.MI_SubScaleDown.Text = "縮小";
+			this.MI_SubScaleDown.Click += new System.EventHandler(this.MI_SubScaleDown_Click);
+			// 
+			// menuItem26
+			// 
+			this.menuItem26.Index = 12;
+			this.menuItem26.Text = "-";
+			// 
+			// MI_SubScaleUp
+			// 
+			this.MI_SubScaleUp.Index = 14;
+			this.MI_SubScaleUp.Shortcut = System.Windows.Forms.Shortcut.CtrlX;
+			this.MI_SubScaleUp.Text = "放大";
+			this.MI_SubScaleUp.Click += new System.EventHandler(this.MI_SubScaleUp_Click);
+			// 
+			// menuItem9
+			// 
+			this.menuItem9.Index = 2;
+			this.menuItem9.Text = "-";
+			// 
+			// MI_OpenSubFile
+			// 
+			this.MI_OpenSubFile.Index = 1;
+			this.MI_OpenSubFile.Text = "開啟字幕";
+			this.MI_OpenSubFile.Click += new System.EventHandler(this.MI_OpenSubFile_Click);
+			// 
+			// menuItem16
+			// 
+			this.menuItem16.Index = 15;
+			this.menuItem16.Text = "-";
+			// 
+			// menuItem21
+			// 
+			this.menuItem21.Index = 16;
+			this.menuItem21.Text = "使用 SSA/ASS";
 			// 
 			// Form1
 			// 
@@ -613,6 +722,7 @@ namespace Power_Mplayer
 		// Open File
 		private void Menu_OpenFile(object sender, System.EventArgs e)
 		{
+			this.openFileDialog1.FileName = "";
 			this.openFileDialog1.ShowDialog();
 
 			if(this.openFileDialog1.FileName != null && this.openFileDialog1.FileName != "")
@@ -718,5 +828,39 @@ namespace Power_Mplayer
 			
 		}
 
+		private void MI_SubDelayLess_Click(object sender, System.EventArgs e)
+		{
+			mp.Sub_Delay = -0.1;
+		}
+
+		private void MI_SubDelayMore_Click(object sender, System.EventArgs e)
+		{
+			mp.Sub_Delay = 0.1;
+		}
+
+		private void MI_SubScaleDown_Click(object sender, System.EventArgs e)
+		{
+			mp.Sub_Scale = -0.2;
+		}
+
+		private void MI_SubScaleUp_Click(object sender, System.EventArgs e)
+		{
+			mp.Sub_Scale = 0.2;
+		}
+
+		private void MI_SubPosUp_Click(object sender, System.EventArgs e)
+		{
+			mp.Sub_Pos = -1;
+		}
+
+		private void MI_SubPosDown_Click(object sender, System.EventArgs e)
+		{
+			mp.Sub_Pos = 1;
+		}
+
+		private void MI_OpenSubFile_Click(object sender, System.EventArgs e)
+		{
+			MessageBox.Show("還沒寫啦...");
+		}
 	}
 }
