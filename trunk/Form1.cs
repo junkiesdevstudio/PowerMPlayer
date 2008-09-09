@@ -21,7 +21,6 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MainMenu mainMenu1;
 		private System.Windows.Forms.MenuItem menuItem1;
 		private System.Windows.Forms.MenuItem menuItem2;
-		private System.Windows.Forms.MenuItem menuItem3;
 		private System.Windows.Forms.MenuItem menuItem4;
 		private System.Windows.Forms.MenuItem menuItem5;
 		private System.Windows.Forms.MenuItem menuItem7;
@@ -33,7 +32,6 @@ namespace Power_Mplayer
 		private System.Windows.Forms.ImageList imageList1;
 		private System.Windows.Forms.Button btn_pause;
 		private System.Windows.Forms.MenuItem menuItem6;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.MenuItem menuItem10;
 		private System.Windows.Forms.MenuItem menuItem11;
 		private System.Windows.Forms.MenuItem menuItem12;
@@ -106,7 +104,6 @@ namespace Power_Mplayer
 			this.BigScreen = new System.Windows.Forms.Panel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btn_mute = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.statusBar1 = new System.Windows.Forms.StatusBar();
 			this.statusPanel1 = new System.Windows.Forms.StatusBarPanel();
 			this.VolumeBar = new System.Windows.Forms.TrackBar();
@@ -116,7 +113,6 @@ namespace Power_Mplayer
 			this.mainMenu1 = new System.Windows.Forms.MainMenu();
 			this.menuItem1 = new System.Windows.Forms.MenuItem();
 			this.menuItem2 = new System.Windows.Forms.MenuItem();
-			this.menuItem3 = new System.Windows.Forms.MenuItem();
 			this.menuItem4 = new System.Windows.Forms.MenuItem();
 			this.menuItem5 = new System.Windows.Forms.MenuItem();
 			this.menuItem6 = new System.Windows.Forms.MenuItem();
@@ -173,14 +169,12 @@ namespace Power_Mplayer
 			this.BigScreen.Size = new System.Drawing.Size(168, 136);
 			this.BigScreen.TabIndex = 2;
 			this.BigScreen.Click += new System.EventHandler(this.btn_pause_Click);
-			this.BigScreen.Paint += new System.Windows.Forms.PaintEventHandler(this.BigScreen_Paint);
 			this.BigScreen.DoubleClick += new System.EventHandler(this.BigScreen_DoubleClick);
 			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.Control;
 			this.panel1.Controls.Add(this.btn_mute);
-			this.panel1.Controls.Add(this.button1);
 			this.panel1.Controls.Add(this.statusBar1);
 			this.panel1.Controls.Add(this.VolumeBar);
 			this.panel1.Controls.Add(this.btn_stop);
@@ -200,14 +194,6 @@ namespace Power_Mplayer
 			this.btn_mute.Size = new System.Drawing.Size(40, 40);
 			this.btn_mute.TabIndex = 9;
 			this.btn_mute.Click += new System.EventHandler(this.btn_mute_Click);
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(224, 16);
-			this.button1.Name = "button1";
-			this.button1.TabIndex = 8;
-			this.button1.Text = "button1";
-			this.button1.Click += new System.EventHandler(this.button1_Click_1);
 			// 
 			// statusBar1
 			// 
@@ -275,7 +261,6 @@ namespace Power_Mplayer
 			this.menuItem1.Index = 0;
 			this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					  this.menuItem2,
-																					  this.menuItem3,
 																					  this.menuItem4,
 																					  this.menuItem5});
 			this.menuItem1.Text = "檔案(&F)";
@@ -283,23 +268,18 @@ namespace Power_Mplayer
 			// menuItem2
 			// 
 			this.menuItem2.Index = 0;
-			this.menuItem2.Text = "&Open File";
+			this.menuItem2.Text = "開啟檔案(&O)";
 			this.menuItem2.Click += new System.EventHandler(this.Menu_OpenFile);
-			// 
-			// menuItem3
-			// 
-			this.menuItem3.Index = 1;
-			this.menuItem3.Text = "Open &DVD";
 			// 
 			// menuItem4
 			// 
-			this.menuItem4.Index = 2;
+			this.menuItem4.Index = 1;
 			this.menuItem4.Text = "-";
 			// 
 			// menuItem5
 			// 
-			this.menuItem5.Index = 3;
-			this.menuItem5.Text = "&Exit";
+			this.menuItem5.Index = 2;
+			this.menuItem5.Text = "離開(&E)";
 			// 
 			// menuItem6
 			// 
@@ -641,11 +621,6 @@ namespace Power_Mplayer
 			}
 		}
 
-		private void button1_Click_1(object sender, System.EventArgs e)
-		{
-
-		}
-
 		private void menuItem11_Click(object sender, System.EventArgs e)
 		{
 			ShowLog sl = new ShowLog();
@@ -693,11 +668,6 @@ namespace Power_Mplayer
 			fontSelect.ShowDialog();
 
 			Restart();
-		}
-
-		private void BigScreen_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-		{
-		
 		}
 
 		// sub-autoscale
