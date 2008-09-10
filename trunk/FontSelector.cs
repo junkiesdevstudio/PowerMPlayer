@@ -51,7 +51,8 @@ namespace Power_Mplayer
 
 			LoadAllFonts();
 
-			this.textBox1.Text = System.Environment.ExpandEnvironmentVariables(mset[MplayerSetting.SUB_FONT]);
+			if(mset[MplayerSetting.SUB_FONT] != null)
+				this.textBox1.Text = System.Environment.ExpandEnvironmentVariables(mset[MplayerSetting.SUB_FONT]);
 		}
 
 		/// <summary>

@@ -648,11 +648,11 @@ namespace Power_Mplayer
 			if(mp.HasInstense())
 				Quit();
 
-			if(mp.Start(this.openFileDialog1.FileName))
+			if(mp.Start(filename))
 			{
 				this.Form1_Resize(null, null);
 
-				this.Text = System.IO.Path.GetFileName(mp.Filename);
+				this.Text = System.IO.Path.GetFileName(filename);
 
 				this.btn_pause.Enabled = true;
 				this.btn_stop.Enabled = true;

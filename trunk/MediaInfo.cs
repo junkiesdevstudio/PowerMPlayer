@@ -79,6 +79,7 @@ namespace Power_Mplayer
 			MValues.Add(new MValue("FILENAME",		TypeCode.String));
 			MValues.Add(new MValue("LENGTH",		TypeCode.Double));
 			MValues.Add(new MValue("DEMUXER",		TypeCode.String));
+			MValues.Add(new MValue("SEEKABLE",		TypeCode.Int32));
 
 			// Audio
 
