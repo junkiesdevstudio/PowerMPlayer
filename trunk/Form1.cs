@@ -59,11 +59,11 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem menuItem9;
 		private System.Windows.Forms.MenuItem menuItem16;
 		private System.Windows.Forms.MenuItem MI_OpenSubFile;
-		private System.Windows.Forms.MenuItem menuItem21;
 		private System.Windows.Forms.MenuItem menuItem23;
 		private System.Windows.Forms.MenuItem menuItem24;
 		private System.Windows.Forms.MenuItem MI_SelectSubtitle;
 		private System.Windows.Forms.MenuItem MI_Exit;
+		private System.Windows.Forms.MenuItem MI_ASS;
 		private Mplayer mp;
 
 		public Form1()
@@ -83,6 +83,11 @@ namespace Power_Mplayer
 				this.MI_SubAutoScaleWidth.Checked = true;
 			else if(var == "3")
 				this.MI_SubAutoScaleDiagonal.Checked = true;
+
+			var = mp.Setting[MplayerSetting.SUB_ASS];
+
+			if(var == "1")
+				this.MI_ASS.Checked = true;
 
 		}
 
@@ -154,7 +159,7 @@ namespace Power_Mplayer
 			this.MI_SubScaleDown = new System.Windows.Forms.MenuItem();
 			this.MI_SubScaleUp = new System.Windows.Forms.MenuItem();
 			this.menuItem16 = new System.Windows.Forms.MenuItem();
-			this.menuItem21 = new System.Windows.Forms.MenuItem();
+			this.MI_ASS = new System.Windows.Forms.MenuItem();
 			this.menuItem7 = new System.Windows.Forms.MenuItem();
 			this.menuItem11 = new System.Windows.Forms.MenuItem();
 			this.menuItem12 = new System.Windows.Forms.MenuItem();
@@ -333,7 +338,7 @@ namespace Power_Mplayer
 																					  this.MI_SubScaleDown,
 																					  this.MI_SubScaleUp,
 																					  this.menuItem16,
-																					  this.menuItem21});
+																					  this.MI_ASS});
 			this.menuItem8.Text = "字幕(&S)";
 			// 
 			// MI_SelectSubtitle
@@ -492,10 +497,11 @@ namespace Power_Mplayer
 			this.menuItem16.Index = 15;
 			this.menuItem16.Text = "-";
 			// 
-			// menuItem21
+			// MI_ASS
 			// 
-			this.menuItem21.Index = 16;
-			this.menuItem21.Text = "使用 SSA/ASS";
+			this.MI_ASS.Index = 16;
+			this.MI_ASS.Text = "使用 SSA/ASS";
+			this.MI_ASS.Click += new System.EventHandler(this.MI_ASS_Click);
 			// 
 			// menuItem7
 			// 
@@ -923,6 +929,18 @@ namespace Power_Mplayer
 			}
 		}
 
+		private void MI_ASS_Click(object sender, System.EventArgs e)
+		{
+			MenuItem mi = (MenuItem) sender;
+
+			mi.Checked = !mi.Checked;
+
+			mp.Setting[MplayerSetting.SUB_ASS] = mi.Checked ? "1" : "0";
+			mp.Setting.WriteSetting();
+
+			this.Restart();
+		}
+
 		#endregion
 
 		private void MI_Exit_Click(object sender, System.EventArgs e)
@@ -930,6 +948,8 @@ namespace Power_Mplayer
 			this.Quit();
 			this.Dispose(true);
 		}
+
+
 
 	}
 }

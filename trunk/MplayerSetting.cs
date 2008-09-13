@@ -13,6 +13,7 @@ namespace Power_Mplayer
 		public const string SUB_ENCODING =	"SubEncoding";
 		public const string SUB_AUTOSCALE = "SubAutoScale";
 		public const string MPLAYER_EXE =	"MplayerExe";
+		public const string SUB_ASS =		"SubASS";
 
 		private ArrayList SettingValues;
  
@@ -25,6 +26,9 @@ namespace Power_Mplayer
 				string args = "";
 
 				ReadSetting();
+
+				if(this.HasProperty(SUB_ASS) && this[SUB_ASS] == "1")
+					args += " -ass";
 
 				if(this.HasProperty(SUB_FONT))
 					args += " -font \"" + System.Environment.ExpandEnvironmentVariables(this[SUB_FONT]) + "\"";
