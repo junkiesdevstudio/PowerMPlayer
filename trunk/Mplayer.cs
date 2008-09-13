@@ -344,6 +344,22 @@ namespace Power_Mplayer
 			}
 		}
 
+		public int Video_Width
+		{
+			get
+			{
+				return (int) minfo["VIDEO_WIDTH"];
+			}
+		}
+
+		public int Video_Height
+		{
+			get
+			{
+				return (int) minfo["VIDEO_HEIGHT"];
+			}
+		}
+
 		public double Length
 		{
 			get

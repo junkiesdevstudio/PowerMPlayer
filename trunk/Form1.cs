@@ -161,8 +161,11 @@ namespace Power_Mplayer
 			this.menuItemFont = new System.Windows.Forms.MenuItem();
 			this.MI_SubEncoding = new System.Windows.Forms.MenuItem();
 			this.menuItem18 = new System.Windows.Forms.MenuItem();
-			this.menuItem23 = new System.Windows.Forms.MenuItem();
+			this.menuItem5 = new System.Windows.Forms.MenuItem();
+			this.menuItem21 = new System.Windows.Forms.MenuItem();
+			this.menuItem25 = new System.Windows.Forms.MenuItem();
 			this.menuItem24 = new System.Windows.Forms.MenuItem();
+			this.menuItem23 = new System.Windows.Forms.MenuItem();
 			this.menuItem20 = new System.Windows.Forms.MenuItem();
 			this.MI_NoSubAutoScale = new System.Windows.Forms.MenuItem();
 			this.MI_SubAutoScaleHeight = new System.Windows.Forms.MenuItem();
@@ -187,9 +190,6 @@ namespace Power_Mplayer
 			this.menuItem13 = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.menuItem5 = new System.Windows.Forms.MenuItem();
-			this.menuItem21 = new System.Windows.Forms.MenuItem();
-			this.menuItem25 = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -223,6 +223,7 @@ namespace Power_Mplayer
 			this.BigScreen.TabIndex = 2;
 			this.BigScreen.Click += new System.EventHandler(this.btn_pause_Click);
 			this.BigScreen.DoubleClick += new System.EventHandler(this.BigScreen_DoubleClick);
+			this.BigScreen.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BigScreen_MouseMove);
 			// 
 			// panel1
 			// 
@@ -232,11 +233,12 @@ namespace Power_Mplayer
 			this.panel1.Controls.Add(this.VolumeBar);
 			this.panel1.Controls.Add(this.btn_stop);
 			this.panel1.Controls.Add(this.btn_pause);
+			this.panel1.Controls.Add(this.MovieBar);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel1.Location = new System.Drawing.Point(0, 333);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(568, 64);
-			this.panel1.TabIndex = 3;
+			this.panel1.TabIndex = 4;
 			// 
 			// btn_mute
 			// 
@@ -285,7 +287,7 @@ namespace Power_Mplayer
 			// 
 			// MovieBar
 			// 
-			this.MovieBar.Location = new System.Drawing.Point(8, 296);
+			this.MovieBar.Location = new System.Drawing.Point(120, 16);
 			this.MovieBar.Name = "MovieBar";
 			this.MovieBar.Size = new System.Drawing.Size(100, 16);
 			this.MovieBar.TabIndex = 7;
@@ -298,7 +300,8 @@ namespace Power_Mplayer
 			this.MainPanel.Location = new System.Drawing.Point(8, 16);
 			this.MainPanel.Name = "MainPanel";
 			this.MainPanel.Size = new System.Drawing.Size(264, 208);
-			this.MainPanel.TabIndex = 4;
+			this.MainPanel.TabIndex = 3;
+			this.MainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
 			// 
 			// mainMenu1
 			// 
@@ -403,17 +406,35 @@ namespace Power_Mplayer
 			this.menuItem18.Text = "BIG5 (正體中文字集)";
 			this.menuItem18.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
-			// menuItem23
+			// menuItem5
 			// 
-			this.menuItem23.Index = 5;
-			this.menuItem23.Text = "Unicode (Unicode)";
-			this.menuItem23.Click += new System.EventHandler(this.MI_SubEncoding_Click);
+			this.menuItem5.Index = 1;
+			this.menuItem5.Text = "CP936 (簡體中文字集)";
+			this.menuItem5.Click += new System.EventHandler(this.MI_SubEncoding_Click);
+			// 
+			// menuItem21
+			// 
+			this.menuItem21.Index = 2;
+			this.menuItem21.Text = "SHIFT-JIS (日語字元集)";
+			this.menuItem21.Click += new System.EventHandler(this.MI_SubEncoding_Click);
+			// 
+			// menuItem25
+			// 
+			this.menuItem25.Index = 3;
+			this.menuItem25.Text = "CP949 (韓語字元集)";
+			this.menuItem25.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem24
 			// 
 			this.menuItem24.Index = 4;
 			this.menuItem24.Text = "UTF8 (UTF-8)";
 			this.menuItem24.Click += new System.EventHandler(this.MI_SubEncoding_Click);
+			// 
+			// menuItem23
+			// 
+			this.menuItem23.Index = 5;
+			this.menuItem23.Text = "Unicode (Unicode)";
+			this.menuItem23.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem20
 			// 
@@ -564,31 +585,12 @@ namespace Power_Mplayer
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
-			// menuItem5
-			// 
-			this.menuItem5.Index = 1;
-			this.menuItem5.Text = "CP936 (簡體中文字集)";
-			this.menuItem5.Click += new System.EventHandler(this.MI_SubEncoding_Click);
-			// 
-			// menuItem21
-			// 
-			this.menuItem21.Index = 2;
-			this.menuItem21.Text = "SHIFT-JIS (日語字元集)";
-			this.menuItem21.Click += new System.EventHandler(this.MI_SubEncoding_Click);
-			// 
-			// menuItem25
-			// 
-			this.menuItem25.Index = 3;
-			this.menuItem25.Text = "CP949 (韓語字元集)";
-			this.menuItem25.Click += new System.EventHandler(this.MI_SubEncoding_Click);
-			// 
 			// Form1
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
 			this.ClientSize = new System.Drawing.Size(568, 397);
 			this.Controls.Add(this.MainPanel);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.MovieBar);
 			this.Menu = this.mainMenu1;
 			this.Name = "Form1";
 			this.Text = "Power MPlayer";
@@ -625,8 +627,15 @@ namespace Power_Mplayer
 			BigScreen.Top = 0;
 			BigScreen.Left = 0;
 
-			MovieBar.Left = 0;
-
+			MovieBar.Top = MovieBar.Left = 0;
+			btn_pause.Top = MovieBar.Top + MovieBar.Height;
+			btn_pause.Left = 0;
+			btn_stop.Top = btn_pause.Top;
+			btn_stop.Left = btn_pause.Left + btn_pause.Width;
+			
+			btn_mute.Top = btn_pause.Top;
+			VolumeBar.Top = btn_pause.Top;
+			
 			this.Form1_Resize(sender, e);
 		}
 
@@ -639,13 +648,21 @@ namespace Power_Mplayer
 				aspect = mp.Video_Aspect;
 			}
 
-			MainPanel.Height = this.ClientSize.Height - this.panel1.Height - this.MovieBar.Height;
-			MainPanel.Width = this.ClientSize.Width;
+			// setup panel1
+			panel1.Height = MovieBar.Height + btn_pause.Height;
+			if(!this.isFullscreen)
+				panel1.Height += this.statusBar1.Height;
 
-			MovieBar.Top = panel1.Top - MovieBar.Height;
-			MovieBar.Width = this.ClientSize.Width;
+			MovieBar.Width = panel1.Width;
 			VolumeBar.Left = this.ClientSize.Width - VolumeBar.Width;
 			btn_mute.Left = VolumeBar.Left - btn_mute.Width;
+
+			// setup MainPanel
+			MainPanel.Height = this.ClientSize.Height ;
+			if(!this.isFullscreen)
+				MainPanel.Height -= this.panel1.Height;
+
+			MainPanel.Width = this.ClientSize.Width;
 
 			if(aspect == 0)
 			{
@@ -833,9 +850,37 @@ namespace Power_Mplayer
 			}
 		}
 
+		private bool isFullscreen = false;
 		private void BigScreen_DoubleClick(object sender, System.EventArgs e)
 		{
-			//mp.FullScreen();
+			this.isFullscreen = !this.isFullscreen;
+			if(isFullscreen == true)
+			{
+				this.Menu = null;
+				this.statusBar1.Visible = false;
+
+				this.FormBorderStyle = FormBorderStyle.None;
+				this.WindowState = FormWindowState.Maximized;
+				
+				int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
+				int cy = Win32API.GetSystemMetrics(Win32API.SM_CYSCREEN);
+				Win32API.SetWindowPos(this.Handle.ToInt32(), Win32API.HWND_TOP, 0, 0, cx, cy, Win32API.SWP_SHOWWINDOW);
+			}
+			else
+			{
+				this.Menu = this.mainMenu1;
+				this.statusBar1.Visible = true;
+				this.WindowState = FormWindowState.Normal;
+				this.FormBorderStyle = FormBorderStyle.Sizable;
+
+				this.Width = mp.Video_Width;
+				this.Height = mp.Video_Height + this.panel1.Height + (this.Height - this.ClientSize.Height);
+			}
+
+			if(btn_pause.ImageIndex == 0)
+				this.Pause();
+
+			this.Form1_Resize(sender, e);
 		}
 
 		private void MI_Option_Click(object sender, System.EventArgs e)
@@ -989,6 +1034,33 @@ namespace Power_Mplayer
 		{
 			this.Quit();
 			this.Dispose(true);
+		}
+
+		int last_mouse_pause = 0;
+		private void MainPanel_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			if(this.isFullscreen)
+			{
+				if(e.Y > this.MainPanel.Height - this.panel1.Height)
+				{
+					this.panel1.BringToFront();
+				}
+				else
+				{
+					this.MainPanel.BringToFront();
+				}
+			}
+
+			this.last_mouse_pause = e.Y;
+		}
+
+		private void BigScreen_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			if(this.isFullscreen)
+			{
+				int shift = (this.MainPanel.Height - this.BigScreen.Height) / 2;
+				this.MainPanel_MouseMove(sender, new MouseEventArgs(e.Button, e.Clicks, e.X, e.Y + shift, e.Delta));
+			}
 		}
 	}
 }
