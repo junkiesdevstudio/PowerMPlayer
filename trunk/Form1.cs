@@ -38,9 +38,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.Button btn_mute;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.MenuItem menuItemFont;
-		private System.Windows.Forms.MenuItem menuItem17;
 		private System.Windows.Forms.MenuItem menuItem18;
-		private System.Windows.Forms.MenuItem menuItem19;
 		private System.Windows.Forms.MenuItem menuItem20;
 		private System.Windows.Forms.MenuItem MI_NoSubAutoScale;
 		private System.Windows.Forms.MenuItem MI_SubAutoScaleHeight;
@@ -64,6 +62,10 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_SelectSubtitle;
 		private System.Windows.Forms.MenuItem MI_Exit;
 		private System.Windows.Forms.MenuItem MI_ASS;
+		private System.Windows.Forms.MenuItem menuItem5;
+		private System.Windows.Forms.MenuItem menuItem21;
+		private System.Windows.Forms.MenuItem menuItem25;
+		private System.Windows.Forms.MenuItem MI_SubEncoding;
 		private Mplayer mp;
 
 		public Form1()
@@ -74,20 +76,38 @@ namespace Power_Mplayer
 			mp = new Mplayer(this.BigScreen);
 
 			// setup subtitle setting
-			string var = mp.Setting[MplayerSetting.SUB_AUTOSCALE];
-			if(var == "0")
-				this.MI_NoSubAutoScale.Checked = true;
-			else if(var == "1")
-				this.MI_SubAutoScaleHeight.Checked = true;
-			else if(var == "2")
-				this.MI_SubAutoScaleWidth.Checked = true;
-			else if(var == "3")
-				this.MI_SubAutoScaleDiagonal.Checked = true;
 
-			var = mp.Setting[MplayerSetting.SUB_ASS];
+			if(mp.Setting.HasProperty(MplayerSetting.SUB_AUTOSCALE))
+			{
+				string var = mp.Setting[MplayerSetting.SUB_AUTOSCALE];
+				if(var == "0")
+					this.MI_NoSubAutoScale.Checked = true;
+				else if(var == "1")
+					this.MI_SubAutoScaleHeight.Checked = true;
+				else if(var == "2")
+					this.MI_SubAutoScaleWidth.Checked = true;
+				else if(var == "3")
+					this.MI_SubAutoScaleDiagonal.Checked = true;
+			}
 
-			if(var == "1")
-				this.MI_ASS.Checked = true;
+			if(mp.Setting.HasProperty(MplayerSetting.SUB_ASS))
+			{
+				string var = mp.Setting[MplayerSetting.SUB_ASS];
+
+				if(var == "1")
+					this.MI_ASS.Checked = true;
+			}
+
+			if(mp.Setting.HasProperty(MplayerSetting.SUB_ENCODING))
+			{
+				string var = mp.Setting[MplayerSetting.SUB_ENCODING];
+			
+				foreach(MenuItem mi in this.MI_SubEncoding.MenuItems)
+				{
+					if(mi.Text.StartsWith(var))
+						mi.Checked = true;
+				}
+			}
 
 		}
 
@@ -139,9 +159,8 @@ namespace Power_Mplayer
 			this.MI_OpenSubFile = new System.Windows.Forms.MenuItem();
 			this.menuItem9 = new System.Windows.Forms.MenuItem();
 			this.menuItemFont = new System.Windows.Forms.MenuItem();
-			this.menuItem17 = new System.Windows.Forms.MenuItem();
+			this.MI_SubEncoding = new System.Windows.Forms.MenuItem();
 			this.menuItem18 = new System.Windows.Forms.MenuItem();
-			this.menuItem19 = new System.Windows.Forms.MenuItem();
 			this.menuItem23 = new System.Windows.Forms.MenuItem();
 			this.menuItem24 = new System.Windows.Forms.MenuItem();
 			this.menuItem20 = new System.Windows.Forms.MenuItem();
@@ -168,6 +187,9 @@ namespace Power_Mplayer
 			this.menuItem13 = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.menuItem5 = new System.Windows.Forms.MenuItem();
+			this.menuItem21 = new System.Windows.Forms.MenuItem();
+			this.menuItem25 = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -326,7 +348,7 @@ namespace Power_Mplayer
 																					  this.MI_OpenSubFile,
 																					  this.menuItem9,
 																					  this.menuItemFont,
-																					  this.menuItem17,
+																					  this.MI_SubEncoding,
 																					  this.menuItem20,
 																					  this.menuItem3,
 																					  this.MI_SubDelayLess,
@@ -363,39 +385,35 @@ namespace Power_Mplayer
 			this.menuItemFont.Text = "字型";
 			this.menuItemFont.Click += new System.EventHandler(this.menuItemFont_Click);
 			// 
-			// menuItem17
+			// MI_SubEncoding
 			// 
-			this.menuItem17.Index = 4;
-			this.menuItem17.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					   this.menuItem18,
-																					   this.menuItem19,
-																					   this.menuItem23,
-																					   this.menuItem24});
-			this.menuItem17.Text = "字幕編碼";
+			this.MI_SubEncoding.Index = 4;
+			this.MI_SubEncoding.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																						   this.menuItem18,
+																						   this.menuItem5,
+																						   this.menuItem21,
+																						   this.menuItem25,
+																						   this.menuItem24,
+																						   this.menuItem23});
+			this.MI_SubEncoding.Text = "字幕編碼";
 			// 
 			// menuItem18
 			// 
 			this.menuItem18.Index = 0;
-			this.menuItem18.Text = "BIG5";
-			this.menuItem18.Click += new System.EventHandler(this.MI_SubEncoding);
-			// 
-			// menuItem19
-			// 
-			this.menuItem19.Index = 1;
-			this.menuItem19.Text = "GB2312";
-			this.menuItem19.Click += new System.EventHandler(this.MI_SubEncoding);
+			this.menuItem18.Text = "BIG5 (正體中文字集)";
+			this.menuItem18.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem23
 			// 
-			this.menuItem23.Index = 2;
-			this.menuItem23.Text = "Unicode";
-			this.menuItem23.Click += new System.EventHandler(this.MI_SubEncoding);
+			this.menuItem23.Index = 5;
+			this.menuItem23.Text = "Unicode (Unicode)";
+			this.menuItem23.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem24
 			// 
-			this.menuItem24.Index = 3;
-			this.menuItem24.Text = "UTF8";
-			this.menuItem24.Click += new System.EventHandler(this.MI_SubEncoding);
+			this.menuItem24.Index = 4;
+			this.menuItem24.Text = "UTF8 (UTF-8)";
+			this.menuItem24.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem20
 			// 
@@ -545,6 +563,24 @@ namespace Power_Mplayer
 			// 
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
+			// menuItem5
+			// 
+			this.menuItem5.Index = 1;
+			this.menuItem5.Text = "CP936 (簡體中文字集)";
+			this.menuItem5.Click += new System.EventHandler(this.MI_SubEncoding_Click);
+			// 
+			// menuItem21
+			// 
+			this.menuItem21.Index = 2;
+			this.menuItem21.Text = "SHIFT-JIS (日語字元集)";
+			this.menuItem21.Click += new System.EventHandler(this.MI_SubEncoding_Click);
+			// 
+			// menuItem25
+			// 
+			this.menuItem25.Index = 3;
+			this.menuItem25.Text = "CP949 (韓語字元集)";
+			this.menuItem25.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// Form1
 			// 
@@ -723,7 +759,7 @@ namespace Power_Mplayer
 
 		private void Restart()
 		{
-			this.Restart(null);
+			this.Restart(mp.CurrentSubtitle);
 		}
 
 		private void Restart(Subtitle sub)
@@ -851,15 +887,21 @@ namespace Power_Mplayer
 			this.Restart();
 		}
 
-		private void MI_SubEncoding(object sender, System.EventArgs e)
+		private void MI_SubEncoding_Click(object sender, System.EventArgs e)
 		{
 			MenuItem mi = (MenuItem)sender;
 
-			mp.Setting[MplayerSetting.SUB_ENCODING] = mi.Text;
+			foreach(MenuItem smi in this.MI_SubEncoding.MenuItems)
+			{
+				smi.Checked = false;
+			}
+			mi.Checked = true;
+
+			string[] str = mi.Text.Split(' ', '(');
+			mp.Setting[MplayerSetting.SUB_ENCODING] = str[0];
 			mp.Setting.WriteSetting();
 
 			Restart();
-			
 		}
 
 		private void MI_SubDelayLess_Click(object sender, System.EventArgs e)
@@ -948,8 +990,5 @@ namespace Power_Mplayer
 			this.Quit();
 			this.Dispose(true);
 		}
-
-
-
 	}
 }

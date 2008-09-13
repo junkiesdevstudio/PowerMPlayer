@@ -136,7 +136,12 @@ namespace Power_Mplayer
 			// load all subtitles
 			this.sublist.FindSubtitle(System.IO.Path.GetDirectoryName(this.CurrentMediaFilename));
 			if(this.sub == null)
-				this.sub = new Subtitle(SubtitleType.AutoDetect);
+			{
+				if(this.sublist.Count > 1)
+					this.sub = sublist[1];
+				else
+					this.sub = sublist[0];
+			}
 
 			if(mplayerProc == null || mplayerProc.HasExited)
 			{

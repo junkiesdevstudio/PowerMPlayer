@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace Power_Mplayer
 {
-	public enum SubtitleType {NoSubtitle, AutoDetect, Srt, VobSub};
+	public enum SubtitleType {NoSubtitle, Srt, Ass, VobSub};
 
 	public class Subtitle
 	{
@@ -26,6 +26,9 @@ namespace Power_Mplayer
 				case ".idx":
 					this.SubType = SubtitleType.VobSub;
 					break;
+				case ".ass":
+					this.SubType = SubtitleType.Ass;
+					break;
 			}
 		}
 
@@ -38,9 +41,6 @@ namespace Power_Mplayer
 			{
 				case SubtitleType.NoSubtitle:
 					this.Name = "µL¦r¹õ";
-					break;
-				case SubtitleType.AutoDetect:
-					this.Name = "¦Û°Ê°»´ú";
 					break;
 				default:
 					this.Name = "";
@@ -64,6 +64,7 @@ namespace Power_Mplayer
 					case SubtitleType.NoSubtitle:
 						ret = " -noautosub";
 						break;
+					case SubtitleType.Ass:
 					case SubtitleType.Srt:
 						ret = " -sub \"" + this.Filename + "\"";
 						break;
@@ -123,7 +124,7 @@ namespace Power_Mplayer
 
 			subdir = SubDir;
 			sublist.Clear();
-			sublist.Add(new Subtitle(SubtitleType.AutoDetect));
+			//sublist.Add(new Subtitle(SubtitleType.AutoDetect));
 			sublist.Add(new Subtitle(SubtitleType.NoSubtitle));
 
 			string[] files = System.IO.Directory.GetFiles(subdir);
@@ -134,6 +135,7 @@ namespace Power_Mplayer
 
 				switch(ext.ToLower())
 				{
+					case ".ass":
 					case ".srt":
 					case ".idx":
 						sublist.Add(new Subtitle(files[i]));

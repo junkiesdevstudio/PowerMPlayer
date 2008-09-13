@@ -50,9 +50,9 @@ namespace Power_Mplayer
 			this.ReadSetting();
 		}
 
-		private bool HasProperty(string property)
+		public bool HasProperty(string property)
 		{
-			if(this[SUB_FONT] != null && this[SUB_FONT] != "")
+			if(this[property] != null && this[property] != "")
 				return true;
 			return false;
 		}
