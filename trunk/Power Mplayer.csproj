@@ -113,6 +113,10 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "Changelog.txt"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "FontSelector.cs"
                     SubType = "Form"
                     BuildAction = "Compile"
