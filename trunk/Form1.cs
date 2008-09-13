@@ -34,7 +34,6 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem menuItem10;
 		private System.Windows.Forms.MenuItem menuItem11;
 		private System.Windows.Forms.MenuItem menuItem12;
-		private System.Windows.Forms.MenuItem menuItem13;
 		private System.Windows.Forms.Button btn_mute;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.MenuItem menuItemFont;
@@ -66,6 +65,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem menuItem21;
 		private System.Windows.Forms.MenuItem menuItem25;
 		private System.Windows.Forms.MenuItem MI_SubEncoding;
+		private System.Windows.Forms.MenuItem MI_About;
 		private Mplayer mp;
 
 		public Form1()
@@ -187,7 +187,7 @@ namespace Power_Mplayer
 			this.menuItem12 = new System.Windows.Forms.MenuItem();
 			this.MI_Option = new System.Windows.Forms.MenuItem();
 			this.menuItem10 = new System.Windows.Forms.MenuItem();
-			this.menuItem13 = new System.Windows.Forms.MenuItem();
+			this.MI_About = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.panel1.SuspendLayout();
@@ -572,13 +572,14 @@ namespace Power_Mplayer
 			// 
 			this.menuItem10.Index = 4;
 			this.menuItem10.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					   this.menuItem13});
+																					   this.MI_About});
 			this.menuItem10.Text = "說明(&H)";
 			// 
-			// menuItem13
+			// MI_About
 			// 
-			this.menuItem13.Index = 0;
-			this.menuItem13.Text = "關於";
+			this.MI_About.Index = 0;
+			this.MI_About.Text = "關於";
+			this.MI_About.Click += new System.EventHandler(this.MI_About_Click);
 			// 
 			// timer1
 			// 
@@ -1061,6 +1062,13 @@ namespace Power_Mplayer
 				int shift = (this.MainPanel.Height - this.BigScreen.Height) / 2;
 				this.MainPanel_MouseMove(sender, new MouseEventArgs(e.Button, e.Clicks, e.X, e.Y + shift, e.Delta));
 			}
+		}
+
+		private void MI_About_Click(object sender, System.EventArgs e)
+		{
+			AboutDialog ad = new AboutDialog();
+
+			ad.ShowDialog();
 		}
 	}
 }
