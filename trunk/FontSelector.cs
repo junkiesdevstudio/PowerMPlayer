@@ -66,6 +66,9 @@ namespace Power_Mplayer
 				{
 					components.Dispose();
 				}
+
+				// clear arraylist
+				this.fontList.Clear();
 			}
 			base.Dispose( disposing );
 		}

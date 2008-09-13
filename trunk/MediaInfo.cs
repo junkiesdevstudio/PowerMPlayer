@@ -102,8 +102,14 @@ namespace Power_Mplayer
 			MValues.Add(new MValue("VIDEO_CODEC",	TypeCode.String));
 
 			// Palyer State
+
 			MValues.Add(new MValue("TIME_POSITION",		TypeCode.Double));
 			MValues.Add(new MValue("PERCENT_POSITION",	TypeCode.Int32));
+
+			// Subtitle
+
+			MValues.Add(new MValue("FILE_SUB_ID",		TypeCode.Int32));
+			MValues.Add(new MValue("FILE_SUB_FILENAME",	TypeCode.String));
 		}
 
 		private string isStateString(string str)

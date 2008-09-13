@@ -18,14 +18,19 @@ namespace Power_Mplayer
 	/// </summary>
 	public class Mplayer
 	{
+		// process control
 		private Process mplayerProc;
 		private MyStreamReader stdout;
 		private MyStreamReader stderr;
 		private System.IO.StreamWriter stdin;
 
+		// power mplayer info
 		private MediaInfo minfo;
 		private MplayerSetting msetting;
+		private SubtitleList sublist;
+		private Subtitle sub;
 
+		private string CurrentMediaFilename;
 		private Panel BigScreen;
 
 		public MplayerSetting Setting
@@ -33,6 +38,26 @@ namespace Power_Mplayer
 			get
 			{
 				return msetting;
+			}
+		}
+
+		public SubtitleList Subtitles
+		{
+			get
+			{
+				return sublist;
+			}
+		}
+
+		public Subtitle CurrentSubtitle
+		{
+			get
+			{
+				return sub;
+			}
+			set
+			{
+				sub = value;
 			}
 		}
 
@@ -48,6 +73,7 @@ namespace Power_Mplayer
 			stderr = new MyStreamReader(minfo);
 
 			msetting = new MplayerSetting();
+			sublist = new SubtitleList();
 		}
 
 		public bool HasInstense()
@@ -82,10 +108,19 @@ namespace Power_Mplayer
 			return ;
 		}
 
-		// create process
-		public bool Start(string filename)
-		{			
+		/// <summary>
+		/// wait for response
+		/// </summary>
+		private void WaitForReceive()
+		{
+			Thread.Sleep(50);
+		}
 
+		#region controls of movie
+
+		// create process
+		public bool Start()
+		{			
 			if(this.HasInstense())
 			{
 				this.Quit();
@@ -97,6 +132,11 @@ namespace Power_Mplayer
 				System.Windows.Forms.MessageBox.Show("找不到 " + Path.GetFullPath(msetting[MplayerSetting.MPLAYER_EXE]) + "\n請從[工具]->[選項]中設定。");
 				return false;
 			}
+
+			// load all subtitles
+			this.sublist.FindSubtitle(System.IO.Path.GetDirectoryName(this.CurrentMediaFilename));
+			if(this.sub == null)
+				this.sub = new Subtitle(SubtitleType.AutoDetect);
 
 			if(mplayerProc == null || mplayerProc.HasExited)
 			{
@@ -122,10 +162,13 @@ namespace Power_Mplayer
 
 				//System.Windows.Forms.MessageBox.Show(mplayerProc.StartInfo.Arguments);
 
+				// use subtitle
+				mplayerProc.StartInfo.Arguments += sub.MplayerStartArgs;
+
 				mplayerProc.StartInfo.Arguments += msetting.MplayerArguements;
 
 				// append filename
-				mplayerProc.StartInfo.Arguments += " " + "\"" + filename + "\"";
+				mplayerProc.StartInfo.Arguments += " " + "\"" + this.CurrentMediaFilename + "\"";
 
 				// start mpayer
 				mplayerProc.Start();
@@ -154,24 +197,11 @@ namespace Power_Mplayer
 			return true;
 		}
 
-		// wait for response
-		private void WaitForReceive()
-		{
-			Thread.Sleep(50);
-		}
-
-		/// <summary>
-		/// controls of movie
-		/// </summary>
-		/// 
-		private bool Playing = true;
 		public void Pause()
 		{
 			if(this.HasInstense())
 			{
 				stdin.WriteLine("pause ");
-
-				Playing = !Playing;
 			}
 		}
 
@@ -200,24 +230,21 @@ namespace Power_Mplayer
 			return Muted;
 		}
 
-		public string Read()
-		{
-			return stdout.RequestData.ToString();
-		}
-
+		/*
 		public void Exit()
 		{
 			stdin.WriteLine("exit ");
 		}
+		*/
 
 		public void Quit()
 		{
 			if(this.HasInstense())
 			{
 				stdin.WriteLine("quit ");
-
 				mplayerProc.WaitForExit();
 
+				// wait for last callback in stdout
 				this.WaitForReceive();
 
 				stdin.Close();
@@ -225,7 +252,16 @@ namespace Power_Mplayer
 				stderr.stream.Close();
 				stdout.RequestData.Remove(0, stdout.RequestData.Length);
 				stderr.RequestData.Remove(0, stderr.RequestData.Length);
+
+				sub = null;
 			}
+		}
+
+		#endregion
+
+		public string Read()
+		{
+			return stdout.RequestData.ToString();
 		}
 
 		public void FullScreen()
@@ -240,7 +276,12 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				return (string) minfo["FILENAME"];
+				//return (string) minfo["FILENAME"];
+				return this.CurrentMediaFilename;
+			}
+			set
+			{
+				this.CurrentMediaFilename = value;
 			}
 		}
 
