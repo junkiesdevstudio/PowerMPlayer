@@ -639,13 +639,13 @@ namespace Power_Mplayer
 				aspect = mp.Video_Aspect;
 			}
 
-			MovieBar.Top = panel1.Top - MovieBar.Height;
-			MovieBar.Width = panel1.Width;
-			VolumeBar.Left = panel1.Width - VolumeBar.Width;
-			btn_mute.Left = VolumeBar.Left - btn_mute.Width;
+			MainPanel.Height = this.ClientSize.Height - this.panel1.Height - this.MovieBar.Height;
+			MainPanel.Width = this.ClientSize.Width;
 
-			MainPanel.Height = this.Height - this.panel1.Height - this.MovieBar.Height - this.statusBar1.Height * 2;
-			MainPanel.Width = this.Width;
+			MovieBar.Top = panel1.Top - MovieBar.Height;
+			MovieBar.Width = this.ClientSize.Width;
+			VolumeBar.Left = this.ClientSize.Width - VolumeBar.Width;
+			btn_mute.Left = VolumeBar.Left - btn_mute.Width;
 
 			if(aspect == 0)
 			{

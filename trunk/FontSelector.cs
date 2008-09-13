@@ -195,9 +195,14 @@ namespace Power_Mplayer
 
 		private void btn_OK_Click(object sender, System.EventArgs e)
 		{
-			this.msetting[MplayerSetting.SUB_FONT] = FontRoot + Path.GetFileName(textBox1.Text);
-			this.msetting.WriteSetting();
+			string expendFontRoot = System.Environment.ExpandEnvironmentVariables(FontRoot);
 
+			if(textBox1.Text.StartsWith(expendFontRoot))
+				this.msetting[MplayerSetting.SUB_FONT] = FontRoot + Path.GetFileName(textBox1.Text);
+			else
+				this.msetting[MplayerSetting.SUB_FONT] = this.textBox1.Text;
+
+			this.msetting.WriteSetting();
 			this.Dispose();
 		}
 
