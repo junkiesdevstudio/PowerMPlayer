@@ -139,10 +139,13 @@ namespace Power_Mplayer
 
 		public void ReadSetting()
 		{
-			if(!File.Exists(this.SettingFile))
-				return;
-		
 			CreateDefaultValue();
+
+			if(!File.Exists(this.SettingFile))
+			{
+				this.WriteSetting();
+				return;
+			}
 
 			using(TextReader tr = new StreamReader(this.SettingFile))
 			{
