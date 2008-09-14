@@ -41,7 +41,7 @@ namespace Power_Mplayer
 			this.SettingValues.Add(new MValue(SetVars.Audio_SoftvolMax.ToString(), "110",		TypeCode.String));
 
 			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"directx",		TypeCode.String));
-			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"1",			TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"0",			TypeCode.String));
 		}
 
 		public string MplayerArguements

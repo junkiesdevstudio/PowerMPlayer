@@ -147,6 +147,8 @@ namespace Power_Mplayer
 			this.menuItem4 = new System.Windows.Forms.MenuItem();
 			this.MI_Exit = new System.Windows.Forms.MenuItem();
 			this.menuItem6 = new System.Windows.Forms.MenuItem();
+			this.menuItem13 = new System.Windows.Forms.MenuItem();
+			this.menuItem14 = new System.Windows.Forms.MenuItem();
 			this.menuItem8 = new System.Windows.Forms.MenuItem();
 			this.MI_SelectSubtitle = new System.Windows.Forms.MenuItem();
 			this.MI_OpenSubFile = new System.Windows.Forms.MenuItem();
@@ -183,8 +185,6 @@ namespace Power_Mplayer
 			this.MI_About = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.menuItem13 = new System.Windows.Forms.MenuItem();
-			this.menuItem14 = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -211,12 +211,15 @@ namespace Power_Mplayer
 			// 
 			// BigScreen
 			// 
+			this.BigScreen.AllowDrop = true;
 			this.BigScreen.BackColor = System.Drawing.Color.FromArgb(((System.Byte)(1)), ((System.Byte)(1)), ((System.Byte)(1)));
 			this.BigScreen.Location = new System.Drawing.Point(0, 0);
 			this.BigScreen.Name = "BigScreen";
 			this.BigScreen.Size = new System.Drawing.Size(168, 136);
 			this.BigScreen.TabIndex = 2;
 			this.BigScreen.Click += new System.EventHandler(this.btn_pause_Click);
+			this.BigScreen.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragEnter);
+			this.BigScreen.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragDrop);
 			this.BigScreen.DoubleClick += new System.EventHandler(this.BigScreen_DoubleClick);
 			this.BigScreen.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BigScreen_MouseMove);
 			// 
@@ -290,6 +293,7 @@ namespace Power_Mplayer
 			// 
 			// MainPanel
 			// 
+			this.MainPanel.AllowDrop = true;
 			this.MainPanel.BackColor = System.Drawing.Color.Black;
 			this.MainPanel.Controls.Add(this.BigScreen);
 			this.MainPanel.Location = new System.Drawing.Point(8, 16);
@@ -297,6 +301,8 @@ namespace Power_Mplayer
 			this.MainPanel.Size = new System.Drawing.Size(264, 208);
 			this.MainPanel.TabIndex = 3;
 			this.MainPanel.Click += new System.EventHandler(this.btn_pause_Click);
+			this.MainPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragEnter);
+			this.MainPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragDrop);
 			this.MainPanel.DoubleClick += new System.EventHandler(this.BigScreen_DoubleClick);
 			this.MainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
 			// 
@@ -341,6 +347,16 @@ namespace Power_Mplayer
 			// 
 			this.menuItem6.Index = 1;
 			this.menuItem6.Text = "播放(&P)";
+			// 
+			// menuItem13
+			// 
+			this.menuItem13.Index = 2;
+			this.menuItem13.Text = "視訊(&V)";
+			// 
+			// menuItem14
+			// 
+			this.menuItem14.Index = 3;
+			this.menuItem14.Text = "音訊(&A)";
 			// 
 			// menuItem8
 			// 
@@ -584,16 +600,6 @@ namespace Power_Mplayer
 			// 
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
-			// menuItem13
-			// 
-			this.menuItem13.Index = 2;
-			this.menuItem13.Text = "視訊(&V)";
-			// 
-			// menuItem14
-			// 
-			this.menuItem14.Index = 3;
-			this.menuItem14.Text = "音訊(&A)";
 			// 
 			// Form1
 			// 
@@ -1080,5 +1086,27 @@ namespace Power_Mplayer
 
 			ad.ShowDialog();
 		}
+
+		#region Drag Event
+		// temp solution
+
+		private void MainPanel_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
+		{
+			if(e.Data.GetDataPresent(DataFormats.FileDrop))
+				e.Effect = DragDropEffects.All;
+			else
+				e.Effect = DragDropEffects.None;
+		}
+
+		private void MainPanel_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+		{
+			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
+			
+			this.Start(s[0]);
+		}
+
+		#endregion
+
+
 	}
 }
