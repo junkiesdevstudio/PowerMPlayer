@@ -32,6 +32,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.NumericUpDown Audio_Softvol_max;
 		private System.Windows.Forms.CheckBox Audio_Softvol;
 		private System.Windows.Forms.CheckBox Video_DirectRandering;
+		private System.Windows.Forms.CheckBox Srt_ForceUTF8;
 
 		private MplayerSetting msetting;
 
@@ -78,6 +79,7 @@ namespace Power_Mplayer
 			this.label1 = new System.Windows.Forms.Label();
 			this.txt_mplayer_cmd = new System.Windows.Forms.TextBox();
 			this.tp_video = new System.Windows.Forms.TabPage();
+			this.Video_DirectRandering = new System.Windows.Forms.CheckBox();
 			this.Video_Output = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.tp_audio = new System.Windows.Forms.TabPage();
@@ -88,7 +90,7 @@ namespace Power_Mplayer
 			this.label3 = new System.Windows.Forms.Label();
 			this.btn_close = new System.Windows.Forms.Button();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.Video_DirectRandering = new System.Windows.Forms.CheckBox();
+			this.Srt_ForceUTF8 = new System.Windows.Forms.CheckBox();
 			this.tabControl1.SuspendLayout();
 			this.tp_general.SuspendLayout();
 			this.tp_video.SuspendLayout();
@@ -109,6 +111,7 @@ namespace Power_Mplayer
 			// 
 			// tp_general
 			// 
+			this.tp_general.Controls.Add(this.Srt_ForceUTF8);
 			this.tp_general.Controls.Add(this.button2);
 			this.tp_general.Controls.Add(this.label1);
 			this.tp_general.Controls.Add(this.txt_mplayer_cmd);
@@ -154,6 +157,13 @@ namespace Power_Mplayer
 			this.tp_video.Size = new System.Drawing.Size(368, 271);
 			this.tp_video.TabIndex = 1;
 			this.tp_video.Text = "影像";
+			// 
+			// Video_DirectRandering
+			// 
+			this.Video_DirectRandering.Location = new System.Drawing.Point(8, 104);
+			this.Video_DirectRandering.Name = "Video_DirectRandering";
+			this.Video_DirectRandering.TabIndex = 4;
+			this.Video_DirectRandering.Text = "Direct Rendering";
 			// 
 			// Video_Output
 			// 
@@ -256,12 +266,13 @@ namespace Power_Mplayer
 			this.btn_close.Text = "關閉";
 			this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
 			// 
-			// Video_DirectRandering
+			// Srt_ForceUTF8
 			// 
-			this.Video_DirectRandering.Location = new System.Drawing.Point(8, 104);
-			this.Video_DirectRandering.Name = "Video_DirectRandering";
-			this.Video_DirectRandering.TabIndex = 4;
-			this.Video_DirectRandering.Text = "Direct Rendering";
+			this.Srt_ForceUTF8.Location = new System.Drawing.Point(8, 128);
+			this.Srt_ForceUTF8.Name = "Srt_ForceUTF8";
+			this.Srt_ForceUTF8.Size = new System.Drawing.Size(200, 24);
+			this.Srt_ForceUTF8.TabIndex = 3;
+			this.Srt_ForceUTF8.Text = "將字幕自動轉成 utf8 編碼";
 			// 
 			// OptionForm
 			// 
@@ -284,8 +295,8 @@ namespace Power_Mplayer
 
 		private void LoadSetting()
 		{
-			if(msetting[SetVars.MplayerExe] != "")
-				this.txt_mplayer_cmd.Text = msetting[SetVars.MplayerExe];
+			this.txt_mplayer_cmd.Text = msetting[SetVars.MplayerExe];
+			this.Srt_ForceUTF8.Checked = (msetting[SetVars.SrtForceUTF8] == "1") ? true : false;
 
 			this.Audio_Output.Text = this.msetting[SetVars.AO];
 			this.Audio_Softvol.Checked = (this.msetting[SetVars.Audio_Softvol] == "1") ? true : false;
@@ -311,7 +322,8 @@ namespace Power_Mplayer
 
 		private void btn_close_Click(object sender, System.EventArgs e)
 		{
-			this.msetting[SetVars.MplayerExe] = this.txt_mplayer_cmd.Text;
+			this.msetting[SetVars.MplayerExe] = (this.txt_mplayer_cmd.Text == "") ? @".\mplayer\mplayer.exe" : txt_mplayer_cmd.Text;
+			this.msetting[SetVars.SrtForceUTF8] = this.Srt_ForceUTF8.Checked ? "1" : "0";
 
 			this.msetting[SetVars.AO] = this.Audio_Output.Text;
 			this.msetting[SetVars.Audio_Softvol] = (this.Audio_Softvol.Checked) ? "1" : "0";

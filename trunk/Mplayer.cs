@@ -116,6 +116,32 @@ namespace Power_Mplayer
 			Thread.Sleep(50);
 		}
 
+		private bool tran2utf8(string src, string dest)
+		{
+			try
+			{
+				Encoding code = Encoding.GetEncoding(this.msetting[SetVars.SubEncoding]);
+				using(StreamReader sr = new StreamReader(src, code))
+				{
+					StreamWriter sw = new StreamWriter(dest, false, Encoding.UTF8);
+
+					string buf = sr.ReadToEnd();
+					sw.Write(buf);
+
+					sr.Close();
+					sw.Close();
+				}
+
+				return true;
+			}
+			catch(System.Exception ee)
+			{
+				System.Windows.Forms.MessageBox.Show(ee.Message);
+			}
+
+			return false;
+		}
+
 		#region controls of movie
 
 		// create process
@@ -167,10 +193,23 @@ namespace Power_Mplayer
 
 				//System.Windows.Forms.MessageBox.Show(mplayerProc.StartInfo.Arguments);
 
-				// use subtitle
-				mplayerProc.StartInfo.Arguments += sub.MplayerStartArgs;
-
 				mplayerProc.StartInfo.Arguments += msetting.MplayerArguements;
+
+				// use subtitle
+				if(this.msetting[SetVars.SrtForceUTF8] != "1" 
+					|| (sub.SubType != SubtitleType.Ass && sub.SubType != SubtitleType.Srt))
+				{
+					mplayerProc.StartInfo.Arguments += sub.MplayerStartArgs;
+				}
+				else
+				{
+					string ext = Path.GetExtension(sub.Filename);
+					string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + ext;
+					this.tran2utf8(sub.Filename, dest);
+
+					Subtitle s = new Subtitle(dest);
+					mplayerProc.StartInfo.Arguments += s.MplayerStartArgs;
+				}
 
 				// append filename
 				mplayerProc.StartInfo.Arguments += " " + "\"" + this.CurrentMediaFilename + "\"";
@@ -258,6 +297,11 @@ namespace Power_Mplayer
 				stdout.RequestData.Remove(0, stdout.RequestData.Length);
 				stderr.RequestData.Remove(0, stderr.RequestData.Length);
 
+				// delete temp_subtitle for ForeceUTF8
+				string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(sub.Filename);
+				if(File.Exists(dest))
+					File.Delete(dest);
+
 				sub = null;
 			}
 		}
@@ -267,14 +311,6 @@ namespace Power_Mplayer
 		public string Read()
 		{
 			return stdout.RequestData.ToString();
-		}
-
-		public void FullScreen()
-		{
-			if(this.HasInstense())
-			{
-				stdin.WriteLine("vo_fullscreen 1 ");
-			}
 		}
 
 		public string Filename
@@ -289,6 +325,16 @@ namespace Power_Mplayer
 				this.CurrentMediaFilename = value;
 			}
 		}
+
+		public double Length
+		{
+			get
+			{
+				return (double) minfo["LENGTH"];
+			}
+		}
+
+		#region Pos Property
 
 		public int Percent_Pos
 		{
@@ -317,6 +363,8 @@ namespace Power_Mplayer
 				stdin.WriteLine("seek " + value.ToString() + " 2 ");
 			}
 		}
+
+		#endregion
 
 		public double Volume
 		{
@@ -360,13 +408,29 @@ namespace Power_Mplayer
 			}
 		}
 
-		public double Length
+		public int Video_Brightness
 		{
-			get
+			set
 			{
-				return (double) minfo["LENGTH"];
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("brightness " + value.ToString() + " ");
+				}
 			}
 		}
+
+		public int Video_Contrast
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("contrast " + value.ToString() + " ");
+				}
+			}
+		}
+
+		#region Sub Property
 
 		public double Sub_Scale
 		{
@@ -400,5 +464,7 @@ namespace Power_Mplayer
 				}
 			}
 		}
+
+		#endregion
 	}
 }

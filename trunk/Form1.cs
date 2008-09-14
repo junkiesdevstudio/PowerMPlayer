@@ -68,6 +68,13 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_About;
 		private System.Windows.Forms.MenuItem menuItem13;
 		private System.Windows.Forms.MenuItem menuItem14;
+		private System.Windows.Forms.MenuItem menuItem15;
+		private System.Windows.Forms.MenuItem MI_Fullscreen;
+		private System.Windows.Forms.MenuItem menuItem28;
+		private System.Windows.Forms.MenuItem MI_BrightnessMore;
+		private System.Windows.Forms.MenuItem MI_BrightnessLess;
+		private System.Windows.Forms.MenuItem MI_ContrastMore;
+		private System.Windows.Forms.MenuItem MI_ContrastLess;
 		private Mplayer mp;
 
 		public Form1()
@@ -147,7 +154,13 @@ namespace Power_Mplayer
 			this.menuItem4 = new System.Windows.Forms.MenuItem();
 			this.MI_Exit = new System.Windows.Forms.MenuItem();
 			this.menuItem6 = new System.Windows.Forms.MenuItem();
+			this.MI_Fullscreen = new System.Windows.Forms.MenuItem();
 			this.menuItem13 = new System.Windows.Forms.MenuItem();
+			this.MI_BrightnessMore = new System.Windows.Forms.MenuItem();
+			this.MI_BrightnessLess = new System.Windows.Forms.MenuItem();
+			this.menuItem28 = new System.Windows.Forms.MenuItem();
+			this.MI_ContrastMore = new System.Windows.Forms.MenuItem();
+			this.MI_ContrastLess = new System.Windows.Forms.MenuItem();
 			this.menuItem14 = new System.Windows.Forms.MenuItem();
 			this.menuItem8 = new System.Windows.Forms.MenuItem();
 			this.MI_SelectSubtitle = new System.Windows.Forms.MenuItem();
@@ -156,6 +169,7 @@ namespace Power_Mplayer
 			this.menuItemFont = new System.Windows.Forms.MenuItem();
 			this.MI_SubEncoding = new System.Windows.Forms.MenuItem();
 			this.menuItem18 = new System.Windows.Forms.MenuItem();
+			this.menuItem15 = new System.Windows.Forms.MenuItem();
 			this.menuItem5 = new System.Windows.Forms.MenuItem();
 			this.menuItem21 = new System.Windows.Forms.MenuItem();
 			this.menuItem25 = new System.Windows.Forms.MenuItem();
@@ -346,12 +360,60 @@ namespace Power_Mplayer
 			// menuItem6
 			// 
 			this.menuItem6.Index = 1;
+			this.menuItem6.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																					  this.MI_Fullscreen});
 			this.menuItem6.Text = "播放(&P)";
+			// 
+			// MI_Fullscreen
+			// 
+			this.MI_Fullscreen.Index = 0;
+			this.MI_Fullscreen.Shortcut = System.Windows.Forms.Shortcut.F11;
+			this.MI_Fullscreen.Text = "全螢幕播放";
+			this.MI_Fullscreen.Click += new System.EventHandler(this.BigScreen_DoubleClick);
 			// 
 			// menuItem13
 			// 
 			this.menuItem13.Index = 2;
+			this.menuItem13.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																					   this.MI_BrightnessLess,
+																					   this.MI_BrightnessMore,
+																					   this.menuItem28,
+																					   this.MI_ContrastLess,
+																					   this.MI_ContrastMore});
 			this.menuItem13.Text = "視訊(&V)";
+			// 
+			// MI_BrightnessMore
+			// 
+			this.MI_BrightnessMore.Index = 1;
+			this.MI_BrightnessMore.Shortcut = System.Windows.Forms.Shortcut.CtrlR;
+			this.MI_BrightnessMore.Text = "亮度 +";
+			this.MI_BrightnessMore.Click += new System.EventHandler(this.MI_BrightnessMore_Click);
+			// 
+			// MI_BrightnessLess
+			// 
+			this.MI_BrightnessLess.Index = 0;
+			this.MI_BrightnessLess.Shortcut = System.Windows.Forms.Shortcut.CtrlE;
+			this.MI_BrightnessLess.Text = "亮度 -";
+			this.MI_BrightnessLess.Click += new System.EventHandler(this.MI_BrightnessLess_Click);
+			// 
+			// menuItem28
+			// 
+			this.menuItem28.Index = 2;
+			this.menuItem28.Text = "-";
+			// 
+			// MI_ContrastMore
+			// 
+			this.MI_ContrastMore.Index = 4;
+			this.MI_ContrastMore.Shortcut = System.Windows.Forms.Shortcut.CtrlF;
+			this.MI_ContrastMore.Text = "對比 +";
+			this.MI_ContrastMore.Click += new System.EventHandler(this.MI_ContrastMore_Click);
+			// 
+			// MI_ContrastLess
+			// 
+			this.MI_ContrastLess.Index = 3;
+			this.MI_ContrastLess.Shortcut = System.Windows.Forms.Shortcut.CtrlD;
+			this.MI_ContrastLess.Text = "對比 -";
+			this.MI_ContrastLess.Click += new System.EventHandler(this.MI_ContrastLess_Click);
 			// 
 			// menuItem14
 			// 
@@ -408,6 +470,7 @@ namespace Power_Mplayer
 			this.MI_SubEncoding.Index = 4;
 			this.MI_SubEncoding.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																						   this.menuItem18,
+																						   this.menuItem15,
 																						   this.menuItem5,
 																						   this.menuItem21,
 																						   this.menuItem25,
@@ -421,33 +484,39 @@ namespace Power_Mplayer
 			this.menuItem18.Text = "BIG5 (正體中文字集)";
 			this.menuItem18.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
+			// menuItem15
+			// 
+			this.menuItem15.Index = 1;
+			this.menuItem15.Text = "GB2312 (簡體中文字集)";
+			this.menuItem15.Click += new System.EventHandler(this.MI_SubEncoding_Click);
+			// 
 			// menuItem5
 			// 
-			this.menuItem5.Index = 1;
+			this.menuItem5.Index = 2;
 			this.menuItem5.Text = "CP936 (簡體中文字集)";
 			this.menuItem5.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem21
 			// 
-			this.menuItem21.Index = 2;
+			this.menuItem21.Index = 3;
 			this.menuItem21.Text = "SHIFT-JIS (日語字元集)";
 			this.menuItem21.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem25
 			// 
-			this.menuItem25.Index = 3;
+			this.menuItem25.Index = 4;
 			this.menuItem25.Text = "CP949 (韓語字元集)";
 			this.menuItem25.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem24
 			// 
-			this.menuItem24.Index = 4;
-			this.menuItem24.Text = "UTF8 (UTF-8)";
+			this.menuItem24.Index = 5;
+			this.menuItem24.Text = "UTF-8 (UTF-8)";
 			this.menuItem24.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
 			// menuItem23
 			// 
-			this.menuItem23.Index = 5;
+			this.menuItem23.Index = 6;
 			this.menuItem23.Text = "Unicode (Unicode)";
 			this.menuItem23.Click += new System.EventHandler(this.MI_SubEncoding_Click);
 			// 
@@ -1107,6 +1176,24 @@ namespace Power_Mplayer
 
 		#endregion
 
+		private void MI_BrightnessMore_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Brightness = 1;
+		}
 
+		private void MI_BrightnessLess_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Brightness = -1;
+		}
+
+		private void MI_ContrastMore_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Contrast = 1;
+		}
+
+		private void MI_ContrastLess_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Contrast = -1;
+		}
 	}
 }
