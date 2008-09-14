@@ -51,8 +51,8 @@ namespace Power_Mplayer
 
 			LoadAllFonts();
 
-			if(mset[MplayerSetting.SUB_FONT] != null)
-				this.textBox1.Text = System.Environment.ExpandEnvironmentVariables(mset[MplayerSetting.SUB_FONT]);
+			if(mset[SetVars.SubFont] != null)
+				this.textBox1.Text = System.Environment.ExpandEnvironmentVariables(mset[SetVars.SubFont]);
 		}
 
 		/// <summary>
@@ -198,9 +198,9 @@ namespace Power_Mplayer
 			string expendFontRoot = System.Environment.ExpandEnvironmentVariables(FontRoot);
 
 			if(textBox1.Text.StartsWith(expendFontRoot))
-				this.msetting[MplayerSetting.SUB_FONT] = FontRoot + Path.GetFileName(textBox1.Text);
+				this.msetting[SetVars.SubFont] = FontRoot + Path.GetFileName(textBox1.Text);
 			else
-				this.msetting[MplayerSetting.SUB_FONT] = this.textBox1.Text;
+				this.msetting[SetVars.SubFont] = this.textBox1.Text;
 
 			this.msetting.WriteSetting();
 			this.Dispose();

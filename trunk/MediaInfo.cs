@@ -39,6 +39,11 @@ namespace Power_Mplayer
 			}
 		}
 
+		public MValue(string name, Object val, TypeCode code) : this(name, code)
+		{
+			Value = val;
+		}
+
 		public void SetValue(string val)
 		{
 			switch(this.ValueType)

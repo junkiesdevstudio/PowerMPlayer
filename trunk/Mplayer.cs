@@ -127,9 +127,9 @@ namespace Power_Mplayer
 			}
 
 			System.Environment.CurrentDirectory = System.Windows.Forms.Application.StartupPath;
-			if(!File.Exists(msetting[MplayerSetting.MPLAYER_EXE]))
+			if(!File.Exists(msetting[SetVars.MplayerExe]))
 			{
-				System.Windows.Forms.MessageBox.Show("找不到 " + Path.GetFullPath(msetting[MplayerSetting.MPLAYER_EXE]) + "\n請從[工具]->[選項]中設定。");
+				System.Windows.Forms.MessageBox.Show("找不到 " + Path.GetFullPath(msetting[SetVars.MplayerExe]) + "\n請從[工具]->[選項]中設定。");
 				return false;
 			}
 
@@ -154,7 +154,7 @@ namespace Power_Mplayer
 				mplayerProc.StartInfo.RedirectStandardOutput = true;
 
 				// create command
-				mplayerProc.StartInfo.FileName = msetting[MplayerSetting.MPLAYER_EXE];
+				mplayerProc.StartInfo.FileName = msetting[SetVars.MplayerExe];
 				mplayerProc.StartInfo.WorkingDirectory = Path.GetDirectoryName(mplayerProc.StartInfo.FileName);
 
 				mplayerProc.StartInfo.Arguments = "-slave -quiet" + // salve mode

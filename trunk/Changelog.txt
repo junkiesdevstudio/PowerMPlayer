@@ -1,3 +1,7 @@
+Power Mplayer v0.2
+	* rewrite MplayerSetting.
+	* add options.
+
 Power Mplayer v0.1	2008.09.14:
 	First Release, I have worked about three weeks.
 	This release with these feature:

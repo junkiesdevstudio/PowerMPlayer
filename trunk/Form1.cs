@@ -66,6 +66,8 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem menuItem25;
 		private System.Windows.Forms.MenuItem MI_SubEncoding;
 		private System.Windows.Forms.MenuItem MI_About;
+		private System.Windows.Forms.MenuItem menuItem13;
+		private System.Windows.Forms.MenuItem menuItem14;
 		private Mplayer mp;
 
 		public Form1()
@@ -76,36 +78,27 @@ namespace Power_Mplayer
 			mp = new Mplayer(this.BigScreen);
 
 			// setup subtitle setting
+			string var = mp.Setting[SetVars.SubAutoScale];
+			if(var == "0")
+				this.MI_NoSubAutoScale.Checked = true;
+			else if(var == "1")
+				this.MI_SubAutoScaleHeight.Checked = true;
+			else if(var == "2")
+				this.MI_SubAutoScaleWidth.Checked = true;
+			else if(var == "3")
+				this.MI_SubAutoScaleDiagonal.Checked = true;
 
-			if(mp.Setting.HasProperty(MplayerSetting.SUB_AUTOSCALE))
+			var = mp.Setting[SetVars.SubASS];
+			if(var == "1")
+				this.MI_ASS.Checked = true;
+
+			var = mp.Setting[SetVars.SubEncoding];
+			foreach(MenuItem mi in this.MI_SubEncoding.MenuItems)
 			{
-				string var = mp.Setting[MplayerSetting.SUB_AUTOSCALE];
-				if(var == "0")
-					this.MI_NoSubAutoScale.Checked = true;
-				else if(var == "1")
-					this.MI_SubAutoScaleHeight.Checked = true;
-				else if(var == "2")
-					this.MI_SubAutoScaleWidth.Checked = true;
-				else if(var == "3")
-					this.MI_SubAutoScaleDiagonal.Checked = true;
-			}
-
-			if(mp.Setting.HasProperty(MplayerSetting.SUB_ASS))
-			{
-				string var = mp.Setting[MplayerSetting.SUB_ASS];
-
-				if(var == "1")
-					this.MI_ASS.Checked = true;
-			}
-
-			if(mp.Setting.HasProperty(MplayerSetting.SUB_ENCODING))
-			{
-				string var = mp.Setting[MplayerSetting.SUB_ENCODING];
-			
-				foreach(MenuItem mi in this.MI_SubEncoding.MenuItems)
+				if(mi.Text.StartsWith(var))
 				{
-					if(mi.Text.StartsWith(var))
-						mi.Checked = true;
+					mi.Checked = true;
+					break;
 				}
 			}
 
@@ -190,6 +183,8 @@ namespace Power_Mplayer
 			this.MI_About = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.menuItem13 = new System.Windows.Forms.MenuItem();
+			this.menuItem14 = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -301,6 +296,8 @@ namespace Power_Mplayer
 			this.MainPanel.Name = "MainPanel";
 			this.MainPanel.Size = new System.Drawing.Size(264, 208);
 			this.MainPanel.TabIndex = 3;
+			this.MainPanel.Click += new System.EventHandler(this.btn_pause_Click);
+			this.MainPanel.DoubleClick += new System.EventHandler(this.BigScreen_DoubleClick);
 			this.MainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
 			// 
 			// mainMenu1
@@ -308,6 +305,8 @@ namespace Power_Mplayer
 			this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					  this.menuItem1,
 																					  this.menuItem6,
+																					  this.menuItem13,
+																					  this.menuItem14,
 																					  this.menuItem8,
 																					  this.menuItem7,
 																					  this.menuItem10});
@@ -345,7 +344,7 @@ namespace Power_Mplayer
 			// 
 			// menuItem8
 			// 
-			this.menuItem8.Index = 2;
+			this.menuItem8.Index = 4;
 			this.menuItem8.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					  this.MI_SelectSubtitle,
 																					  this.MI_OpenSubFile,
@@ -544,7 +543,7 @@ namespace Power_Mplayer
 			// 
 			// menuItem7
 			// 
-			this.menuItem7.Index = 3;
+			this.menuItem7.Index = 5;
 			this.menuItem7.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					  this.menuItem11,
 																					  this.menuItem12,
@@ -570,7 +569,7 @@ namespace Power_Mplayer
 			// 
 			// menuItem10
 			// 
-			this.menuItem10.Index = 4;
+			this.menuItem10.Index = 6;
 			this.menuItem10.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					   this.MI_About});
 			this.menuItem10.Text = "說明(&H)";
@@ -585,6 +584,16 @@ namespace Power_Mplayer
 			// 
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
+			// menuItem13
+			// 
+			this.menuItem13.Index = 2;
+			this.menuItem13.Text = "視訊(&V)";
+			// 
+			// menuItem14
+			// 
+			this.menuItem14.Index = 3;
+			this.menuItem14.Text = "音訊(&A)";
 			// 
 			// Form1
 			// 
@@ -887,8 +896,9 @@ namespace Power_Mplayer
 		private void MI_Option_Click(object sender, System.EventArgs e)
 		{
 			OptionForm opt_form = new OptionForm(mp.Setting);
-
 			opt_form.ShowDialog();
+
+			Restart();
 		}
 
 		#region Subtitle MenuItem
@@ -927,7 +937,7 @@ namespace Power_Mplayer
 					break;
 			}
 
-			mp.Setting[MplayerSetting.SUB_AUTOSCALE] = mi.Index.ToString();
+			mp.Setting[SetVars.SubAutoScale] = mi.Index.ToString();
 			mp.Setting.WriteSetting();
 
 			this.Restart();
@@ -944,7 +954,7 @@ namespace Power_Mplayer
 			mi.Checked = true;
 
 			string[] str = mi.Text.Split(' ', '(');
-			mp.Setting[MplayerSetting.SUB_ENCODING] = str[0];
+			mp.Setting[SetVars.SubEncoding] = str[0];
 			mp.Setting.WriteSetting();
 
 			Restart();
@@ -1023,7 +1033,7 @@ namespace Power_Mplayer
 
 			mi.Checked = !mi.Checked;
 
-			mp.Setting[MplayerSetting.SUB_ASS] = mi.Checked ? "1" : "0";
+			mp.Setting[SetVars.SubASS] = mi.Checked ? "1" : "0";
 			mp.Setting.WriteSetting();
 
 			this.Restart();

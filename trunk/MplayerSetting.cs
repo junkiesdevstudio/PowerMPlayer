@@ -7,17 +7,42 @@ namespace Power_Mplayer
 	/// <summary>
 	/// MplayerSetting ªººK­n´y­z¡C
 	/// </summary>
+	/// 
+	public enum SetVars 
+	{
+		MplayerExe, 
+		
+		//  subtitle
+		SubFont, SubEncoding, SubAutoScale, SubASS, 
+		
+		AO, Audio_Softvol, Audio_SoftvolMax,
+		
+		VO, Video_DR
+	}
 	public class MplayerSetting
 	{
-		public const string SUB_FONT =		"SubFont";
-		public const string SUB_ENCODING =	"SubEncoding";
-		public const string SUB_AUTOSCALE = "SubAutoScale";
-		public const string MPLAYER_EXE =	"MplayerExe";
-		public const string SUB_ASS =		"SubASS";
+		private string SettingFile = System.Environment.CurrentDirectory + @"\PowerMplayer.ini";
 
 		private ArrayList SettingValues;
- 
-		private string SettingFile = System.Environment.CurrentDirectory + @"\PowerMplayer.ini";
+		
+		private void CreateDefaultValue()
+		{
+			this.SettingValues.Clear();
+
+			this.SettingValues.Add(new MValue(SetVars.MplayerExe.ToString(),	@".\mplayer.exe",		TypeCode.String));
+
+			this.SettingValues.Add(new MValue(SetVars.SubFont.ToString(),		@".\mplayer\subfont.ttf", TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubEncoding.ToString(),	"BIG5",			TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubAutoScale.ToString(), "3",			TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubASS.ToString(),		"0",			TypeCode.String));
+
+			this.SettingValues.Add(new MValue(SetVars.AO.ToString(),			"dsound",		TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.Audio_Softvol.ToString(),	"0",			TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.Audio_SoftvolMax.ToString(), "110",		TypeCode.String));
+
+			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"directx",		TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"1",			TypeCode.String));
+		}
 
 		public string MplayerArguements
 		{
@@ -27,17 +52,29 @@ namespace Power_Mplayer
 
 				ReadSetting();
 
-				if(this.HasProperty(SUB_ASS) && this[SUB_ASS] == "1")
+				// Audio
+				args += " -ao " + this[SetVars.AO];
+
+				if(this[SetVars.Audio_Softvol] == "1")
+					args += " -softvol -softvol-max " + this[SetVars.Audio_SoftvolMax];
+
+				// Video
+				args += " -vo " + this[SetVars.VO];
+
+				if(this[SetVars.Video_DR] == "1")
+					args += " -dr";
+
+				// using ass
+				if(this[SetVars.SubASS] == "1")
 					args += " -ass";
 
-				if(this.HasProperty(SUB_FONT))
-					args += " -font \"" + System.Environment.ExpandEnvironmentVariables(this[SUB_FONT]) + "\"";
+				// font
+				args += " -font \"" + System.Environment.ExpandEnvironmentVariables(this[SetVars.SubFont]) + "\"";
+				// subencoding				
+				args += " -subcp " + this[SetVars.SubEncoding];
+				// sub autoscale
+				args += " -subfont-autoscale " + this[SetVars.SubAutoScale];
 
-				if(this.HasProperty(SUB_ENCODING))
-					args += " -subcp " + this[SUB_ENCODING];
-
-				if(this.HasProperty(SUB_AUTOSCALE))
-					args += " -subfont-autoscale " + this[SUB_AUTOSCALE];
 
 				return args;
 			}
@@ -46,24 +83,16 @@ namespace Power_Mplayer
 		public MplayerSetting()
 		{
 			this.SettingValues = new ArrayList();
-
 			this.ReadSetting();
 		}
 
-		public bool HasProperty(string property)
-		{
-			if(this[property] != null && this[property] != "")
-				return true;
-			return false;
-		}
-
-		public string this[string VarName]
+		public string this[SetVars sv]
 		{
 			get
 			{
 				foreach(MValue val in SettingValues)
 				{
-					if(val.Name == VarName)
+					if(val.Name == sv.ToString())
 						return (string) val.Value;
 				}
 
@@ -73,18 +102,18 @@ namespace Power_Mplayer
 			{
 				foreach(MValue val in SettingValues)
 				{
-					if(val.Name == VarName)
+					if(val.Name == sv.ToString())
 					{
 						val.SetValue(value);
 						return;
 					}
 				}
 
-				MValue newval = new MValue(VarName, TypeCode.String);
-				newval.SetValue(value);
-
+				/* add new vars
+				MValue newval = new MValue(sv.ToString(), value, TypeCode.String);
 				this.SettingValues.Add(newval);
-
+				*/
+				
 				return;
 			}
 		}
@@ -107,7 +136,7 @@ namespace Power_Mplayer
 			if(!File.Exists(this.SettingFile))
 				return;
 		
-			this.SettingValues.Clear();
+			CreateDefaultValue();
 
 			using(TextReader tr = new StreamReader(this.SettingFile))
 			{
@@ -116,7 +145,14 @@ namespace Power_Mplayer
 				{
 					string[] cmds = str.Split('=');
 
-					this[cmds[0]] = cmds[1];
+					if(cmds[1] == "")
+						continue;
+
+					if(Enum.IsDefined(typeof(SetVars), cmds[0]))
+					{
+						SetVars sv = (SetVars) Enum.Parse(typeof(SetVars), cmds[0], true);
+						this[sv] = cmds[1];
+					}
 				}
 
 				tr.Close();
