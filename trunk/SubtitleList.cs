@@ -127,25 +127,28 @@ namespace Power_Mplayer
 		}
 
 		/// <summary>Find all available subtitles</summary>
-		/// <param name="SubDir">Directory contain subtitles</param>
+		/// <param name="filename">Media filename</param>
 		/// <returns>Numbers of found subtitles.</returns>
-		public int FindSubtitle(string SubDir)
+		public int FindSubtitle(string filename)
 		{
-			if(!Directory.Exists(SubDir))
+			if(!File.Exists(filename))
 				return -1;
 
-			subdir = SubDir;
+			subdir = Path.GetDirectoryName(filename);
+			filename = Path.GetFileNameWithoutExtension(filename);
+
 			sublist.Clear();
-			//sublist.Add(new Subtitle(SubtitleType.AutoDetect));
+			// add no subtitle			
 			sublist.Add(new Subtitle(null));
 
 			string[] files = System.IO.Directory.GetFiles(subdir);
 
 			for(int i=0;i<files.Length;i++)
 			{
-				string ext = Path.GetExtension(files[i]);
+				if(!Path.GetFileName(files[i]).StartsWith(filename))
+					continue;
 
-				switch(ext.ToLower())
+				switch(Path.GetExtension(files[i]).ToLower())
 				{
 					case ".ass":
 					case ".srt":
