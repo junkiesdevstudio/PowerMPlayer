@@ -69,11 +69,13 @@ namespace Power_Mplayer
 	public class MediaInfo
 	{
 		private ArrayList MValues;
+		private Mplayer mp;
 
 		// constructure
-		public MediaInfo()
+		public MediaInfo(Mplayer m)
 		{
 			MValues = new ArrayList();
+			mp = m;
 
 			CreateValues();
 		}
@@ -136,6 +138,12 @@ namespace Power_Mplayer
 
 			if(str != null)
 			{
+				if(str.StartsWith("VSID"))
+				{
+					mp.Subtitles.AddVobSub(mp.CurrentSubtitle.Filename, str);
+					return;
+				}
+
 				string[] cmds = str.Split('=');
 
 				foreach(MValue val in MValues)

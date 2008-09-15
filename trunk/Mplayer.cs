@@ -67,7 +67,7 @@ namespace Power_Mplayer
 			mplayerProc = null;
 			this.BigScreen = bs;
 
-			minfo = new MediaInfo();
+			minfo = new MediaInfo(this);
 
 			stdout = new MyStreamReader(minfo);
 			stderr = new MyStreamReader(minfo);
@@ -462,6 +462,14 @@ namespace Power_Mplayer
 				{
 					stdin.WriteLine("sub_delay " + value + " ");
 				}
+			}
+		}
+
+		public void SelectSub(int id)
+		{
+			if(this.HasInstense())
+			{
+				stdin.WriteLine("sub_select " + id + " ");
 			}
 		}
 

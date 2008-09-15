@@ -167,6 +167,10 @@
                     BuildAction = "EmbeddedResource"
                 />
                 <File
+                    RelPath = "Readme.txt"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "ShowLog.cs"
                     SubType = "Form"
                     BuildAction = "Compile"

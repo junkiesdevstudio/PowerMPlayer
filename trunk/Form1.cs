@@ -1080,7 +1080,17 @@ namespace Power_Mplayer
 		{
 			MenuItem mi = (MenuItem) sender;
 
-			this.Restart(mp.Subtitles[mi.Index]);
+			Subtitle sub = mp.Subtitles[mi.Index];
+			
+			if(sub.SubType == SubtitleType.VobSubID)
+			{
+				mp.SelectSub(sub.VobSubID);
+				mp.CurrentSubtitle = sub;
+
+				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
+			}
+			else
+				this.Restart(sub);
 		}
 
 		private void AppendSubtitleMenuItem(MenuItem mi_selectsub)
