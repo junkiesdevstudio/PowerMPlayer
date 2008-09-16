@@ -20,7 +20,6 @@ namespace Power_Mplayer
 		private System.Windows.Forms.TrackBar VolumeBar;
 		private System.Windows.Forms.MainMenu mainMenu1;
 		private System.Windows.Forms.MenuItem menuItem1;
-		private System.Windows.Forms.MenuItem menuItem2;
 		private System.Windows.Forms.MenuItem menuItem4;
 		private System.Windows.Forms.MenuItem menuItem7;
 		private System.Windows.Forms.MenuItem menuItem8;
@@ -76,6 +75,8 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_ContrastMore;
 		private System.Windows.Forms.MenuItem MI_ContrastLess;
 		private System.Windows.Forms.MenuItem MI_TopMost;
+		private System.Windows.Forms.MenuItem MI_OpenFile;
+		private System.Windows.Forms.MenuItem MI_OpenURL;
 		private Mplayer mp;
 
 		public Form1()
@@ -151,10 +152,11 @@ namespace Power_Mplayer
 			this.MainPanel = new System.Windows.Forms.Panel();
 			this.mainMenu1 = new System.Windows.Forms.MainMenu();
 			this.menuItem1 = new System.Windows.Forms.MenuItem();
-			this.menuItem2 = new System.Windows.Forms.MenuItem();
+			this.MI_OpenFile = new System.Windows.Forms.MenuItem();
 			this.menuItem4 = new System.Windows.Forms.MenuItem();
 			this.MI_Exit = new System.Windows.Forms.MenuItem();
 			this.menuItem6 = new System.Windows.Forms.MenuItem();
+			this.MI_TopMost = new System.Windows.Forms.MenuItem();
 			this.MI_Fullscreen = new System.Windows.Forms.MenuItem();
 			this.menuItem13 = new System.Windows.Forms.MenuItem();
 			this.MI_BrightnessLess = new System.Windows.Forms.MenuItem();
@@ -200,7 +202,7 @@ namespace Power_Mplayer
 			this.MI_About = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.MI_TopMost = new System.Windows.Forms.MenuItem();
+			this.MI_OpenURL = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -337,25 +339,26 @@ namespace Power_Mplayer
 			// 
 			this.menuItem1.Index = 0;
 			this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this.menuItem2,
+																					  this.MI_OpenFile,
+																					  this.MI_OpenURL,
 																					  this.menuItem4,
 																					  this.MI_Exit});
 			this.menuItem1.Text = "檔案(&F)";
 			// 
-			// menuItem2
+			// MI_OpenFile
 			// 
-			this.menuItem2.Index = 0;
-			this.menuItem2.Text = "開啟檔案(&O)";
-			this.menuItem2.Click += new System.EventHandler(this.Menu_OpenFile);
+			this.MI_OpenFile.Index = 0;
+			this.MI_OpenFile.Text = "開啟檔案(&O)";
+			this.MI_OpenFile.Click += new System.EventHandler(this.Menu_OpenFile);
 			// 
 			// menuItem4
 			// 
-			this.menuItem4.Index = 1;
+			this.menuItem4.Index = 2;
 			this.menuItem4.Text = "-";
 			// 
 			// MI_Exit
 			// 
-			this.MI_Exit.Index = 2;
+			this.MI_Exit.Index = 3;
 			this.MI_Exit.Text = "離開(&E)";
 			this.MI_Exit.Click += new System.EventHandler(this.MI_Exit_Click);
 			// 
@@ -366,6 +369,12 @@ namespace Power_Mplayer
 																					  this.MI_TopMost,
 																					  this.MI_Fullscreen});
 			this.menuItem6.Text = "播放(&P)";
+			// 
+			// MI_TopMost
+			// 
+			this.MI_TopMost.Index = 0;
+			this.MI_TopMost.Text = "置頂";
+			this.MI_TopMost.Click += new System.EventHandler(this.MI_TopMost_Click);
 			// 
 			// MI_Fullscreen
 			// 
@@ -673,11 +682,11 @@ namespace Power_Mplayer
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
-			// MI_TopMost
+			// MI_OpenURL
 			// 
-			this.MI_TopMost.Index = 0;
-			this.MI_TopMost.Text = "置頂";
-			this.MI_TopMost.Click += new System.EventHandler(this.MI_TopMost_Click);
+			this.MI_OpenURL.Index = 1;
+			this.MI_OpenURL.Text = "開啟 URL";
+			this.MI_OpenURL.Click += new System.EventHandler(this.MI_OpenURL_Click);
 			// 
 			// Form1
 			// 
@@ -687,7 +696,7 @@ namespace Power_Mplayer
 			this.Controls.Add(this.panel1);
 			this.Menu = this.mainMenu1;
 			this.Name = "Form1";
-			this.Text = "Power MPlayer";
+			this.Text = "Power Mplayer";
 			this.Resize += new System.EventHandler(this.Form1_Resize);
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.panel1.ResumeLayout(false);
@@ -808,6 +817,18 @@ namespace Power_Mplayer
 			MovieBar.Value = val;
 		}
 
+		private void MI_OpenURL_Click(object sender, System.EventArgs e)
+		{
+			OpenURL urlForm = new OpenURL();
+
+			urlForm.ShowDialog();
+
+			if(urlForm.URL.IndexOf("//") > 0)
+			{
+				this.Start(urlForm.URL);
+			}
+		}
+
 		#region GUI Movie Control
 
 		private void Start(string filename)
@@ -816,12 +837,19 @@ namespace Power_Mplayer
 				Quit();
 
 			mp.Filename = filename;
+			this.Start();
+		}
+
+		private void Start()
+		{
+			if(mp.HasInstense())
+				Quit();
 
 			if(mp.Start())
 			{
 				this.Form1_Resize(null, null);
 
-				this.Text = System.IO.Path.GetFileName(filename);
+				this.Text = System.IO.Path.GetFileName(mp.Filename);
 
 				this.btn_pause.Enabled = true;
 				this.btn_stop.Enabled = true;
@@ -881,10 +909,14 @@ namespace Power_Mplayer
 				bool paused = (btn_pause.ImageIndex == 0) ? true : false;
 				string filename = mp.Filename;
 				int movieBar = MovieBar.Value;
+				MediaType mt = mp.mediaType;
 
 				Quit();
 				mp.CurrentSubtitle = sub;
-				Start(filename);
+				mp.Filename = filename;
+				mp.mediaType = mt;
+
+				Start();
 
 				MovieBar.Value = movieBar;
 				mp.Time_Pos = pos;
@@ -904,7 +936,7 @@ namespace Power_Mplayer
 
 			if(this.openFileDialog1.FileName != null && this.openFileDialog1.FileName != "")
 			{
-				Start(this.openFileDialog1.FileName);
+				Start("file://" + this.openFileDialog1.FileName);
 			}
 		}
 
@@ -936,11 +968,20 @@ namespace Power_Mplayer
 				int now_pos = (int) mp.Time_Pos;
 				int movie_len = (int) mp.Length;
 
-				string str_now_pos = (now_pos / 3600) + ":" + ((now_pos / 60) % 60)+ ":" + (now_pos % 60);
-				string str_movie_len = (movie_len / 3600) + ":" + ((movie_len / 60) % 60) + ":" + (movie_len % 60);
+				if(now_pos != 0 && movie_len != 0)
+				{
+					string str_now_pos = (now_pos / 3600) + ":" + ((now_pos / 60) % 60)+ ":" + (now_pos % 60);
+					string str_movie_len = (movie_len / 3600) + ":" + ((movie_len / 60) % 60) + ":" + (movie_len % 60);
 
-				this.statusPanel1.Text = str_now_pos + " / " + str_movie_len;
-				this.MovieBar.Value = (100 * now_pos) / movie_len;
+					this.statusPanel1.Text = str_now_pos + " / " + str_movie_len;
+					this.MovieBar.Value = (100 * now_pos) / movie_len;
+				}
+				else
+				{
+					this.statusPanel1.Text = "0:0:0 / 0:0:0";
+					this.MovieBar.Value = 0;
+				}
+
 			}
 		}
 
@@ -1224,5 +1265,7 @@ namespace Power_Mplayer
 			MI_TopMost.Checked = !MI_TopMost.Checked;
 			this.TopMost = MI_TopMost.Checked;
 		}
+
+
 	}
 }

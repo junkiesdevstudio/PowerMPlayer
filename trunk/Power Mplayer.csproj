@@ -157,6 +157,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "OpenURL.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "OpenURL.resx"
+                    DependentUpon = "OpenURL.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
                     RelPath = "OptionForm.cs"
                     SubType = "Form"
                     BuildAction = "Compile"

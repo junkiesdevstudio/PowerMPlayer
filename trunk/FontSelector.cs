@@ -141,7 +141,7 @@ namespace Power_Mplayer
 			this.Controls.Add(this.listBox1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "FontSelector";
-			this.Text = "FontSelector";
+			this.Text = "¿ï¾Ü¦r«¬";
 			this.ResumeLayout(false);
 
 		}

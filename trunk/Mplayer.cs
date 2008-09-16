@@ -13,6 +13,8 @@ using System.Threading;
 
 namespace Power_Mplayer
 {
+	public enum MediaType {None, File, DVD, VCD, URL, TV, Radio, PVR, DVB, MF, CDDA, CUE, SDP, Mpst, Tivo};
+
 	/// <summary>
 	/// Mplayer Class
 	/// </summary>
@@ -30,8 +32,35 @@ namespace Power_Mplayer
 		private SubtitleList sublist;
 		private Subtitle sub;
 
-		private string CurrentMediaFilename;
+		public MediaType mediaType;
+		private string mediaFilename;
 		private Panel BigScreen;
+
+		private string CurrentMediaFilename
+		{
+			set
+			{
+				this.mediaFilename = value;
+
+				if(this.mediaFilename.StartsWith("vcd://"))
+					this.mediaType = MediaType.VCD;
+				else if(this.mediaFilename.StartsWith("dvd://"))
+					this.mediaType = MediaType.DVD;
+				else if(this.mediaFilename.StartsWith("radio://"))
+					this.mediaType = MediaType.Radio;
+				else if(this.mediaFilename.StartsWith("file://"))
+				{
+					this.mediaFilename = this.mediaFilename.Substring(7);
+					this.mediaType = MediaType.File;
+				}
+				else if(this.mediaFilename.IndexOf("//") > 0)
+					this.mediaType = MediaType.URL;
+			}
+			get
+			{
+				return this.mediaFilename;
+			}
+		}
 
 		public MplayerSetting Setting
 		{
@@ -159,16 +188,6 @@ namespace Power_Mplayer
 				return false;
 			}
 
-			// load all subtitles
-			this.sublist.FindSubtitle(this.CurrentMediaFilename);
-			if(this.sub == null)
-			{
-				if(this.sublist.Count > 1)
-					this.sub = sublist[1];
-				else
-					this.sub = sublist[0];
-			}
-
 			if(mplayerProc == null || mplayerProc.HasExited)
 			{
 				mplayerProc = new Process();
@@ -191,24 +210,42 @@ namespace Power_Mplayer
 				string colorkey = "0x" + ColorTranslator.ToHtml(this.BigScreen.BackColor).TrimStart('#');
 				mplayerProc.StartInfo.Arguments += " -wid " + this.BigScreen.Handle + " -colorkey " + colorkey;
 
-				//System.Windows.Forms.MessageBox.Show(mplayerProc.StartInfo.Arguments);
-
 				mplayerProc.StartInfo.Arguments += msetting.MplayerArguements;
 
-				// use subtitle
-				if(this.msetting[SetVars.SrtForceUTF8] != "1" 
-					|| (sub.SubType != SubtitleType.Ass && sub.SubType != SubtitleType.Srt))
+				// according MediaType
+				switch(this.mediaType)
 				{
-					mplayerProc.StartInfo.Arguments += sub.MplayerStartArgs;
-				}
-				else
-				{
-					string ext = Path.GetExtension(sub.Filename);
-					string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + ext;
-					this.tran2utf8(sub.Filename, dest);
+					case MediaType.File:
+						// load all subtitles
+						this.sublist.FindSubtitle(this.CurrentMediaFilename);
+						if(this.sub == null)
+						{
+							if(this.sublist.Count > 1)
+								this.sub = sublist[1];
+							else
+								this.sub = sublist[0];
+						}
 
-					Subtitle s = new Subtitle(dest);
-					mplayerProc.StartInfo.Arguments += s.MplayerStartArgs;
+						// use subtitle
+						if(this.msetting[SetVars.SrtForceUTF8] != "1" 
+							|| (sub.SubType != SubtitleType.Ass && sub.SubType != SubtitleType.Srt))
+						{
+							mplayerProc.StartInfo.Arguments += sub.MplayerStartArgs;
+						}
+						else
+						{
+							string ext = Path.GetExtension(sub.Filename);
+							string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + ext;
+							this.tran2utf8(sub.Filename, dest);
+
+							Subtitle s = new Subtitle(dest);
+							mplayerProc.StartInfo.Arguments += s.MplayerStartArgs;
+						}
+						break;
+
+					case MediaType.URL:
+						mplayerProc.StartInfo.Arguments += " -cache 8192";
+						break;
 				}
 
 				// append filename
@@ -297,12 +334,17 @@ namespace Power_Mplayer
 				stdout.RequestData.Remove(0, stdout.RequestData.Length);
 				stderr.RequestData.Remove(0, stderr.RequestData.Length);
 
-				// delete temp_subtitle for ForeceUTF8
-				string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(sub.Filename);
-				if(File.Exists(dest))
-					File.Delete(dest);
+				if(this.mediaType == MediaType.File)
+				{
+					// delete temp_subtitle for ForeceUTF8
+					string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(sub.Filename);
+					if(File.Exists(dest))
+						File.Delete(dest);
+				}
 
 				sub = null;
+
+				this.mediaType = MediaType.None;
 			}
 		}
 
