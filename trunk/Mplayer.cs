@@ -71,11 +71,11 @@ namespace Power_Mplayer
 			}
 		}
 
-		public ArrayList Subtitles
+		public ArrayList SubList
 		{
 			get
 			{
-				return sublist;
+				return this.sublist;
 			}
 		}
 

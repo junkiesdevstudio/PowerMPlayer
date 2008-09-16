@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
@@ -78,6 +79,8 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_OpenFile;
 		private System.Windows.Forms.MenuItem MI_OpenURL;
 		private Mplayer mp;
+		private OptionForm optForm;
+		private FontSelector fontSelect;
 
 		public Form1()
 		{
@@ -1009,8 +1012,7 @@ namespace Power_Mplayer
 
 				this.FormBorderStyle = FormBorderStyle.Sizable;
 				this.WindowState = FormWindowState.Normal;
-				this.TopMost = false;
-
+				this.TopMost = this.MI_TopMost.Checked;
 
 				this.Width = mp.Video_Width;
 				this.Height = mp.Video_Height + this.panel1.Height + (this.Height - this.ClientSize.Height);
@@ -1024,20 +1026,38 @@ namespace Power_Mplayer
 
 		private void MI_Option_Click(object sender, System.EventArgs e)
 		{
-			OptionForm opt_form = new OptionForm(mp.Setting);
-			opt_form.ShowDialog();
+			if(this.optForm == null)
+				this.optForm = new OptionForm(mp.Setting);
 
-			Restart();
+			optForm.LoadSetting();
+			if(optForm.ShowDialog() == DialogResult.OK)
+			{
+				optForm.WriteSetting();
+				Restart();
+			}
 		}
 
 		#region Subtitle MenuItem
 
 		private void menuItemFont_Click(object sender, System.EventArgs e)
 		{
-			FontSelector fontSelect = new FontSelector(mp.Setting);
-			fontSelect.ShowDialog();
+			if(this.fontSelect == null)
+				this.fontSelect = new FontSelector();
 
-			Restart();
+			this.fontSelect.FontPath = System.Environment.ExpandEnvironmentVariables(mp.Setting[SetVars.SubFont]);
+			if(fontSelect.ShowDialog() == DialogResult.OK)
+			{
+				string expendFontRoot = System.Environment.ExpandEnvironmentVariables(FontSelector.FontRoot);
+
+				if(fontSelect.FontPath.StartsWith(expendFontRoot))
+					mp.Setting[SetVars.SubFont] = FontSelector.FontRoot + Path.GetFileName(fontSelect.FontPath);
+				else
+					mp.Setting[SetVars.SubFont] = fontSelect.FontPath;
+
+				mp.Setting.WriteSetting();
+
+				Restart();
+			}
 		}
 
 		// sub-autoscale
@@ -1134,7 +1154,7 @@ namespace Power_Mplayer
 		{
 			MenuItem mi = (MenuItem) sender;
 
-			Subtitle sub = (Subtitle) mp.Subtitles[mi.Index];
+			Subtitle sub = (Subtitle) mp.SubList[mi.Index];
 			
 			if(sub.SubType == SubtitleType.VobSubID)
 			{
@@ -1152,9 +1172,9 @@ namespace Power_Mplayer
 			mi_selectsub.MenuItems.Clear();
 
 			// if Subtitles.count <= 0 , will not enter the loop
-			for(int i=0;i<mp.Subtitles.Count;i++)
+			for(int i=0;i<mp.SubList.Count;i++)
 			{
-				MenuItem mi = new MenuItem(((Subtitle) mp.Subtitles[i]).Name);
+				MenuItem mi = new MenuItem(((Subtitle) mp.SubList[i]).Name);
 				mi.Index = i;
 				mi.RadioCheck = true;
 				mi.Click += new System.EventHandler(this.MI_Subtitle_Click);

@@ -33,22 +33,16 @@ namespace Power_Mplayer
 		private System.Windows.Forms.CheckBox Audio_Softvol;
 		private System.Windows.Forms.CheckBox Video_DirectRandering;
 		private System.Windows.Forms.CheckBox Srt_ForceUTF8;
+		private System.Windows.Forms.Button btn_cancel;
 
 		private MplayerSetting msetting;
 
+		// constructure
 		public OptionForm(MplayerSetting ms)
 		{
-			//
-			// Windows Form 設計工具支援的必要項
-			//
 			InitializeComponent();
 
-			//
-			// TODO: 在 InitializeComponent 呼叫之後加入任何建構函式程式碼
-			//
 			this.msetting = ms;
-
-			this.LoadSetting();
 		}
 
 		/// <summary>
@@ -75,6 +69,7 @@ namespace Power_Mplayer
 		{
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tp_general = new System.Windows.Forms.TabPage();
+			this.Srt_ForceUTF8 = new System.Windows.Forms.CheckBox();
 			this.button2 = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txt_mplayer_cmd = new System.Windows.Forms.TextBox();
@@ -90,7 +85,7 @@ namespace Power_Mplayer
 			this.label3 = new System.Windows.Forms.Label();
 			this.btn_close = new System.Windows.Forms.Button();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.Srt_ForceUTF8 = new System.Windows.Forms.CheckBox();
+			this.btn_cancel = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tp_general.SuspendLayout();
 			this.tp_video.SuspendLayout();
@@ -120,6 +115,14 @@ namespace Power_Mplayer
 			this.tp_general.Size = new System.Drawing.Size(368, 271);
 			this.tp_general.TabIndex = 0;
 			this.tp_general.Text = "一般";
+			// 
+			// Srt_ForceUTF8
+			// 
+			this.Srt_ForceUTF8.Location = new System.Drawing.Point(8, 128);
+			this.Srt_ForceUTF8.Name = "Srt_ForceUTF8";
+			this.Srt_ForceUTF8.Size = new System.Drawing.Size(200, 24);
+			this.Srt_ForceUTF8.TabIndex = 3;
+			this.Srt_ForceUTF8.Text = "將字幕自動轉成 utf8 編碼";
 			// 
 			// button2
 			// 
@@ -260,24 +263,27 @@ namespace Power_Mplayer
 			// 
 			// btn_close
 			// 
-			this.btn_close.Location = new System.Drawing.Point(296, 312);
+			this.btn_close.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btn_close.Location = new System.Drawing.Point(216, 312);
 			this.btn_close.Name = "btn_close";
+			this.btn_close.Size = new System.Drawing.Size(75, 24);
 			this.btn_close.TabIndex = 1;
 			this.btn_close.Text = "關閉";
-			this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
 			// 
-			// Srt_ForceUTF8
+			// btn_cancel
 			// 
-			this.Srt_ForceUTF8.Location = new System.Drawing.Point(8, 128);
-			this.Srt_ForceUTF8.Name = "Srt_ForceUTF8";
-			this.Srt_ForceUTF8.Size = new System.Drawing.Size(200, 24);
-			this.Srt_ForceUTF8.TabIndex = 3;
-			this.Srt_ForceUTF8.Text = "將字幕自動轉成 utf8 編碼";
+			this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btn_cancel.Location = new System.Drawing.Point(296, 312);
+			this.btn_cancel.Name = "btn_cancel";
+			this.btn_cancel.Size = new System.Drawing.Size(75, 24);
+			this.btn_cancel.TabIndex = 2;
+			this.btn_cancel.Text = "取消";
 			// 
 			// OptionForm
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
 			this.ClientSize = new System.Drawing.Size(376, 341);
+			this.Controls.Add(this.btn_cancel);
 			this.Controls.Add(this.btn_close);
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -293,7 +299,7 @@ namespace Power_Mplayer
 		}
 		#endregion
 
-		private void LoadSetting()
+		public void LoadSetting()
 		{
 			this.txt_mplayer_cmd.Text = msetting[SetVars.MplayerExe];
 			this.Srt_ForceUTF8.Checked = (msetting[SetVars.SrtForceUTF8] == "1") ? true : false;
@@ -310,17 +316,7 @@ namespace Power_Mplayer
 			return;
 		}
 
-		private void btn_browse_Click(object sender, System.EventArgs e)
-		{
-			this.openFileDialog1.ShowDialog();
-
-			if(this.openFileDialog1.FileName != "")
-			{
-				this.txt_mplayer_cmd.Text = this.openFileDialog1.FileName;
-			}
-		}
-
-		private void btn_close_Click(object sender, System.EventArgs e)
+		public void WriteSetting()
 		{
 			this.msetting[SetVars.MplayerExe] = (this.txt_mplayer_cmd.Text == "") ? @".\mplayer\mplayer.exe" : txt_mplayer_cmd.Text;
 			this.msetting[SetVars.SrtForceUTF8] = this.Srt_ForceUTF8.Checked ? "1" : "0";
@@ -333,8 +329,18 @@ namespace Power_Mplayer
 			this.msetting[SetVars.Video_DR] = this.Video_DirectRandering.Checked ? "1" : "0";
 
 			this.msetting.WriteSetting();
-			this.Dispose();
 		}
+
+		private void btn_browse_Click(object sender, System.EventArgs e)
+		{
+			this.openFileDialog1.ShowDialog();
+
+			if(this.openFileDialog1.FileName != "")
+			{
+				this.txt_mplayer_cmd.Text = this.openFileDialog1.FileName;
+			}
+		}
+
 
 		private void Audio_Softval_CheckedChanged(object sender, System.EventArgs e)
 		{

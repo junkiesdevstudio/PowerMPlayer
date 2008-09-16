@@ -140,7 +140,7 @@ namespace Power_Mplayer
 			{
 				if(str.StartsWith("VSID"))
 				{
-					Subtitle.AddVobSub(mp.Subtitles, mp.CurrentSubtitle.Filename, str);
+					Subtitle.AddVobSub(mp.SubList, mp.CurrentSubtitle.Filename, str);
 					return;
 				}
 

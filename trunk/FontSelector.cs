@@ -13,8 +13,8 @@ namespace Power_Mplayer
 	/// </summary>
 	public class FontSelector : System.Windows.Forms.Form
 	{
-		private MplayerSetting msetting;
-		private const string FontRoot = @"%SystemRoot%\Fonts\";
+		public const string FontRoot = @"%SystemRoot%\Fonts\";
+		private MplayerSetting msetting;		
 
 		private PrivateFontCollection[] privateFontCollection;
 		private System.Collections.ArrayList fontList;
@@ -24,6 +24,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button btn_browse;
 		private System.Windows.Forms.OpenFileDialog openFileDialog1;
+		private System.Windows.Forms.Button btn_Cancel;
 		/// <summary>
 		/// 設計工具所需的變數。
 		/// </summary>
@@ -37,22 +38,30 @@ namespace Power_Mplayer
 			}
 		}
 
-		public FontSelector(MplayerSetting mset)
+		public string FontPath
+		{
+			get
+			{
+				return this.textBox1.Text;
+			}
+			set
+			{
+				this.textBox1.Text = value;
+			}
+		}
+
+		/// <summary>
+		/// Constructure
+		/// </summary>
+		public FontSelector()
 		{
 			//
 			// Windows Form Controls
 			//
 			InitializeComponent();
 
-
-			this.msetting = mset;
-
 			fontList = new System.Collections.ArrayList();
-
 			LoadAllFonts();
-
-			if(mset[SetVars.SubFont] != null)
-				this.textBox1.Text = System.Environment.ExpandEnvironmentVariables(mset[SetVars.SubFont]);
 		}
 
 		/// <summary>
@@ -86,6 +95,7 @@ namespace Power_Mplayer
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.btn_browse = new System.Windows.Forms.Button();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.btn_Cancel = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// listBox1
@@ -99,12 +109,12 @@ namespace Power_Mplayer
 			// 
 			// btn_OK
 			// 
+			this.btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.btn_OK.Location = new System.Drawing.Point(224, 32);
 			this.btn_OK.Name = "btn_OK";
 			this.btn_OK.Size = new System.Drawing.Size(72, 24);
 			this.btn_OK.TabIndex = 1;
 			this.btn_OK.Text = "確定";
-			this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
 			// 
 			// label1
 			// 
@@ -126,14 +136,25 @@ namespace Power_Mplayer
 			// 
 			this.btn_browse.Location = new System.Drawing.Point(224, 248);
 			this.btn_browse.Name = "btn_browse";
+			this.btn_browse.Size = new System.Drawing.Size(72, 23);
 			this.btn_browse.TabIndex = 4;
 			this.btn_browse.Text = "瀏覽";
 			this.btn_browse.Click += new System.EventHandler(this.btn_browse_Click);
+			// 
+			// btn_Cancel
+			// 
+			this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btn_Cancel.Location = new System.Drawing.Point(224, 64);
+			this.btn_Cancel.Name = "btn_Cancel";
+			this.btn_Cancel.Size = new System.Drawing.Size(72, 24);
+			this.btn_Cancel.TabIndex = 5;
+			this.btn_Cancel.Text = " 取消";
 			// 
 			// FontSelector
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
 			this.ClientSize = new System.Drawing.Size(306, 282);
+			this.Controls.Add(this.btn_Cancel);
 			this.Controls.Add(this.btn_browse);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
@@ -176,10 +197,10 @@ namespace Power_Mplayer
 			for(int i=0;i<files.Length;i++)
 			{
 				//string tmp = Path.GetExtension(files[i]).ToLower();
-				if(Path.GetExtension(files[i]).ToLower() != ".ttf")
-					continue;
-
-				fontList.Add(files[i]);
+				string ext = Path.GetExtension(files[i]).ToLower();
+				
+				if(ext == ".ttf" || ext == ".ttc")
+					fontList.Add(files[i]);
 			}
 
 			this.privateFontCollection = new PrivateFontCollection[fontList.Count];
@@ -193,19 +214,6 @@ namespace Power_Mplayer
 			}
 		}
 
-		private void btn_OK_Click(object sender, System.EventArgs e)
-		{
-			string expendFontRoot = System.Environment.ExpandEnvironmentVariables(FontRoot);
-
-			if(textBox1.Text.StartsWith(expendFontRoot))
-				this.msetting[SetVars.SubFont] = FontRoot + Path.GetFileName(textBox1.Text);
-			else
-				this.msetting[SetVars.SubFont] = this.textBox1.Text;
-
-			this.msetting.WriteSetting();
-			this.Dispose();
-		}
-
 		private void listBox1_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			this.textBox1.Text = (string) this.fontList[this.listBox1.SelectedIndex];
@@ -213,7 +221,7 @@ namespace Power_Mplayer
 
 		private void btn_browse_Click(object sender, System.EventArgs e)
 		{
-			this.openFileDialog1.Filter = "TrueType 字型|*.ttf";
+			this.openFileDialog1.Filter = "TrueType 字型|*.ttf, *.ttc";
 			this.openFileDialog1.ShowDialog();
 
 			if(this.openFileDialog1.FileName != null && this.openFileDialog1.FileName != "")
