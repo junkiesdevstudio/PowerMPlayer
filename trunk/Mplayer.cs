@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Threading;
+using System.Collections;
 
 namespace Power_Mplayer
 {
@@ -29,7 +30,7 @@ namespace Power_Mplayer
 		// power mplayer info
 		private MediaInfo minfo;
 		private MplayerSetting msetting;
-		private SubtitleList sublist;
+		private ArrayList sublist;
 		private Subtitle sub;
 
 		public MediaType mediaType;
@@ -70,7 +71,7 @@ namespace Power_Mplayer
 			}
 		}
 
-		public SubtitleList Subtitles
+		public ArrayList Subtitles
 		{
 			get
 			{
@@ -102,7 +103,6 @@ namespace Power_Mplayer
 			stderr = new MyStreamReader(minfo);
 
 			msetting = new MplayerSetting();
-			sublist = new SubtitleList();
 		}
 
 		public bool HasInstense()
@@ -217,13 +217,13 @@ namespace Power_Mplayer
 				{
 					case MediaType.File:
 						// load all subtitles
-						this.sublist.FindSubtitle(this.CurrentMediaFilename);
+						sublist = Subtitle.FindSubtitle(this.CurrentMediaFilename);
 						if(this.sub == null)
 						{
 							if(this.sublist.Count > 1)
-								this.sub = sublist[1];
+								this.sub = (Subtitle) sublist[1];
 							else
-								this.sub = sublist[0];
+								this.sub = (Subtitle) sublist[0];
 						}
 
 						// use subtitle
@@ -247,6 +247,9 @@ namespace Power_Mplayer
 						mplayerProc.StartInfo.Arguments += " -cache 8192";
 						break;
 				}
+
+				if(this.sublist == null || this.sublist.Count == 0)
+					sublist = Subtitle.FindSubtitle(null);
 
 				// append filename
 				mplayerProc.StartInfo.Arguments += " " + "\"" + this.CurrentMediaFilename + "\"";
@@ -341,7 +344,8 @@ namespace Power_Mplayer
 					if(File.Exists(dest))
 						File.Delete(dest);
 				}
-
+				
+				this.sublist.Clear();
 				sub = null;
 
 				this.mediaType = MediaType.None;

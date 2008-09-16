@@ -1134,7 +1134,7 @@ namespace Power_Mplayer
 		{
 			MenuItem mi = (MenuItem) sender;
 
-			Subtitle sub = mp.Subtitles[mi.Index];
+			Subtitle sub = (Subtitle) mp.Subtitles[mi.Index];
 			
 			if(sub.SubType == SubtitleType.VobSubID)
 			{
@@ -1154,7 +1154,7 @@ namespace Power_Mplayer
 			// if Subtitles.count <= 0 , will not enter the loop
 			for(int i=0;i<mp.Subtitles.Count;i++)
 			{
-				MenuItem mi = new MenuItem(mp.Subtitles[i].Name);
+				MenuItem mi = new MenuItem(((Subtitle) mp.Subtitles[i]).Name);
 				mi.Index = i;
 				mi.RadioCheck = true;
 				mi.Click += new System.EventHandler(this.MI_Subtitle_Click);
@@ -1235,7 +1235,7 @@ namespace Power_Mplayer
 		{
 			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
 			
-			this.Start(s[0]);
+			this.Start("file://"+s[0]);
 		}
 
 		#endregion

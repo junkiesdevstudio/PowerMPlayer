@@ -88,58 +88,22 @@ namespace Power_Mplayer
 				return ret;
 			}
 		}
-	}
-
-	/// <summary>
-	/// SubtitleList Class
-	/// </summary>
-	public class SubtitleList
-	{
-		private ArrayList sublist;
-		private string subdir;
-
-		public int Count
-		{
-			get
-			{
-				return sublist.Count;
-			}
-		}
-
-		public Subtitle this[int index]
-		{
-			get
-			{
-				return (Subtitle) sublist[index];
-			}
-		}
-
-		// constructure
-		public SubtitleList()
-		{
-			sublist = new ArrayList();
-			subdir = "";
-		}
-
-		~SubtitleList()
-		{
-			sublist.Clear();
-		}
 
 		/// <summary>Find all available subtitles</summary>
 		/// <param name="filename">Media filename</param>
 		/// <returns>Numbers of found subtitles.</returns>
-		public int FindSubtitle(string filename)
+		public static ArrayList FindSubtitle(string filename)
 		{
-			if(!File.Exists(filename))
-				return -1;
+			ArrayList sublist = new ArrayList();
 
-			subdir = Path.GetDirectoryName(filename);
-			filename = Path.GetFileNameWithoutExtension(filename);
-
-			sublist.Clear();
 			// add no subtitle			
 			sublist.Add(new Subtitle(null));
+
+			if(filename == null || !File.Exists(filename))
+				return sublist;
+
+			string subdir = Path.GetDirectoryName(filename);
+			filename = Path.GetFileNameWithoutExtension(filename);
 
 			string[] files = System.IO.Directory.GetFiles(subdir);
 
@@ -158,10 +122,10 @@ namespace Power_Mplayer
 				}
 			}
 
-			return sublist.Count;
+			return sublist;
 		}
 
-		public bool AddVobSub(string subfile, string str)
+		public static bool AddVobSub(ArrayList sublist, string subfile, string str)
 		{
 			if(!str.StartsWith("VSID_"))
 				return false;
@@ -175,5 +139,6 @@ namespace Power_Mplayer
 
 			return true;
 		}
+
 	}
 }
