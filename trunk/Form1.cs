@@ -75,6 +75,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_BrightnessLess;
 		private System.Windows.Forms.MenuItem MI_ContrastMore;
 		private System.Windows.Forms.MenuItem MI_ContrastLess;
+		private System.Windows.Forms.MenuItem MI_TopMost;
 		private Mplayer mp;
 
 		public Form1()
@@ -156,11 +157,11 @@ namespace Power_Mplayer
 			this.menuItem6 = new System.Windows.Forms.MenuItem();
 			this.MI_Fullscreen = new System.Windows.Forms.MenuItem();
 			this.menuItem13 = new System.Windows.Forms.MenuItem();
-			this.MI_BrightnessMore = new System.Windows.Forms.MenuItem();
 			this.MI_BrightnessLess = new System.Windows.Forms.MenuItem();
+			this.MI_BrightnessMore = new System.Windows.Forms.MenuItem();
 			this.menuItem28 = new System.Windows.Forms.MenuItem();
-			this.MI_ContrastMore = new System.Windows.Forms.MenuItem();
 			this.MI_ContrastLess = new System.Windows.Forms.MenuItem();
+			this.MI_ContrastMore = new System.Windows.Forms.MenuItem();
 			this.menuItem14 = new System.Windows.Forms.MenuItem();
 			this.menuItem8 = new System.Windows.Forms.MenuItem();
 			this.MI_SelectSubtitle = new System.Windows.Forms.MenuItem();
@@ -199,6 +200,7 @@ namespace Power_Mplayer
 			this.MI_About = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.MI_TopMost = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -361,12 +363,13 @@ namespace Power_Mplayer
 			// 
 			this.menuItem6.Index = 1;
 			this.menuItem6.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																					  this.MI_TopMost,
 																					  this.MI_Fullscreen});
 			this.menuItem6.Text = "播放(&P)";
 			// 
 			// MI_Fullscreen
 			// 
-			this.MI_Fullscreen.Index = 0;
+			this.MI_Fullscreen.Index = 1;
 			this.MI_Fullscreen.Shortcut = System.Windows.Forms.Shortcut.F11;
 			this.MI_Fullscreen.Text = "全螢幕播放";
 			this.MI_Fullscreen.Click += new System.EventHandler(this.BigScreen_DoubleClick);
@@ -382,13 +385,6 @@ namespace Power_Mplayer
 																					   this.MI_ContrastMore});
 			this.menuItem13.Text = "視訊(&V)";
 			// 
-			// MI_BrightnessMore
-			// 
-			this.MI_BrightnessMore.Index = 1;
-			this.MI_BrightnessMore.Shortcut = System.Windows.Forms.Shortcut.CtrlR;
-			this.MI_BrightnessMore.Text = "亮度 +";
-			this.MI_BrightnessMore.Click += new System.EventHandler(this.MI_BrightnessMore_Click);
-			// 
 			// MI_BrightnessLess
 			// 
 			this.MI_BrightnessLess.Index = 0;
@@ -396,17 +392,17 @@ namespace Power_Mplayer
 			this.MI_BrightnessLess.Text = "亮度 -";
 			this.MI_BrightnessLess.Click += new System.EventHandler(this.MI_BrightnessLess_Click);
 			// 
+			// MI_BrightnessMore
+			// 
+			this.MI_BrightnessMore.Index = 1;
+			this.MI_BrightnessMore.Shortcut = System.Windows.Forms.Shortcut.CtrlR;
+			this.MI_BrightnessMore.Text = "亮度 +";
+			this.MI_BrightnessMore.Click += new System.EventHandler(this.MI_BrightnessMore_Click);
+			// 
 			// menuItem28
 			// 
 			this.menuItem28.Index = 2;
 			this.menuItem28.Text = "-";
-			// 
-			// MI_ContrastMore
-			// 
-			this.MI_ContrastMore.Index = 4;
-			this.MI_ContrastMore.Shortcut = System.Windows.Forms.Shortcut.CtrlF;
-			this.MI_ContrastMore.Text = "對比 +";
-			this.MI_ContrastMore.Click += new System.EventHandler(this.MI_ContrastMore_Click);
 			// 
 			// MI_ContrastLess
 			// 
@@ -414,6 +410,13 @@ namespace Power_Mplayer
 			this.MI_ContrastLess.Shortcut = System.Windows.Forms.Shortcut.CtrlD;
 			this.MI_ContrastLess.Text = "對比 -";
 			this.MI_ContrastLess.Click += new System.EventHandler(this.MI_ContrastLess_Click);
+			// 
+			// MI_ContrastMore
+			// 
+			this.MI_ContrastMore.Index = 4;
+			this.MI_ContrastMore.Shortcut = System.Windows.Forms.Shortcut.CtrlF;
+			this.MI_ContrastMore.Text = "對比 +";
+			this.MI_ContrastMore.Click += new System.EventHandler(this.MI_ContrastMore_Click);
 			// 
 			// menuItem14
 			// 
@@ -669,6 +672,12 @@ namespace Power_Mplayer
 			// 
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
+			// MI_TopMost
+			// 
+			this.MI_TopMost.Index = 0;
+			this.MI_TopMost.Text = "置頂";
+			this.MI_TopMost.Click += new System.EventHandler(this.MI_TopMost_Click);
 			// 
 			// Form1
 			// 
@@ -946,6 +955,7 @@ namespace Power_Mplayer
 
 				this.FormBorderStyle = FormBorderStyle.None;
 				this.WindowState = FormWindowState.Maximized;
+				this.TopMost = true;
 				
 				int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
 				int cy = Win32API.GetSystemMetrics(Win32API.SM_CYSCREEN);
@@ -955,8 +965,11 @@ namespace Power_Mplayer
 			{
 				this.Menu = this.mainMenu1;
 				this.statusBar1.Visible = true;
-				this.WindowState = FormWindowState.Normal;
+
 				this.FormBorderStyle = FormBorderStyle.Sizable;
+				this.WindowState = FormWindowState.Normal;
+				this.TopMost = false;
+
 
 				this.Width = mp.Video_Width;
 				this.Height = mp.Video_Height + this.panel1.Height + (this.Height - this.ClientSize.Height);
@@ -1204,6 +1217,12 @@ namespace Power_Mplayer
 		private void MI_ContrastLess_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Contrast = -1;
+		}
+
+		private void MI_TopMost_Click(object sender, System.EventArgs e)
+		{
+			MI_TopMost.Checked = !MI_TopMost.Checked;
+			this.TopMost = MI_TopMost.Checked;
 		}
 	}
 }
