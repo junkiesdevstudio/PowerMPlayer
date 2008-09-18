@@ -888,6 +888,12 @@ namespace Power_Mplayer
 			//MessageBox.Show(mp.Width.ToString());
 		}
 
+		private void BackToPauseState()
+		{
+			if(btn_pause.ImageIndex == 0)
+				mp.Pause();
+		}
+
 		private void btn_stop_Click(object sender, System.EventArgs e)
 		{
 			Stop();
@@ -898,6 +904,8 @@ namespace Power_Mplayer
 		{
 			mp.Volume = VolumeBar.Value;
 			btn_mute.ImageIndex = 3;
+
+			this.BackToPauseState();
 		}
 
 		private void MovieBar_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -909,6 +917,8 @@ namespace Power_Mplayer
 
 			mp.Percent_Pos = val;
 			MovieBar.Value = val;
+
+			this.BackToPauseState();
 		}
 
 		private void MI_OpenURL_Click(object sender, System.EventArgs e)
@@ -1354,21 +1364,25 @@ namespace Power_Mplayer
 		private void MI_BrightnessMore_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Brightness = 1;
+			this.BackToPauseState();
 		}
 
 		private void MI_BrightnessLess_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Brightness = -1;
+			this.BackToPauseState();
 		}
 
 		private void MI_ContrastMore_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Contrast = 1;
+			this.BackToPauseState();
 		}
 
 		private void MI_ContrastLess_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Contrast = -1;
+			this.BackToPauseState();
 		}
 
 		private void MI_TopMost_Click(object sender, System.EventArgs e)
@@ -1380,31 +1394,37 @@ namespace Power_Mplayer
 		private void MI_GammaLess_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Gamma = -10;
+			this.BackToPauseState();
 		}
 
 		private void MI_GammaMore_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Gamma = 10;
+			this.BackToPauseState();
 		}
 
 		private void MI_HueLess_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Hue = -10;
+			this.BackToPauseState();
 		}
 
 		private void MI_HueMore_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Hue = +10;
+			this.BackToPauseState();
 		}
 
 		private void MI_SaturationLess_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Saturation = -10;
+			this.BackToPauseState();
 		}
 
 		private void MI_SaturationMore_Click(object sender, System.EventArgs e)
 		{
 			mp.Video_Saturation = 10;
+			this.BackToPauseState();
 		}
 
 

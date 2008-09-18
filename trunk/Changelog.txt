@@ -1,9 +1,15 @@
+Power Mplayer v0.3
+	* add /hue/saturation/gamma
+	* rewrite some dialog
+	* fix some bugs
+	* add play url
+
 Power Mplayer v0.2
 	* rewrite MplayerSetting.
 	* add options.
 	* DragDropFile , temp solution. later will add files to Playlist.
 	* Add Option: Force Translate Encoding to UTF8, for loading unicode subtitle problem.
-	* Add change brightness/contrast
+	* Add change brightness/contrast/hue/saturation/gamma
 
 Power Mplayer v0.1	2008.09.14:
 	First Release, I have worked about three weeks.
