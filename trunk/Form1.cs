@@ -70,7 +70,6 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem menuItem14;
 		private System.Windows.Forms.MenuItem menuItem15;
 		private System.Windows.Forms.MenuItem MI_Fullscreen;
-		private System.Windows.Forms.MenuItem menuItem28;
 		private System.Windows.Forms.MenuItem MI_BrightnessMore;
 		private System.Windows.Forms.MenuItem MI_BrightnessLess;
 		private System.Windows.Forms.MenuItem MI_ContrastMore;
@@ -80,6 +79,17 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_OpenURL;
 		private Mplayer mp;
 		private OptionForm optForm;
+		private System.Windows.Forms.MenuItem MI_Brightness;
+		private System.Windows.Forms.MenuItem MI_Contrast;
+		private System.Windows.Forms.MenuItem MI_Gamma;
+		private System.Windows.Forms.MenuItem MI_Hue;
+		private System.Windows.Forms.MenuItem MI_Saturation;
+		private System.Windows.Forms.MenuItem MI_GammaLess;
+		private System.Windows.Forms.MenuItem MI_GammaMore;
+		private System.Windows.Forms.MenuItem MI_HueLess;
+		private System.Windows.Forms.MenuItem MI_HueMore;
+		private System.Windows.Forms.MenuItem MI_SaturationLess;
+		private System.Windows.Forms.MenuItem MI_SaturationMore;
 		private FontSelector fontSelect;
 
 		public Form1()
@@ -156,17 +166,28 @@ namespace Power_Mplayer
 			this.mainMenu1 = new System.Windows.Forms.MainMenu();
 			this.menuItem1 = new System.Windows.Forms.MenuItem();
 			this.MI_OpenFile = new System.Windows.Forms.MenuItem();
+			this.MI_OpenURL = new System.Windows.Forms.MenuItem();
 			this.menuItem4 = new System.Windows.Forms.MenuItem();
 			this.MI_Exit = new System.Windows.Forms.MenuItem();
 			this.menuItem6 = new System.Windows.Forms.MenuItem();
 			this.MI_TopMost = new System.Windows.Forms.MenuItem();
 			this.MI_Fullscreen = new System.Windows.Forms.MenuItem();
 			this.menuItem13 = new System.Windows.Forms.MenuItem();
+			this.MI_Brightness = new System.Windows.Forms.MenuItem();
 			this.MI_BrightnessLess = new System.Windows.Forms.MenuItem();
 			this.MI_BrightnessMore = new System.Windows.Forms.MenuItem();
-			this.menuItem28 = new System.Windows.Forms.MenuItem();
+			this.MI_Contrast = new System.Windows.Forms.MenuItem();
 			this.MI_ContrastLess = new System.Windows.Forms.MenuItem();
 			this.MI_ContrastMore = new System.Windows.Forms.MenuItem();
+			this.MI_Gamma = new System.Windows.Forms.MenuItem();
+			this.MI_GammaLess = new System.Windows.Forms.MenuItem();
+			this.MI_GammaMore = new System.Windows.Forms.MenuItem();
+			this.MI_Hue = new System.Windows.Forms.MenuItem();
+			this.MI_HueLess = new System.Windows.Forms.MenuItem();
+			this.MI_HueMore = new System.Windows.Forms.MenuItem();
+			this.MI_Saturation = new System.Windows.Forms.MenuItem();
+			this.MI_SaturationLess = new System.Windows.Forms.MenuItem();
+			this.MI_SaturationMore = new System.Windows.Forms.MenuItem();
 			this.menuItem14 = new System.Windows.Forms.MenuItem();
 			this.menuItem8 = new System.Windows.Forms.MenuItem();
 			this.MI_SelectSubtitle = new System.Windows.Forms.MenuItem();
@@ -205,7 +226,6 @@ namespace Power_Mplayer
 			this.MI_About = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.MI_OpenURL = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -354,6 +374,12 @@ namespace Power_Mplayer
 			this.MI_OpenFile.Text = "開啟檔案(&O)";
 			this.MI_OpenFile.Click += new System.EventHandler(this.Menu_OpenFile);
 			// 
+			// MI_OpenURL
+			// 
+			this.MI_OpenURL.Index = 1;
+			this.MI_OpenURL.Text = "開啟 URL";
+			this.MI_OpenURL.Click += new System.EventHandler(this.MI_OpenURL_Click);
+			// 
 			// menuItem4
 			// 
 			this.menuItem4.Index = 2;
@@ -390,12 +416,20 @@ namespace Power_Mplayer
 			// 
 			this.menuItem13.Index = 2;
 			this.menuItem13.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					   this.MI_BrightnessLess,
-																					   this.MI_BrightnessMore,
-																					   this.menuItem28,
-																					   this.MI_ContrastLess,
-																					   this.MI_ContrastMore});
+																					   this.MI_Brightness,
+																					   this.MI_Contrast,
+																					   this.MI_Gamma,
+																					   this.MI_Hue,
+																					   this.MI_Saturation});
 			this.menuItem13.Text = "視訊(&V)";
+			// 
+			// MI_Brightness
+			// 
+			this.MI_Brightness.Index = 0;
+			this.MI_Brightness.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																						  this.MI_BrightnessLess,
+																						  this.MI_BrightnessMore});
+			this.MI_Brightness.Text = "亮度";
 			// 
 			// MI_BrightnessLess
 			// 
@@ -411,24 +445,87 @@ namespace Power_Mplayer
 			this.MI_BrightnessMore.Text = "亮度 +";
 			this.MI_BrightnessMore.Click += new System.EventHandler(this.MI_BrightnessMore_Click);
 			// 
-			// menuItem28
+			// MI_Contrast
 			// 
-			this.menuItem28.Index = 2;
-			this.menuItem28.Text = "-";
+			this.MI_Contrast.Index = 1;
+			this.MI_Contrast.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																						this.MI_ContrastLess,
+																						this.MI_ContrastMore});
+			this.MI_Contrast.Text = "對比";
 			// 
 			// MI_ContrastLess
 			// 
-			this.MI_ContrastLess.Index = 3;
+			this.MI_ContrastLess.Index = 0;
 			this.MI_ContrastLess.Shortcut = System.Windows.Forms.Shortcut.CtrlD;
 			this.MI_ContrastLess.Text = "對比 -";
 			this.MI_ContrastLess.Click += new System.EventHandler(this.MI_ContrastLess_Click);
 			// 
 			// MI_ContrastMore
 			// 
-			this.MI_ContrastMore.Index = 4;
+			this.MI_ContrastMore.Index = 1;
 			this.MI_ContrastMore.Shortcut = System.Windows.Forms.Shortcut.CtrlF;
 			this.MI_ContrastMore.Text = "對比 +";
 			this.MI_ContrastMore.Click += new System.EventHandler(this.MI_ContrastMore_Click);
+			// 
+			// MI_Gamma
+			// 
+			this.MI_Gamma.Index = 2;
+			this.MI_Gamma.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																					 this.MI_GammaLess,
+																					 this.MI_GammaMore});
+			this.MI_Gamma.Text = "Gamma";
+			// 
+			// MI_GammaLess
+			// 
+			this.MI_GammaLess.Index = 0;
+			this.MI_GammaLess.Text = "Gamma -";
+			this.MI_GammaLess.Click += new System.EventHandler(this.MI_GammaLess_Click);
+			// 
+			// MI_GammaMore
+			// 
+			this.MI_GammaMore.Index = 1;
+			this.MI_GammaMore.Text = "Gamma +";
+			this.MI_GammaMore.Click += new System.EventHandler(this.MI_GammaMore_Click);
+			// 
+			// MI_Hue
+			// 
+			this.MI_Hue.Index = 3;
+			this.MI_Hue.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																				   this.MI_HueLess,
+																				   this.MI_HueMore});
+			this.MI_Hue.Text = "色調";
+			// 
+			// MI_HueLess
+			// 
+			this.MI_HueLess.Index = 0;
+			this.MI_HueLess.Text = "色調 -";
+			this.MI_HueLess.Click += new System.EventHandler(this.MI_HueLess_Click);
+			// 
+			// MI_HueMore
+			// 
+			this.MI_HueMore.Index = 1;
+			this.MI_HueMore.Text = "色調 +";
+			this.MI_HueMore.Click += new System.EventHandler(this.MI_HueMore_Click);
+			// 
+			// MI_Saturation
+			// 
+			this.MI_Saturation.Index = 4;
+			this.MI_Saturation.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																						  this.MI_SaturationLess,
+																						  this.MI_SaturationMore});
+			this.MI_Saturation.Text = "飽和度";
+			// 
+			// MI_SaturationLess
+			// 
+			this.MI_SaturationLess.Index = 0;
+			this.MI_SaturationLess.Text = "飽和度 -";
+			this.MI_SaturationLess.Click += new System.EventHandler(this.MI_SaturationLess_Click);
+			// 
+			// MI_SaturationMore
+			// 
+			this.MI_SaturationMore.Index = 1;
+			this.MI_SaturationMore.Text = "飽和度 +";
+			this.MI_SaturationMore.Click += new System.EventHandler(this.MI_SaturationMore_Click);
 			// 
 			// menuItem14
 			// 
@@ -684,12 +781,6 @@ namespace Power_Mplayer
 			// 
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
-			// MI_OpenURL
-			// 
-			this.MI_OpenURL.Index = 1;
-			this.MI_OpenURL.Text = "開啟 URL";
-			this.MI_OpenURL.Click += new System.EventHandler(this.MI_OpenURL_Click);
 			// 
 			// Form1
 			// 
@@ -1284,6 +1375,36 @@ namespace Power_Mplayer
 		{
 			MI_TopMost.Checked = !MI_TopMost.Checked;
 			this.TopMost = MI_TopMost.Checked;
+		}
+
+		private void MI_GammaLess_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Gamma = -10;
+		}
+
+		private void MI_GammaMore_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Gamma = 10;
+		}
+
+		private void MI_HueLess_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Hue = -10;
+		}
+
+		private void MI_HueMore_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Hue = +10;
+		}
+
+		private void MI_SaturationLess_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Saturation = -10;
+		}
+
+		private void MI_SaturationMore_Click(object sender, System.EventArgs e)
+		{
+			mp.Video_Saturation = 10;
 		}
 
 

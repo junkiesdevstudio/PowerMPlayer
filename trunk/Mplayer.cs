@@ -476,6 +476,39 @@ namespace Power_Mplayer
 			}
 		}
 
+		public int Video_Hue
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("hue " + value.ToString() + " ");
+				}
+			}
+		}
+
+		public int Video_Saturation
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("saturation " + value.ToString() + " ");
+				}
+			}
+		}
+
+		public int Video_Gamma
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("gamma " + value.ToString() + " ");
+				}
+			}
+		}
+
 		#region Sub Property
 
 		public double Sub_Scale
