@@ -90,6 +90,8 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_HueMore;
 		private System.Windows.Forms.MenuItem MI_SaturationLess;
 		private System.Windows.Forms.MenuItem MI_SaturationMore;
+		private System.Windows.Forms.ListView Playlist;
+		private System.Windows.Forms.MenuItem MI_ShowPlaylist;
 		private FontSelector fontSelect;
 
 		public Form1()
@@ -170,6 +172,7 @@ namespace Power_Mplayer
 			this.menuItem4 = new System.Windows.Forms.MenuItem();
 			this.MI_Exit = new System.Windows.Forms.MenuItem();
 			this.menuItem6 = new System.Windows.Forms.MenuItem();
+			this.MI_ShowPlaylist = new System.Windows.Forms.MenuItem();
 			this.MI_TopMost = new System.Windows.Forms.MenuItem();
 			this.MI_Fullscreen = new System.Windows.Forms.MenuItem();
 			this.menuItem13 = new System.Windows.Forms.MenuItem();
@@ -226,6 +229,7 @@ namespace Power_Mplayer
 			this.MI_About = new System.Windows.Forms.MenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.Playlist = new System.Windows.Forms.ListView();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -395,19 +399,26 @@ namespace Power_Mplayer
 			// 
 			this.menuItem6.Index = 1;
 			this.menuItem6.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																					  this.MI_ShowPlaylist,
 																					  this.MI_TopMost,
 																					  this.MI_Fullscreen});
 			this.menuItem6.Text = "播放(&P)";
 			// 
+			// MI_ShowPlaylist
+			// 
+			this.MI_ShowPlaylist.Index = 0;
+			this.MI_ShowPlaylist.Text = "顯示播放清單";
+			this.MI_ShowPlaylist.Click += new System.EventHandler(this.MI_ShowPlaylist_Click);
+			// 
 			// MI_TopMost
 			// 
-			this.MI_TopMost.Index = 0;
+			this.MI_TopMost.Index = 1;
 			this.MI_TopMost.Text = "置頂";
 			this.MI_TopMost.Click += new System.EventHandler(this.MI_TopMost_Click);
 			// 
 			// MI_Fullscreen
 			// 
-			this.MI_Fullscreen.Index = 1;
+			this.MI_Fullscreen.Index = 2;
 			this.MI_Fullscreen.Shortcut = System.Windows.Forms.Shortcut.F11;
 			this.MI_Fullscreen.Text = "全螢幕播放";
 			this.MI_Fullscreen.Click += new System.EventHandler(this.BigScreen_DoubleClick);
@@ -782,10 +793,18 @@ namespace Power_Mplayer
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
+			// Playlist
+			// 
+			this.Playlist.Location = new System.Drawing.Point(416, 24);
+			this.Playlist.Name = "Playlist";
+			this.Playlist.Size = new System.Drawing.Size(152, 97);
+			this.Playlist.TabIndex = 5;
+			// 
 			// Form1
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
 			this.ClientSize = new System.Drawing.Size(568, 397);
+			this.Controls.Add(this.Playlist);
 			this.Controls.Add(this.MainPanel);
 			this.Controls.Add(this.panel1);
 			this.Menu = this.mainMenu1;
@@ -832,6 +851,8 @@ namespace Power_Mplayer
 			
 			btn_mute.Top = btn_pause.Top;
 			VolumeBar.Top = btn_pause.Top;
+
+			Playlist.Top = 0;
 			
 			this.Form1_Resize(sender, e);
 		}
@@ -860,6 +881,8 @@ namespace Power_Mplayer
 				MainPanel.Height -= this.panel1.Height;
 
 			MainPanel.Width = this.ClientSize.Width;
+			if(!this.isFullscreen && MI_ShowPlaylist.Checked)
+				MainPanel.Width -= Playlist.Width;
 
 			if(aspect == 0)
 			{
@@ -884,6 +907,18 @@ namespace Power_Mplayer
 				BigScreen.Left = (MainPanel.Width - BigScreen.Width) / 2;
 				BigScreen.Top = (MainPanel.Height - BigScreen.Height) / 2;
 			}
+
+			if(this.MI_ShowPlaylist.Checked)
+			{
+				this.Playlist.Visible = true;
+			}
+			else
+			{
+				this.Playlist.Visible = false;
+			}
+
+			this.Playlist.Height = this.ClientSize.Height - this.panel1.Height;
+			this.Playlist.Left = this.ClientSize.Width - this.Playlist.Width;
 
 			//MessageBox.Show(mp.Width.ToString());
 		}
@@ -1425,6 +1460,14 @@ namespace Power_Mplayer
 		{
 			mp.Video_Saturation = 10;
 			this.BackToPauseState();
+		}
+
+		private void MI_ShowPlaylist_Click(object sender, System.EventArgs e)
+		{
+			MI_ShowPlaylist.Checked = !MI_ShowPlaylist.Checked;
+			Playlist.Visible = MI_ShowPlaylist.Checked;
+
+			this.Form1_Resize(sender, e);
 		}
 
 
