@@ -1114,14 +1114,9 @@ namespace Power_Mplayer
 			if(this.openFileDialog1.FileName != "")
 			{
 				mp.Playlist.Clear();
-				foreach(string str in this.openFileDialog1.FileNames)
-				{
-					mp.Playlist.Add("file://" + str);
-				}
+				this.Playlist_AddItem(this.openFileDialog1.FileNames);
 
-				this.CreatePlaylistItems();
-
-				Start("file://" + this.openFileDialog1.FileNames[0]);
+				Start(mp.Playlist.First());
 			}
 		}
 
@@ -1167,6 +1162,14 @@ namespace Power_Mplayer
 					this.MovieBar.Value = 0;
 				}
 
+			}
+			else
+			{
+				Quit();
+
+				string fname = mp.Playlist.Next();
+				if(fname != null)
+					Start(fname);
 			}
 		}
 
@@ -1447,14 +1450,9 @@ namespace Power_Mplayer
 			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
 			
 			mp.Playlist.Clear();
-			foreach(string str in s)
-			{
-				mp.Playlist.Add("file://" + str);
-			}
+			this.Playlist_AddItem(s);
 
-			this.CreatePlaylistItems();
-
-			Start("file://" + s[0]);
+			Start(mp.Playlist.First());
 		}
 
 		#endregion
@@ -1538,28 +1536,6 @@ namespace Power_Mplayer
 			this.Form1_Resize(sender, e);
 		}
 
-		private void CreatePlaylistItems()
-		{
-			Playlist.Items.Clear();
-
-			for(int i=0;i<mp.Playlist.Count;i++)
-			{
-				string str = (string) mp.Playlist[i];
-				
-				if(str.StartsWith("file://"))
-					str = Path.GetFileName(str);
-				
-				Playlist.Items.Add(new ListViewItem( str ));
-			}
-		}
-
-		private void Playlist_DoubleClick(object sender, System.EventArgs e)
-		{
-			int index = Playlist.SelectedIndices[0];
-
-			this.Start((string) mp.Playlist[index]);
-		}
-
 		#region splitter Eventes
 
 		private bool SplitMousePress = false;
@@ -1592,6 +1568,43 @@ namespace Power_Mplayer
 
 		#endregion
 
+		#region Playlist Events
+
+		private void CreatePlaylistItems()
+		{
+			Playlist.Items.Clear();
+
+			for(int i=0;i<mp.Playlist.Count;i++)
+			{
+				string str = (string) mp.Playlist[i];
+				
+				if(str.StartsWith("file://"))
+					str = Path.GetFileName(str);
+				
+				Playlist.Items.Add(new ListViewItem( str ));
+			}
+		}
+
+		private void Playlist_DoubleClick(object sender, System.EventArgs e)
+		{
+			int index = Playlist.SelectedIndices[0];
+
+			this.Start((string) mp.Playlist[index]);
+		}
+
+		private void Playlist_AddItem(string[] s)
+		{
+			foreach(string str in s)
+			{
+				if(str.IndexOf("//") <= 0)
+					mp.Playlist.Add("file://" + str);
+				else
+					mp.Playlist.Add(str);
+			}
+
+			this.CreatePlaylistItems();
+		}
+
 		private void Playlist_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
 		{
 			if(e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -1604,12 +1617,7 @@ namespace Power_Mplayer
 		{
 			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
 			
-			foreach(string str in s)
-			{
-				mp.Playlist.Add("file://" + str);
-			}
-
-			this.CreatePlaylistItems();
+			this.Playlist_AddItem(s);
 		}
 
 		private void Playlist_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -1624,6 +1632,8 @@ namespace Power_Mplayer
 				this.CreatePlaylistItems();
 			}
 		}
+
+		#endregion
 
 	}
 }

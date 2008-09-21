@@ -36,7 +36,7 @@ namespace Power_Mplayer
 		public MediaType mediaType;
 		private string mediaFilename;
 		private Panel BigScreen;
-		private ArrayList playlist;
+		private MPlaylist playlist;
 
 		private string CurrentMediaFilename
 		{
@@ -80,7 +80,7 @@ namespace Power_Mplayer
 			set	{ sub = value;}
 		}
 
-		public ArrayList Playlist
+		public MPlaylist Playlist
 		{
 			get	{ return playlist; }
 		}
@@ -97,7 +97,7 @@ namespace Power_Mplayer
 			stderr = new MyStreamReader(minfo);
 
 			msetting = new MplayerSetting();
-			playlist = new ArrayList();
+			playlist = new MPlaylist();
 		}
 
 		public bool HasInstense()
