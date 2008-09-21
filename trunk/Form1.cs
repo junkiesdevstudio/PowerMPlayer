@@ -854,8 +854,13 @@ namespace Power_Mplayer
 		/// 應用程式的主進入點。
 		/// </summary>
 		[STAThread]
-		static void Main() 
+		static void Main(string[] args) 
 		{
+			if(args.Length > 0)
+			{
+				string[] files = new string[args.Length - 1];
+			}
+
 			Application.Run(new Form1());
 		}
 
@@ -980,10 +985,11 @@ namespace Power_Mplayer
 			//MovieBar.Value = 100 * e.X / MovieBar.Width;
 			//mp.Percent_Pos = MovieBar.Value;
 			
-			int val = 100 * e.X / MovieBar.Width;
+			double val = (double) e.X / MovieBar.Width;
+			double len = mp.Length;
 
-			mp.Percent_Pos = val;
-			MovieBar.Value = val;
+			mp.Time_Pos = (int) (val*len);
+			MovieBar.Value = (int) (100*val);
 
 			this.BackToPauseState();
 		}
