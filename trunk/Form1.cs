@@ -92,6 +92,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_SaturationMore;
 		private System.Windows.Forms.ListView Playlist;
 		private System.Windows.Forms.MenuItem MI_ShowPlaylist;
+		private System.Windows.Forms.Panel splitter1;
 		private FontSelector fontSelect;
 
 		public Form1()
@@ -230,6 +231,7 @@ namespace Power_Mplayer
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.Playlist = new System.Windows.Forms.ListView();
+			this.splitter1 = new System.Windows.Forms.Panel();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -278,7 +280,7 @@ namespace Power_Mplayer
 			this.panel1.Controls.Add(this.btn_pause);
 			this.panel1.Controls.Add(this.MovieBar);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 333);
+			this.panel1.Location = new System.Drawing.Point(0, 313);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(568, 64);
 			this.panel1.TabIndex = 4;
@@ -343,7 +345,7 @@ namespace Power_Mplayer
 			this.MainPanel.Controls.Add(this.BigScreen);
 			this.MainPanel.Location = new System.Drawing.Point(8, 16);
 			this.MainPanel.Name = "MainPanel";
-			this.MainPanel.Size = new System.Drawing.Size(264, 208);
+			this.MainPanel.Size = new System.Drawing.Size(248, 216);
 			this.MainPanel.TabIndex = 3;
 			this.MainPanel.Click += new System.EventHandler(this.btn_pause_Click);
 			this.MainPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragEnter);
@@ -407,6 +409,7 @@ namespace Power_Mplayer
 			// MI_ShowPlaylist
 			// 
 			this.MI_ShowPlaylist.Index = 0;
+			this.MI_ShowPlaylist.Shortcut = System.Windows.Forms.Shortcut.CtrlL;
 			this.MI_ShowPlaylist.Text = "顯示播放清單";
 			this.MI_ShowPlaylist.Click += new System.EventHandler(this.MI_ShowPlaylist_Click);
 			// 
@@ -788,6 +791,10 @@ namespace Power_Mplayer
 			this.MI_About.Text = "關於";
 			this.MI_About.Click += new System.EventHandler(this.MI_About_Click);
 			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.Multiselect = true;
+			// 
 			// timer1
 			// 
 			this.timer1.Interval = 1000;
@@ -795,15 +802,34 @@ namespace Power_Mplayer
 			// 
 			// Playlist
 			// 
-			this.Playlist.Location = new System.Drawing.Point(416, 24);
+			this.Playlist.AllowColumnReorder = true;
+			this.Playlist.AllowDrop = true;
+			this.Playlist.FullRowSelect = true;
+			this.Playlist.Location = new System.Drawing.Point(408, 0);
 			this.Playlist.Name = "Playlist";
-			this.Playlist.Size = new System.Drawing.Size(152, 97);
+			this.Playlist.Size = new System.Drawing.Size(160, 224);
 			this.Playlist.TabIndex = 5;
+			this.Playlist.View = System.Windows.Forms.View.Details;
+			this.Playlist.Visible = false;
+			this.Playlist.DoubleClick += new System.EventHandler(this.Playlist_DoubleClick);
+			// 
+			// splitter1
+			// 
+			this.splitter1.Cursor = System.Windows.Forms.Cursors.VSplit;
+			this.splitter1.Location = new System.Drawing.Point(392, 0);
+			this.splitter1.Name = "splitter1";
+			this.splitter1.Size = new System.Drawing.Size(4, 304);
+			this.splitter1.TabIndex = 6;
+			this.splitter1.Visible = false;
+			this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
+			this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
+			this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
 			// 
 			// Form1
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
-			this.ClientSize = new System.Drawing.Size(568, 397);
+			this.ClientSize = new System.Drawing.Size(568, 377);
+			this.Controls.Add(this.splitter1);
 			this.Controls.Add(this.Playlist);
 			this.Controls.Add(this.MainPanel);
 			this.Controls.Add(this.panel1);
@@ -853,19 +879,13 @@ namespace Power_Mplayer
 			VolumeBar.Top = btn_pause.Top;
 
 			Playlist.Top = 0;
+			Playlist.Columns.Add("播放清單", -2, HorizontalAlignment.Left);
 			
 			this.Form1_Resize(sender, e);
 		}
 
 		private void Form1_Resize(object sender, System.EventArgs e)
 		{
-			double aspect = 0;
-
-			if(mp.HasInstense())
-			{
-				aspect = mp.Video_Aspect;
-			}
-
 			// setup panel1
 			panel1.Height = MovieBar.Height + btn_pause.Height;
 			if(!this.isFullscreen)
@@ -881,8 +901,31 @@ namespace Power_Mplayer
 				MainPanel.Height -= this.panel1.Height;
 
 			MainPanel.Width = this.ClientSize.Width;
-			if(!this.isFullscreen && MI_ShowPlaylist.Checked)
-				MainPanel.Width -= Playlist.Width;
+			if(!this.isFullscreen && this.Playlist.Visible)
+				MainPanel.Width -= this.splitter1.Width + this.Playlist.Width;
+
+			if(this.Playlist.Visible)
+			{	
+				this.splitter1.Left = this.MainPanel.Width;
+				this.splitter1.Height = this.MainPanel.Height;
+
+				this.Playlist.Height = this.MainPanel.Height;
+				this.Playlist.Left = this.splitter1.Left + this.splitter1.Width;
+				this.Playlist.Width = this.ClientSize.Width - this.Playlist.Left;
+			}
+
+			adjBigScreen();
+			//MessageBox.Show(mp.Width.ToString());
+		}
+
+		private void adjBigScreen()
+		{
+			double aspect = 0;
+
+			if(mp.HasInstense())
+			{
+				aspect = mp.Video_Aspect;
+			}
 
 			if(aspect == 0)
 			{
@@ -907,20 +950,6 @@ namespace Power_Mplayer
 				BigScreen.Left = (MainPanel.Width - BigScreen.Width) / 2;
 				BigScreen.Top = (MainPanel.Height - BigScreen.Height) / 2;
 			}
-
-			if(this.MI_ShowPlaylist.Checked)
-			{
-				this.Playlist.Visible = true;
-			}
-			else
-			{
-				this.Playlist.Visible = false;
-			}
-
-			this.Playlist.Height = this.ClientSize.Height - this.panel1.Height;
-			this.Playlist.Left = this.ClientSize.Width - this.Playlist.Width;
-
-			//MessageBox.Show(mp.Width.ToString());
 		}
 
 		private void BackToPauseState()
@@ -1073,9 +1102,17 @@ namespace Power_Mplayer
 			this.openFileDialog1.FileName = "";
 			this.openFileDialog1.ShowDialog();
 
-			if(this.openFileDialog1.FileName != null && this.openFileDialog1.FileName != "")
+			if(this.openFileDialog1.FileName != "")
 			{
-				Start("file://" + this.openFileDialog1.FileName);
+				mp.Playlist.Clear();
+				foreach(string str in this.openFileDialog1.FileNames)
+				{
+					mp.Playlist.Add("file://" + str);
+				}
+
+				this.CreatePlaylistItems();
+
+				Start("file://" + this.openFileDialog1.FileNames[0]);
 			}
 		}
 
@@ -1124,14 +1161,20 @@ namespace Power_Mplayer
 			}
 		}
 
+		// FIXME: use better method...
 		private bool isFullscreen = false;
+		private Size oldFormSize = new Size(0, 0);
+		private int oldPlaylistWidth = 0;
 		private void BigScreen_DoubleClick(object sender, System.EventArgs e)
 		{
-			this.isFullscreen = !this.isFullscreen;
+			isFullscreen = !isFullscreen;
 			if(isFullscreen == true)
 			{
-				this.Menu = null;
+				oldPlaylistWidth = this.Playlist.Width;
+				this.Menu = null;		// this line will cause Playlist.Width = 0
 				this.statusBar1.Visible = false;
+				this.splitter1.Visible = this.Playlist.Visible = false;
+				oldFormSize = this.Size;
 
 				this.FormBorderStyle = FormBorderStyle.None;
 				this.WindowState = FormWindowState.Maximized;
@@ -1145,13 +1188,19 @@ namespace Power_Mplayer
 			{
 				this.Menu = this.mainMenu1;
 				this.statusBar1.Visible = true;
+				this.splitter1.Visible = this.Playlist.Visible = this.MI_ShowPlaylist.Checked;
 
 				this.FormBorderStyle = FormBorderStyle.Sizable;
 				this.WindowState = FormWindowState.Normal;
 				this.TopMost = this.MI_TopMost.Checked;
 
+				/*
 				this.Width = mp.Video_Width;
 				this.Height = mp.Video_Height + this.panel1.Height + (this.Height - this.ClientSize.Height);
+				*/
+
+				this.Size = oldFormSize;
+				this.Playlist.Width = this.oldPlaylistWidth;
 			}
 
 			if(btn_pause.ImageIndex == 0)
@@ -1342,7 +1391,6 @@ namespace Power_Mplayer
 			this.Dispose(true);
 		}
 
-		int last_mouse_pause = 0;
 		private void MainPanel_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			if(this.isFullscreen)
@@ -1356,8 +1404,6 @@ namespace Power_Mplayer
 					this.MainPanel.BringToFront();
 				}
 			}
-
-			this.last_mouse_pause = e.Y;
 		}
 
 		private void BigScreen_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -1391,10 +1437,20 @@ namespace Power_Mplayer
 		{
 			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
 			
-			this.Start("file://"+s[0]);
+			mp.Playlist.Clear();
+			foreach(string str in s)
+			{
+				mp.Playlist.Add("file://" + str);
+			}
+
+			this.CreatePlaylistItems();
+
+			Start("file://" + s[0]);
 		}
 
 		#endregion
+
+		#region MenuItem:Video
 
 		private void MI_BrightnessMore_Click(object sender, System.EventArgs e)
 		{
@@ -1418,12 +1474,6 @@ namespace Power_Mplayer
 		{
 			mp.Video_Contrast = -1;
 			this.BackToPauseState();
-		}
-
-		private void MI_TopMost_Click(object sender, System.EventArgs e)
-		{
-			MI_TopMost.Checked = !MI_TopMost.Checked;
-			this.TopMost = MI_TopMost.Checked;
 		}
 
 		private void MI_GammaLess_Click(object sender, System.EventArgs e)
@@ -1462,14 +1512,76 @@ namespace Power_Mplayer
 			this.BackToPauseState();
 		}
 
+		#endregion
+
+		private void MI_TopMost_Click(object sender, System.EventArgs e)
+		{
+			MI_TopMost.Checked = !MI_TopMost.Checked;
+			this.TopMost = MI_TopMost.Checked;
+		}
+
 		private void MI_ShowPlaylist_Click(object sender, System.EventArgs e)
 		{
 			MI_ShowPlaylist.Checked = !MI_ShowPlaylist.Checked;
-			Playlist.Visible = MI_ShowPlaylist.Checked;
+
+			this.splitter1.Visible = Playlist.Visible = MI_ShowPlaylist.Checked;
 
 			this.Form1_Resize(sender, e);
 		}
 
+		private void CreatePlaylistItems()
+		{
+			Playlist.Items.Clear();
+
+			for(int i=0;i<mp.Playlist.Count;i++)
+			{
+				string str = (string) mp.Playlist[i];
+				
+				if(str.StartsWith("file://"))
+					str = Path.GetFileName(str);
+				
+				Playlist.Items.Add(new ListViewItem( str ));
+			}
+		}
+
+		private void Playlist_DoubleClick(object sender, System.EventArgs e)
+		{
+			int index = Playlist.SelectedIndices[0];
+
+			this.Start((string) mp.Playlist[index]);
+		}
+
+		#region splitter Eventes
+
+		private bool SplitMousePress = false;
+		private void splitter1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			this.SplitMousePress = true;
+		}
+
+		private void splitter1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			this.SplitMousePress = false;
+		}
+
+		private void splitter1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			if(this.SplitMousePress)
+			{
+				Panel p = (Panel) sender;
+
+				p.Left = p.Left + e.X;
+
+				this.MainPanel.Width = p.Left;
+
+				this.Playlist.Left = p.Left + p.Width;
+				this.Playlist.Width = this.ClientSize.Width - this.Playlist.Left;
+	
+				this.adjBigScreen();
+			}
+		}
+
+		#endregion
 
 	}
 }
