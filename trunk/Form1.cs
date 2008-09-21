@@ -811,7 +811,10 @@ namespace Power_Mplayer
 			this.Playlist.TabIndex = 5;
 			this.Playlist.View = System.Windows.Forms.View.Details;
 			this.Playlist.Visible = false;
+			this.Playlist.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Playlist_KeyDown);
 			this.Playlist.DoubleClick += new System.EventHandler(this.Playlist_DoubleClick);
+			this.Playlist.DragDrop += new System.Windows.Forms.DragEventHandler(this.Playlist_DragDrop);
+			this.Playlist.DragEnter += new System.Windows.Forms.DragEventHandler(this.Playlist_DragEnter);
 			// 
 			// splitter1
 			// 
@@ -1582,6 +1585,39 @@ namespace Power_Mplayer
 		}
 
 		#endregion
+
+		private void Playlist_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
+		{
+			if(e.Data.GetDataPresent(DataFormats.FileDrop))
+				e.Effect = DragDropEffects.All;
+			else
+				e.Effect = DragDropEffects.None;
+		}
+
+		private void Playlist_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+		{
+			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
+			
+			foreach(string str in s)
+			{
+				mp.Playlist.Add("file://" + str);
+			}
+
+			this.CreatePlaylistItems();
+		}
+
+		private void Playlist_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Delete)
+			{
+				for(int i=Playlist.SelectedIndices.Count-1;i>=0;i--)
+				{
+					mp.Playlist.RemoveAt(Playlist.SelectedIndices[i]);
+				}
+
+				this.CreatePlaylistItems();
+			}
+		}
 
 	}
 }
