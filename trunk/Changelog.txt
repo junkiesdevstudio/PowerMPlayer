@@ -1,4 +1,4 @@
-Power Mplayer v0.3
+Power Mplayer v0.3	2008.09.23:
 	* add /hue/saturation/gamma
 	* rewrite some dialog
 	* fix some bugs
@@ -6,7 +6,7 @@ Power Mplayer v0.3
 	* add playlist
 	* more precise of time control
 
-Power Mplayer v0.2
+Power Mplayer v0.2	2008.09.15:
 	* rewrite MplayerSetting.
 	* add options.
 	* DragDropFile , temp solution. later will add files to Playlist.
