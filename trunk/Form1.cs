@@ -95,7 +95,8 @@ namespace Power_Mplayer
 		private System.Windows.Forms.Panel splitter1;
 		private FontSelector fontSelect;
 
-		public Form1()
+		// constructure
+		private Form1()
 		{
 			// Windows Form
 			InitializeComponent();
@@ -127,6 +128,15 @@ namespace Power_Mplayer
 				}
 			}
 
+		}
+
+		public Form1(string[] str) : this()
+		{
+			if(str != null && str.Length > 0)
+			{
+				this.Playlist_AddItem(str);
+				this.Start(mp.Playlist.First());
+			}
 		}
 
 		/// <summary>
@@ -856,12 +866,7 @@ namespace Power_Mplayer
 		[STAThread]
 		static void Main(string[] args) 
 		{
-			if(args.Length > 0)
-			{
-				string[] files = new string[args.Length - 1];
-			}
-
-			Application.Run(new Form1());
+			Application.Run(new Form1(args));
 		}
 
 		private void btn_pause_Click(object sender, System.EventArgs e)

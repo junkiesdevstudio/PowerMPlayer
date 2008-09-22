@@ -3,6 +3,8 @@ Power Mplayer v0.3
 	* rewrite some dialog
 	* fix some bugs
 	* add play url
+	* add playlist
+	* more precise of time control
 
 Power Mplayer v0.2
 	* rewrite MplayerSetting.
