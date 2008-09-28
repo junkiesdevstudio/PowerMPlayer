@@ -176,6 +176,7 @@ namespace Power_Mplayer
 			this.btn_pause = new System.Windows.Forms.Button();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.BigScreen = new System.Windows.Forms.Panel();
+			this.contextMenu1 = new System.Windows.Forms.ContextMenu();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btn_mute = new System.Windows.Forms.Button();
 			this.statusBar1 = new System.Windows.Forms.StatusBar();
@@ -195,6 +196,13 @@ namespace Power_Mplayer
 			this.MI_TopMost = new System.Windows.Forms.MenuItem();
 			this.MI_Fullscreen = new System.Windows.Forms.MenuItem();
 			this.MI_Video = new System.Windows.Forms.MenuItem();
+			this.MI_Zoom = new System.Windows.Forms.MenuItem();
+			this.MI_Zoom50 = new System.Windows.Forms.MenuItem();
+			this.MI_Zoom100 = new System.Windows.Forms.MenuItem();
+			this.MI_Zoom200 = new System.Windows.Forms.MenuItem();
+			this.menuItem1 = new System.Windows.Forms.MenuItem();
+			this.MI_FixSize = new System.Windows.Forms.MenuItem();
+			this.menuItem2 = new System.Windows.Forms.MenuItem();
 			this.MI_Brightness = new System.Windows.Forms.MenuItem();
 			this.MI_BrightnessLess = new System.Windows.Forms.MenuItem();
 			this.MI_BrightnessMore = new System.Windows.Forms.MenuItem();
@@ -250,14 +258,6 @@ namespace Power_Mplayer
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.Playlist = new System.Windows.Forms.ListView();
 			this.splitter1 = new System.Windows.Forms.Panel();
-			this.menuItem2 = new System.Windows.Forms.MenuItem();
-			this.MI_Zoom = new System.Windows.Forms.MenuItem();
-			this.MI_Zoom50 = new System.Windows.Forms.MenuItem();
-			this.MI_Zoom100 = new System.Windows.Forms.MenuItem();
-			this.MI_Zoom200 = new System.Windows.Forms.MenuItem();
-			this.contextMenu1 = new System.Windows.Forms.ContextMenu();
-			this.menuItem1 = new System.Windows.Forms.MenuItem();
-			this.MI_FixSize = new System.Windows.Forms.MenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -307,7 +307,7 @@ namespace Power_Mplayer
 			this.panel1.Controls.Add(this.btn_pause);
 			this.panel1.Controls.Add(this.MovieBar);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 293);
+			this.panel1.Location = new System.Drawing.Point(0, 313);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(568, 64);
 			this.panel1.TabIndex = 4;
@@ -467,6 +467,54 @@ namespace Power_Mplayer
 																					 this.MI_Hue,
 																					 this.MI_Saturation});
 			this.MI_Video.Text = "視訊(&V)";
+			// 
+			// MI_Zoom
+			// 
+			this.MI_Zoom.Index = 0;
+			this.MI_Zoom.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+																					this.MI_Zoom50,
+																					this.MI_Zoom100,
+																					this.MI_Zoom200,
+																					this.menuItem1,
+																					this.MI_FixSize});
+			this.MI_Zoom.Text = "縮放大小";
+			// 
+			// MI_Zoom50
+			// 
+			this.MI_Zoom50.Index = 0;
+			this.MI_Zoom50.Shortcut = System.Windows.Forms.Shortcut.Ctrl1;
+			this.MI_Zoom50.Text = "50%";
+			this.MI_Zoom50.Click += new System.EventHandler(this.MI_Zoom_Click);
+			// 
+			// MI_Zoom100
+			// 
+			this.MI_Zoom100.Index = 1;
+			this.MI_Zoom100.Shortcut = System.Windows.Forms.Shortcut.Ctrl2;
+			this.MI_Zoom100.Text = "100%";
+			this.MI_Zoom100.Click += new System.EventHandler(this.MI_Zoom_Click);
+			// 
+			// MI_Zoom200
+			// 
+			this.MI_Zoom200.Index = 2;
+			this.MI_Zoom200.Shortcut = System.Windows.Forms.Shortcut.Ctrl3;
+			this.MI_Zoom200.Text = "200%";
+			this.MI_Zoom200.Click += new System.EventHandler(this.MI_Zoom_Click);
+			// 
+			// menuItem1
+			// 
+			this.menuItem1.Index = 3;
+			this.menuItem1.Text = "-";
+			// 
+			// MI_FixSize
+			// 
+			this.MI_FixSize.Index = 4;
+			this.MI_FixSize.Text = "固定大小";
+			this.MI_FixSize.Click += new System.EventHandler(this.MI_FixSize_Click);
+			// 
+			// menuItem2
+			// 
+			this.menuItem2.Index = 1;
+			this.menuItem2.Text = "-";
 			// 
 			// MI_Brightness
 			// 
@@ -859,51 +907,6 @@ namespace Power_Mplayer
 			this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
 			this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
 			// 
-			// menuItem2
-			// 
-			this.menuItem2.Index = 1;
-			this.menuItem2.Text = "-";
-			// 
-			// MI_Zoom
-			// 
-			this.MI_Zoom.Index = 0;
-			this.MI_Zoom.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					this.MI_Zoom50,
-																					this.MI_Zoom100,
-																					this.MI_Zoom200,
-																					this.menuItem1,
-																					this.MI_FixSize});
-			this.MI_Zoom.Text = "縮放大小";
-			// 
-			// MI_Zoom50
-			// 
-			this.MI_Zoom50.Index = 0;
-			this.MI_Zoom50.Text = "50%";
-			this.MI_Zoom50.Click += new System.EventHandler(this.MI_Zoom_Click);
-			// 
-			// MI_Zoom100
-			// 
-			this.MI_Zoom100.Index = 1;
-			this.MI_Zoom100.Text = "100%";
-			this.MI_Zoom100.Click += new System.EventHandler(this.MI_Zoom_Click);
-			// 
-			// MI_Zoom200
-			// 
-			this.MI_Zoom200.Index = 2;
-			this.MI_Zoom200.Text = "200%";
-			this.MI_Zoom200.Click += new System.EventHandler(this.MI_Zoom_Click);
-			// 
-			// menuItem1
-			// 
-			this.menuItem1.Index = 3;
-			this.menuItem1.Text = "-";
-			// 
-			// MI_FixSize
-			// 
-			this.MI_FixSize.Index = 4;
-			this.MI_FixSize.Text = "固定大小";
-			this.MI_FixSize.Click += new System.EventHandler(this.MI_FixSize_Click);
-			// 
 			// Form1
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
@@ -960,7 +963,7 @@ namespace Power_Mplayer
 			Playlist.Top = 0;
 			Playlist.Columns.Add("播放清單", -2, HorizontalAlignment.Left);
 
-			this.Form1_Resize(sender, e);
+			this.Form1_Resize(null, null);
 		}
 
 		private void Form1_Resize(object sender, System.EventArgs e)
@@ -994,7 +997,6 @@ namespace Power_Mplayer
 			}
 
 			adjBigScreen();
-			//MessageBox.Show(mp.Width.ToString());
 		}
 
 		private void adjBigScreen()
@@ -1161,6 +1163,14 @@ namespace Power_Mplayer
 				if(paused)
 					Pause();
 			}
+		}
+
+		private void Seek(double time_pos)
+		{
+			mp.Time_Pos = time_pos;
+			MovieBar.Value = (int) (100 * time_pos / mp.Length);
+
+			this.BackToPauseState();
 		}
 
 		#endregion
@@ -1697,16 +1707,10 @@ namespace Power_Mplayer
 
 		private void MovieBar_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
-			//MovieBar.Value = 100 * e.X / MovieBar.Width;
-			//mp.Percent_Pos = MovieBar.Value;
-			
 			double val = (double) e.X / MovieBar.Width;
 			double len = mp.Length;
 
-			mp.Time_Pos = (int) (val*len);
-			MovieBar.Value = (int) (100*val);
-
-			this.BackToPauseState();
+			this.Seek(val*len);
 		}
 
 		private void MovieBar_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -1726,6 +1730,9 @@ namespace Power_Mplayer
 		{
 			if(mp.HasInstense())
 			{
+				if(this.WindowState == FormWindowState.Maximized)
+					this.WindowState = FormWindowState.Normal;
+
 				MenuItem mi = (MenuItem) sender;
 				int width = mp.Video_Width;
 				int height = mp.Video_Height;
@@ -1752,6 +1759,9 @@ namespace Power_Mplayer
 				this.ClientSize = new Size(width, height);
 
 				this.Form1_Resize(null, null);
+
+				//FIXME: 200% special case....
+				this.BigScreen.Left = 0;
 			}
 		}
 

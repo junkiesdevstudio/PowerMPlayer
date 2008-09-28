@@ -423,13 +423,24 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				int wid = (int) minfo["VIDEO_WIDTH"];
-				int hei = (int) minfo["VIDEO_HEIGHT"];
+				double ret = (double) minfo["VIDEO_ASPECT"];
+
+				if(ret == 0)
+				{
+					int wid = (int) minfo["VIDEO_WIDTH"];
+					int hei = (int) minfo["VIDEO_HEIGHT"];
 				
-				if(hei == 0)
-					return 0;
-				else
-					return (double) wid/hei;
+					if(hei == 0)
+						ret = 0;
+					else
+						ret = (double) wid/hei;
+				}			
+
+				return ret ;
+			}
+			set
+			{
+				stdin.WriteLine(" switch_ratio " + value.ToString() + " ");
 			}
 		}
 

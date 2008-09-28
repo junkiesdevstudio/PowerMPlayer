@@ -16,9 +16,14 @@ namespace Power_Mplayer
 		//  subtitle
 		SubFont, SubEncoding, SubAutoScale, SubASS, 
 		
+		// Audio
 		AO, Audio_Softvol, Audio_SoftvolMax,
 		
-		VO, Video_DR
+		// Video
+		VO, Video_DR, 
+
+		// Âø¶µ
+		LastMedia
 	}
 	public class MplayerSetting
 	{
@@ -30,20 +35,27 @@ namespace Power_Mplayer
 		{
 			this.SettingValues.Clear();
 
+			// Power Mplayer Setting
 			this.SettingValues.Add(new MValue(SetVars.MplayerExe.ToString(),	@".\mplayer.exe",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SrtForceUTF8.ToString(),	"0",			TypeCode.String));
 
+			// subtitle
 			this.SettingValues.Add(new MValue(SetVars.SubFont.ToString(),		@".\mplayer\subfont.ttf", TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SubEncoding.ToString(),	"BIG5",			TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SubAutoScale.ToString(), "3",				TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SubASS.ToString(),		"0",			TypeCode.String));
 
+			// Audio
 			this.SettingValues.Add(new MValue(SetVars.AO.ToString(),			"dsound",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Audio_Softvol.ToString(),	"0",			TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Audio_SoftvolMax.ToString(), "110",		TypeCode.String));
 
+			// Video
 			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"directx",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"0",			TypeCode.String));
+
+			// Âø¶µ
+			this.SettingValues.Add(new MValue(SetVars.LastMedia.ToString(),		"",				TypeCode.String));
 		}
 
 		public string MplayerArguements
