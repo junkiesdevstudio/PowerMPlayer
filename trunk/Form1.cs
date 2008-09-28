@@ -1097,6 +1097,19 @@ namespace Power_Mplayer
 			
 				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
 
+				// log last file
+				if(mp.mediaType == MediaType.File)
+				{
+					string lastFile = (string) mp.Setting[SetVars.LastMedia];	
+					if(lastFile != null && lastFile.StartsWith(mp.Filename.ToLower()))
+					{
+						int index = lastFile.IndexOf(':', 2);	// C:\XXXXX\xxxx.avi:123.12
+						string buf = lastFile.Substring(index+1);
+						double time_pos = double.Parse(buf);
+						Seek(time_pos);
+					}
+				}
+
 				timer1.Start();
 			}
 		}
@@ -1132,6 +1145,13 @@ namespace Power_Mplayer
 
 		private void Quit()
 		{
+			// log last media file
+			if(mp.HasInstense() && mp.mediaType == MediaType.File)
+			{
+				mp.Setting[SetVars.LastMedia] = mp.Filename.ToLower() + ":" + mp.Time_Pos;
+				mp.Setting.WriteSetting();
+			}
+
 			mp.Quit();
 			Stop();
 		}
