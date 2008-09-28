@@ -365,6 +365,7 @@ namespace Power_Mplayer
 			this.MovieBar.TabIndex = 7;
 			this.MovieBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MovieBar_MouseUp);
 			this.MovieBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MovieBar_MouseMove);
+			this.MovieBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MovieBar_MouseDown);
 			// 
 			// MainPanel
 			// 
@@ -1500,7 +1501,6 @@ namespace Power_Mplayer
 		private void MI_About_Click(object sender, System.EventArgs e)
 		{
 			AboutDialog ad = new AboutDialog();
-
 			ad.ShowDialog();
 		}
 
@@ -1589,6 +1589,55 @@ namespace Power_Mplayer
 			this.BackToPauseState();
 		}
 
+		private void MI_Zoom_Click(object sender, System.EventArgs e)
+		{
+			if(mp.HasInstense())
+			{
+				if(this.WindowState == FormWindowState.Maximized)
+					this.WindowState = FormWindowState.Normal;
+
+				MenuItem mi = (MenuItem) sender;
+				int width = mp.Video_Width;
+				int height = mp.Video_Height;
+
+				if(mi == this.MI_Zoom50)
+				{
+					width /= 2;
+					height /= 2;
+				}
+				else if(mi == this.MI_Zoom200)
+				{
+					width *= 2;
+					height *= 2;
+
+					//FIXME: why???? 50%, 100% no need....
+					height -= this.statusBar1.Height;
+				}
+
+				height += this.panel1.Height;
+
+				if(this.Playlist.Visible)
+					width += this.Playlist.Width;
+
+				this.ClientSize = new Size(width, height);
+
+				this.Form1_Resize(null, null);
+
+				//FIXME: 200% special case....
+				this.BigScreen.Left = 0;
+			}
+		}
+
+		private void MI_FixSize_Click(object sender, System.EventArgs e)
+		{
+			this.MI_FixSize.Checked = !this.MI_FixSize.Checked;
+
+			if(this.MI_FixSize.Checked)
+				this.FormBorderStyle = FormBorderStyle.FixedDialog;
+			else
+				this.FormBorderStyle = FormBorderStyle.Sizable;
+		}
+
 		#endregion
 
 		private void MI_TopMost_Click(object sender, System.EventArgs e)
@@ -1600,10 +1649,8 @@ namespace Power_Mplayer
 		private void MI_ShowPlaylist_Click(object sender, System.EventArgs e)
 		{
 			MI_ShowPlaylist.Checked = !MI_ShowPlaylist.Checked;
-
 			this.splitter1.Visible = Playlist.Visible = MI_ShowPlaylist.Checked;
-
-			this.Form1_Resize(sender, e);
+			this.Form1_Resize(null, null);
 		}
 
 		#region splitter Eventes
@@ -1705,75 +1752,43 @@ namespace Power_Mplayer
 
 		#endregion
 
+		#region MovieBar Events
+
+		private bool MBar_MouseDown = false;
+		private void MovieBar_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			MBar_MouseDown = true;
+			this.timer1.Stop();
+		}
+
 		private void MovieBar_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			double val = (double) e.X / MovieBar.Width;
 			double len = mp.Length;
 
 			this.Seek(val*len);
+
+			MBar_MouseDown = false;
+			this.timer1.Start();
 		}
 
 		private void MovieBar_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
-			double val = (double) e.X / MovieBar.Width;
-
-			int len = (int) mp.Length;
-			int pos = (int) (val*len);
-
-			string str_now_pos = (pos / 3600) + ":" + ((pos / 60) % 60)+ ":" + (pos % 60);
-			string str_movie_len = (len / 3600) + ":" + ((len / 60) % 60) + ":" + (len % 60);
-
-			this.statusPanel1.Text = str_now_pos + " / " + str_movie_len;
-		}
-
-		private void MI_Zoom_Click(object sender, System.EventArgs e)
-		{
-			if(mp.HasInstense())
+			if(MBar_MouseDown)
 			{
-				if(this.WindowState == FormWindowState.Maximized)
-					this.WindowState = FormWindowState.Normal;
+				double val = (double) e.X / MovieBar.Width;
 
-				MenuItem mi = (MenuItem) sender;
-				int width = mp.Video_Width;
-				int height = mp.Video_Height;
+				int len = (int) mp.Length;
+				int pos = (int) (val*len);
 
-				if(mi == this.MI_Zoom50)
-				{
-					width /= 2;
-					height /= 2;
-				}
-				else if(mi == this.MI_Zoom200)
-				{
-					width *= 2;
-					height *= 2;
+				string str_now_pos = (pos / 3600) + ":" + ((pos / 60) % 60)+ ":" + (pos % 60);
+				string str_movie_len = (len / 3600) + ":" + ((len / 60) % 60) + ":" + (len % 60);
 
-					//FIXME: why???? 50%, 100% no need....
-					height -= this.statusBar1.Height;
-				}
-
-				height += this.panel1.Height;
-
-				if(this.Playlist.Visible)
-					width += this.Playlist.Width;
-
-				this.ClientSize = new Size(width, height);
-
-				this.Form1_Resize(null, null);
-
-				//FIXME: 200% special case....
-				this.BigScreen.Left = 0;
+				this.statusPanel1.Text = str_now_pos + " / " + str_movie_len;
 			}
 		}
 
-		private void MI_FixSize_Click(object sender, System.EventArgs e)
-		{
-			this.MI_FixSize.Checked = !this.MI_FixSize.Checked;
-
-			if(this.MI_FixSize.Checked)
-				this.FormBorderStyle = FormBorderStyle.FixedDialog;
-			else
-				this.FormBorderStyle = FormBorderStyle.Sizable;
-		}
+		#endregion
 
 	}
 }

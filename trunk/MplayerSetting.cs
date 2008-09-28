@@ -27,7 +27,7 @@ namespace Power_Mplayer
 	}
 	public class MplayerSetting
 	{
-		private string SettingFile = System.Environment.CurrentDirectory + @"\PowerMplayer.ini";
+		private string SettingFile = System.Windows.Forms.Application.StartupPath + @"\PowerMplayer.ini";
 
 		private ArrayList SettingValues;
 		
