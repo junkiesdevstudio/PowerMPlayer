@@ -21,16 +21,21 @@ namespace Power_Mplayer
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
+		// constructure
 		public OpenURL()
 		{
-			//
-			// Windows Form 設計工具支援的必要項
-			//
 			InitializeComponent();
 
-			//
-			// TODO: 在 InitializeComponent 呼叫之後加入任何建構函式程式碼
-			//
+			// paste URL from clipboard 
+			IDataObject iData = Clipboard.GetDataObject();
+
+			if(iData.GetDataPresent(DataFormats.Text)) 
+			{
+				// Yes it is, so display it in a text box.
+				textBox1.Text = (string) iData.GetData(DataFormats.Text); 
+			}
+
+			this.textBox1.SelectAll();
 		}
 
 		/// <summary>

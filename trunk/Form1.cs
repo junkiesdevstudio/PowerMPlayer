@@ -1059,11 +1059,12 @@ namespace Power_Mplayer
 		{
 			OpenURL urlForm = new OpenURL();
 
-			urlForm.ShowDialog();
-
-			if(urlForm.URL.IndexOf("//") > 0)
+			if(urlForm.ShowDialog() == DialogResult.OK)
 			{
-				this.Start(urlForm.URL);
+				if(urlForm.URL.IndexOf("//") > 0)
+				{
+					this.Start(urlForm.URL);
+				}
 			}
 		}
 
@@ -1085,8 +1086,6 @@ namespace Power_Mplayer
 
 			if(mp.Start())
 			{
-				this.MI_Zoom_Click(this.MI_Zoom100, null);
-
 				this.Text = System.IO.Path.GetFileName(mp.Filename);
 
 				this.btn_pause.Enabled = true;
@@ -1109,6 +1108,8 @@ namespace Power_Mplayer
 						Seek(time_pos);
 					}
 				}
+
+				this.Form1_Resize(null, null);
 
 				timer1.Start();
 			}
@@ -1444,9 +1445,9 @@ namespace Power_Mplayer
 
 			Subtitle sub = (Subtitle) mp.SubList[mi.Index];
 			
-			if(sub.SubType == SubtitleType.VobSubID)
+			if(sub.SubType == SubtitleType.VobSubID || sub.SubType == SubtitleType.DemuxSubID)
 			{
-				mp.SelectSub(sub.VobSubID);
+				mp.SelectSub(sub);
 				mp.CurrentSubtitle = sub;
 
 				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
@@ -1631,7 +1632,7 @@ namespace Power_Mplayer
 					height *= 2;
 
 					//FIXME: why???? 50%, 100% no need....
-					height -= this.statusBar1.Height;
+					//height -= this.statusBar1.Height;
 				}
 
 				height += this.panel1.Height;
@@ -1644,7 +1645,7 @@ namespace Power_Mplayer
 				this.Form1_Resize(null, null);
 
 				//FIXME: 200% special case....
-				this.BigScreen.Left = 0;
+				//this.BigScreen.Left = 0;
 			}
 		}
 

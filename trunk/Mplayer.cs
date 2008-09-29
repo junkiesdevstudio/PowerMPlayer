@@ -419,6 +419,8 @@ namespace Power_Mplayer
 			}
 		}
 
+		#region Video Property
+
 		public double Video_Aspect
 		{
 			get
@@ -515,6 +517,8 @@ namespace Power_Mplayer
 			}
 		}
 
+		#endregion
+
 		#region Sub Property
 
 		public double Sub_Scale
@@ -550,11 +554,11 @@ namespace Power_Mplayer
 			}
 		}
 
-		public void SelectSub(int id)
+		public void SelectSub(Subtitle sub)
 		{
 			if(this.HasInstense())
 			{
-				stdin.WriteLine("sub_select " + id + " ");
+				stdin.WriteLine("sub_select " + sub.SubID + " ");
 			}
 		}
 

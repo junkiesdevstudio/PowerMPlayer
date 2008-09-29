@@ -4,18 +4,18 @@ using System.Collections;
 
 namespace Power_Mplayer
 {
-	public enum SubtitleType {NoSubtitle, Srt, Ass, VobSubFile, VobSubID};
+	public enum SubtitleType {NoSubtitle, Srt, Ass, VobSubFile, VobSubID, DemuxSubID};
 
 	public class Subtitle
 	{
 		public SubtitleType SubType;
 		public string Filename;
 		public string Name;
-		public int VobSubID;	// VobSubID only
+		public int SubID;	// VobSubID , DVDSubID
 
 		public Subtitle(string filename)
 		{
-			this.VobSubID = -1;
+			this.SubID = -1;
 
 			if(filename == null)
 			{
@@ -50,7 +50,7 @@ namespace Power_Mplayer
 		{
 			this.Filename = fname;
 			this.Name = name;
-			this.VobSubID = vobid;
+			this.SubID = vobid;
 			this.SubType = type;
 		}
 
@@ -77,11 +77,15 @@ namespace Power_Mplayer
 
 					case SubtitleType.VobSubID:
 						ret = " -vobsub \"" + this.Filename + "\"";
-						ret += " -vobsubid " + this.VobSubID;
+						ret += " -vobsubid " + this.SubID;
 						break;
 
 					case SubtitleType.VobSubFile:
 						ret = " -vobsub \"" + this.Filename + "\"";
+						break;
+
+					case SubtitleType.DemuxSubID:
+						ret = " -sid " + this.SubID;
 						break;
 				}			
 
@@ -125,6 +129,13 @@ namespace Power_Mplayer
 			return sublist;
 		}
 
+		/// <summary>
+		/// Add a Vobsub
+		/// </summary>
+		/// <param name="sublist">An ArrayList of Subtitle List</param>
+		/// <param name="subfile">Vobsub Filename</param>
+		/// <param name="str">Mplayer -identify ID_ string</param>
+		/// <returns></returns>
 		public static bool AddVobSub(ArrayList sublist, string subfile, string str)
 		{
 			if(!str.StartsWith("VSID_"))
@@ -136,6 +147,25 @@ namespace Power_Mplayer
 			string lang = substr[3];
 
 			sublist.Add(new Subtitle(subfile, id.ToString() + " : " + lang, id, SubtitleType.VobSubID));
+
+			return true;
+		}
+
+		public static bool AddDemuxSub(ArrayList sublist, string subfile, string str)
+		{
+			if(!str.StartsWith("SID_"))
+				return false;
+
+			string[] substr = str.Split('_', '=');
+
+			// SID_0_LANG=chi , no need
+			if(substr[2] == "LANG")	
+				return false;
+
+			int id = int.Parse(substr[1]);
+			string lang = substr[3];
+
+			sublist.Add(new Subtitle(subfile, id.ToString() + " : " + lang, id, SubtitleType.DemuxSubID));
 
 			return true;
 		}

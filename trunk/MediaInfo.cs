@@ -143,6 +143,11 @@ namespace Power_Mplayer
 					Subtitle.AddVobSub(mp.SubList, mp.CurrentSubtitle.Filename, str);
 					return;
 				}
+				else if(str.StartsWith("SID"))
+				{
+					Subtitle.AddDemuxSub(mp.SubList, mp.Filename, str);
+					return;
+				}
 
 				string[] cmds = str.Split('=');
 
