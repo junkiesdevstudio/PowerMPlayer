@@ -916,6 +916,7 @@ namespace Power_Mplayer
 			this.Controls.Add(this.Playlist);
 			this.Controls.Add(this.MainPanel);
 			this.Controls.Add(this.panel1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Menu = this.mainMenu1;
 			this.Name = "Form1";
 			this.Text = "Power Mplayer";

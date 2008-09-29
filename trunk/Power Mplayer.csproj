@@ -7,7 +7,7 @@
     >
         <Build>
             <Settings
-                ApplicationIcon = "App.ico"
+                ApplicationIcon = "Icons\background.ico"
                 AssemblyKeyContainerName = ""
                 AssemblyName = "Power Mplayer"
                 AssemblyOriginatorKeyFile = ""
@@ -102,10 +102,6 @@
                     RelPath = "AboutDialog.resx"
                     DependentUpon = "AboutDialog.cs"
                     BuildAction = "EmbeddedResource"
-                />
-                <File
-                    RelPath = "App.ico"
-                    BuildAction = "Content"
                 />
                 <File
                     RelPath = "AssemblyInfo.cs"
@@ -207,6 +203,18 @@
                 />
                 <File
                     RelPath = "Docs\slave.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Icons\background.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Icons\background.png"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Icons\logo.png"
                     BuildAction = "Content"
                 />
                 <File
