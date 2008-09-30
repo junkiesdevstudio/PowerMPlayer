@@ -166,6 +166,14 @@ namespace Power_Mplayer
 			return false;
 		}
 
+		public void MoveScreen()
+		{
+			if(this.HasInstense())
+			{
+				//stdin.WriteLine("seek 0 ");
+			}
+		}
+
 		#region controls of movie
 
 		// create process
@@ -264,8 +272,8 @@ namespace Power_Mplayer
 				stderr.stream.BaseStream.BeginRead(stderr.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stderr);
 
 				// config show area
-				//Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
-				//Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
+				Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
+				Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
 				this.BigScreen.BackgroundImage = null;
 
 				Pause();

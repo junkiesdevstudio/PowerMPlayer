@@ -107,13 +107,13 @@ namespace Power_Mplayer
 				return sublist;
 
 			string subdir = Path.GetDirectoryName(filename);
-			filename = Path.GetFileNameWithoutExtension(filename);
+			filename = Path.GetFileNameWithoutExtension(filename).ToLower();
 
 			string[] files = System.IO.Directory.GetFiles(subdir);
 
 			for(int i=0;i<files.Length;i++)
 			{
-				if(!Path.GetFileName(files[i]).StartsWith(filename))
+				if(!Path.GetFileName(files[i]).ToLower().StartsWith(filename))
 					continue;
 
 				switch(Path.GetExtension(files[i]).ToLower())
@@ -169,6 +169,5 @@ namespace Power_Mplayer
 
 			return true;
 		}
-
 	}
 }

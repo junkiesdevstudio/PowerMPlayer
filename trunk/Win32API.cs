@@ -60,5 +60,21 @@ namespace Power_Mplayer
 		public const uint SWP_NOMOVE     = 0x2;
 		public const uint SWP_SHOWWINDOW = 0x40;
 
+
+		/// <summary>
+		/// SendMessage Win32 API
+		/// </summary>
+		/// <param name="hWnd">handle to destination window</param>
+		/// <param name="Msg">message</param>
+		/// <param name="wParam">first message parameter</param>
+		/// <param name="lParam">second message parameter</param>
+		/// <returns></returns>
+		[DllImport("user32.dll")]
+		public static extern int SendMessage(IntPtr hWnd, int Msg, long wParam, long lParam);
+
+		public const uint WM_PAINT		= 0x0000F;
+
+		[DllImport("user32.dll")]
+		public static extern bool InvalidateRect(IntPtr hWnd, IntPtr lpRect, bool bErase);
 	}
 }

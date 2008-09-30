@@ -101,6 +101,8 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_Help;
 		private System.Windows.Forms.MenuItem menuItem1;
 		private System.Windows.Forms.MenuItem MI_FixSize;
+		private System.Windows.Forms.MenuItem menuItem6;
+		private System.Windows.Forms.MenuItem MI_LastOpen;
 		private FontSelector fontSelect;
 
 		// constructure
@@ -189,6 +191,8 @@ namespace Power_Mplayer
 			this.MI_File = new System.Windows.Forms.MenuItem();
 			this.MI_OpenFile = new System.Windows.Forms.MenuItem();
 			this.MI_OpenURL = new System.Windows.Forms.MenuItem();
+			this.menuItem6 = new System.Windows.Forms.MenuItem();
+			this.MI_LastOpen = new System.Windows.Forms.MenuItem();
 			this.menuItem4 = new System.Windows.Forms.MenuItem();
 			this.MI_Exit = new System.Windows.Forms.MenuItem();
 			this.MI_Play = new System.Windows.Forms.MenuItem();
@@ -400,6 +404,8 @@ namespace Power_Mplayer
 			this.MI_File.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																					this.MI_OpenFile,
 																					this.MI_OpenURL,
+																					this.menuItem6,
+																					this.MI_LastOpen,
 																					this.menuItem4,
 																					this.MI_Exit});
 			this.MI_File.Text = "檔案(&F)";
@@ -416,14 +422,25 @@ namespace Power_Mplayer
 			this.MI_OpenURL.Text = "開啟 URL";
 			this.MI_OpenURL.Click += new System.EventHandler(this.MI_OpenURL_Click);
 			// 
+			// menuItem6
+			// 
+			this.menuItem6.Index = 2;
+			this.menuItem6.Text = "-";
+			// 
+			// MI_LastOpen
+			// 
+			this.MI_LastOpen.Index = 3;
+			this.MI_LastOpen.Text = "前次開啟";
+			this.MI_LastOpen.Click += new System.EventHandler(this.MI_LastOpen_Click);
+			// 
 			// menuItem4
 			// 
-			this.menuItem4.Index = 2;
+			this.menuItem4.Index = 4;
 			this.menuItem4.Text = "-";
 			// 
 			// MI_Exit
 			// 
-			this.MI_Exit.Index = 3;
+			this.MI_Exit.Index = 5;
 			this.MI_Exit.Text = "離開(&E)";
 			this.MI_Exit.Click += new System.EventHandler(this.MI_Exit_Click);
 			// 
@@ -922,6 +939,7 @@ namespace Power_Mplayer
 			this.Text = "Power Mplayer";
 			this.Resize += new System.EventHandler(this.Form1_Resize);
 			this.Load += new System.EventHandler(this.Form1_Load);
+			this.Move += new System.EventHandler(this.Form1_Move);
 			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).EndInit();
@@ -942,7 +960,14 @@ namespace Power_Mplayer
 
 		private void btn_pause_Click(object sender, System.EventArgs e)
 		{
-			Pause();
+			if(mp.HasInstense())
+			{
+				Pause();
+			}
+			else
+			{
+				this.Start();
+			}
 		}
 
 		private void Form1_Load(object sender, System.EventArgs e)
@@ -1087,6 +1112,19 @@ namespace Power_Mplayer
 
 			if(mp.Start())
 			{
+				// log last file
+				if(mp.mediaType == MediaType.File)
+				{
+					string lastFile = (string) mp.Setting[SetVars.LastMedia];	
+					if(lastFile != null && lastFile.StartsWith(mp.Filename.ToLower()))
+					{
+						int index = lastFile.IndexOf(':', 3);	// C:\XXXXX\xxxx.avi:123.12
+						string buf = lastFile.Substring(index+1);
+						double time_pos = double.Parse(buf);
+						Seek(time_pos);
+					}
+				}
+
 				this.Text = System.IO.Path.GetFileName(mp.Filename);
 
 				this.btn_pause.Enabled = true;
@@ -1096,19 +1134,6 @@ namespace Power_Mplayer
 				mp.Volume = this.VolumeBar.Value;
 			
 				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
-
-				// log last file
-				if(mp.mediaType == MediaType.File)
-				{
-					string lastFile = (string) mp.Setting[SetVars.LastMedia];	
-					if(lastFile != null && lastFile.StartsWith(mp.Filename.ToLower()))
-					{
-						int index = lastFile.IndexOf(':', 2);	// C:\XXXXX\xxxx.avi:123.12
-						string buf = lastFile.Substring(index+1);
-						double time_pos = double.Parse(buf);
-						Seek(time_pos);
-					}
-				}
 
 				this.Form1_Resize(null, null);
 
@@ -1811,6 +1836,21 @@ namespace Power_Mplayer
 		}
 
 		#endregion
+
+		private void MI_LastOpen_Click(object sender, System.EventArgs e)
+		{
+			string s = mp.Setting[SetVars.LastMedia];
+			if(s != null && s != "")
+			{
+				int index = s.IndexOf(':', 3);
+				this.Start("file://" + s.Substring(0, index));
+			}
+		}
+
+		private void Form1_Move(object sender, System.EventArgs e)
+		{
+			mp.MoveScreen();
+		}
 
 	}
 }
