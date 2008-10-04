@@ -103,6 +103,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_FixSize;
 		private System.Windows.Forms.MenuItem menuItem6;
 		private System.Windows.Forms.MenuItem MI_LastOpen;
+		private System.Windows.Forms.TextBox txtShortcut;
 		private FontSelector fontSelect;
 
 		// constructure
@@ -186,6 +187,7 @@ namespace Power_Mplayer
 			this.VolumeBar = new System.Windows.Forms.TrackBar();
 			this.btn_stop = new System.Windows.Forms.Button();
 			this.MovieBar = new System.Windows.Forms.ProgressBar();
+			this.txtShortcut = new System.Windows.Forms.TextBox();
 			this.MainPanel = new System.Windows.Forms.Panel();
 			this.mainMenu1 = new System.Windows.Forms.MainMenu();
 			this.MI_File = new System.Windows.Forms.MenuItem();
@@ -310,6 +312,7 @@ namespace Power_Mplayer
 			this.panel1.Controls.Add(this.btn_stop);
 			this.panel1.Controls.Add(this.btn_pause);
 			this.panel1.Controls.Add(this.MovieBar);
+			this.panel1.Controls.Add(this.txtShortcut);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel1.Location = new System.Drawing.Point(0, 313);
 			this.panel1.Name = "panel1";
@@ -344,6 +347,7 @@ namespace Power_Mplayer
 			// 
 			// VolumeBar
 			// 
+			this.VolumeBar.LargeChange = 2;
 			this.VolumeBar.Location = new System.Drawing.Point(456, 8);
 			this.VolumeBar.Name = "VolumeBar";
 			this.VolumeBar.TabIndex = 5;
@@ -370,6 +374,18 @@ namespace Power_Mplayer
 			this.MovieBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MovieBar_MouseUp);
 			this.MovieBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MovieBar_MouseMove);
 			this.MovieBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MovieBar_MouseDown);
+			// 
+			// txtShortcut
+			// 
+			this.txtShortcut.BackColor = System.Drawing.Color.Gold;
+			this.txtShortcut.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtShortcut.Location = new System.Drawing.Point(272, 16);
+			this.txtShortcut.Name = "txtShortcut";
+			this.txtShortcut.Size = new System.Drawing.Size(48, 15);
+			this.txtShortcut.TabIndex = 7;
+			this.txtShortcut.Text = "";
+			this.txtShortcut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShortcut_KeyDown);
+			this.txtShortcut.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShortcut_KeyUp);
 			// 
 			// MainPanel
 			// 
@@ -990,6 +1006,8 @@ namespace Power_Mplayer
 			Playlist.Top = 0;
 			Playlist.Columns.Add("¼½©ñ²M³æ", -2, HorizontalAlignment.Left);
 
+			this.txtShortcut.Size = new Size(0, 0);
+
 			this.Form1_Resize(null, null);
 		}
 
@@ -1064,6 +1082,8 @@ namespace Power_Mplayer
 		{
 			if(btn_pause.ImageIndex == 0)
 				mp.Pause();
+
+			this.txtShortcut.Focus();
 		}
 
 		private void btn_stop_Click(object sender, System.EventArgs e)
@@ -1074,7 +1094,7 @@ namespace Power_Mplayer
 
 		private void VolumeBar_Scroll(object sender, System.EventArgs e)
 		{
-			mp.Volume = VolumeBar.Value;
+			mp.Volume = VolumeBar.Value * 10;
 			btn_mute.ImageIndex = 3;
 
 			this.BackToPauseState();
@@ -1131,7 +1151,7 @@ namespace Power_Mplayer
 				this.btn_pause.ImageIndex = 1;
 				this.btn_stop.Enabled = true;
 				
-				mp.Volume = this.VolumeBar.Value;
+				this.VolumeBar_Scroll(null, null);
 			
 				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
 
@@ -1139,6 +1159,8 @@ namespace Power_Mplayer
 
 				timer1.Start();
 			}
+
+			this.txtShortcut.Focus();
 		}
 
 		private void Pause()
@@ -1158,6 +1180,8 @@ namespace Power_Mplayer
 					btn_pause.ImageIndex = 0;
 				}
 			}
+
+			this.txtShortcut.Focus();
 		}
 
 		private void Stop()
@@ -1168,6 +1192,8 @@ namespace Power_Mplayer
 			timer1.Stop();
 			btn_pause.ImageIndex = 0;
 			MovieBar.Value = 0;
+
+			this.txtShortcut.Focus();
 		}
 
 		private void Quit()
@@ -1219,6 +1245,8 @@ namespace Power_Mplayer
 			MovieBar.Value = (int) (100 * time_pos / mp.Length);
 
 			this.BackToPauseState();
+
+			this.txtShortcut.Focus();
 		}
 
 		#endregion
@@ -1852,5 +1880,46 @@ namespace Power_Mplayer
 			mp.MoveScreen();
 		}
 
+		private void txtShortcut_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+		{
+			
+			switch(e.KeyCode)
+			{
+				case Keys.Space:
+					this.Pause();
+					break;
+
+				case Keys.Up:
+					this.VolumeBar.Value ++;
+					this.VolumeBar_Scroll(null, null);
+					break;
+
+				case Keys.Down:
+					this.VolumeBar.Value --;
+					this.VolumeBar_Scroll(null, null);
+					break;
+
+				case Keys.Left:
+					mp.RelativeTime_Pos = -1;
+					break;
+
+				case Keys.Right:
+					mp.RelativeTime_Pos = 1;
+					break;
+
+				case Keys.PageUp:
+					mp.RelativeTime_Pos = -30;
+					break;
+
+				case Keys.PageDown:
+					mp.RelativeTime_Pos = 30;
+					break;
+			}
+		}
+
+		private void txtShortcut_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+		{
+			this.txtShortcut.Text = "";
+		}
 	}
 }

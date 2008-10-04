@@ -182,6 +182,11 @@
                     BuildAction = "Content"
                 />
                 <File
+                    RelPath = "Shortcuts.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "ShowLog.cs"
                     SubType = "Form"
                     BuildAction = "Compile"

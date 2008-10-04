@@ -389,13 +389,20 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				stdin.WriteLine("get_percent_pos ");
-				this.WaitForReceive();
-				return (int) minfo["PERCENT_POSITION"];
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("get_percent_pos ");
+					this.WaitForReceive();
+					return (int) minfo["PERCENT_POSITION"];
+				}
+				return 0;
 			}
 			set
 			{
-				stdin.WriteLine("seek " + value.ToString() + " 1 ");
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("seek " + value.ToString() + " 1 ");
+				}
 			}
 		}
 
@@ -403,13 +410,32 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				stdin.WriteLine("get_time_pos ");
-				this.WaitForReceive();
-				return (double) minfo["TIME_POSITION"];
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("get_time_pos ");
+					this.WaitForReceive();
+					return (double) minfo["TIME_POSITION"];
+				}
+
+				return 0;
 			}
 			set
 			{
-				stdin.WriteLine("seek " + value.ToString() + " 2 ");
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("seek " + value.ToString() + " 2 ");
+				}
+			}
+		}
+
+		public double RelativeTime_Pos
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("seek " + value.ToString() + " ");
+				}
 			}
 		}
 
@@ -421,7 +447,7 @@ namespace Power_Mplayer
 			{
 				if(this.HasInstense())
 				{
-					stdin.WriteLine("volume " + (value * 10).ToString() + " 1 ");
+					stdin.WriteLine("volume " + value.ToString() + " 1 ");
 					Muted = false;
 				}
 			}
