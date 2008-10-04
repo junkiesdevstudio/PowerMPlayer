@@ -104,6 +104,8 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem menuItem6;
 		private System.Windows.Forms.MenuItem MI_LastOpen;
 		private System.Windows.Forms.TextBox txtShortcut;
+		private System.Windows.Forms.Button btn_despeed;
+		private System.Windows.Forms.Button btn_inspeed;
 		private FontSelector fontSelect;
 
 		// constructure
@@ -264,6 +266,8 @@ namespace Power_Mplayer
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.Playlist = new System.Windows.Forms.ListView();
 			this.splitter1 = new System.Windows.Forms.Panel();
+			this.btn_despeed = new System.Windows.Forms.Button();
+			this.btn_inspeed = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -306,6 +310,8 @@ namespace Power_Mplayer
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.Control;
+			this.panel1.Controls.Add(this.btn_inspeed);
+			this.panel1.Controls.Add(this.btn_despeed);
 			this.panel1.Controls.Add(this.btn_mute);
 			this.panel1.Controls.Add(this.statusBar1);
 			this.panel1.Controls.Add(this.VolumeBar);
@@ -367,7 +373,7 @@ namespace Power_Mplayer
 			// 
 			// MovieBar
 			// 
-			this.MovieBar.Location = new System.Drawing.Point(120, 16);
+			this.MovieBar.Location = new System.Drawing.Point(224, 16);
 			this.MovieBar.Name = "MovieBar";
 			this.MovieBar.Size = new System.Drawing.Size(100, 16);
 			this.MovieBar.TabIndex = 7;
@@ -379,7 +385,7 @@ namespace Power_Mplayer
 			// 
 			this.txtShortcut.BackColor = System.Drawing.Color.Gold;
 			this.txtShortcut.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtShortcut.Location = new System.Drawing.Point(272, 16);
+			this.txtShortcut.Location = new System.Drawing.Point(336, 16);
 			this.txtShortcut.Name = "txtShortcut";
 			this.txtShortcut.Size = new System.Drawing.Size(48, 15);
 			this.txtShortcut.TabIndex = 7;
@@ -941,6 +947,28 @@ namespace Power_Mplayer
 			this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
 			this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
 			// 
+			// btn_despeed
+			// 
+			this.btn_despeed.Enabled = false;
+			this.btn_despeed.ImageIndex = 6;
+			this.btn_despeed.ImageList = this.imageList1;
+			this.btn_despeed.Location = new System.Drawing.Point(88, 0);
+			this.btn_despeed.Name = "btn_despeed";
+			this.btn_despeed.Size = new System.Drawing.Size(40, 40);
+			this.btn_despeed.TabIndex = 10;
+			this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
+			// 
+			// btn_inspeed
+			// 
+			this.btn_inspeed.Enabled = false;
+			this.btn_inspeed.ImageIndex = 5;
+			this.btn_inspeed.ImageList = this.imageList1;
+			this.btn_inspeed.Location = new System.Drawing.Point(128, 0);
+			this.btn_inspeed.Name = "btn_inspeed";
+			this.btn_inspeed.Size = new System.Drawing.Size(40, 40);
+			this.btn_inspeed.TabIndex = 11;
+			this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
@@ -995,10 +1023,12 @@ namespace Power_Mplayer
 			BigScreen.Left = 0;
 
 			MovieBar.Top = MovieBar.Left = 0;
-			btn_pause.Top = MovieBar.Top + MovieBar.Height;
+
+			btn_despeed.Top = btn_inspeed.Top = btn_stop.Top = btn_pause.Top = MovieBar.Top + MovieBar.Height;
 			btn_pause.Left = 0;
-			btn_stop.Top = btn_pause.Top;
 			btn_stop.Left = btn_pause.Left + btn_pause.Width;
+			btn_despeed.Left = btn_stop.Left + btn_stop.Width + 10;
+			btn_inspeed.Left = btn_despeed.Left + btn_despeed.Width;
 			
 			btn_mute.Top = btn_pause.Top;
 			VolumeBar.Top = btn_pause.Top;
@@ -1042,6 +1072,8 @@ namespace Power_Mplayer
 			}
 
 			adjBigScreen();
+
+			this.txtShortcut.Focus();
 		}
 
 		private void adjBigScreen()
@@ -1150,6 +1182,8 @@ namespace Power_Mplayer
 				this.btn_pause.Enabled = true;
 				this.btn_pause.ImageIndex = 1;
 				this.btn_stop.Enabled = true;
+				this.btn_despeed.Enabled = true;
+				this.btn_inspeed.Enabled = true;
 				
 				this.VolumeBar_Scroll(null, null);
 			
@@ -1890,13 +1924,19 @@ namespace Power_Mplayer
 					break;
 
 				case Keys.Up:
-					this.VolumeBar.Value ++;
-					this.VolumeBar_Scroll(null, null);
+					if(this.VolumeBar.Value != this.VolumeBar.Maximum)
+					{
+						this.VolumeBar.Value ++;
+						this.VolumeBar_Scroll(null, null);
+					}
 					break;
 
 				case Keys.Down:
-					this.VolumeBar.Value --;
-					this.VolumeBar_Scroll(null, null);
+					if(this.VolumeBar.Value != this.VolumeBar.Minimum)
+					{
+						this.VolumeBar.Value --;
+						this.VolumeBar_Scroll(null, null);
+					}
 					break;
 
 				case Keys.Left:
@@ -1914,12 +1954,34 @@ namespace Power_Mplayer
 				case Keys.PageDown:
 					mp.RelativeTime_Pos = 30;
 					break;
+
+				case Keys.Oemcomma:
+					mp.Speed_mult = 0.5;
+					break;
+					
+				case Keys.OemPeriod:
+					mp.Speed_mult = 2;
+					break;
+
+				default:
+					//MessageBox.Show(e.KeyCode.ToString());
+					break;
 			}
 		}
 
 		private void txtShortcut_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
 			this.txtShortcut.Text = "";
+		}
+
+		private void btn_despeed_Click(object sender, System.EventArgs e)
+		{
+			mp.Speed_mult = 0.5;
+		}
+
+		private void btn_inspeed_Click(object sender, System.EventArgs e)
+		{
+			mp.Speed_mult = 2;
 		}
 	}
 }

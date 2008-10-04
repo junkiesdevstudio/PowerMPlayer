@@ -13,8 +13,7 @@ namespace Power_Mplayer
 	/// </summary>
 	public class FontSelector : System.Windows.Forms.Form
 	{
-		public const string FontRoot = @"%SystemRoot%\Fonts\";
-		private MplayerSetting msetting;		
+		public const string FontRoot = @"%SystemRoot%\Fonts\";	
 
 		private PrivateFontCollection[] privateFontCollection;
 		private System.Collections.ArrayList fontList;

@@ -219,6 +219,14 @@
                     BuildAction = "Content"
                 />
                 <File
+                    RelPath = "Icons\decrease_speed.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Icons\increase_speed.ico"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "Icons\logo.png"
                     BuildAction = "Content"
                 />

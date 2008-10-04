@@ -597,5 +597,16 @@ namespace Power_Mplayer
 		}
 
 		#endregion
+
+		public double Speed_mult
+		{
+			set
+			{
+				if(this.HasInstense())
+				{
+					stdin.WriteLine("speed_mult " + value.ToString() + " ");
+				}
+			}
+		}
 	}
 }
