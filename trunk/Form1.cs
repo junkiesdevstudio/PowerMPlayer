@@ -140,7 +140,6 @@ namespace Power_Mplayer
 					break;
 				}
 			}
-
 		}
 
 		public Form1(string[] str) : this()
@@ -183,6 +182,8 @@ namespace Power_Mplayer
 			this.BigScreen = new System.Windows.Forms.Panel();
 			this.contextMenu1 = new System.Windows.Forms.ContextMenu();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btn_inspeed = new System.Windows.Forms.Button();
+			this.btn_despeed = new System.Windows.Forms.Button();
 			this.btn_mute = new System.Windows.Forms.Button();
 			this.statusBar1 = new System.Windows.Forms.StatusBar();
 			this.statusPanel1 = new System.Windows.Forms.StatusBarPanel();
@@ -266,8 +267,6 @@ namespace Power_Mplayer
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.Playlist = new System.Windows.Forms.ListView();
 			this.splitter1 = new System.Windows.Forms.Panel();
-			this.btn_despeed = new System.Windows.Forms.Button();
-			this.btn_inspeed = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -324,6 +323,28 @@ namespace Power_Mplayer
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(568, 64);
 			this.panel1.TabIndex = 4;
+			// 
+			// btn_inspeed
+			// 
+			this.btn_inspeed.Enabled = false;
+			this.btn_inspeed.ImageIndex = 5;
+			this.btn_inspeed.ImageList = this.imageList1;
+			this.btn_inspeed.Location = new System.Drawing.Point(128, 0);
+			this.btn_inspeed.Name = "btn_inspeed";
+			this.btn_inspeed.Size = new System.Drawing.Size(40, 40);
+			this.btn_inspeed.TabIndex = 11;
+			this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
+			// 
+			// btn_despeed
+			// 
+			this.btn_despeed.Enabled = false;
+			this.btn_despeed.ImageIndex = 6;
+			this.btn_despeed.ImageList = this.imageList1;
+			this.btn_despeed.Location = new System.Drawing.Point(88, 0);
+			this.btn_despeed.Name = "btn_despeed";
+			this.btn_despeed.Size = new System.Drawing.Size(40, 40);
+			this.btn_despeed.TabIndex = 10;
+			this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
 			// 
 			// btn_mute
 			// 
@@ -946,28 +967,6 @@ namespace Power_Mplayer
 			this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
 			this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
 			this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
-			// 
-			// btn_despeed
-			// 
-			this.btn_despeed.Enabled = false;
-			this.btn_despeed.ImageIndex = 6;
-			this.btn_despeed.ImageList = this.imageList1;
-			this.btn_despeed.Location = new System.Drawing.Point(88, 0);
-			this.btn_despeed.Name = "btn_despeed";
-			this.btn_despeed.Size = new System.Drawing.Size(40, 40);
-			this.btn_despeed.TabIndex = 10;
-			this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
-			// 
-			// btn_inspeed
-			// 
-			this.btn_inspeed.Enabled = false;
-			this.btn_inspeed.ImageIndex = 5;
-			this.btn_inspeed.ImageList = this.imageList1;
-			this.btn_inspeed.Location = new System.Drawing.Point(128, 0);
-			this.btn_inspeed.Name = "btn_inspeed";
-			this.btn_inspeed.Size = new System.Drawing.Size(40, 40);
-			this.btn_inspeed.TabIndex = 11;
-			this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
 			// 
 			// Form1
 			// 
@@ -1916,7 +1915,9 @@ namespace Power_Mplayer
 
 		private void txtShortcut_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
-			
+			mp.LaunchShortcut(e);
+
+			/*
 			switch(e.KeyCode)
 			{
 				case Keys.Space:
@@ -1967,6 +1968,7 @@ namespace Power_Mplayer
 					//MessageBox.Show(e.KeyCode.ToString());
 					break;
 			}
+			*/
 		}
 
 		private void txtShortcut_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)

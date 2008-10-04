@@ -14,7 +14,7 @@ using System.Collections;
 
 namespace Power_Mplayer
 {
-	public enum MediaType {None, File, DVD, VCD, URL, TV, Radio, PVR, DVB, MF, CDDA, CUE, SDP, Mpst, Tivo};
+	public enum MediaType {None, File, DVD, VCD, URL, CDDA};
 
 	/// <summary>
 	/// Mplayer Class
@@ -32,6 +32,8 @@ namespace Power_Mplayer
 		private MplayerSetting msetting;
 		private ArrayList sublist;
 		private Subtitle sub;
+		public ArrayList shortcuts;
+		private MKeyConverter mkconverter;
 
 		public MediaType mediaType;
 		private string mediaFilename;
@@ -48,8 +50,6 @@ namespace Power_Mplayer
 					this.mediaType = MediaType.VCD;
 				else if(this.mediaFilename.StartsWith("dvd://"))
 					this.mediaType = MediaType.DVD;
-				else if(this.mediaFilename.StartsWith("radio://"))
-					this.mediaType = MediaType.Radio;
 				else if(this.mediaFilename.StartsWith("file://"))
 				{
 					this.mediaFilename = this.mediaFilename.Substring(7);
@@ -98,6 +98,9 @@ namespace Power_Mplayer
 
 			msetting = new MplayerSetting();
 			playlist = new MPlaylist();
+
+			this.shortcuts = MShortcuts.LoadShortcuts(Path.GetDirectoryName(msetting[SetVars.MplayerExe]) + @"\mplayer\input.conf");
+			this.mkconverter = new MKeyConverter();
 		}
 
 		public bool HasInstense()
@@ -605,6 +608,24 @@ namespace Power_Mplayer
 				if(this.HasInstense())
 				{
 					stdin.WriteLine("speed_mult " + value.ToString() + " ");
+				}
+			}
+		}
+
+		public void LaunchShortcut(System.Windows.Forms.KeyEventArgs e)
+		{
+			string str = "";
+			if(e.Shift)
+				str = this.mkconverter.getKeyName((int) e.KeyCode | (int) Keys.Shift);
+			else
+				str = this.mkconverter.getKeyName((int) e.KeyCode);
+
+			foreach(MShortcuts sc in this.shortcuts)
+			{
+				if(sc.Key == str)
+				{
+					stdin.WriteLine(sc.Cmd + " ");
+					break;
 				}
 			}
 		}
