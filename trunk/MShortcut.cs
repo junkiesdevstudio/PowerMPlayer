@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Power_Mplayer
 {
-	public class MShortcuts
+	public class MShortcut
 	{
 		public string Key;
 		public string Cmd;
@@ -29,7 +29,7 @@ namespace Power_Mplayer
 					if(str == "" || str[0] == '#' )
 						continue;
 
-					MShortcuts sc = new MShortcuts();
+					MShortcut sc = new MShortcut();
 
 					int space_index =  str.IndexOf(' ');
 					int comment_index = str.IndexOf('#');

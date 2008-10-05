@@ -30,6 +30,7 @@ namespace Power_Mplayer
 			for(Keys k = Keys.A ; k <= Keys.Z ; k++)
 			{
 				map.Add(new MKey(k.ToString().ToLower(), (int) k));
+				map.Add(new MKey(k.ToString().ToUpper(), (int) k | (int) Keys.Shift));
 			}
 
 			for(Keys k = Keys.F1 ; k <= Keys.F24 ; k++)

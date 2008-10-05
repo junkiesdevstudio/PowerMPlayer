@@ -1915,60 +1915,48 @@ namespace Power_Mplayer
 
 		private void txtShortcut_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
-			mp.LaunchShortcut(e);
+			string cmd = mp.LaunchShortcut(e);
 
-			/*
-			switch(e.KeyCode)
+			if(cmd == "None")
+				return;
+
+			if(cmd.ToLower().StartsWith("pause"))
 			{
-				case Keys.Space:
-					this.Pause();
-					break;
-
-				case Keys.Up:
-					if(this.VolumeBar.Value != this.VolumeBar.Maximum)
-					{
-						this.VolumeBar.Value ++;
-						this.VolumeBar_Scroll(null, null);
-					}
-					break;
-
-				case Keys.Down:
-					if(this.VolumeBar.Value != this.VolumeBar.Minimum)
-					{
-						this.VolumeBar.Value --;
-						this.VolumeBar_Scroll(null, null);
-					}
-					break;
-
-				case Keys.Left:
-					mp.RelativeTime_Pos = -1;
-					break;
-
-				case Keys.Right:
-					mp.RelativeTime_Pos = 1;
-					break;
-
-				case Keys.PageUp:
-					mp.RelativeTime_Pos = -30;
-					break;
-
-				case Keys.PageDown:
-					mp.RelativeTime_Pos = 30;
-					break;
-
-				case Keys.Oemcomma:
-					mp.Speed_mult = 0.5;
-					break;
-					
-				case Keys.OemPeriod:
-					mp.Speed_mult = 2;
-					break;
-
-				default:
-					//MessageBox.Show(e.KeyCode.ToString());
-					break;
+				this.Pause();
 			}
-			*/
+			else if(cmd.StartsWith("volume"))
+			{
+				int i = int.Parse(cmd.Split(' ')[1]);
+
+				if(i > 0)
+				{
+					if(this.VolumeBar.Value + i <= VolumeBar.Maximum)
+						this.VolumeBar.Value += i;
+					else
+						this.VolumeBar.Value = VolumeBar.Maximum;
+				}
+				else
+				{
+					if(this.VolumeBar.Value + i >= VolumeBar.Minimum)
+						this.VolumeBar.Value += i;
+					else 
+						this.VolumeBar.Value = VolumeBar.Minimum;
+				}
+
+				this.VolumeBar_Scroll(null, null);
+			}
+			else if(cmd.StartsWith("vo_ontop"))
+			{
+				this.MI_TopMost_Click(null, null);
+			}
+			else if(cmd.StartsWith("vo_fullscreen"))
+			{
+				this.BigScreen_DoubleClick(null, null);
+			}
+			else
+			{
+				mp.SendSlaveCommand(cmd);
+			}
 		}
 
 		private void txtShortcut_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)

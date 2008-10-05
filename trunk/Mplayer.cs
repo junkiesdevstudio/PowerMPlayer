@@ -99,7 +99,7 @@ namespace Power_Mplayer
 			msetting = new MplayerSetting();
 			playlist = new MPlaylist();
 
-			this.shortcuts = MShortcuts.LoadShortcuts(Path.GetDirectoryName(msetting[SetVars.MplayerExe]) + @"\mplayer\input.conf");
+			this.shortcuts = MShortcut.LoadShortcuts(Path.GetDirectoryName(msetting[SetVars.MplayerExe]) + @"\mplayer\input.conf");
 			this.mkconverter = new MKeyConverter();
 		}
 
@@ -612,7 +612,7 @@ namespace Power_Mplayer
 			}
 		}
 
-		public void LaunchShortcut(System.Windows.Forms.KeyEventArgs e)
+		public string LaunchShortcut(System.Windows.Forms.KeyEventArgs e)
 		{
 			string str = "";
 			if(e.Shift)
@@ -620,14 +620,21 @@ namespace Power_Mplayer
 			else
 				str = this.mkconverter.getKeyName((int) e.KeyCode);
 
-			foreach(MShortcuts sc in this.shortcuts)
+			foreach(MShortcut sc in this.shortcuts)
 			{
 				if(sc.Key == str)
 				{
-					stdin.WriteLine(sc.Cmd + " ");
+					str = sc.Cmd;
 					break;
 				}
 			}
+
+			return str;
+		}
+
+		public void SendSlaveCommand(string cmd)
+		{
+			stdin.WriteLine(cmd);
 		}
 	}
 }

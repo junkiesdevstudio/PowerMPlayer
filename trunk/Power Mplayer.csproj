@@ -158,6 +158,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "MShortcut.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "MyStreamReader.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -185,11 +190,6 @@
                 <File
                     RelPath = "Readme.txt"
                     BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Shortcuts.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
                 />
                 <File
                     RelPath = "ShowLog.cs"
