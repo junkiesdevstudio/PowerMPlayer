@@ -1009,7 +1009,7 @@ namespace Power_Mplayer
 			}
 			else
 			{
-				this.Start();
+				this.Start(mp.Playlist.Current());
 			}
 		}
 
@@ -1240,6 +1240,8 @@ namespace Power_Mplayer
 
 			mp.Quit();
 			Stop();
+
+			this.MI_SelectSubtitle.MenuItems.Clear();
 		}
 
 		private void Restart()
@@ -1821,7 +1823,7 @@ namespace Power_Mplayer
 		{
 			int index = Playlist.SelectedIndices[0];
 
-			this.Start((string) mp.Playlist[index]);
+			this.Start(mp.Playlist.GetFilename(index));
 		}
 
 		private void Playlist_AddItem(string[] s)
@@ -1929,7 +1931,7 @@ namespace Power_Mplayer
 
 			if(cmd.ToLower().StartsWith("pause"))
 			{
-				this.Pause();
+				this.btn_pause_Click(null, null);
 			}
 			else if(cmd.StartsWith("volume"))
 			{
@@ -1960,9 +1962,13 @@ namespace Power_Mplayer
 			{
 				this.BigScreen_DoubleClick(null, null);
 			}
+			else if(cmd.StartsWith("quit"))
+			{
+				this.Quit();
+			}
 			else
 			{
-				mp.SendSlaveCommand(cmd);
+				mp.SendSlaveCommand(cmd + " ");
 			}
 		}
 

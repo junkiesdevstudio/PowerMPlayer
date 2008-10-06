@@ -56,6 +56,7 @@ namespace Power_Mplayer
 			map.Add(new MKey("DEL" ,(int) Keys.Delete));
 			map.Add(new MKey("PGUP" ,(int) Keys.PageUp));
 			map.Add(new MKey("PGDWN" ,(int) Keys.PageDown));
+			map.Add(new MKey("ESC", (int) Keys.Escape));
 
 			map.Add(new MKey("," ,(int) Keys.Oemcomma));
 			map.Add(new MKey("<", (int) Keys.Oemcomma | (int) Keys.Shift));

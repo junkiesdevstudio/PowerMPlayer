@@ -25,6 +25,33 @@ namespace Power_Mplayer
 			return null;
 		}
 
+		public string GetFilename(int index)
+		{
+			NowIndex = index;
+
+			if(NowIndex > this.Count)
+				NowIndex = this.Count;
+			else if(NowIndex < 0)
+				NowIndex = 0;
+
+			if(this.Count > 0)
+			{
+				return (string) this[NowIndex];
+			}
+			
+			return null;
+		}
+
+		public string Current()
+		{
+			if(this.Count > 0)
+			{
+				return (string) this[NowIndex];
+			}
+
+			return null;
+		}
+
 		public string Next()
 		{
 			if(NowIndex < this.Count-1)

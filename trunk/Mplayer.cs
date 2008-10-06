@@ -369,6 +369,7 @@ namespace Power_Mplayer
 				sub = null;
 
 				this.mediaType = MediaType.None;
+				this.mediaFilename = null;
 			}
 		}
 
