@@ -89,6 +89,7 @@ namespace Power_Mplayer
 		public Mplayer(Panel bs)
 		{
 			mplayerProc = null;
+			mediaFilename = null;
 			this.BigScreen = bs;
 
 			minfo = new MediaInfo(this);
@@ -98,8 +99,15 @@ namespace Power_Mplayer
 
 			msetting = new MplayerSetting();
 			playlist = new MPlaylist();
+			
+			string fname = msetting[SetVars.MplayerExe];
+			if(fname.IndexOf(Path.VolumeSeparatorChar) < 0)
+			{
+				fname = System.Windows.Forms.Application.StartupPath + @"\" + fname;
+			}
+			fname = Path.GetDirectoryName(fname) + @"\mplayer\input.conf";
 
-			this.shortcuts = MShortcut.LoadShortcuts(Path.GetDirectoryName(msetting[SetVars.MplayerExe]) + @"\mplayer\input.conf");
+			this.shortcuts = MShortcut.LoadShortcuts(fname);
 			this.mkconverter = new MKeyConverter();
 		}
 
@@ -194,7 +202,7 @@ namespace Power_Mplayer
 				return false;
 			}
 
-			if(mplayerProc == null || mplayerProc.HasExited)
+			if(this.mediaFilename != null)
 			{
 				mplayerProc = new Process();
 
@@ -261,7 +269,11 @@ namespace Power_Mplayer
 				mplayerProc.StartInfo.Arguments += " " + "\"" + this.CurrentMediaFilename + "\"";
 
 				// start mpayer
-				mplayerProc.Start();
+				if(mplayerProc.Start() == false)
+				{
+					mplayerProc = null;
+					return false;
+				}
 
 				// redirect in/output
 				stdin = mplayerProc.StandardInput;
@@ -282,9 +294,11 @@ namespace Power_Mplayer
 				Pause();
 				System.Threading.Thread.Sleep(1000);
 				Pause();
+
+				return true;
 			}			
 
-			return true;
+			return false;
 		}
 
 		public void Pause()

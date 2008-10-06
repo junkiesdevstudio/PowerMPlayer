@@ -1274,8 +1274,15 @@ namespace Power_Mplayer
 
 		private void Seek(double time_pos)
 		{
+			double length = mp.Length;
+
+			if(time_pos > length)
+				time_pos = length;
+			else if(time_pos < 0)
+				time_pos = 0;
+
 			mp.Time_Pos = time_pos;
-			MovieBar.Value = (int) (100 * time_pos / mp.Length);
+			MovieBar.Value = (int) (100 * time_pos / length);
 
 			this.BackToPauseState();
 
