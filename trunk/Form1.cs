@@ -1153,7 +1153,9 @@ namespace Power_Mplayer
 				Quit();
 
 			mp.Filename = filename;
-			this.Start();
+
+			if(filename != null)
+				this.Start();
 		}
 
 		private void Start()
@@ -1826,7 +1828,7 @@ namespace Power_Mplayer
 			this.Start(mp.Playlist.GetFilename(index));
 		}
 
-		private void Playlist_AddItem(string[] s)
+		private void Playlist_AddItem(params string[] s)
 		{
 			foreach(string str in s)
 			{
@@ -1913,7 +1915,11 @@ namespace Power_Mplayer
 			if(s != null && s != "")
 			{
 				int index = s.IndexOf(':', 3);
-				this.Start("file://" + s.Substring(0, index));
+
+				mp.Playlist.Clear();
+				this.Playlist_AddItem("file://" + s.Substring(0, index));
+
+				this.Start(mp.Playlist.First());
 			}
 		}
 

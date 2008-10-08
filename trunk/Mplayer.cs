@@ -46,17 +46,20 @@ namespace Power_Mplayer
 			{
 				this.mediaFilename = value;
 
-				if(this.mediaFilename.StartsWith("vcd://"))
-					this.mediaType = MediaType.VCD;
-				else if(this.mediaFilename.StartsWith("dvd://"))
-					this.mediaType = MediaType.DVD;
-				else if(this.mediaFilename.StartsWith("file://"))
+				if(this.mediaFilename != null)
 				{
-					this.mediaFilename = this.mediaFilename.Substring(7);
-					this.mediaType = MediaType.File;
+					if(this.mediaFilename.StartsWith("vcd://"))
+						this.mediaType = MediaType.VCD;
+					else if(this.mediaFilename.StartsWith("dvd://"))
+						this.mediaType = MediaType.DVD;
+					else if(this.mediaFilename.StartsWith("file://"))
+					{
+						this.mediaFilename = this.mediaFilename.Substring(7);
+						this.mediaType = MediaType.File;
+					}
+					else if(this.mediaFilename.IndexOf("//") > 0)
+						this.mediaType = MediaType.URL;
 				}
-				else if(this.mediaFilename.IndexOf("//") > 0)
-					this.mediaType = MediaType.URL;
 			}
 			get
 			{
