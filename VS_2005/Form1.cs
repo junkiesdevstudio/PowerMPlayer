@@ -109,6 +109,7 @@ namespace Power_Mplayer
         private MenuItem menuItem7;
         private MenuItem MI_Screenshot;
         private SaveFileDialog saveFileDialog1;
+        private MenuItem MI_OpenDVD;
 		private FontSelector fontSelect;
 
 		// constructure
@@ -273,6 +274,7 @@ namespace Power_Mplayer
             this.Playlist = new System.Windows.Forms.ListView();
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.MI_OpenDVD = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
@@ -460,6 +462,7 @@ namespace Power_Mplayer
             this.MI_File.Index = 0;
             this.MI_File.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.MI_OpenFile,
+            this.MI_OpenDVD,
             this.MI_OpenURL,
             this.menuItem6,
             this.MI_LastOpen,
@@ -475,29 +478,29 @@ namespace Power_Mplayer
             // 
             // MI_OpenURL
             // 
-            this.MI_OpenURL.Index = 1;
+            this.MI_OpenURL.Index = 2;
             this.MI_OpenURL.Text = "開啟 URL";
             this.MI_OpenURL.Click += new System.EventHandler(this.MI_OpenURL_Click);
             // 
             // menuItem6
             // 
-            this.menuItem6.Index = 2;
+            this.menuItem6.Index = 3;
             this.menuItem6.Text = "-";
             // 
             // MI_LastOpen
             // 
-            this.MI_LastOpen.Index = 3;
+            this.MI_LastOpen.Index = 4;
             this.MI_LastOpen.Text = "前次開啟";
             this.MI_LastOpen.Click += new System.EventHandler(this.MI_LastOpen_Click);
             // 
             // menuItem4
             // 
-            this.menuItem4.Index = 4;
+            this.menuItem4.Index = 5;
             this.menuItem4.Text = "-";
             // 
             // MI_Exit
             // 
-            this.MI_Exit.Index = 5;
+            this.MI_Exit.Index = 6;
             this.MI_Exit.Text = "離開(&E)";
             this.MI_Exit.Click += new System.EventHandler(this.MI_Exit_Click);
             // 
@@ -996,6 +999,11 @@ namespace Power_Mplayer
             this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
             this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
             // 
+            // MI_OpenDVD
+            // 
+            this.MI_OpenDVD.Index = 1;
+            this.MI_OpenDVD.Text = "開啟 DVD";
+            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
@@ -1044,6 +1052,19 @@ namespace Power_Mplayer
 
 		private void Form1_Load(object sender, System.EventArgs e)
 		{
+            //Drive Setting
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+
+            foreach (DriveInfo d in allDrives)
+            {
+                if (d.DriveType == DriveType.CDRom)
+                {
+                    MenuItem mi = new MenuItem(d.Name);
+                    MI_OpenDVD.MenuItems.Add(mi);
+                }
+            }
+
+            //UI Setting
 			MainPanel.Top = 0;
 			MainPanel.Left = 0;
 
@@ -1421,13 +1442,6 @@ namespace Power_Mplayer
                 oldFormLocation = this.Location;
 
 				this.FormBorderStyle = FormBorderStyle.None;
-				//this.WindowState = FormWindowState.Maximized;
-                this.WindowState = FormWindowState.Normal;
-				this.TopMost = true;
-				
-				//int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
-				//int cy = Win32API.GetSystemMetrics(Win32API.SM_CYSCREEN);
-				//Win32API.SetWindowPos(this.Handle.ToInt32(), Win32API.HWND_TOP, 0, 0, cx, cy, Win32API.SWP_SHOWWINDOW);
 
                 Screen sc = Screen.FromHandle(this.Handle);
                 int cx = sc.Bounds.Width;
@@ -1436,6 +1450,12 @@ namespace Power_Mplayer
                 this.Width = cx;
                 this.Height = cy;
                 this.Left = this.Top = 0;
+                this.WindowState = FormWindowState.Normal;
+				this.TopMost = true;
+				
+				//int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
+				//int cy = Win32API.GetSystemMetrics(Win32API.SM_CYSCREEN);
+				//Win32API.SetWindowPos(this.Handle.ToInt32(), Win32API.HWND_TOP, 0, 0, cx, cy, Win32API.SWP_SHOWWINDOW);
 			}
 			else
 			{
