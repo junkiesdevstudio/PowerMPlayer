@@ -136,7 +136,15 @@ namespace Power_Mplayer
 
 					if(charBuf[i] == '\n')
 					{
-						rs.minfo.SetState(rs.LastLine);
+                        string sbuf = rs.LastLine;
+
+                        if (sbuf.StartsWith("ANS_TIME_POSITION"))
+                        {
+                            rs.RequestData.Remove(rs.RequestData.Length - (sbuf.Length+2), (sbuf.Length+2));
+                        }
+
+						rs.minfo.SetState(sbuf);
+
 					}
 				}
 				
@@ -654,5 +662,30 @@ namespace Power_Mplayer
 		{
 			stdin.WriteLine(cmd);
 		}
+
+        public string Screenshot()
+        {
+            if (HasInstense())
+            {
+                string str_sample = "*** screenshot '";
+                string fname = "";
+                
+                stdin.WriteLine("screenshot 0 ");
+                Pause();
+
+                Thread.Sleep(1000);
+                fname = stdout.LastLine;
+
+                if (fname.StartsWith(str_sample))
+                {
+                    fname = fname.Substring(str_sample.Length, fname.Length - 5 - str_sample.Length);
+                }
+
+                return Path.GetDirectoryName(this.msetting[SetVars.MplayerExe]) + @"\" + fname;
+            }
+
+            return "";
+        }
+
 	}
 }
