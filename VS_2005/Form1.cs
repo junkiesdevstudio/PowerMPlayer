@@ -1407,6 +1407,7 @@ namespace Power_Mplayer
 		private bool isFullscreen = false;
 		private Size oldFormSize = new Size(0, 0);
 		private int oldPlaylistWidth = 0;
+        private Point oldFormLocation;
 		private void BigScreen_DoubleClick(object sender, System.EventArgs e)
 		{
 			isFullscreen = !isFullscreen;
@@ -1417,14 +1418,24 @@ namespace Power_Mplayer
 				this.statusBar1.Visible = false;
 				this.splitter1.Visible = this.Playlist.Visible = false;
 				oldFormSize = this.Size;
+                oldFormLocation = this.Location;
 
 				this.FormBorderStyle = FormBorderStyle.None;
-				this.WindowState = FormWindowState.Maximized;
+				//this.WindowState = FormWindowState.Maximized;
+                this.WindowState = FormWindowState.Normal;
 				this.TopMost = true;
 				
-				int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
-				int cy = Win32API.GetSystemMetrics(Win32API.SM_CYSCREEN);
-				Win32API.SetWindowPos(this.Handle.ToInt32(), Win32API.HWND_TOP, 0, 0, cx, cy, Win32API.SWP_SHOWWINDOW);
+				//int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
+				//int cy = Win32API.GetSystemMetrics(Win32API.SM_CYSCREEN);
+				//Win32API.SetWindowPos(this.Handle.ToInt32(), Win32API.HWND_TOP, 0, 0, cx, cy, Win32API.SWP_SHOWWINDOW);
+
+                Screen sc = Screen.FromHandle(this.Handle);
+                int cx = sc.Bounds.Width;
+                int cy = sc.Bounds.Height;
+
+                this.Width = cx;
+                this.Height = cy;
+                this.Left = this.Top = 0;
 			}
 			else
 			{
@@ -1443,6 +1454,7 @@ namespace Power_Mplayer
 
 				this.Size = oldFormSize;
 				this.Playlist.Width = this.oldPlaylistWidth;
+                this.Location = oldFormLocation;
 			}
 
 			if(btn_pause.ImageIndex == 0)

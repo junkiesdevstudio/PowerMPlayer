@@ -25,6 +25,7 @@ namespace Power_Mplayer
 		[DllImport("dwmapi.dll")]
 		public static extern void DwmIsCompositionEnabled(ref bool pfEnabled);
 
+        /*
 		// for full screen
 		[DllImport("user32.dll", EntryPoint=("GetSystemMetrics"))]
 		public static extern int GetSystemMetrics(int nIndex);
@@ -60,6 +61,7 @@ namespace Power_Mplayer
 		public const uint SWP_NOMOVE     = 0x2;
 		public const uint SWP_SHOWWINDOW = 0x40;
 
+        */
 
 		/// <summary>
 		/// SendMessage Win32 API
