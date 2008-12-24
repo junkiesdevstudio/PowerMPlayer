@@ -20,11 +20,9 @@ namespace Power_Mplayer
 		private System.Windows.Forms.Button btn_stop;
 		private System.Windows.Forms.TrackBar VolumeBar;
 		private System.Windows.Forms.MainMenu mainMenu1;
-		private System.Windows.Forms.MenuItem menuItem4;
-		private System.Windows.Forms.StatusBar statusBar1;
+        private System.Windows.Forms.MenuItem menuItem4;
 		private System.Windows.Forms.ProgressBar MovieBar;
-		private System.Windows.Forms.OpenFileDialog openFileDialog1;
-		private System.Windows.Forms.StatusBarPanel statusPanel1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
 		private System.Windows.Forms.ImageList imageList1;
 		private System.Windows.Forms.Button btn_pause;
 		private System.Windows.Forms.MenuItem menuItem11;
@@ -110,6 +108,7 @@ namespace Power_Mplayer
         private MenuItem MI_Screenshot;
         private SaveFileDialog saveFileDialog1;
         private MenuItem MI_OpenDVD;
+        private TextBox txtStatus;
 		private FontSelector fontSelect;
 
 		// constructure
@@ -189,8 +188,6 @@ namespace Power_Mplayer
             this.btn_inspeed = new System.Windows.Forms.Button();
             this.btn_despeed = new System.Windows.Forms.Button();
             this.btn_mute = new System.Windows.Forms.Button();
-            this.statusBar1 = new System.Windows.Forms.StatusBar();
-            this.statusPanel1 = new System.Windows.Forms.StatusBarPanel();
             this.VolumeBar = new System.Windows.Forms.TrackBar();
             this.btn_stop = new System.Windows.Forms.Button();
             this.MovieBar = new System.Windows.Forms.ProgressBar();
@@ -199,6 +196,7 @@ namespace Power_Mplayer
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.MI_File = new System.Windows.Forms.MenuItem();
             this.MI_OpenFile = new System.Windows.Forms.MenuItem();
+            this.MI_OpenDVD = new System.Windows.Forms.MenuItem();
             this.MI_OpenURL = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.MI_LastOpen = new System.Windows.Forms.MenuItem();
@@ -274,22 +272,24 @@ namespace Power_Mplayer
             this.Playlist = new System.Windows.Forms.ListView();
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.MI_OpenDVD = new System.Windows.Forms.MenuItem();
+            this.txtStatus = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_pause
             // 
-            this.btn_pause.BackColor = System.Drawing.Color.Transparent;
             this.btn_pause.Enabled = false;
-            this.btn_pause.ImageIndex = 1;
+            this.btn_pause.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btn_pause.FlatAppearance.BorderSize = 0;
+            this.btn_pause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pause.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_pause.ImageIndex = 0;
             this.btn_pause.ImageList = this.imageList1;
             this.btn_pause.Location = new System.Drawing.Point(0, 0);
             this.btn_pause.Name = "btn_pause";
-            this.btn_pause.Size = new System.Drawing.Size(40, 40);
+            this.btn_pause.Size = new System.Drawing.Size(30, 30);
             this.btn_pause.TabIndex = 1;
             this.btn_pause.UseVisualStyleBackColor = false;
             this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
@@ -324,10 +324,10 @@ namespace Power_Mplayer
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtStatus);
             this.panel1.Controls.Add(this.btn_inspeed);
             this.panel1.Controls.Add(this.btn_despeed);
             this.panel1.Controls.Add(this.btn_mute);
-            this.panel1.Controls.Add(this.statusBar1);
             this.panel1.Controls.Add(this.VolumeBar);
             this.panel1.Controls.Add(this.btn_stop);
             this.panel1.Controls.Add(this.btn_pause);
@@ -342,58 +342,47 @@ namespace Power_Mplayer
             // btn_inspeed
             // 
             this.btn_inspeed.Enabled = false;
+            this.btn_inspeed.FlatAppearance.BorderSize = 0;
+            this.btn_inspeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_inspeed.ImageIndex = 5;
             this.btn_inspeed.ImageList = this.imageList1;
             this.btn_inspeed.Location = new System.Drawing.Point(128, 0);
             this.btn_inspeed.Name = "btn_inspeed";
-            this.btn_inspeed.Size = new System.Drawing.Size(40, 40);
+            this.btn_inspeed.Size = new System.Drawing.Size(30, 30);
             this.btn_inspeed.TabIndex = 11;
             this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
             // 
             // btn_despeed
             // 
             this.btn_despeed.Enabled = false;
+            this.btn_despeed.FlatAppearance.BorderSize = 0;
+            this.btn_despeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_despeed.ImageIndex = 6;
             this.btn_despeed.ImageList = this.imageList1;
             this.btn_despeed.Location = new System.Drawing.Point(88, 0);
             this.btn_despeed.Name = "btn_despeed";
-            this.btn_despeed.Size = new System.Drawing.Size(40, 40);
+            this.btn_despeed.Size = new System.Drawing.Size(30, 30);
             this.btn_despeed.TabIndex = 10;
             this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
             // 
             // btn_mute
             // 
+            this.btn_mute.FlatAppearance.BorderSize = 0;
+            this.btn_mute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_mute.ImageIndex = 3;
             this.btn_mute.ImageList = this.imageList1;
             this.btn_mute.Location = new System.Drawing.Point(416, 0);
             this.btn_mute.Name = "btn_mute";
-            this.btn_mute.Size = new System.Drawing.Size(40, 40);
+            this.btn_mute.Size = new System.Drawing.Size(30, 30);
             this.btn_mute.TabIndex = 9;
             this.btn_mute.Click += new System.EventHandler(this.btn_mute_Click);
-            // 
-            // statusBar1
-            // 
-            this.statusBar1.Location = new System.Drawing.Point(0, 40);
-            this.statusBar1.Name = "statusBar1";
-            this.statusBar1.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
-            this.statusPanel1});
-            this.statusBar1.ShowPanels = true;
-            this.statusBar1.Size = new System.Drawing.Size(568, 24);
-            this.statusBar1.TabIndex = 6;
-            this.statusBar1.Text = "aaa";
-            // 
-            // statusPanel1
-            // 
-            this.statusPanel1.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring;
-            this.statusPanel1.Name = "statusPanel1";
-            this.statusPanel1.Width = 552;
             // 
             // VolumeBar
             // 
             this.VolumeBar.LargeChange = 2;
-            this.VolumeBar.Location = new System.Drawing.Point(456, 8);
+            this.VolumeBar.Location = new System.Drawing.Point(452, 0);
             this.VolumeBar.Name = "VolumeBar";
-            this.VolumeBar.Size = new System.Drawing.Size(104, 42);
+            this.VolumeBar.Size = new System.Drawing.Size(108, 42);
             this.VolumeBar.TabIndex = 5;
             this.VolumeBar.Value = 10;
             this.VolumeBar.Scroll += new System.EventHandler(this.VolumeBar_Scroll);
@@ -401,11 +390,13 @@ namespace Power_Mplayer
             // btn_stop
             // 
             this.btn_stop.Enabled = false;
+            this.btn_stop.FlatAppearance.BorderSize = 0;
+            this.btn_stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_stop.ImageIndex = 2;
             this.btn_stop.ImageList = this.imageList1;
             this.btn_stop.Location = new System.Drawing.Point(40, 0);
             this.btn_stop.Name = "btn_stop";
-            this.btn_stop.Size = new System.Drawing.Size(40, 40);
+            this.btn_stop.Size = new System.Drawing.Size(30, 30);
             this.btn_stop.TabIndex = 3;
             this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
@@ -414,6 +405,7 @@ namespace Power_Mplayer
             this.MovieBar.Location = new System.Drawing.Point(224, 16);
             this.MovieBar.Name = "MovieBar";
             this.MovieBar.Size = new System.Drawing.Size(100, 16);
+            this.MovieBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.MovieBar.TabIndex = 7;
             this.MovieBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MovieBar_MouseDown);
             this.MovieBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MovieBar_MouseMove);
@@ -475,6 +467,11 @@ namespace Power_Mplayer
             this.MI_OpenFile.Index = 0;
             this.MI_OpenFile.Text = "開啟檔案(&O)";
             this.MI_OpenFile.Click += new System.EventHandler(this.Menu_OpenFile);
+            // 
+            // MI_OpenDVD
+            // 
+            this.MI_OpenDVD.Index = 1;
+            this.MI_OpenDVD.Text = "開啟 DVD";
             // 
             // MI_OpenURL
             // 
@@ -999,10 +996,14 @@ namespace Power_Mplayer
             this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
             this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
             // 
-            // MI_OpenDVD
+            // txtStatus
             // 
-            this.MI_OpenDVD.Index = 1;
-            this.MI_OpenDVD.Text = "開啟 DVD";
+            this.txtStatus.BackColor = System.Drawing.Color.Black;
+            this.txtStatus.ForeColor = System.Drawing.Color.White;
+            this.txtStatus.Location = new System.Drawing.Point(128, 36);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(100, 22);
+            this.txtStatus.TabIndex = 12;
             // 
             // Form1
             // 
@@ -1021,7 +1022,6 @@ namespace Power_Mplayer
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).EndInit();
             this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1071,16 +1071,22 @@ namespace Power_Mplayer
 			BigScreen.Top = 0;
 			BigScreen.Left = 0;
 
+            // setup panel1
+            panel1.Height = MovieBar.Height + btn_pause.Height + txtStatus.Height;			
+
 			MovieBar.Top = MovieBar.Left = 0;
 
 			btn_despeed.Top = btn_inspeed.Top = btn_stop.Top = btn_pause.Top = MovieBar.Top + MovieBar.Height;
-			btn_pause.Left = 0;
+            btn_mute.Top = btn_pause.Top;
+            VolumeBar.Top = btn_pause.Top;
+
+            btn_pause.Left = 0;
 			btn_stop.Left = btn_pause.Left + btn_pause.Width;
 			btn_despeed.Left = btn_stop.Left + btn_stop.Width + 10;
 			btn_inspeed.Left = btn_despeed.Left + btn_despeed.Width;
-			
-			btn_mute.Top = btn_pause.Top;
-			VolumeBar.Top = btn_pause.Top;
+
+            txtStatus.Top = btn_pause.Top + btn_pause.Height;
+            txtStatus.Left = 0;
 
 			Playlist.Top = 0;
 			Playlist.Columns.Add("播放清單", -2, HorizontalAlignment.Left);
@@ -1091,13 +1097,8 @@ namespace Power_Mplayer
 		}
 
 		private void Form1_Resize(object sender, System.EventArgs e)
-		{
-			// setup panel1
-			panel1.Height = MovieBar.Height + btn_pause.Height;			
-			if(!this.isFullscreen)
-				panel1.Height += this.statusBar1.Height;
-			
-			MovieBar.Width = panel1.Width;
+		{			
+			MovieBar.Width = txtStatus.Width = panel1.Width;
 			VolumeBar.Left = this.ClientSize.Width - VolumeBar.Width;
 			btn_mute.Left = VolumeBar.Left - btn_mute.Width;
 
@@ -1404,12 +1405,12 @@ namespace Power_Mplayer
 					string str_now_pos = (now_pos / 3600) + ":" + ((now_pos / 60) % 60)+ ":" + (now_pos % 60);
 					string str_movie_len = (movie_len / 3600) + ":" + ((movie_len / 60) % 60) + ":" + (movie_len % 60);
 
-					this.statusPanel1.Text = str_now_pos + " / " + str_movie_len;
+					this.txtStatus.Text = str_now_pos + " / " + str_movie_len;
 					this.MovieBar.Value = (100 * now_pos) / movie_len;
 				}
 				else
 				{
-					this.statusPanel1.Text = "0:0:0 / 0:0:0";
+					this.txtStatus.Text = "0:0:0 / 0:0:0";
 					this.MovieBar.Value = 0;
 				}
 
@@ -1436,7 +1437,6 @@ namespace Power_Mplayer
 			{
 				oldPlaylistWidth = this.Playlist.Width;
 				this.Menu = null;		// this line will cause Playlist.Width = 0
-				this.statusBar1.Visible = false;
 				this.splitter1.Visible = this.Playlist.Visible = false;
 				oldFormSize = this.Size;
                 oldFormLocation = this.Location;
@@ -1460,7 +1460,6 @@ namespace Power_Mplayer
 			else
 			{
 				this.Menu = this.mainMenu1;
-				this.statusBar1.Visible = true;
 				this.splitter1.Visible = this.Playlist.Visible = this.MI_ShowPlaylist.Checked;
 
 				this.FormBorderStyle = FormBorderStyle.Sizable;
@@ -1975,7 +1974,7 @@ namespace Power_Mplayer
 				string str_now_pos = (pos / 3600) + ":" + ((pos / 60) % 60)+ ":" + (pos % 60);
 				string str_movie_len = (len / 3600) + ":" + ((len / 60) % 60) + ":" + (len % 60);
 
-				this.statusPanel1.Text = str_now_pos + " / " + str_movie_len;
+				this.txtStatus.Text = str_now_pos + " / " + str_movie_len;
 			}
 		}
 
