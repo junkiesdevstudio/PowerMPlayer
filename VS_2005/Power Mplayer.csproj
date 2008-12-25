@@ -181,6 +181,9 @@
     <Content Include="Icons\Volume.ico" />
     <Content Include="Readme.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

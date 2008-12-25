@@ -185,6 +185,7 @@ namespace Power_Mplayer
             this.BigScreen = new System.Windows.Forms.Panel();
             this.contextMenu1 = new System.Windows.Forms.ContextMenu();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtStatus = new System.Windows.Forms.TextBox();
             this.btn_inspeed = new System.Windows.Forms.Button();
             this.btn_despeed = new System.Windows.Forms.Button();
             this.btn_mute = new System.Windows.Forms.Button();
@@ -272,7 +273,6 @@ namespace Power_Mplayer
             this.Playlist = new System.Windows.Forms.ListView();
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.txtStatus = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -298,13 +298,13 @@ namespace Power_Mplayer
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "");
-            this.imageList1.Images.SetKeyName(1, "");
-            this.imageList1.Images.SetKeyName(2, "");
-            this.imageList1.Images.SetKeyName(3, "");
-            this.imageList1.Images.SetKeyName(4, "");
-            this.imageList1.Images.SetKeyName(5, "");
-            this.imageList1.Images.SetKeyName(6, "");
+            this.imageList1.Images.SetKeyName(0, "play.png");
+            this.imageList1.Images.SetKeyName(1, "pause.png");
+            this.imageList1.Images.SetKeyName(2, "stop.png");
+            this.imageList1.Images.SetKeyName(3, "volume.png");
+            this.imageList1.Images.SetKeyName(4, "mute.png");
+            this.imageList1.Images.SetKeyName(5, "forward1m.png");
+            this.imageList1.Images.SetKeyName(6, "rewind1m.png");
             // 
             // BigScreen
             // 
@@ -338,6 +338,16 @@ namespace Power_Mplayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(568, 64);
             this.panel1.TabIndex = 4;
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.BackColor = System.Drawing.Color.Black;
+            this.txtStatus.ForeColor = System.Drawing.Color.White;
+            this.txtStatus.Location = new System.Drawing.Point(128, 36);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(100, 22);
+            this.txtStatus.TabIndex = 12;
             // 
             // btn_inspeed
             // 
@@ -996,15 +1006,6 @@ namespace Power_Mplayer
             this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
             this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
             // 
-            // txtStatus
-            // 
-            this.txtStatus.BackColor = System.Drawing.Color.Black;
-            this.txtStatus.ForeColor = System.Drawing.Color.White;
-            this.txtStatus.Location = new System.Drawing.Point(128, 36);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(100, 22);
-            this.txtStatus.TabIndex = 12;
-            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
@@ -1060,6 +1061,7 @@ namespace Power_Mplayer
                 if (d.DriveType == DriveType.CDRom)
                 {
                     MenuItem mi = new MenuItem(d.Name);
+                    mi.Click += new System.EventHandler(this.MI_DVDDrive_Click);
                     MI_OpenDVD.MenuItems.Add(mi);
                 }
             }
@@ -2057,11 +2059,13 @@ namespace Power_Mplayer
 		private void btn_despeed_Click(object sender, System.EventArgs e)
 		{
 			mp.Speed_mult = 0.5;
+            this.txtShortcut.Focus();
 		}
 
 		private void btn_inspeed_Click(object sender, System.EventArgs e)
 		{
 			mp.Speed_mult = 2;
+            this.txtShortcut.Focus();
 		}
 
         private void MI_Screenshot_Click(object sender, EventArgs e)
@@ -2087,6 +2091,18 @@ namespace Power_Mplayer
                     File.Delete(fname);
                 }
             }
+        }
+
+        private void MI_DVDDrive_Click(object sender, EventArgs e)
+        {
+            MenuItem mi = (MenuItem)sender;
+
+            /*
+            mp.Playlist.Clear();
+            this.Playlist_AddItem("dvd://1" + " -dvd-device=" + mi.Text[0] + ":");
+
+            Start(mp.Playlist.First());
+            */
         }
 	}
 }
