@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Power_Mplayer
 {
@@ -29,7 +29,7 @@ namespace Power_Mplayer
 	{
 		private string SettingFile = System.Windows.Forms.Application.StartupPath + @"\PowerMplayer.ini";
 
-		private ArrayList SettingValues;
+		private List<MValue> SettingValues;
 		
 		private void CreateDefaultValue()
 		{
@@ -104,7 +104,7 @@ namespace Power_Mplayer
 
 		public MplayerSetting()
 		{
-			this.SettingValues = new ArrayList();
+			this.SettingValues = new List<MValue>();
 			this.ReadSetting();
 		}
 

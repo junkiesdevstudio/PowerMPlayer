@@ -27,6 +27,8 @@ namespace Power_Mplayer
 		[DllImport("dwmapi.dll")]
 		public static extern void DwmIsCompositionEnabled(ref bool pfEnabled);
 
+        #region Full Screen
+
         /*
 		// for full screen
 		[DllImport("user32.dll", EntryPoint=("GetSystemMetrics"))]
@@ -65,7 +67,9 @@ namespace Power_Mplayer
 
         */
 
-		/// <summary>
+        #endregion
+
+        /// <summary>
 		/// SendMessage Win32 API
 		/// </summary>
 		/// <param name="hWnd">handle to destination window</param>
@@ -80,6 +84,8 @@ namespace Power_Mplayer
 
 		[DllImport("user32.dll")]
 		public static extern bool InvalidateRect(IntPtr hWnd, IntPtr lpRect, bool bErase);
+
+        #region Path long <-> short
 
         // from http://www.c-sharpcorner.com/UploadFile/crajesh1981/RajeshPage103142006044841AM/RajeshPage1.aspx?ArticleID=63e02c1f-761f-44ab-90dd-8d2348b8c6d2
         [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
@@ -107,6 +113,10 @@ namespace Power_Mplayer
 
             return shortPath.ToString();
         }
+
+        #endregion
+
+        #region File Associate
 
         public static void SetAssociate(string ext, string ProgramName, string strIcon)
         {
@@ -137,9 +147,50 @@ namespace Power_Mplayer
             string ProgramName = "PowerMplayer";
 
             ext = ext.ToLower();
-            string kv = (string) Registry.ClassesRoot.OpenSubKey(ext).GetValue("");
 
-            return kv.StartsWith(ProgramName);
+            RegistryKey rk = Registry.ClassesRoot.OpenSubKey(ext);
+
+            if (rk != null)
+            {
+                string kv = (string)rk.GetValue("");
+                return kv.StartsWith(ProgramName);
+            }
+
+            return false;
         }
-	}
+
+        #endregion
+
+        #region ScreenSaver
+
+        [DllImport("user32")]
+        private static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+        private const int KEYEVENTF_KEYUP = 0x02;
+        private const int VK_CONTROL = 0x11;
+
+        /*
+        [DllImport("user32.dll")]
+        private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+        private const byte VK_MENU = 0x12;
+        private const byte VK_TAB = 0x09;
+        private const int KEYEVENTF_EXTENDEDKEY = 0x01;
+        private const int KEYEVENTF_KEYUP = 0x02;
+
+        internal struct LASTINPUTINFO
+        {
+            public uint cbSize;
+            public uint dwTime;
+        }
+        */
+        public static void ResetSystemIdle()
+        {
+            for (int i = 1; i <= 2; i++)
+            {
+                keybd_event(VK_CONTROL, 0x9d, 0, 0); // Ctrl Press
+                keybd_event(VK_CONTROL, 0x9d, KEYEVENTF_KEYUP, 0); // Ctrl Release						
+            }
+        }
+
+        #endregion
+    }
 }

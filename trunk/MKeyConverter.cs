@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Power_Mplayer
@@ -19,11 +19,11 @@ namespace Power_Mplayer
 	// TODO: Find Better Method...
 	public class MKeyConverter
 	{
-		private ArrayList map;
+		private List<MKey> map;
 
 		public MKeyConverter()
 		{
-			map = new ArrayList();
+			map = new List<MKey>();
 
 			map.Add(new MKey("None", (int) Keys.None));
 

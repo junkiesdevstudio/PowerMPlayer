@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Power_Mplayer
 {
@@ -68,7 +69,7 @@ namespace Power_Mplayer
 	/// </summary>
 	public class MediaInfo
 	{
-		private ArrayList MValues;
+		private List<MValue> MValues;
 		private Mplayer mp;
         public ArrayList AudioChannel;
         public ArrayList VideoChannel;
@@ -76,7 +77,7 @@ namespace Power_Mplayer
 		// constructure
 		public MediaInfo(Mplayer m)
 		{
-			MValues = new ArrayList();
+			MValues = new List<MValue>();
 			mp = m;
 
             AudioChannel = new ArrayList();

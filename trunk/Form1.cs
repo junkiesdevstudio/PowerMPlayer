@@ -1180,6 +1180,8 @@ namespace Power_Mplayer
 				timer1.Start();
 			}
 
+            // to avoid Screensaver or power saver
+
 			this.txtShortcut.Focus();
 		}
 
@@ -1347,6 +1349,9 @@ namespace Power_Mplayer
                 {
                     nowTimePos = (int)mp.Time_Pos;
                     needSyncTime = false;
+
+                    // To avoid screensaver or powersaver
+                    Win32API.ResetSystemIdle();
                 }
                 else
                     nowTimePos++;
@@ -1403,12 +1408,16 @@ namespace Power_Mplayer
 
 				this.FormBorderStyle = FormBorderStyle.None;
 
+                Bounds = Screen.PrimaryScreen.Bounds;
+                
+                /*
                 Screen sc = Screen.FromHandle(this.Handle);
                 int cx = sc.Bounds.Width;
                 int cy = sc.Bounds.Height;
 
                 this.Width = cx;
                 this.Height = cy;
+                */
                 this.Left = this.Top = 0;
                 this.WindowState = FormWindowState.Normal;
 				this.TopMost = true;
