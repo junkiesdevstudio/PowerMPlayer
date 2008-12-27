@@ -70,12 +70,17 @@ namespace Power_Mplayer
 	{
 		private ArrayList MValues;
 		private Mplayer mp;
+        public ArrayList AudioChannel;
+        public ArrayList VideoChannel;
 
 		// constructure
 		public MediaInfo(Mplayer m)
 		{
 			MValues = new ArrayList();
 			mp = m;
+
+            AudioChannel = new ArrayList();
+            VideoChannel = new ArrayList();
 
 			CreateValues();
 		}
@@ -90,7 +95,8 @@ namespace Power_Mplayer
 
 			// Audio
 
-			MValues.Add(new MValue("AUDIO_ID",		TypeCode.Int32));
+//			MValues.Add(new MValue("AUDIO_ID",		TypeCode.Int32));
+            AudioChannel.Clear();
 			MValues.Add(new MValue("AUDIO_BITRATE", TypeCode.Int32));
 			MValues.Add(new MValue("AUDIO_RATE",	TypeCode.Int32));
 			MValues.Add(new MValue("AUDIO_NCH",		TypeCode.Int32));
@@ -99,7 +105,8 @@ namespace Power_Mplayer
 
 			// Video
 
-			MValues.Add(new MValue("VIDEO_ID",		TypeCode.Int32));
+//			MValues.Add(new MValue("VIDEO_ID",		TypeCode.Int32));
+            VideoChannel.Clear();
 			MValues.Add(new MValue("VIDEO_FORMAT",	TypeCode.String));
 			MValues.Add(new MValue("VIDEO_BITRATE",	TypeCode.Int32));
 			MValues.Add(new MValue("VIDEO_WIDTH",	TypeCode.Int32));
@@ -115,9 +122,15 @@ namespace Power_Mplayer
 
 			// Subtitle
 
-			MValues.Add(new MValue("FILE_SUB_ID",		TypeCode.Int32));
-			MValues.Add(new MValue("FILE_SUB_FILENAME",	TypeCode.String));
+//			MValues.Add(new MValue("FILE_SUB_ID",		TypeCode.Int32));
+//			MValues.Add(new MValue("FILE_SUB_FILENAME",	TypeCode.String));
 		}
+
+        public void ClearValues()
+        {
+            MValues.Clear();
+            this.CreateValues();
+        }
 
 		private string isStateString(string str)
 		{
@@ -150,6 +163,15 @@ namespace Power_Mplayer
 				}
 
 				string[] cmds = str.Split('=');
+
+                if (cmds[0].StartsWith("AUDIO_ID"))
+                {
+                    this.AudioChannel.Add(int.Parse(cmds[1]));
+                }
+                else if(cmds[0].StartsWith("VIDEO_ID"))
+                {
+                    this.VideoChannel.Add(int.Parse(cmds[1]));
+                }
 
 				foreach(MValue val in MValues)
 				{

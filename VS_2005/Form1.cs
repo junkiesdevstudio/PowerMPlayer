@@ -101,7 +101,7 @@ namespace Power_Mplayer
         private SaveFileDialog saveFileDialog1;
         private MenuItem MI_OpenDVD;
         private TextBox txtStatus;
-		private FontSelector fontSelect;
+        private MenuItem MI_SelectAudio;
 
 		// constructure
 		private Form1()
@@ -242,6 +242,7 @@ namespace Power_Mplayer
             this.Playlist = new System.Windows.Forms.ListView();
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.MI_SelectAudio = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -690,6 +691,8 @@ namespace Power_Mplayer
             // MI_Audio
             // 
             this.MI_Audio.Index = 3;
+            this.MI_Audio.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MI_SelectAudio});
             this.MI_Audio.Text = "音訊(&A)";
             // 
             // MI_Subtitle
@@ -915,6 +918,11 @@ namespace Power_Mplayer
             this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
             this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
             this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
+            // 
+            // MI_SelectAudio
+            // 
+            this.MI_SelectAudio.Index = 0;
+            this.MI_SelectAudio.Text = "選擇音訊";
             // 
             // Form1
             // 
@@ -1160,6 +1168,7 @@ namespace Power_Mplayer
 				this.VolumeBar_Scroll(null, null);
 			
 				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
+                this.AppendAudioIDMenuItem(this.MI_SelectAudio);
 
 				this.Form1_Resize(null, null);
 
@@ -1215,6 +1224,7 @@ namespace Power_Mplayer
 			Stop();
 
 			this.MI_SelectSubtitle.MenuItems.Clear();
+            this.MI_SelectAudio.MenuItems.Clear();
 		}
 
 		private void Restart()
@@ -1306,6 +1316,8 @@ namespace Power_Mplayer
                     btn_mute.ImageIndex = 3;
                 }
             }
+
+            this.txtShortcut.Focus();
 		}
 
 		private void timer1_Tick(object sender, System.EventArgs e)
@@ -1892,6 +1904,8 @@ namespace Power_Mplayer
 			else if(cmd.StartsWith("quit"))
 			{
 				this.Quit();
+                if (this.isFullscreen)
+                    this.BigScreen_DoubleClick(sender, e);
 			}
 			else
 			{
@@ -1952,5 +1966,35 @@ namespace Power_Mplayer
             Start(mp.Playlist.First());
             */
         }
-	}
+
+        #region Audio
+
+        private void MI_AudioID_Click(object sender, EventArgs e)
+        {
+            foreach(MenuItem mi in this.MI_SelectAudio.MenuItems)
+            {
+                mi.Checked = false;
+            }
+
+            MenuItem m = (MenuItem)sender;
+            mp.Audio_Select(m.Text);
+            m.Checked = true;                     
+        }
+
+        private void AppendAudioIDMenuItem(MenuItem owner)
+        {
+            foreach (int j in mp.AudioChannels)
+            {
+                MenuItem mi = new MenuItem(j.ToString());
+                mi.RadioCheck = true;
+                mi.Click += new EventHandler(this.MI_AudioID_Click);
+
+                owner.MenuItems.Add(mi);
+            }
+
+            owner.MenuItems[0].Checked = true;
+        }
+
+        #endregion
+    }
 }

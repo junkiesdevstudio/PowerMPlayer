@@ -381,6 +381,7 @@ namespace Power_Mplayer
 
 				this.mediaType = MediaType.None;
 				this.mediaFilename = null;
+                this.minfo.ClearValues();
 			}
 		}
 
@@ -685,6 +686,24 @@ namespace Power_Mplayer
             }
 
             return "";
+        }
+
+        public ArrayList AudioChannels
+        {
+            get { return minfo.AudioChannel; }
+        }
+
+        public ArrayList VideoChannels
+        {
+            get { return minfo.VideoChannel; }
+        }
+
+        public void Audio_Select(string id)
+        {
+            if (this.HasInstense())
+            {
+                stdin.WriteLine("switch_audio {0} ", id);
+            }
         }
 
 	}
