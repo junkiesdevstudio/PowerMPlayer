@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 namespace Power_Mplayer
 {
@@ -105,6 +106,40 @@ namespace Power_Mplayer
             Win32API.GetShortPathName(longPath, shortPath, shortPath.Capacity);
 
             return shortPath.ToString();
+        }
+
+        public static void SetAssociate(string ext, string ProgramName, string strIcon)
+        {
+            if(ext[0] != '.')
+                return;
+
+            ext = ext.ToLower();
+            RegistryKey rk = Registry.ClassesRoot;
+
+            RegistryKey rkTest = rk.CreateSubKey(ext);
+            rkTest.SetValue("", ProgramName);
+
+            if (strIcon != null && strIcon != "")
+            {
+                rkTest = rk.CreateSubKey(ProgramName + @"\DefaultIcon");
+                rkTest.SetValue("", strIcon);
+            }
+
+            rkTest = rk.CreateSubKey(ProgramName + @"\shell\open");
+            rkTest.SetValue("", "¥H PowerMplayer ¶}±Ò");
+
+            rkTest = rk.CreateSubKey(ProgramName + @"\shell\open\command");
+            rkTest.SetValue("", "\"" + System.Windows.Forms.Application.ExecutablePath + "\" \"%1\"");
+        }
+
+        public static bool isAssociate(string ext)
+        {
+            string ProgramName = "PowerMplayer";
+
+            ext = ext.ToLower();
+            string kv = (string) Registry.ClassesRoot.OpenSubKey(ext).GetValue("");
+
+            return kv.StartsWith(ProgramName);
         }
 	}
 }

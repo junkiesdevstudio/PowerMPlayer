@@ -1146,6 +1146,8 @@ namespace Power_Mplayer
 
 			if(mp.Start())
 			{
+                txtStatus.Text = "開始播放 " + mp.Filename;
+
 				// log last file
 				if(mp.mediaType == MediaType.File)
 				{
@@ -1166,7 +1168,7 @@ namespace Power_Mplayer
 				this.btn_stop.Enabled = true;
 				this.btn_despeed.Enabled = true;
 				this.btn_inspeed.Enabled = true;
-				
+
 				this.VolumeBar_Scroll(null, null);
 			
 				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
@@ -1174,6 +1176,7 @@ namespace Power_Mplayer
 
 				this.Form1_Resize(null, null);
 
+                needSyncTime = true;
 				timer1.Start();
 			}
 
@@ -1188,16 +1191,14 @@ namespace Power_Mplayer
 
 				if(btn_pause.ImageIndex == 0)
 				{
-					timer1.Start();
 					btn_pause.ImageIndex = 1;
-
                     this.txtStatus.Text = "繼續播放 - " + strTimeStamp(this.nowTimePos, (int)mp.Length);
+                    timer1.Start();
 				}
 				else
 				{
 					timer1.Stop();
 					btn_pause.ImageIndex = 0;
-
                     this.txtStatus.Text = "暫停播放 - " + strTimeStamp(this.nowTimePos, (int) mp.Length);
 				}
 			}
@@ -1279,6 +1280,8 @@ namespace Power_Mplayer
 				time_pos = 0;
 
 			mp.Time_Pos = time_pos;
+            nowTimePos = (int)time_pos;
+
 			MovieBar.Value = (int) (100 * time_pos / length);
             this.txtStatus.Text = strTimeStamp((int) time_pos, (int) length);
 

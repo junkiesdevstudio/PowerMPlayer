@@ -48,6 +48,8 @@ namespace Power_Mplayer
         private Label label7;
 
 		private MplayerSetting msetting;
+        private CheckedListBox clb_FileAssociate;
+        private Button btn_SelectAllExt;
         private FontSelector fontSelect;
 
 		// constructure
@@ -57,6 +59,8 @@ namespace Power_Mplayer
 
 			this.msetting = ms;
             this.fontSelect = null;
+            
+            GetAssociatedExt();
 		}
 
 		/// <summary>
@@ -99,6 +103,9 @@ namespace Power_Mplayer
             this.button2 = new System.Windows.Forms.Button();
             this.tp_Subtitle = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_BroseFont = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Srt_Font = new System.Windows.Forms.TextBox();
             this.Srt_AutoScale = new System.Windows.Forms.ComboBox();
@@ -106,12 +113,11 @@ namespace Power_Mplayer
             this.Srt_UseASS = new System.Windows.Forms.CheckBox();
             this.Srt_ForceUTF8 = new System.Windows.Forms.CheckBox();
             this.tp_audio = new System.Windows.Forms.TabPage();
+            this.clb_FileAssociate = new System.Windows.Forms.CheckedListBox();
             this.btn_close = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_BroseFont = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btn_SelectAllExt = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tp_general.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -121,6 +127,7 @@ namespace Power_Mplayer
             this.tp_Subtitle.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tp_audio.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -323,6 +330,37 @@ namespace Power_Mplayer
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "字型";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(69, 46);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "起始大小";
+            // 
+            // btn_BroseFont
+            // 
+            this.btn_BroseFont.Location = new System.Drawing.Point(271, 18);
+            this.btn_BroseFont.Name = "btn_BroseFont";
+            this.btn_BroseFont.Size = new System.Drawing.Size(75, 23);
+            this.btn_BroseFont.TabIndex = 2;
+            this.btn_BroseFont.Text = "瀏覽字型";
+            this.btn_BroseFont.UseVisualStyleBackColor = true;
+            this.btn_BroseFont.Click += new System.EventHandler(this.btn_BroseFont_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -381,11 +419,92 @@ namespace Power_Mplayer
             // 
             // tp_audio
             // 
+            this.tp_audio.Controls.Add(this.btn_SelectAllExt);
+            this.tp_audio.Controls.Add(this.clb_FileAssociate);
             this.tp_audio.Location = new System.Drawing.Point(4, 21);
             this.tp_audio.Name = "tp_audio";
             this.tp_audio.Size = new System.Drawing.Size(368, 271);
             this.tp_audio.TabIndex = 2;
             this.tp_audio.Text = "檔案類型";
+            // 
+            // clb_FileAssociate
+            // 
+            this.clb_FileAssociate.CheckOnClick = true;
+            this.clb_FileAssociate.FormattingEnabled = true;
+            this.clb_FileAssociate.Items.AddRange(new object[] {
+            ".3gp",
+            ".669",
+            ".AAC",
+            ".ac3",
+            ".aif",
+            ".aifc",
+            ".aiff",
+            ".amc",
+            ".amf",
+            ".APL",
+            ".asf",
+            ".au",
+            ".avi",
+            ".cda",
+            ".far",
+            ".it",
+            ".itz",
+            ".KAR",
+            ".M2V",
+            ".M4A",
+            ".mdz",
+            ".mid",
+            ".midi",
+            ".MIZ",
+            ".mka",
+            ".mkv",
+            ".mod",
+            ".mov",
+            ".MP1",
+            ".mp2",
+            ".mp2v",
+            ".mp3",
+            ".mp4",
+            ".mpa",
+            ".mpe",
+            ".mpeg",
+            ".mpg",
+            ".mpg4",
+            ".mpv2",
+            ".mtm",
+            ".NSA",
+            ".nst",
+            ".NSV",
+            ".OGG",
+            ".ogm",
+            ".okt",
+            ".ptm",
+            ".ra",
+            ".ram",
+            ".rm",
+            ".rmi",
+            ".rmm",
+            ".rnx",
+            ".rp",
+            ".rv",
+            ".s3m",
+            ".s3z",
+            ".smi",
+            ".smil",
+            ".snd",
+            ".stm",
+            ".stz",
+            ".ult",
+            ".VOC",
+            ".wav",
+            ".wma",
+            ".wmv",
+            ".xm",
+            ".xmz"});
+            this.clb_FileAssociate.Location = new System.Drawing.Point(8, 12);
+            this.clb_FileAssociate.Name = "clb_FileAssociate";
+            this.clb_FileAssociate.Size = new System.Drawing.Size(271, 225);
+            this.clb_FileAssociate.TabIndex = 1;
             // 
             // btn_close
             // 
@@ -395,6 +514,7 @@ namespace Power_Mplayer
             this.btn_close.Size = new System.Drawing.Size(75, 24);
             this.btn_close.TabIndex = 1;
             this.btn_close.Text = "關閉";
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_cancel
             // 
@@ -405,36 +525,15 @@ namespace Power_Mplayer
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.Text = "取消";
             // 
-            // btn_BroseFont
+            // btn_SelectAllExt
             // 
-            this.btn_BroseFont.Location = new System.Drawing.Point(271, 18);
-            this.btn_BroseFont.Name = "btn_BroseFont";
-            this.btn_BroseFont.Size = new System.Drawing.Size(75, 23);
-            this.btn_BroseFont.TabIndex = 2;
-            this.btn_BroseFont.Text = "瀏覽字型";
-            this.btn_BroseFont.UseVisualStyleBackColor = true;
-            this.btn_BroseFont.Click += new System.EventHandler(this.btn_BroseFont_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 48);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "起始大小";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(69, 46);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.btn_SelectAllExt.Location = new System.Drawing.Point(285, 12);
+            this.btn_SelectAllExt.Name = "btn_SelectAllExt";
+            this.btn_SelectAllExt.Size = new System.Drawing.Size(75, 23);
+            this.btn_SelectAllExt.TabIndex = 2;
+            this.btn_SelectAllExt.Text = "全選";
+            this.btn_SelectAllExt.UseVisualStyleBackColor = true;
+            this.btn_SelectAllExt.Click += new System.EventHandler(this.btn_SelectAllExt_Click);
             // 
             // OptionForm
             // 
@@ -458,6 +557,7 @@ namespace Power_Mplayer
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.tp_audio.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -559,5 +659,38 @@ namespace Power_Mplayer
             }
         }
 
-	}
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            // apply 
+            ApplyFileAssociate();
+        }
+
+        private void ApplyFileAssociate()
+        {
+            foreach(string ext in clb_FileAssociate.CheckedItems)
+            {
+                Win32API.SetAssociate(ext, "PowerMplayer", "");
+            }
+        }
+
+        private void btn_SelectAllExt_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clb_FileAssociate.Items.Count; i++)
+            {
+                clb_FileAssociate.SetItemChecked(i, true);
+            }
+        }
+
+        private void GetAssociatedExt()
+        {
+            for (int i = 0; i < clb_FileAssociate.Items.Count; i++)
+            {
+                if (Win32API.isAssociate((string) clb_FileAssociate.Items[i]))
+                {
+                    clb_FileAssociate.SetItemChecked(i, true);
+                }
+            }
+        }
+
+    }
 }
