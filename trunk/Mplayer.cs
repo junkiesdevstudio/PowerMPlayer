@@ -38,6 +38,7 @@ namespace Power_Mplayer
 		public MediaType mediaType;
 		private string mediaFilename;
 		private Panel BigScreen;
+        private Form1 MainForm;
 		private MPlaylist playlist;
 
 		private string CurrentMediaFilename
@@ -89,11 +90,12 @@ namespace Power_Mplayer
 		}
 
 		// constructure
-		public Mplayer(Panel bs)
+		public Mplayer(Form1 f)
 		{
 			mplayerProc = null;
 			mediaFilename = null;
-			this.BigScreen = bs;
+            this.MainForm = f;
+			this.BigScreen = f.BigScreen;
 
 			minfo = new MediaInfo(this);
 
@@ -137,14 +139,12 @@ namespace Power_Mplayer
 					if(charBuf[i] == '\n')
 					{
                         string sbuf = rs.LastLine;
+                        rs.minfo.SetState(sbuf);
 
                         if (sbuf.StartsWith("ANS_TIME_POSITION"))
                         {
                             rs.RequestData.Remove(rs.RequestData.Length - (sbuf.Length+2), (sbuf.Length+2));
                         }
-
-						rs.minfo.SetState(sbuf);
-
 					}
 				}
 				
@@ -490,7 +490,7 @@ namespace Power_Mplayer
 			get
 			{
 				double ret = (double) minfo["VIDEO_ASPECT"];
-
+/*
 				if(ret == 0)
 				{
 					int wid = (int) minfo["VIDEO_WIDTH"];
@@ -501,7 +501,7 @@ namespace Power_Mplayer
 					else
 						ret = (double) wid/hei;
 				}			
-
+*/
 				return ret ;
 			}
 			set

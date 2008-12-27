@@ -35,7 +35,7 @@ namespace Power_Mplayer
 						this.SubType = SubtitleType.Srt;
 						break;
 					case ".idx":
-						this.Filename = Path.GetDirectoryName(filename) + @"\" + Path.GetFileNameWithoutExtension(filename);
+						//this.Filename = Path.GetDirectoryName(filename) + @"\" + Path.GetFileNameWithoutExtension(filename);
 						this.SubType = SubtitleType.VobSubFile;
 						break;
 					case ".ass":
@@ -78,11 +78,13 @@ namespace Power_Mplayer
 						break;
 
 					case SubtitleType.VobSubID:
-						ret = " -vobsub \"" + fname + "\"";
+                        fname = Path.GetDirectoryName(fname) + @"\" + Path.GetFileNameWithoutExtension(fname);
+                        ret = " -vobsub \"" + fname + "\"";
 						ret += " -vobsubid " + this.SubID;
 						break;
 
 					case SubtitleType.VobSubFile:
+                        fname = Path.GetDirectoryName(fname) + @"\" + Path.GetFileNameWithoutExtension(fname);
 						ret = " -vobsub \"" + fname + "\"";
 						break;
 

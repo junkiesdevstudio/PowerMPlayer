@@ -13,8 +13,8 @@ namespace Power_Mplayer
 	/// </summary>
 	public class Form1 : System.Windows.Forms.Form
 	{
-		private System.ComponentModel.IContainer components;
-		private System.Windows.Forms.Panel BigScreen;
+        private System.ComponentModel.IContainer components;
+        public Panel BigScreen;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel MainPanel;
 		private System.Windows.Forms.Button btn_stop;
@@ -109,7 +109,7 @@ namespace Power_Mplayer
 			// Windows Form
 			InitializeComponent();
 
-			mp = new Mplayer(this.BigScreen);
+			mp = new Mplayer(this);
 
 			string var = mp.Setting[SetVars.SubEncoding];
 			foreach(MenuItem mi in this.MI_SubEncoding.MenuItems)
@@ -210,6 +210,7 @@ namespace Power_Mplayer
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.MI_Screenshot = new System.Windows.Forms.MenuItem();
             this.MI_Audio = new System.Windows.Forms.MenuItem();
+            this.MI_SelectAudio = new System.Windows.Forms.MenuItem();
             this.MI_Subtitle = new System.Windows.Forms.MenuItem();
             this.MI_SelectSubtitle = new System.Windows.Forms.MenuItem();
             this.MI_OpenSubFile = new System.Windows.Forms.MenuItem();
@@ -242,7 +243,6 @@ namespace Power_Mplayer
             this.Playlist = new System.Windows.Forms.ListView();
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.MI_SelectAudio = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -695,6 +695,11 @@ namespace Power_Mplayer
             this.MI_SelectAudio});
             this.MI_Audio.Text = "音訊(&A)";
             // 
+            // MI_SelectAudio
+            // 
+            this.MI_SelectAudio.Index = 0;
+            this.MI_SelectAudio.Text = "選擇音訊";
+            // 
             // MI_Subtitle
             // 
             this.MI_Subtitle.Index = 4;
@@ -919,11 +924,6 @@ namespace Power_Mplayer
             this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
             this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
             // 
-            // MI_SelectAudio
-            // 
-            this.MI_SelectAudio.Index = 0;
-            this.MI_SelectAudio.Text = "選擇音訊";
-            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
@@ -1046,7 +1046,7 @@ namespace Power_Mplayer
 			this.txtShortcut.Focus();
 		}
 
-		private void adjBigScreen()
+		public void adjBigScreen()
 		{
 			double aspect = 0;
 
@@ -1059,6 +1059,8 @@ namespace Power_Mplayer
 			{
 				BigScreen.Height = MainPanel.Height;
 				BigScreen.Width = MainPanel.Width;
+
+                needAdjBigScreen = true;
 			}
 			else
 			{
@@ -1188,11 +1190,15 @@ namespace Power_Mplayer
 				{
 					timer1.Start();
 					btn_pause.ImageIndex = 1;
+
+                    this.txtStatus.Text = "繼續播放 - " + strTimeStamp(this.nowTimePos, (int)mp.Length);
 				}
 				else
 				{
 					timer1.Stop();
 					btn_pause.ImageIndex = 0;
+
+                    this.txtStatus.Text = "暫停播放 - " + strTimeStamp(this.nowTimePos, (int) mp.Length);
 				}
 			}
 
@@ -1209,6 +1215,7 @@ namespace Power_Mplayer
 			MovieBar.Value = 0;
 
 			this.txtShortcut.Focus();
+            this.txtStatus.Text = "已停止";
 		}
 
 		private void Quit()
@@ -1225,6 +1232,8 @@ namespace Power_Mplayer
 
 			this.MI_SelectSubtitle.MenuItems.Clear();
             this.MI_SelectAudio.MenuItems.Clear();
+
+            this.txtStatus.Text = "播放結束";
 		}
 
 		private void Restart()
@@ -1271,6 +1280,7 @@ namespace Power_Mplayer
 
 			mp.Time_Pos = time_pos;
 			MovieBar.Value = (int) (100 * time_pos / length);
+            this.txtStatus.Text = strTimeStamp((int) time_pos, (int) length);
 
 			this.BackToPauseState();
 
@@ -1320,27 +1330,47 @@ namespace Power_Mplayer
             this.txtShortcut.Focus();
 		}
 
+        private bool needAdjBigScreen = false;
+        private bool needAppendAudioChannel = false;
+        private bool needSyncTime = true;
+        private int nowTimePos = 0;
+
 		private void timer1_Tick(object sender, System.EventArgs e)
 		{
 			if(mp.HasInstense())
 			{
-				int now_pos = (int) mp.Time_Pos;
-				int movie_len = (int) mp.Length;
+                int movie_len = (int) mp.Length;
+                if (needSyncTime || nowTimePos % 60 == 0)
+                {
+                    nowTimePos = (int)mp.Time_Pos;
+                    needSyncTime = false;
+                }
+                else
+                    nowTimePos++;
 
-				if(now_pos != 0 && movie_len != 0)
-				{
-					string str_now_pos = (now_pos / 3600) + ":" + ((now_pos / 60) % 60)+ ":" + (now_pos % 60);
-					string str_movie_len = (movie_len / 3600) + ":" + ((movie_len / 60) % 60) + ":" + (movie_len % 60);
+                if (nowTimePos != 0 && movie_len != 0)
+                {
+                    this.txtStatus.Text = strTimeStamp(nowTimePos, movie_len);
+                    this.MovieBar.Value = (100 * nowTimePos) / movie_len;
+                }
+                else
+                {
+                    this.txtStatus.Text = "0:0:0 / 0:0:0";
+                    this.MovieBar.Value = 0;
+                }
 
-					this.txtStatus.Text = str_now_pos + " / " + str_movie_len;
-					this.MovieBar.Value = (100 * now_pos) / movie_len;
-				}
-				else
-				{
-					this.txtStatus.Text = "0:0:0 / 0:0:0";
-					this.MovieBar.Value = 0;
-				}
-
+                // do refresh
+                // FIXME: ...........
+                if (needAdjBigScreen == true)
+                {
+                    needAdjBigScreen = false;
+                    this.adjBigScreen();
+                }
+                else if (needAppendAudioChannel)
+                {
+                    needAppendAudioChannel = false;
+                    this.AppendAudioIDMenuItem(MI_SelectAudio);
+                }
 			}
 			else
 			{
@@ -1821,8 +1851,28 @@ namespace Power_Mplayer
 			this.Seek(val*len);
 
 			MBar_MouseDown = false;
-			this.timer1.Start();
+            this.needSyncTime = true;
+
+            if(this.isPlaying)
+			    this.timer1.Start();
 		}
+
+        private string strTimeStamp(int pos, int len)
+        {
+            string str_now_pos = "0:0:0";
+            string str_movie_len = str_now_pos;
+
+            if (pos > 0 && len > 0)
+            {
+                str_now_pos = (pos / 3600) + ":" + ((pos / 60) % 60) + ":" + (pos % 60);
+            }
+            if (len > 0)
+            {
+                str_movie_len = (len / 3600) + ":" + ((len / 60) % 60) + ":" + (len % 60);
+            }
+
+            return str_now_pos + " / " + str_movie_len;
+        }
 
 		private void MovieBar_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
@@ -1831,12 +1881,8 @@ namespace Power_Mplayer
 				double val = (double) e.X / MovieBar.Width;
 
 				int len = (int) mp.Length;
-				int pos = (int) (val*len);
-
-				string str_now_pos = (pos / 3600) + ":" + ((pos / 60) % 60)+ ":" + (pos % 60);
-				string str_movie_len = (len / 3600) + ":" + ((len / 60) % 60) + ":" + (len % 60);
-
-				this.txtStatus.Text = str_now_pos + " / " + str_movie_len;
+				int pos = (int) (val*len);		
+				this.txtStatus.Text = strTimeStamp(pos, len);
 			}
 		}
 
@@ -1859,9 +1905,11 @@ namespace Power_Mplayer
 		private void Form1_Move(object sender, System.EventArgs e)
 		{
 			mp.MoveScreen();
-		}
+        }
 
-		private void txtShortcut_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        #region txtShortcut events
+
+        private void txtShortcut_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
 			string cmd = mp.LaunchShortcut(e);
 
@@ -1911,14 +1959,18 @@ namespace Power_Mplayer
 			{
 				mp.SendSlaveCommand(cmd + " ");
 			}
+
+            this.needSyncTime = true;
 		}
 
 		private void txtShortcut_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
 			this.txtShortcut.Text = "";
-		}
+        }
 
-		private void btn_despeed_Click(object sender, System.EventArgs e)
+        #endregion
+
+        private void btn_despeed_Click(object sender, System.EventArgs e)
 		{
 			mp.Speed_mult = 0.5;
             this.txtShortcut.Focus();
@@ -1996,6 +2048,8 @@ namespace Power_Mplayer
 
                 owner.MenuItems[0].Checked = true;
             }
+            else
+                needAppendAudioChannel = true;
         }
 
         #endregion
