@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Runtime.InteropServices;
 
 namespace Power_Mplayer
@@ -78,5 +79,32 @@ namespace Power_Mplayer
 
 		[DllImport("user32.dll")]
 		public static extern bool InvalidateRect(IntPtr hWnd, IntPtr lpRect, bool bErase);
+
+        // from http://www.c-sharpcorner.com/UploadFile/crajesh1981/RajeshPage103142006044841AM/RajeshPage1.aspx?ArticleID=63e02c1f-761f-44ab-90dd-8d2348b8c6d2
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern int GetLongPathName(
+                 [MarshalAs(UnmanagedType.LPTStr)]
+                   string path,
+                 [MarshalAs(UnmanagedType.LPTStr)]
+                   StringBuilder longPath,
+                 int longPathLength
+                 );
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern int GetShortPathName(
+                 [MarshalAs(UnmanagedType.LPTStr)]
+                   string path,
+                 [MarshalAs(UnmanagedType.LPTStr)]
+                   StringBuilder shortPath,
+                 int shortPathLength
+                 );
+
+        public static string ToShortPathName(string longPath)
+        {
+            StringBuilder shortPath = new StringBuilder(255);
+            Win32API.GetShortPathName(longPath, shortPath, shortPath.Capacity);
+
+            return shortPath.ToString();
+        }
 	}
 }

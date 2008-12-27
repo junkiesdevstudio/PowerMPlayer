@@ -65,6 +65,8 @@ namespace Power_Mplayer
 			{
 				string ret = "";
 
+                string fname = Win32API.ToShortPathName(this.Filename);
+
 				switch(this.SubType)
 				{
 					case SubtitleType.NoSubtitle:
@@ -72,16 +74,16 @@ namespace Power_Mplayer
 						break;
 					case SubtitleType.Ass:
 					case SubtitleType.Srt:
-						ret = " -sub \"" + this.Filename + "\"";
+						ret = " -sub \"" + fname + "\"";
 						break;
 
 					case SubtitleType.VobSubID:
-						ret = " -vobsub \"" + this.Filename + "\"";
+						ret = " -vobsub \"" + fname + "\"";
 						ret += " -vobsubid " + this.SubID;
 						break;
 
 					case SubtitleType.VobSubFile:
-						ret = " -vobsub \"" + this.Filename + "\"";
+						ret = " -vobsub \"" + fname + "\"";
 						break;
 
 					case SubtitleType.DemuxSubID:

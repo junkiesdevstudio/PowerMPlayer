@@ -1983,16 +1983,19 @@ namespace Power_Mplayer
 
         private void AppendAudioIDMenuItem(MenuItem owner)
         {
-            foreach (int j in mp.AudioChannels)
+            if (mp.AudioChannels.Count > 0)
             {
-                MenuItem mi = new MenuItem(j.ToString());
-                mi.RadioCheck = true;
-                mi.Click += new EventHandler(this.MI_AudioID_Click);
+                foreach (int j in mp.AudioChannels)
+                {
+                    MenuItem mi = new MenuItem(j.ToString());
+                    mi.RadioCheck = true;
+                    mi.Click += new EventHandler(this.MI_AudioID_Click);
 
-                owner.MenuItems.Add(mi);
+                    owner.MenuItems.Add(mi);
+                }
+
+                owner.MenuItems[0].Checked = true;
             }
-
-            owner.MenuItems[0].Checked = true;
         }
 
         #endregion

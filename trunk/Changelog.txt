@@ -7,6 +7,7 @@ Power Mplayer v0.5
 	* add increase speed and decrease speed
 	* add Screenshots
 	* fullscreen use no Win32API (Screen class instead)
+	* support audio multi-channel
 
 Power Mplayer v0.4	2008.09.29:
 	* Only press button on MovieBar, it will show where you select time...
