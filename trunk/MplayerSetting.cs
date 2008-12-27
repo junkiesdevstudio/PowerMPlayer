@@ -78,13 +78,17 @@ namespace Power_Mplayer
 				if(this[SetVars.Video_DR] == "1")
 					args += " -dr";
 
+                args += " -vf screenshot";
+
 				// using ass
 				if(this[SetVars.SubASS] == "1")
 					args += " -ass";
 
 				// font
 				args += " -font \"" + System.Environment.ExpandEnvironmentVariables(this[SetVars.SubFont]) + "\"";
-				
+
+                args += " -subfont-text-scale 3";
+
 				// subencoding				
 				if(this[SetVars.SrtForceUTF8] == "1")
 					args += " -utf8";
