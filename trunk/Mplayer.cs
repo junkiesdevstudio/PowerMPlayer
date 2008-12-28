@@ -172,6 +172,16 @@ namespace Power_Mplayer
 					StreamWriter sw = new StreamWriter(dest, false, Encoding.UTF8);
 
 					string buf = sr.ReadToEnd();
+
+                    if (msetting[SetVars.SubChineseTrans] == "1")
+                    {
+                        buf = Win32API.ToTraditional(buf);
+                    }
+                    else if (msetting[SetVars.SubChineseTrans] == "2")
+                    {
+                        buf = Win32API.ToSimplified(buf);
+                    }
+
 					sw.Write(buf);
 
 					sr.Close();

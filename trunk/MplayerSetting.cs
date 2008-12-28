@@ -14,7 +14,7 @@ namespace Power_Mplayer
 		MplayerExe, SrtForceUTF8,
 		
 		//  subtitle
-		SubFont, SubEncoding, SubAutoScale, SubASS, 
+		SubFont, SubEncoding, SubAutoScale, SubASS, SubChineseTrans,
 		
 		// Audio
 		AO, Audio_Softvol, Audio_SoftvolMax,
@@ -37,13 +37,14 @@ namespace Power_Mplayer
 
 			// Power Mplayer Setting
 			this.SettingValues.Add(new MValue(SetVars.MplayerExe.ToString(),	@".\mplayer.exe",		TypeCode.String));
-			this.SettingValues.Add(new MValue(SetVars.SrtForceUTF8.ToString(),	"0",			TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SrtForceUTF8.ToString(),	"1",			TypeCode.String));
 
 			// subtitle
 			this.SettingValues.Add(new MValue(SetVars.SubFont.ToString(),		@".\mplayer\subfont.ttf", TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SubEncoding.ToString(),	"BIG5",			TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SubAutoScale.ToString(), "3",				TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SubASS.ToString(),		"0",			TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.SubChineseTrans.ToString(), "0",          TypeCode.String));
 
 			// Audio
 			this.SettingValues.Add(new MValue(SetVars.AO.ToString(),			"dsound",		TypeCode.String));

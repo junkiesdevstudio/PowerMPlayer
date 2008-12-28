@@ -101,6 +101,10 @@ namespace Power_Mplayer
         private SaveFileDialog saveFileDialog1;
         private MenuItem MI_OpenDVD;
         private TextBox txtStatus;
+        private MenuItem MI_SubChineseTrans;
+        private MenuItem MI_ChineseNone;
+        private MenuItem MI_ToTradChinese;
+        private MenuItem MI_ToSimpChinese;
         private MenuItem MI_SelectAudio;
 
 		// constructure
@@ -120,6 +124,9 @@ namespace Power_Mplayer
 					break;
 				}
 			}
+
+            var = mp.Setting[SetVars.SubChineseTrans];
+            MI_SubChineseTrans.MenuItems[int.Parse(var)].Checked = true;
 		}
 
 		public Form1(string[] str) : this()
@@ -243,6 +250,10 @@ namespace Power_Mplayer
             this.Playlist = new System.Windows.Forms.ListView();
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.MI_SubChineseTrans = new System.Windows.Forms.MenuItem();
+            this.MI_ChineseNone = new System.Windows.Forms.MenuItem();
+            this.MI_ToTradChinese = new System.Windows.Forms.MenuItem();
+            this.MI_ToSimpChinese = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -708,6 +719,7 @@ namespace Power_Mplayer
             this.MI_OpenSubFile,
             this.menuItem9,
             this.MI_SubEncoding,
+            this.MI_SubChineseTrans,
             this.menuItem3,
             this.MI_SubDelayLess,
             this.MI_SubDelayMore,
@@ -762,6 +774,7 @@ namespace Power_Mplayer
             // 
             // menuItem5
             // 
+            this.menuItem5.Enabled = false;
             this.menuItem5.Index = 2;
             this.menuItem5.Text = "CP936 (簡體中文字集)";
             this.menuItem5.Click += new System.EventHandler(this.MI_SubEncoding_Click);
@@ -792,57 +805,57 @@ namespace Power_Mplayer
             // 
             // menuItem3
             // 
-            this.menuItem3.Index = 4;
+            this.menuItem3.Index = 5;
             this.menuItem3.Text = "-";
             // 
             // MI_SubDelayLess
             // 
-            this.MI_SubDelayLess.Index = 5;
+            this.MI_SubDelayLess.Index = 6;
             this.MI_SubDelayLess.Shortcut = System.Windows.Forms.Shortcut.CtrlQ;
             this.MI_SubDelayLess.Text = "延遲 -";
             this.MI_SubDelayLess.Click += new System.EventHandler(this.MI_SubDelayLess_Click);
             // 
             // MI_SubDelayMore
             // 
-            this.MI_SubDelayMore.Index = 6;
+            this.MI_SubDelayMore.Index = 7;
             this.MI_SubDelayMore.Shortcut = System.Windows.Forms.Shortcut.CtrlW;
             this.MI_SubDelayMore.Text = "延遲 +";
             this.MI_SubDelayMore.Click += new System.EventHandler(this.MI_SubDelayMore_Click);
             // 
             // menuItem22
             // 
-            this.menuItem22.Index = 7;
+            this.menuItem22.Index = 8;
             this.menuItem22.Text = "-";
             // 
             // MI_SubPosUp
             // 
-            this.MI_SubPosUp.Index = 8;
+            this.MI_SubPosUp.Index = 9;
             this.MI_SubPosUp.Shortcut = System.Windows.Forms.Shortcut.CtrlA;
             this.MI_SubPosUp.Text = "上移";
             this.MI_SubPosUp.Click += new System.EventHandler(this.MI_SubPosUp_Click);
             // 
             // MI_SubPosDown
             // 
-            this.MI_SubPosDown.Index = 9;
+            this.MI_SubPosDown.Index = 10;
             this.MI_SubPosDown.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
             this.MI_SubPosDown.Text = "下移";
             this.MI_SubPosDown.Click += new System.EventHandler(this.MI_SubPosDown_Click);
             // 
             // menuItem26
             // 
-            this.menuItem26.Index = 10;
+            this.menuItem26.Index = 11;
             this.menuItem26.Text = "-";
             // 
             // MI_SubScaleDown
             // 
-            this.MI_SubScaleDown.Index = 11;
+            this.MI_SubScaleDown.Index = 12;
             this.MI_SubScaleDown.Shortcut = System.Windows.Forms.Shortcut.CtrlZ;
             this.MI_SubScaleDown.Text = "縮小";
             this.MI_SubScaleDown.Click += new System.EventHandler(this.MI_SubScaleDown_Click);
             // 
             // MI_SubScaleUp
             // 
-            this.MI_SubScaleUp.Index = 12;
+            this.MI_SubScaleUp.Index = 13;
             this.MI_SubScaleUp.Shortcut = System.Windows.Forms.Shortcut.CtrlX;
             this.MI_SubScaleUp.Text = "放大";
             this.MI_SubScaleUp.Click += new System.EventHandler(this.MI_SubScaleUp_Click);
@@ -923,6 +936,33 @@ namespace Power_Mplayer
             this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
             this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
             this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
+            // 
+            // MI_SubChineseTrans
+            // 
+            this.MI_SubChineseTrans.Index = 4;
+            this.MI_SubChineseTrans.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MI_ChineseNone,
+            this.MI_ToTradChinese,
+            this.MI_ToSimpChinese});
+            this.MI_SubChineseTrans.Text = "中文繁簡轉換";
+            // 
+            // MI_ChineseNone
+            // 
+            this.MI_ChineseNone.Index = 0;
+            this.MI_ChineseNone.Text = "無";
+            this.MI_ChineseNone.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
+            // 
+            // MI_ToTradChinese
+            // 
+            this.MI_ToTradChinese.Index = 1;
+            this.MI_ToTradChinese.Text = "轉繁體";
+            this.MI_ToTradChinese.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
+            // 
+            // MI_ToSimpChinese
+            // 
+            this.MI_ToSimpChinese.Index = 2;
+            this.MI_ToSimpChinese.Text = "轉簡體";
+            this.MI_ToSimpChinese.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
             // 
             // Form1
             // 
@@ -1559,6 +1599,25 @@ namespace Power_Mplayer
 				mi_selectsub.MenuItems.Add(mi);
 			}
 		}
+
+        private void MI_SubChineseTrans_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < MI_SubChineseTrans.MenuItems.Count; i++)
+            {
+                MenuItem mi = MI_SubChineseTrans.MenuItems[i];
+
+                if (mi == (MenuItem)sender)
+                {
+                    mi.Checked = true;
+                    mp.Setting[SetVars.SubChineseTrans] = i.ToString();
+                    mp.Setting.WriteSetting();
+                }
+                else
+                    mi.Checked = false;
+            }
+
+            Restart();
+        }
 
 		#endregion
 

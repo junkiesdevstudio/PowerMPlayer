@@ -50,6 +50,8 @@ namespace Power_Mplayer
 		private MplayerSetting msetting;
         private CheckedListBox clb_FileAssociate;
         private Button btn_SelectAllExt;
+        private Label label8;
+        private ComboBox Srt_ChineseTrans;
         private FontSelector fontSelect;
 
 		// constructure
@@ -113,11 +115,13 @@ namespace Power_Mplayer
             this.Srt_UseASS = new System.Windows.Forms.CheckBox();
             this.Srt_ForceUTF8 = new System.Windows.Forms.CheckBox();
             this.tp_audio = new System.Windows.Forms.TabPage();
+            this.btn_SelectAllExt = new System.Windows.Forms.Button();
             this.clb_FileAssociate = new System.Windows.Forms.CheckedListBox();
             this.btn_close = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_SelectAllExt = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Srt_ChineseTrans = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tp_general.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -305,6 +309,8 @@ namespace Power_Mplayer
             // 
             // tp_Subtitle
             // 
+            this.tp_Subtitle.Controls.Add(this.Srt_ChineseTrans);
+            this.tp_Subtitle.Controls.Add(this.label8);
             this.tp_Subtitle.Controls.Add(this.groupBox4);
             this.tp_Subtitle.Controls.Add(this.Srt_AutoScale);
             this.tp_Subtitle.Controls.Add(this.label5);
@@ -325,7 +331,7 @@ namespace Power_Mplayer
             this.groupBox4.Controls.Add(this.Srt_Font);
             this.groupBox4.Location = new System.Drawing.Point(8, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(352, 186);
+            this.groupBox4.Size = new System.Drawing.Size(352, 79);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "字型";
@@ -385,7 +391,7 @@ namespace Power_Mplayer
             "依高度自動調整",
             "依寬度自動調整",
             "依對角自動調整"});
-            this.Srt_AutoScale.Location = new System.Drawing.Point(99, 196);
+            this.Srt_AutoScale.Location = new System.Drawing.Point(99, 166);
             this.Srt_AutoScale.Name = "Srt_AutoScale";
             this.Srt_AutoScale.Size = new System.Drawing.Size(121, 20);
             this.Srt_AutoScale.TabIndex = 7;
@@ -393,7 +399,7 @@ namespace Power_Mplayer
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 199);
+            this.label5.Location = new System.Drawing.Point(6, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 6;
@@ -402,7 +408,7 @@ namespace Power_Mplayer
             // Srt_UseASS
             // 
             this.Srt_UseASS.AutoSize = true;
-            this.Srt_UseASS.Location = new System.Drawing.Point(8, 222);
+            this.Srt_UseASS.Location = new System.Drawing.Point(8, 192);
             this.Srt_UseASS.Name = "Srt_UseASS";
             this.Srt_UseASS.Size = new System.Drawing.Size(94, 16);
             this.Srt_UseASS.TabIndex = 5;
@@ -411,7 +417,10 @@ namespace Power_Mplayer
             // 
             // Srt_ForceUTF8
             // 
-            this.Srt_ForceUTF8.Location = new System.Drawing.Point(8, 244);
+            this.Srt_ForceUTF8.Checked = true;
+            this.Srt_ForceUTF8.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Srt_ForceUTF8.Enabled = false;
+            this.Srt_ForceUTF8.Location = new System.Drawing.Point(8, 214);
             this.Srt_ForceUTF8.Name = "Srt_ForceUTF8";
             this.Srt_ForceUTF8.Size = new System.Drawing.Size(200, 24);
             this.Srt_ForceUTF8.TabIndex = 4;
@@ -426,6 +435,16 @@ namespace Power_Mplayer
             this.tp_audio.Size = new System.Drawing.Size(368, 271);
             this.tp_audio.TabIndex = 2;
             this.tp_audio.Text = "檔案類型";
+            // 
+            // btn_SelectAllExt
+            // 
+            this.btn_SelectAllExt.Location = new System.Drawing.Point(285, 12);
+            this.btn_SelectAllExt.Name = "btn_SelectAllExt";
+            this.btn_SelectAllExt.Size = new System.Drawing.Size(75, 23);
+            this.btn_SelectAllExt.TabIndex = 2;
+            this.btn_SelectAllExt.Text = "全選";
+            this.btn_SelectAllExt.UseVisualStyleBackColor = true;
+            this.btn_SelectAllExt.Click += new System.EventHandler(this.btn_SelectAllExt_Click);
             // 
             // clb_FileAssociate
             // 
@@ -525,15 +544,26 @@ namespace Power_Mplayer
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.Text = "取消";
             // 
-            // btn_SelectAllExt
+            // label8
             // 
-            this.btn_SelectAllExt.Location = new System.Drawing.Point(285, 12);
-            this.btn_SelectAllExt.Name = "btn_SelectAllExt";
-            this.btn_SelectAllExt.Size = new System.Drawing.Size(75, 23);
-            this.btn_SelectAllExt.TabIndex = 2;
-            this.btn_SelectAllExt.Text = "全選";
-            this.btn_SelectAllExt.UseVisualStyleBackColor = true;
-            this.btn_SelectAllExt.Click += new System.EventHandler(this.btn_SelectAllExt_Click);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 241);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "中文繁簡轉換";
+            // 
+            // Srt_ChineseTrans
+            // 
+            this.Srt_ChineseTrans.FormattingEnabled = true;
+            this.Srt_ChineseTrans.Items.AddRange(new object[] {
+            "無",
+            "轉繁體",
+            "轉簡體"});
+            this.Srt_ChineseTrans.Location = new System.Drawing.Point(99, 238);
+            this.Srt_ChineseTrans.Name = "Srt_ChineseTrans";
+            this.Srt_ChineseTrans.Size = new System.Drawing.Size(121, 20);
+            this.Srt_ChineseTrans.TabIndex = 10;
             // 
             // OptionForm
             // 
@@ -587,10 +617,12 @@ namespace Power_Mplayer
 		{
 			this.txt_mplayer_cmd.Text = msetting[SetVars.MplayerExe];
 
-			this.Srt_ForceUTF8.Checked = (msetting[SetVars.SrtForceUTF8] == "1") ? true : false;
+			//this.Srt_ForceUTF8.Checked = (msetting[SetVars.SrtForceUTF8] == "1") ? true : false;
+            this.Srt_ForceUTF8.Checked = true;
             this.Srt_AutoScale.SelectedIndex = int.Parse(msetting[SetVars.SubAutoScale]);
             this.Srt_UseASS.Checked = (msetting[SetVars.SubASS] == "1") ? true : false;
             this.Srt_FontPath = msetting[SetVars.SubFont];
+            this.Srt_ChineseTrans.SelectedIndex = int.Parse(msetting[SetVars.SubChineseTrans]);
 
 			this.Audio_Output.Text = this.msetting[SetVars.AO];
 			this.Audio_Softvol.Checked = (this.msetting[SetVars.Audio_Softvol] == "1") ? true : false;
@@ -608,10 +640,12 @@ namespace Power_Mplayer
 		{
 			this.msetting[SetVars.MplayerExe] = (this.txt_mplayer_cmd.Text == "") ? @".\mplayer\mplayer.exe" : txt_mplayer_cmd.Text;
 			
-            this.msetting[SetVars.SrtForceUTF8] = this.Srt_ForceUTF8.Checked ? "1" : "0";
+            //this.msetting[SetVars.SrtForceUTF8] = this.Srt_ForceUTF8.Checked ? "1" : "0";
+            this.msetting[SetVars.SrtForceUTF8] = "1";
             this.msetting[SetVars.SubAutoScale] = this.Srt_AutoScale.SelectedIndex.ToString();
             this.msetting[SetVars.SubASS] = this.Srt_UseASS.Checked ? "1" : "0";
             this.msetting[SetVars.SubFont] = this.Srt_FontPath;
+            this.msetting[SetVars.SubChineseTrans] = this.Srt_ChineseTrans.SelectedIndex.ToString();
 
 			this.msetting[SetVars.AO] = this.Audio_Output.Text;
 			this.msetting[SetVars.Audio_Softvol] = (this.Audio_Softvol.Checked) ? "1" : "0";
