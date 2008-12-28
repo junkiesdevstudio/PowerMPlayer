@@ -140,12 +140,19 @@ namespace Power_Mplayer
 
             ext = ext.ToLower();
 
-            RegistryKey rk = Registry.ClassesRoot.OpenSubKey(ext);
-
-            if (rk != null)
+            try
             {
-                string kv = (string)rk.GetValue("");
-                return kv.StartsWith(ProgramName);
+                RegistryKey rk = Registry.ClassesRoot.OpenSubKey(ext);
+
+                if (rk != null)
+                {
+                    string kv = (string)rk.GetValue("");
+                    return kv.StartsWith(ProgramName);
+                }
+            }
+            catch (Exception ee)
+            {
+                //System.Windows.Forms.MessageBox.Show(ee.ToString());
             }
 
             return false;
