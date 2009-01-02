@@ -362,38 +362,39 @@ namespace Power_Mplayer
 		}
 		*/
 
-		public void Quit()
-		{
-			if(this.HasInstense())
-			{
-				stdin.WriteLine("quit ");
-				mplayerProc.WaitForExit();
+        public void Quit()
+        {
+            if (this.HasInstense())
+            {
+                stdin.WriteLine("quit ");
+                mplayerProc.WaitForExit();
 
-				// wait for last callback in stdout
-				this.WaitForReceive();
+                // wait for last callback in stdout
+                this.WaitForReceive();
 
-				stdin.Close();
-				stdout.stream.Close();
-				stderr.stream.Close();
-				stdout.RequestData.Remove(0, stdout.RequestData.Length);
-				stderr.RequestData.Remove(0, stderr.RequestData.Length);
+                stdin.Close();
+                stdout.stream.Close();
+                stderr.stream.Close();
+                stdout.RequestData.Remove(0, stdout.RequestData.Length);
+                stderr.RequestData.Remove(0, stderr.RequestData.Length);
+            }
 
-				if(this.mediaType == MediaType.File)
-				{
-					// delete temp_subtitle for ForeceUTF8
-					string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(sub.Filename);
-					if(File.Exists(dest))
-						File.Delete(dest);
-				}
-				
-				this.sublist.Clear();
-				sub = null;
+            if (this.mediaType == MediaType.File)
+            {
+                // delete temp_subtitle for ForeceUTF8
+                string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(sub.Filename);
+                if (File.Exists(dest))
+                    File.Delete(dest);
 
-				this.mediaType = MediaType.None;
-				this.mediaFilename = null;
-                this.minfo.ClearValues();
-			}
-		}
+                this.sublist.Clear();
+            }
+
+            sub = null;
+
+            this.mediaType = MediaType.None;
+            this.mediaFilename = null;
+            this.minfo.ClearValues();
+        }
 
 		#endregion
 

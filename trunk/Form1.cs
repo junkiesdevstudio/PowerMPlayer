@@ -1500,6 +1500,13 @@ namespace Power_Mplayer
 			if(optForm.ShowDialog() == DialogResult.OK)
 			{
 				optForm.WriteSetting();
+                
+                /*
+                this.mp = null;
+                mp = new Mplayer(this);
+                */
+
+
 				Restart();
 			}
 		}
