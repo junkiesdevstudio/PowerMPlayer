@@ -501,7 +501,7 @@ namespace Power_Mplayer
 			get
 			{
 				double ret = (double) minfo["VIDEO_ASPECT"];
-/*
+
 				if(ret == 0)
 				{
 					int wid = (int) minfo["VIDEO_WIDTH"];
@@ -512,7 +512,7 @@ namespace Power_Mplayer
 					else
 						ret = (double) wid/hei;
 				}			
-*/
+
 				return ret ;
 			}
 			set

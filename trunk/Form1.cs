@@ -73,7 +73,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_HueMore;
 		private System.Windows.Forms.MenuItem MI_SaturationLess;
 		private System.Windows.Forms.MenuItem MI_SaturationMore;
-		private System.Windows.Forms.ListView Playlist;
+		private ListViewEx Playlist;
 		private System.Windows.Forms.MenuItem MI_ShowPlaylist;
 		private System.Windows.Forms.Panel splitter1;
 		private System.Windows.Forms.MenuItem menuItem2;
@@ -230,6 +230,10 @@ namespace Power_Mplayer
             this.menuItem25 = new System.Windows.Forms.MenuItem();
             this.menuItem24 = new System.Windows.Forms.MenuItem();
             this.menuItem23 = new System.Windows.Forms.MenuItem();
+            this.MI_SubChineseTrans = new System.Windows.Forms.MenuItem();
+            this.MI_ChineseNone = new System.Windows.Forms.MenuItem();
+            this.MI_ToTradChinese = new System.Windows.Forms.MenuItem();
+            this.MI_ToSimpChinese = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.MI_SubDelayLess = new System.Windows.Forms.MenuItem();
             this.MI_SubDelayMore = new System.Windows.Forms.MenuItem();
@@ -247,13 +251,9 @@ namespace Power_Mplayer
             this.MI_About = new System.Windows.Forms.MenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Playlist = new System.Windows.Forms.ListView();
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.MI_SubChineseTrans = new System.Windows.Forms.MenuItem();
-            this.MI_ChineseNone = new System.Windows.Forms.MenuItem();
-            this.MI_ToTradChinese = new System.Windows.Forms.MenuItem();
-            this.MI_ToSimpChinese = new System.Windows.Forms.MenuItem();
+            this.Playlist = new Power_Mplayer.ListViewEx();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -315,7 +315,7 @@ namespace Power_Mplayer
             this.panel1.Controls.Add(this.MovieBar);
             this.panel1.Controls.Add(this.txtShortcut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 313);
+            this.panel1.Location = new System.Drawing.Point(0, 233);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(568, 64);
             this.panel1.TabIndex = 4;
@@ -803,6 +803,33 @@ namespace Power_Mplayer
             this.menuItem23.Text = "Unicode (Unicode)";
             this.menuItem23.Click += new System.EventHandler(this.MI_SubEncoding_Click);
             // 
+            // MI_SubChineseTrans
+            // 
+            this.MI_SubChineseTrans.Index = 4;
+            this.MI_SubChineseTrans.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MI_ChineseNone,
+            this.MI_ToTradChinese,
+            this.MI_ToSimpChinese});
+            this.MI_SubChineseTrans.Text = "中文繁簡轉換";
+            // 
+            // MI_ChineseNone
+            // 
+            this.MI_ChineseNone.Index = 0;
+            this.MI_ChineseNone.Text = "無";
+            this.MI_ChineseNone.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
+            // 
+            // MI_ToTradChinese
+            // 
+            this.MI_ToTradChinese.Index = 1;
+            this.MI_ToTradChinese.Text = "轉繁體";
+            this.MI_ToTradChinese.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
+            // 
+            // MI_ToSimpChinese
+            // 
+            this.MI_ToSimpChinese.Index = 2;
+            this.MI_ToSimpChinese.Text = "轉簡體";
+            this.MI_ToSimpChinese.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
+            // 
             // menuItem3
             // 
             this.menuItem3.Index = 5;
@@ -908,10 +935,22 @@ namespace Power_Mplayer
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // splitter1
+            // 
+            this.splitter1.Cursor = System.Windows.Forms.Cursors.VSplit;
+            this.splitter1.Location = new System.Drawing.Point(392, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(4, 304);
+            this.splitter1.TabIndex = 6;
+            this.splitter1.Visible = false;
+            this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
+            this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
+            this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
+            // 
             // Playlist
             // 
-            this.Playlist.AllowColumnReorder = true;
             this.Playlist.AllowDrop = true;
+            this.Playlist.AllowRowReorder = true;
             this.Playlist.FullRowSelect = true;
             this.Playlist.Location = new System.Drawing.Point(408, 0);
             this.Playlist.Name = "Playlist";
@@ -925,49 +964,10 @@ namespace Power_Mplayer
             this.Playlist.DoubleClick += new System.EventHandler(this.Playlist_DoubleClick);
             this.Playlist.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Playlist_KeyDown);
             // 
-            // splitter1
-            // 
-            this.splitter1.Cursor = System.Windows.Forms.Cursors.VSplit;
-            this.splitter1.Location = new System.Drawing.Point(392, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 304);
-            this.splitter1.TabIndex = 6;
-            this.splitter1.Visible = false;
-            this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
-            this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
-            this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
-            // 
-            // MI_SubChineseTrans
-            // 
-            this.MI_SubChineseTrans.Index = 4;
-            this.MI_SubChineseTrans.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.MI_ChineseNone,
-            this.MI_ToTradChinese,
-            this.MI_ToSimpChinese});
-            this.MI_SubChineseTrans.Text = "中文繁簡轉換";
-            // 
-            // MI_ChineseNone
-            // 
-            this.MI_ChineseNone.Index = 0;
-            this.MI_ChineseNone.Text = "無";
-            this.MI_ChineseNone.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
-            // 
-            // MI_ToTradChinese
-            // 
-            this.MI_ToTradChinese.Index = 1;
-            this.MI_ToTradChinese.Text = "轉繁體";
-            this.MI_ToTradChinese.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
-            // 
-            // MI_ToSimpChinese
-            // 
-            this.MI_ToSimpChinese.Index = 2;
-            this.MI_ToSimpChinese.Text = "轉簡體";
-            this.MI_ToSimpChinese.Click += new System.EventHandler(this.MI_SubChineseTrans_Click);
-            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
-            this.ClientSize = new System.Drawing.Size(568, 377);
+            this.ClientSize = new System.Drawing.Size(568, 297);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.Playlist);
             this.Controls.Add(this.MainPanel);
@@ -1256,6 +1256,7 @@ namespace Power_Mplayer
 			timer1.Stop();
 			btn_pause.ImageIndex = 0;
 			MovieBar.Value = 0;
+            this.nowTimePos = 0;
 
 			this.txtShortcut.Focus();
             this.txtStatus.Text = "已停止";
@@ -1895,6 +1896,8 @@ namespace Power_Mplayer
 			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
 			
 			this.Playlist_AddItem(s);
+
+            MessageBox.Show("Add success");
 		}
 
 		private void Playlist_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -2095,6 +2098,8 @@ namespace Power_Mplayer
 
             Start(mp.Playlist.First());
             */
+
+            MessageBox.Show("還沒寫...");
         }
 
         #region Audio
