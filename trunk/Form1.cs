@@ -362,7 +362,7 @@ namespace Power_Mplayer
             this.btn_mute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_mute.ImageIndex = 3;
             this.btn_mute.ImageList = this.imageList1;
-            this.btn_mute.Location = new System.Drawing.Point(416, 0);
+            this.btn_mute.Location = new System.Drawing.Point(416, 3);
             this.btn_mute.Name = "btn_mute";
             this.btn_mute.Size = new System.Drawing.Size(30, 30);
             this.btn_mute.TabIndex = 9;
@@ -371,7 +371,7 @@ namespace Power_Mplayer
             // VolumeBar
             // 
             this.VolumeBar.LargeChange = 2;
-            this.VolumeBar.Location = new System.Drawing.Point(452, 0);
+            this.VolumeBar.Location = new System.Drawing.Point(452, 3);
             this.VolumeBar.Name = "VolumeBar";
             this.VolumeBar.Size = new System.Drawing.Size(108, 42);
             this.VolumeBar.TabIndex = 5;
@@ -1449,20 +1449,14 @@ namespace Power_Mplayer
 
 				this.FormBorderStyle = FormBorderStyle.None;
 
-                Bounds = Screen.PrimaryScreen.Bounds;
-                
-                /*
-                Screen sc = Screen.FromHandle(this.Handle);
-                int cx = sc.Bounds.Width;
-                int cy = sc.Bounds.Height;
-
-                this.Width = cx;
-                this.Height = cy;
-                */
-                this.Left = this.Top = 0;
+                this.TopMost = true;
                 this.WindowState = FormWindowState.Normal;
-				this.TopMost = true;
-				
+                
+                //this.Left = this.Top = 0;
+                Bounds = Screen.FromHandle(this.Handle).Bounds;
+       
+                //this.HideMouse();
+
 				//int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
 				//int cy = Win32API.GetSystemMetrics(Win32API.SM_CYSCREEN);
 				//Win32API.SetWindowPos(this.Handle.ToInt32(), Win32API.HWND_TOP, 0, 0, cx, cy, Win32API.SWP_SHOWWINDOW);
@@ -1639,6 +1633,11 @@ namespace Power_Mplayer
 		{
 			if(this.isFullscreen)
 			{
+                if (lastMousePos.X >= 0)
+                {
+                    ShowMouse();
+                }
+
 				if(e.Y > this.MainPanel.Height - this.panel1.Height)
 				{
 					this.panel1.BringToFront();
@@ -1658,6 +1657,24 @@ namespace Power_Mplayer
 				this.MainPanel_MouseMove(sender, new MouseEventArgs(e.Button, e.Clicks, e.X, e.Y + shift, e.Delta));
 			}
 		}
+
+        private Point lastMousePos = new Point(-1, -1);
+
+        private void ShowMouse()
+        {
+            Cursor.Position = new Point(lastMousePos.X, lastMousePos.Y);
+            lastMousePos.X = lastMousePos.Y = -1;
+        }
+
+        private void HideMouse()
+        {
+            lastMousePos.X = Cursor.Position.X;
+            lastMousePos.Y = Cursor.Position.Y;
+
+            int wid = Screen.FromHandle(this.Handle).Bounds.Width;
+
+            Cursor.Position = new Point(wid, 0); ;
+        }
 
 		private void MI_About_Click(object sender, System.EventArgs e)
 		{

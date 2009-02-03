@@ -1,7 +1,16 @@
 TODO:
 	* dvd support	
 
-Power Mplayer v0.5
+	* playlist change order
+	* 當播放完畢，重設該檔案位置 (=0)
+	* fullscreen hide cursor
+	* aspect 根據 width-height 自行計算
+
+Power Mplayer v0.6:
+	* fullscreen in multi-screen environmnet 
+		- not finished, mplayer can't show in second screen)
+
+Power Mplayer v0.5	2008.12.28:
 	* add Shortcuts
 	* add increase speed and decrease speed
 	* add Screenshots
