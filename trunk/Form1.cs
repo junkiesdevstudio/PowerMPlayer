@@ -1429,9 +1429,27 @@ namespace Power_Mplayer
 				if(fname != null)
 					Start(fname);
 			}
-		}
+        }
 
-		// FIXME: use better method...
+        #region Cursor 
+
+        private void HideMouse()
+        {
+            Cursor.Hide();
+            isMouseHide = true;
+        }
+
+        private void ShowMouse()
+        {
+            Cursor.Show();
+            isMouseHide = false;
+        }
+
+        private bool isMouseHide = false;
+
+        #endregion
+
+        // FIXME: use better method...
 		private bool isFullscreen = false;
 		private Size oldFormSize = new Size(0, 0);
 		private int oldPlaylistWidth = 0;
@@ -1454,8 +1472,8 @@ namespace Power_Mplayer
                 
                 //this.Left = this.Top = 0;
                 Bounds = Screen.FromHandle(this.Handle).Bounds;
-       
-                //this.HideMouse();
+
+                HideMouse();
 
 				//int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
 				//int cy = Win32API.GetSystemMetrics(Win32API.SM_CYSCREEN);
@@ -1478,6 +1496,8 @@ namespace Power_Mplayer
 				this.Size = oldFormSize;
 				this.Playlist.Width = this.oldPlaylistWidth;
                 this.Location = oldFormLocation;
+
+                ShowMouse();
 			}
 
 			if(btn_pause.ImageIndex == 0)
@@ -1633,18 +1653,19 @@ namespace Power_Mplayer
 		{
 			if(this.isFullscreen)
 			{
-                if (lastMousePos.X >= 0)
-                {
-                    ShowMouse();
-                }
-
 				if(e.Y > this.MainPanel.Height - this.panel1.Height)
 				{
 					this.panel1.BringToFront();
+                    
+                    if (isMouseHide)
+                        ShowMouse();
 				}
 				else
 				{
 					this.MainPanel.BringToFront();
+
+                    if (!isMouseHide)
+                        HideMouse();
 				}
 			}
 		}
@@ -1657,24 +1678,6 @@ namespace Power_Mplayer
 				this.MainPanel_MouseMove(sender, new MouseEventArgs(e.Button, e.Clicks, e.X, e.Y + shift, e.Delta));
 			}
 		}
-
-        private Point lastMousePos = new Point(-1, -1);
-
-        private void ShowMouse()
-        {
-            Cursor.Position = new Point(lastMousePos.X, lastMousePos.Y);
-            lastMousePos.X = lastMousePos.Y = -1;
-        }
-
-        private void HideMouse()
-        {
-            lastMousePos.X = Cursor.Position.X;
-            lastMousePos.Y = Cursor.Position.Y;
-
-            int wid = Screen.FromHandle(this.Handle).Bounds.Width;
-
-            Cursor.Position = new Point(wid, 0); ;
-        }
 
 		private void MI_About_Click(object sender, System.EventArgs e)
 		{

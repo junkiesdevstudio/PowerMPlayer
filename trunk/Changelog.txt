@@ -9,6 +9,7 @@ TODO:
 Power Mplayer v0.6:
 	* fullscreen in multi-screen environmnet 
 		- not finished, mplayer can't show in second screen)
+	* when fullscreen, hide mouse
 
 Power Mplayer v0.5	2008.12.28:
 	* add Shortcuts
