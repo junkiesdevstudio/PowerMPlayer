@@ -1408,6 +1408,12 @@ namespace Power_Mplayer
                     this.MovieBar.Value = 0;
                 }
 
+                if (isFullscreen)
+                {
+                    if (Cursor.Position.Y < this.MainPanel.Height - this.panel1.Height)
+                        HideMouse();
+                }
+
                 // do refresh
                 // FIXME: ...........
                 if (needAdjBigScreen == true)
@@ -1433,19 +1439,25 @@ namespace Power_Mplayer
 
         #region Cursor 
 
+        private bool isMouseHide = false;
+
         private void HideMouse()
         {
-            Cursor.Hide();
-            isMouseHide = true;
+            if (!isMouseHide)
+            {
+                Cursor.Hide();
+                isMouseHide = true;
+            }
         }
 
         private void ShowMouse()
         {
-            Cursor.Show();
-            isMouseHide = false;
+            if (isMouseHide)
+            {
+                Cursor.Show();
+                isMouseHide = false;
+            }
         }
-
-        private bool isMouseHide = false;
 
         #endregion
 
@@ -1653,20 +1665,16 @@ namespace Power_Mplayer
 		{
 			if(this.isFullscreen)
 			{
-				if(e.Y > this.MainPanel.Height - this.panel1.Height)
-				{
-					this.panel1.BringToFront();
-                    
-                    if (isMouseHide)
-                        ShowMouse();
-				}
-				else
-				{
-					this.MainPanel.BringToFront();
+                ShowMouse();
 
-                    if (!isMouseHide)
-                        HideMouse();
-				}
+                if (e.Y > this.MainPanel.Height - this.panel1.Height)
+                {
+                    this.panel1.BringToFront();
+                }
+                else
+                {
+                    this.MainPanel.BringToFront();
+                }
 			}
 		}
 
