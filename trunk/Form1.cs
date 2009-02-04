@@ -1265,9 +1265,13 @@ namespace Power_Mplayer
 		private void Quit()
 		{
 			// log last media file
-			if(mp.HasInstense() && mp.mediaType == MediaType.File)
+			if(mp.mediaType == MediaType.File)
 			{
-				mp.Setting[SetVars.LastMedia] = mp.Filename.ToLower() + ":" + mp.Time_Pos;
+                if(mp.HasInstense())
+				    mp.Setting[SetVars.LastMedia] = mp.Filename.ToLower() + ":" + mp.Time_Pos;
+                else
+                    mp.Setting[SetVars.LastMedia] = mp.Filename.ToLower() + ":0.0";
+
 				mp.Setting.WriteSetting();
 			}
 
@@ -1437,7 +1441,7 @@ namespace Power_Mplayer
 			}
         }
 
-        #region Cursor 
+        #region Cursor Hide/Show
 
         private bool isMouseHide = false;
 
@@ -1480,7 +1484,9 @@ namespace Power_Mplayer
 				this.FormBorderStyle = FormBorderStyle.None;
 
                 this.TopMost = true;
-                this.WindowState = FormWindowState.Normal;
+                
+                // is this need?
+                //this.WindowState = FormWindowState.Normal;
                 
                 //this.Left = this.Top = 0;
                 Bounds = Screen.FromHandle(this.Handle).Bounds;
