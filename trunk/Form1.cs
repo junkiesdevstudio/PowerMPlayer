@@ -271,7 +271,7 @@ namespace Power_Mplayer
             this.btn_pause.Location = new System.Drawing.Point(0, 0);
             this.btn_pause.Name = "btn_pause";
             this.btn_pause.Size = new System.Drawing.Size(30, 30);
-            this.btn_pause.TabIndex = 1;
+            this.btn_pause.TabIndex = 2;
             this.btn_pause.UseVisualStyleBackColor = false;
             this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
             // 
@@ -315,9 +315,9 @@ namespace Power_Mplayer
             this.panel1.Controls.Add(this.MovieBar);
             this.panel1.Controls.Add(this.txtShortcut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 233);
+            this.panel1.Location = new System.Drawing.Point(0, 205);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(568, 64);
+            this.panel1.Size = new System.Drawing.Size(555, 64);
             this.panel1.TabIndex = 4;
             // 
             // txtStatus
@@ -329,6 +329,7 @@ namespace Power_Mplayer
             this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(100, 22);
             this.txtStatus.TabIndex = 12;
+            this.txtStatus.TabStop = false;
             // 
             // btn_inspeed
             // 
@@ -340,7 +341,7 @@ namespace Power_Mplayer
             this.btn_inspeed.Location = new System.Drawing.Point(128, 0);
             this.btn_inspeed.Name = "btn_inspeed";
             this.btn_inspeed.Size = new System.Drawing.Size(30, 30);
-            this.btn_inspeed.TabIndex = 11;
+            this.btn_inspeed.TabIndex = 5;
             this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
             // 
             // btn_despeed
@@ -353,7 +354,7 @@ namespace Power_Mplayer
             this.btn_despeed.Location = new System.Drawing.Point(88, 0);
             this.btn_despeed.Name = "btn_despeed";
             this.btn_despeed.Size = new System.Drawing.Size(30, 30);
-            this.btn_despeed.TabIndex = 10;
+            this.btn_despeed.TabIndex = 4;
             this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
             // 
             // btn_mute
@@ -365,7 +366,7 @@ namespace Power_Mplayer
             this.btn_mute.Location = new System.Drawing.Point(416, 3);
             this.btn_mute.Name = "btn_mute";
             this.btn_mute.Size = new System.Drawing.Size(30, 30);
-            this.btn_mute.TabIndex = 9;
+            this.btn_mute.TabIndex = 7;
             this.btn_mute.Click += new System.EventHandler(this.btn_mute_Click);
             // 
             // VolumeBar
@@ -374,7 +375,7 @@ namespace Power_Mplayer
             this.VolumeBar.Location = new System.Drawing.Point(452, 3);
             this.VolumeBar.Name = "VolumeBar";
             this.VolumeBar.Size = new System.Drawing.Size(108, 42);
-            this.VolumeBar.TabIndex = 5;
+            this.VolumeBar.TabIndex = 6;
             this.VolumeBar.Value = 10;
             this.VolumeBar.Scroll += new System.EventHandler(this.VolumeBar_Scroll);
             // 
@@ -409,7 +410,7 @@ namespace Power_Mplayer
             this.txtShortcut.Location = new System.Drawing.Point(336, 16);
             this.txtShortcut.Name = "txtShortcut";
             this.txtShortcut.Size = new System.Drawing.Size(48, 15);
-            this.txtShortcut.TabIndex = 7;
+            this.txtShortcut.TabIndex = 1;
             this.txtShortcut.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShortcut_KeyUp);
             this.txtShortcut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShortcut_KeyDown);
             // 
@@ -419,9 +420,9 @@ namespace Power_Mplayer
             this.MainPanel.BackColor = System.Drawing.Color.Black;
             this.MainPanel.ContextMenu = this.contextMenu1;
             this.MainPanel.Controls.Add(this.BigScreen);
-            this.MainPanel.Location = new System.Drawing.Point(8, 16);
+            this.MainPanel.Location = new System.Drawing.Point(8, -3);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(248, 216);
+            this.MainPanel.Size = new System.Drawing.Size(248, 188);
             this.MainPanel.TabIndex = 3;
             this.MainPanel.DoubleClick += new System.EventHandler(this.BigScreen_DoubleClick);
             this.MainPanel.Click += new System.EventHandler(this.btn_pause_Click);
@@ -952,10 +953,10 @@ namespace Power_Mplayer
             this.Playlist.AllowDrop = true;
             this.Playlist.AllowRowReorder = true;
             this.Playlist.FullRowSelect = true;
-            this.Playlist.Location = new System.Drawing.Point(408, 0);
+            this.Playlist.Location = new System.Drawing.Point(395, 0);
             this.Playlist.Name = "Playlist";
-            this.Playlist.Size = new System.Drawing.Size(160, 224);
-            this.Playlist.TabIndex = 5;
+            this.Playlist.Size = new System.Drawing.Size(160, 185);
+            this.Playlist.TabIndex = 8;
             this.Playlist.UseCompatibleStateImageBehavior = false;
             this.Playlist.View = System.Windows.Forms.View.Details;
             this.Playlist.Visible = false;
@@ -967,7 +968,7 @@ namespace Power_Mplayer
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
-            this.ClientSize = new System.Drawing.Size(568, 297);
+            this.ClientSize = new System.Drawing.Size(555, 269);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.Playlist);
             this.Controls.Add(this.MainPanel);
@@ -1482,13 +1483,9 @@ namespace Power_Mplayer
                 oldFormLocation = this.Location;
 
 				this.FormBorderStyle = FormBorderStyle.None;
-
                 this.TopMost = true;
+                this.WindowState = FormWindowState.Normal;
                 
-                // is this need?
-                //this.WindowState = FormWindowState.Normal;
-                
-                //this.Left = this.Top = 0;
                 Bounds = Screen.FromHandle(this.Handle).Bounds;
 
                 HideMouse();
@@ -1503,13 +1500,7 @@ namespace Power_Mplayer
 				this.splitter1.Visible = this.Playlist.Visible = this.MI_ShowPlaylist.Checked;
 
 				this.FormBorderStyle = FormBorderStyle.Sizable;
-				this.WindowState = FormWindowState.Normal;
 				this.TopMost = this.MI_TopMost.Checked;
-
-				/*
-				this.Width = mp.Video_Width;
-				this.Height = mp.Video_Height + this.panel1.Height + (this.Height - this.ClientSize.Height);
-				*/
 
 				this.Size = oldFormSize;
 				this.Playlist.Width = this.oldPlaylistWidth;

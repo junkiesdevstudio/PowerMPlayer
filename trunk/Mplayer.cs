@@ -500,17 +500,18 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				double ret = (double) minfo["VIDEO_ASPECT"];
+//				double ret = (double) minfo["VIDEO_ASPECT"];
+                double ret = 0;
 
-				if(ret == 0)
+//				if(ret == 0)
 				{
 					int wid = (int) minfo["VIDEO_WIDTH"];
 					int hei = (int) minfo["VIDEO_HEIGHT"];
-				
-					if(hei == 0)
-						ret = 0;
-					else
-						ret = (double) wid/hei;
+
+                    if (hei == 0)
+                        ret = 0;
+                    else
+                        ret = (double)wid / hei;
 				}			
 
 				return ret ;
@@ -672,7 +673,10 @@ namespace Power_Mplayer
 
 		public void SendSlaveCommand(string cmd)
 		{
-			stdin.WriteLine(cmd);
+            if (HasInstense())
+            {
+                stdin.WriteLine(cmd);
+            }
 		}
 
         public string Screenshot()

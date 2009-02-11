@@ -27,7 +27,7 @@ namespace Power_Mplayer
 		[DllImport("dwmapi.dll")]
 		public static extern void DwmIsCompositionEnabled(ref bool pfEnabled);
 
-        #region Full Screen
+        #region Full Screen : no needed
 
         /*
 		// for full screen
