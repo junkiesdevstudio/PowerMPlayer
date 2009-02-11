@@ -8,15 +8,8 @@ namespace Power_Mplayer
 	/// <summary>
 	/// Win32API 的摘要描述。
 	/// </summary>
-	public class Win32API
+	public static class Win32API
 	{
-		public Win32API()
-		{
-			//
-			// TODO: 在此加入建構函式的程式碼
-			//
-		}
-
 		// for execuse external program
 		[DllImport("user32")]
 		public static extern IntPtr SetParent(int hwndChild, int hwndNewParent);
@@ -156,27 +149,6 @@ namespace Power_Mplayer
             }
 
             return false;
-        }
-
-        #endregion
-
-        #region ScreenSaver
-
-        // codes from
-        // http://www.planet-source-code.com/URLSEO/vb/scripts/ShowCode!asp/txtCodeId!6984/lngWid!10/anyname.htm
-
-        [DllImport("user32")]
-        private static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
-        private const int KEYEVENTF_KEYUP = 0x02;
-        private const int VK_CONTROL = 0x11;
-
-        public static void ResetSystemIdle()
-        {
-            for (int i = 1; i <= 2; i++)
-            {
-                keybd_event(VK_CONTROL, 0x9d, 0, 0); // Ctrl Press
-                keybd_event(VK_CONTROL, 0x9d, KEYEVENTF_KEYUP, 0); // Ctrl Release						
-            }
         }
 
         #endregion

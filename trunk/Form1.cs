@@ -315,7 +315,7 @@ namespace Power_Mplayer
             this.panel1.Controls.Add(this.MovieBar);
             this.panel1.Controls.Add(this.txtShortcut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 205);
+            this.panel1.Location = new System.Drawing.Point(0, 185);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(555, 64);
             this.panel1.TabIndex = 4;
@@ -968,7 +968,7 @@ namespace Power_Mplayer
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
-            this.ClientSize = new System.Drawing.Size(555, 269);
+            this.ClientSize = new System.Drawing.Size(555, 249);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.Playlist);
             this.Controls.Add(this.MainPanel);
@@ -1397,7 +1397,7 @@ namespace Power_Mplayer
                     needSyncTime = false;
 
                     // To avoid screensaver or powersaver
-                    Win32API.ResetSystemIdle();
+                    //Win32API.ResetSystemIdle();
                 }
                 else
                     nowTimePos++;
@@ -1488,6 +1488,7 @@ namespace Power_Mplayer
                 
                 Bounds = Screen.FromHandle(this.Handle).Bounds;
 
+                ScreenSaver.SetScreenSaverActive(0);
                 HideMouse();
 
 				//int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
@@ -1506,6 +1507,7 @@ namespace Power_Mplayer
 				this.Playlist.Width = this.oldPlaylistWidth;
                 this.Location = oldFormLocation;
 
+                ScreenSaver.SetScreenSaverActive(1);
                 ShowMouse();
 			}
 
