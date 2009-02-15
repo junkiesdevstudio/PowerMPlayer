@@ -1437,8 +1437,17 @@ namespace Power_Mplayer
 				Quit();
 
 				string fname = mp.Playlist.Next();
-				if(fname != null)
-					Start(fname);
+                if (fname != null)
+                {
+                    Start(fname);
+                }
+                else
+                {
+                    if (isFullscreen)
+                    {
+                        this.BigScreen_DoubleClick(sender, e);
+                    }
+                }
 			}
         }
 
@@ -2019,6 +2028,12 @@ namespace Power_Mplayer
 
         private void txtShortcut_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (isFullscreen)
+                    this.BigScreen_DoubleClick(sender, e);
+            }
+
 			string cmd = mp.LaunchShortcut(e);
 
 			if(cmd == "None")
