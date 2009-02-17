@@ -72,8 +72,8 @@ namespace Power_Mplayer
 		private System.Windows.Forms.MenuItem MI_HueLess;
 		private System.Windows.Forms.MenuItem MI_HueMore;
 		private System.Windows.Forms.MenuItem MI_SaturationLess;
-		private System.Windows.Forms.MenuItem MI_SaturationMore;
-		private ListViewEx Playlist;
+        private System.Windows.Forms.MenuItem MI_SaturationMore;
+        private System.Windows.Forms.ListView Playlist;
 		private System.Windows.Forms.MenuItem MI_ShowPlaylist;
 		private System.Windows.Forms.Panel splitter1;
 		private System.Windows.Forms.MenuItem menuItem2;
@@ -253,7 +253,7 @@ namespace Power_Mplayer
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.Playlist = new Power_Mplayer.ListViewEx();
+            this.Playlist = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -951,7 +951,6 @@ namespace Power_Mplayer
             // Playlist
             // 
             this.Playlist.AllowDrop = true;
-            this.Playlist.AllowRowReorder = true;
             this.Playlist.FullRowSelect = true;
             this.Playlist.Location = new System.Drawing.Point(395, 0);
             this.Playlist.Name = "Playlist";
@@ -963,7 +962,9 @@ namespace Power_Mplayer
             this.Playlist.DragEnter += new System.Windows.Forms.DragEventHandler(this.Playlist_DragEnter);
             this.Playlist.DragDrop += new System.Windows.Forms.DragEventHandler(this.Playlist_DragDrop);
             this.Playlist.DoubleClick += new System.EventHandler(this.Playlist_DoubleClick);
+            this.Playlist.DragOver += new System.Windows.Forms.DragEventHandler(this.Playlist_DragOver);
             this.Playlist.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Playlist_KeyDown);
+            this.Playlist.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.Playlist_ItemDrag);
             // 
             // Form1
             // 
@@ -1919,21 +1920,57 @@ namespace Power_Mplayer
 			this.CreatePlaylistItems();
 		}
 
+        // Sets the target drop effect.
 		private void Playlist_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
 		{
-			if(e.Data.GetDataPresent(DataFormats.FileDrop))
-				e.Effect = DragDropEffects.All;
-			else
-				e.Effect = DragDropEffects.None;
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.All;
+            else if ((e.AllowedEffect & DragDropEffects.Move) == DragDropEffects.Move)
+                e.Effect = DragDropEffects.Move;
+            else
+                e.Effect = DragDropEffects.None;
 		}
 
 		private void Playlist_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
 		{
-			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
-			
-			this.Playlist_AddItem(s);
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] s = (string[])e.Data.GetData(DataFormats.FileDrop, false);
 
-            MessageBox.Show("Add success");
+                this.Playlist_AddItem(s);
+
+                //MessageBox.Show("Add success");
+            }
+            else if ((e.AllowedEffect & DragDropEffects.Move) == DragDropEffects.Move)
+            {
+                // Retrieve the index of the insertion mark;
+                //int targetIndex = Playlist.InsertionMark.Index;
+                Point targetPoint =
+                    Playlist.PointToClient(new Point(e.X, e.Y));
+
+                ListViewItem targetItem = Playlist.GetItemAt(targetPoint.X, targetPoint.Y);
+
+                int targetIndex = Playlist.Items.IndexOf(targetItem);
+    
+                // If the insertion mark is not visible, exit the method.
+                if (targetIndex == -1)
+                {
+                    return;
+                }
+
+                // Retrieve the dragged item.
+                ListViewItem draggedItem =
+                    (ListViewItem)e.Data.GetData(typeof(ListViewItem));
+
+                // Insert a copy of the dragged item at the target index.
+                // A copy must be inserted before the original item is removed
+                // to preserve item index values. 
+                Playlist.Items.Insert(
+                    targetIndex, (ListViewItem)draggedItem.Clone());
+
+                // Remove the original copy of the dragged item.
+                Playlist.Items.Remove(draggedItem);
+            }
 		}
 
 		private void Playlist_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -1948,6 +1985,30 @@ namespace Power_Mplayer
 				this.CreatePlaylistItems();
 			}
 		}
+
+        // Playlist ItemDrag implement from http://msdn.microsoft.com/zh-tw/library/hx62xfd2(VS.80).aspx
+
+        // Starts the drag-and-drop operation when an item is dragged.
+        private void Playlist_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            Playlist.DoDragDrop(e.Item, DragDropEffects.Move);
+        }
+
+        // Moves the insertion mark as the item is dragged.
+        private void Playlist_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Effect == DragDropEffects.Move)
+            {
+                int targetIndex = Playlist.SelectedIndices[0];
+                Playlist.Items[targetIndex].Selected = false;
+
+                Point targetPoint = Playlist.PointToClient(new Point(e.X, e.Y));
+                ListViewItem targetItem = Playlist.GetItemAt(targetPoint.X, targetPoint.Y);
+                targetIndex = Playlist.Items.IndexOf(targetItem);
+
+                Playlist.Items[targetIndex].Selected = true;
+            }
+        }
 
 		#endregion
 
@@ -2178,5 +2239,6 @@ namespace Power_Mplayer
         }
 
         #endregion
+
     }
 }
