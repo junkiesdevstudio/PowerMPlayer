@@ -39,7 +39,6 @@ namespace Power_Mplayer
 		private string mediaFilename;
 		private Panel BigScreen;
         private Form1 MainForm;
-		private MPlaylist playlist;
 
 		private string CurrentMediaFilename
 		{
@@ -84,11 +83,6 @@ namespace Power_Mplayer
 			set	{ sub = value;}
 		}
 
-		public MPlaylist Playlist
-		{
-			get	{ return playlist; }
-		}
-
 		// constructure
 		public Mplayer(Form1 f)
 		{
@@ -103,7 +97,6 @@ namespace Power_Mplayer
 			stderr = new MyStreamReader(minfo);
 
 			msetting = new MplayerSetting();
-			playlist = new MPlaylist();
 			
 			string fname = msetting[SetVars.MplayerExe];
 			if(fname.IndexOf(Path.VolumeSeparatorChar) < 0)

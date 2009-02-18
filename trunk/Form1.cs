@@ -105,6 +105,7 @@ namespace Power_Mplayer
         private MenuItem MI_ChineseNone;
         private MenuItem MI_ToTradChinese;
         private MenuItem MI_ToSimpChinese;
+        private MenuItem MI_EditShortcut;
         private MenuItem MI_SelectAudio;
 
 		// constructure
@@ -134,7 +135,7 @@ namespace Power_Mplayer
 			if(str != null && str.Length > 0)
 			{
 				this.Playlist_AddItem(str);
-				this.Start(mp.Playlist.First());
+				this.Start(Playlist_First());
 			}
 		}
 
@@ -254,6 +255,7 @@ namespace Power_Mplayer
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Playlist = new System.Windows.Forms.ListView();
+            this.MI_EditShortcut = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -893,6 +895,7 @@ namespace Power_Mplayer
             this.MI_Tools.Index = 5;
             this.MI_Tools.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItem11,
+            this.MI_EditShortcut,
             this.menuItem12,
             this.MI_Option});
             this.MI_Tools.Text = "工具(&T)";
@@ -905,12 +908,12 @@ namespace Power_Mplayer
             // 
             // menuItem12
             // 
-            this.menuItem12.Index = 1;
+            this.menuItem12.Index = 2;
             this.menuItem12.Text = "-";
             // 
             // MI_Option
             // 
-            this.MI_Option.Index = 2;
+            this.MI_Option.Index = 3;
             this.MI_Option.Text = "選項";
             this.MI_Option.Click += new System.EventHandler(this.MI_Option_Click);
             // 
@@ -966,6 +969,11 @@ namespace Power_Mplayer
             this.Playlist.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Playlist_KeyDown);
             this.Playlist.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.Playlist_ItemDrag);
             // 
+            // MI_EditShortcut
+            // 
+            this.MI_EditShortcut.Index = 1;
+            this.MI_EditShortcut.Text = "編輯快速鍵";
+            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
@@ -1007,7 +1015,7 @@ namespace Power_Mplayer
 			}
 			else
 			{
-				this.Start(mp.Playlist.Current());
+				this.Start(Playlist_Current());
 			}
 		}
 
@@ -1349,10 +1357,17 @@ namespace Power_Mplayer
 
 			if(this.openFileDialog1.FileName != "")
 			{
-				mp.Playlist.Clear();
-				this.Playlist_AddItem(this.openFileDialog1.FileNames);
+                string[] fnames = new string[this.openFileDialog1.FileNames.Length];
 
-				Start(mp.Playlist.First());
+                for (int i = this.openFileDialog1.FileNames.Length - 1; i >= 0; i--)
+                {
+                    fnames[this.openFileDialog1.FileNames.Length - 1 - i] = this.openFileDialog1.FileNames[i];
+                }
+    
+				Playlist.Items.Clear();
+				this.Playlist_AddItem(fnames);
+
+				Start(Playlist_First());
 			}
 		}
 
@@ -1437,7 +1452,7 @@ namespace Power_Mplayer
 			{
 				Quit();
 
-				string fname = mp.Playlist.Next();
+				string fname = Playlist_Next();
                 if (fname != null)
                 {
                     Start(fname);
@@ -1716,11 +1731,11 @@ namespace Power_Mplayer
 		private void MainPanel_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
 		{
 			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
-			
-			mp.Playlist.Clear();
+
+            Playlist.Items.Clear();
 			this.Playlist_AddItem(s);
 
-			Start(mp.Playlist.First());
+			Start(Playlist_First());
 		}
 
 		#endregion
@@ -1885,39 +1900,63 @@ namespace Power_Mplayer
 
 		#region Playlist Events
 
-		private void CreatePlaylistItems()
-		{
-			Playlist.Items.Clear();
+        private MPlaylistItem PlaylistNowItem;
 
-			for(int i=0;i<mp.Playlist.Count;i++)
-			{
-				string str = (string) mp.Playlist[i];
-				
-				if(str.StartsWith("file://"))
-					str = Path.GetFileName(str);
-				
-				Playlist.Items.Add(new ListViewItem( str ));
-			}
-		}
+        private string Playlist_First()
+        {
+            PlaylistNowItem = null;
+
+            if (Playlist.Items.Count > 0)
+            {
+                PlaylistNowItem = (MPlaylistItem)Playlist.Items[0];
+                return PlaylistNowItem.SourceString;
+            }
+
+            return null;
+        }
+
+        private string Playlist_Current()
+        {
+            return PlaylistNowItem.SourceString;
+        }
+
+        private string Playlist_Next()
+        {
+            int PlaylistNowIndex = Playlist.Items.IndexOf((ListViewItem)PlaylistNowItem);
+
+            if (PlaylistNowIndex >= 0 && PlaylistNowIndex < Playlist.Items.Count - 1)
+            {
+                PlaylistNowItem = (MPlaylistItem) Playlist.Items[++PlaylistNowIndex];
+                return PlaylistNowItem.SourceString;
+            }
+
+            return null;
+        }
+
+        private string Playlist_GetFilename(int index)
+        {
+            if (index >= 0 && index < Playlist.Items.Count)
+            {
+                PlaylistNowItem = (MPlaylistItem) Playlist.Items[index];
+                return PlaylistNowItem.SourceString;
+            }
+
+            return null;
+        }
 
 		private void Playlist_DoubleClick(object sender, System.EventArgs e)
 		{
 			int index = Playlist.SelectedIndices[0];
 
-			this.Start(mp.Playlist.GetFilename(index));
+			this.Start( Playlist_GetFilename(index) );
 		}
 
 		private void Playlist_AddItem(params string[] s)
 		{
 			foreach(string str in s)
 			{
-				if(str.IndexOf("//") <= 0)
-					mp.Playlist.Add("file://" + str);
-				else
-					mp.Playlist.Add(str);
+                this.Playlist.Items.Add((ListViewItem) new MPlaylistItem(str));
 			}
-
-			this.CreatePlaylistItems();
 		}
 
         // Sets the target drop effect.
@@ -1959,8 +1998,8 @@ namespace Power_Mplayer
                 }
 
                 // Retrieve the dragged item.
-                ListViewItem draggedItem =
-                    (ListViewItem)e.Data.GetData(typeof(ListViewItem));
+                MPlaylistItem draggedItem =
+                    (MPlaylistItem)e.Data.GetData(typeof(MPlaylistItem));
 
                 // Insert a copy of the dragged item at the target index.
                 // A copy must be inserted before the original item is removed
@@ -1979,10 +2018,8 @@ namespace Power_Mplayer
 			{
 				for(int i=Playlist.SelectedIndices.Count-1;i>=0;i--)
 				{
-					mp.Playlist.RemoveAt(Playlist.SelectedIndices[i]);
+                    Playlist.Items.RemoveAt(Playlist.SelectedIndices[i]);
 				}
-
-				this.CreatePlaylistItems();
 			}
 		}
 
@@ -1999,14 +2036,16 @@ namespace Power_Mplayer
         {
             if (e.Effect == DragDropEffects.Move)
             {
-                int targetIndex = Playlist.SelectedIndices[0];
-                Playlist.Items[targetIndex].Selected = false;
-
                 Point targetPoint = Playlist.PointToClient(new Point(e.X, e.Y));
                 ListViewItem targetItem = Playlist.GetItemAt(targetPoint.X, targetPoint.Y);
-                targetIndex = Playlist.Items.IndexOf(targetItem);
+                int targetIndex = Playlist.Items.IndexOf(targetItem);
+                int fromIndex = Playlist.SelectedIndices[0];
 
-                Playlist.Items[targetIndex].Selected = true;
+                if (fromIndex != targetIndex)
+                {
+                    Playlist.Items[fromIndex].Selected = false;
+                    Playlist.Items[targetIndex].Selected = true;
+                }
             }
         }
 
@@ -2073,10 +2112,10 @@ namespace Power_Mplayer
 			{
 				int index = s.IndexOf(':', 3);
 
-				mp.Playlist.Clear();
+                Playlist.Items.Clear();
 				this.Playlist_AddItem("file://" + s.Substring(0, index));
 
-				this.Start(mp.Playlist.First());
+				this.Start(Playlist_First());
 			}
 		}
 
@@ -2239,6 +2278,8 @@ namespace Power_Mplayer
         }
 
         #endregion
+
+ 
 
     }
 }

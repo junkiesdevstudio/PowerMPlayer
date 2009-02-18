@@ -131,9 +131,7 @@
     <Compile Include="MplayerSetting.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MPlaylist.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="MPlaylistItem.cs" />
     <Compile Include="MShortcut.cs">
       <SubType>Code</SubType>
     </Compile>
