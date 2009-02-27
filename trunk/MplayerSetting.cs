@@ -14,7 +14,7 @@ namespace Power_Mplayer
 		MplayerExe, SrtForceUTF8,
 		
 		//  subtitle
-		SubFont, SubEncoding, SubAutoScale, SubASS, SubChineseTrans,
+		SubFont, SubEncoding, SubAutoScale, SubASS, SubChineseTrans, SubFontTextScale,
 		
 		// Audio
 		AO, Audio_Softvol, Audio_SoftvolMax,
@@ -42,9 +42,10 @@ namespace Power_Mplayer
 			// subtitle
 			this.SettingValues.Add(new MValue(SetVars.SubFont.ToString(),		@".\mplayer\subfont.ttf", TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SubEncoding.ToString(),	"BIG5",			TypeCode.String));
-			this.SettingValues.Add(new MValue(SetVars.SubAutoScale.ToString(), "3",				TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubAutoScale.ToString(),  "3",			TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.SubASS.ToString(),		"0",			TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.SubChineseTrans.ToString(), "0",          TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.SubFontTextScale.ToString(),"4",            TypeCode.String));
 
 			// Audio
 			this.SettingValues.Add(new MValue(SetVars.AO.ToString(),			"dsound",		TypeCode.String));
@@ -88,7 +89,7 @@ namespace Power_Mplayer
 				// font
 				args += " -font \"" + System.Environment.ExpandEnvironmentVariables(this[SetVars.SubFont]) + "\"";
 
-                args += " -subfont-text-scale 3";
+                args += " -subfont-text-scale " + this[SetVars.SubFontTextScale];
 
 				// subencoding				
 				if(this[SetVars.SrtForceUTF8] == "1")

@@ -24,18 +24,8 @@ namespace Power_Mplayer
 		/// 設計工具所需的變數。
 		/// </summary>
         private System.ComponentModel.Container components = null;
-		private System.Windows.Forms.Button btn_cancel;
-        private GroupBox groupBox2;
-        private CheckBox Video_DirectRandering;
-        private ComboBox Video_Output;
-        private Label label2;
+        private System.Windows.Forms.Button btn_cancel;
         private GroupBox groupBox1;
-        private GroupBox groupBox3;
-        private NumericUpDown Audio_Softvol_max;
-        private Label label4;
-        private CheckBox Audio_Softvol;
-        private ComboBox Audio_Output;
-        private Label label3;
         private CheckBox Srt_ForceUTF8;
         private CheckBox Srt_UseASS;
         private Label label5;
@@ -44,7 +34,7 @@ namespace Power_Mplayer
         private Label label6;
         private TextBox Srt_Font;
         private Button btn_BroseFont;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown Srt_SubFontTextScale;
         private Label label7;
 
 		private MplayerSetting msetting;
@@ -52,6 +42,17 @@ namespace Power_Mplayer
         private Button btn_SelectAllExt;
         private Label label8;
         private ComboBox Srt_ChineseTrans;
+        private TabPage tp_Output;
+        private GroupBox groupBox2;
+        private CheckBox Video_DirectRandering;
+        private ComboBox Video_Output;
+        private Label label2;
+        private GroupBox groupBox3;
+        private NumericUpDown Audio_Softvol_max;
+        private Label label4;
+        private CheckBox Audio_Softvol;
+        private ComboBox Audio_Output;
+        private Label label3;
         private FontSelector fontSelect;
 
 		// constructure
@@ -89,23 +90,15 @@ namespace Power_Mplayer
 		{
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_general = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Audio_Softvol_max = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Audio_Softvol = new System.Windows.Forms.CheckBox();
-            this.Audio_Output = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Video_DirectRandering = new System.Windows.Forms.CheckBox();
-            this.Video_Output = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_mplayer_cmd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tp_Subtitle = new System.Windows.Forms.TabPage();
+            this.Srt_ChineseTrans = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.Srt_SubFontTextScale = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_BroseFont = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -120,23 +113,34 @@ namespace Power_Mplayer
             this.btn_close = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Srt_ChineseTrans = new System.Windows.Forms.ComboBox();
+            this.tp_Output = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Video_DirectRandering = new System.Windows.Forms.CheckBox();
+            this.Video_Output = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Audio_Softvol_max = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Audio_Softvol = new System.Windows.Forms.CheckBox();
+            this.Audio_Output = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tp_general.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Audio_Softvol_max)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tp_Subtitle.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Srt_SubFontTextScale)).BeginInit();
             this.tp_audio.SuspendLayout();
+            this.tp_Output.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Audio_Softvol_max)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tp_general);
+            this.tabControl1.Controls.Add(this.tp_Output);
             this.tabControl1.Controls.Add(this.tp_Subtitle);
             this.tabControl1.Controls.Add(this.tp_audio);
             this.tabControl1.Location = new System.Drawing.Point(0, 8);
@@ -147,127 +151,13 @@ namespace Power_Mplayer
             // 
             // tp_general
             // 
-            this.tp_general.Controls.Add(this.groupBox3);
-            this.tp_general.Controls.Add(this.groupBox2);
             this.tp_general.Controls.Add(this.groupBox1);
             this.tp_general.Location = new System.Drawing.Point(4, 21);
             this.tp_general.Name = "tp_general";
             this.tp_general.Size = new System.Drawing.Size(368, 271);
             this.tp_general.TabIndex = 0;
             this.tp_general.Text = "一般";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.Audio_Softvol_max);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.Audio_Softvol);
-            this.groupBox3.Controls.Add(this.Audio_Output);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(8, 165);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(352, 88);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "聲音";
-            // 
-            // Audio_Softvol_max
-            // 
-            this.Audio_Softvol_max.Location = new System.Drawing.Point(243, 49);
-            this.Audio_Softvol_max.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.Audio_Softvol_max.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.Audio_Softvol_max.Name = "Audio_Softvol_max";
-            this.Audio_Softvol_max.Size = new System.Drawing.Size(96, 22);
-            this.Audio_Softvol_max.TabIndex = 6;
-            this.Audio_Softvol_max.Value = new decimal(new int[] {
-            110,
-            0,
-            0,
-            0});
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(173, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 23);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "最大值 (%)";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Audio_Softvol
-            // 
-            this.Audio_Softvol.Location = new System.Drawing.Point(10, 46);
-            this.Audio_Softvol.Name = "Audio_Softvol";
-            this.Audio_Softvol.Size = new System.Drawing.Size(152, 24);
-            this.Audio_Softvol.TabIndex = 4;
-            this.Audio_Softvol.Text = "使用軟體音訊混合器";
-            // 
-            // Audio_Output
-            // 
-            this.Audio_Output.Items.AddRange(new object[] {
-            "win32",
-            "dsound"});
-            this.Audio_Output.Location = new System.Drawing.Point(120, 18);
-            this.Audio_Output.Name = "Audio_Output";
-            this.Audio_Output.Size = new System.Drawing.Size(121, 20);
-            this.Audio_Output.TabIndex = 2;
-            this.Audio_Output.Text = "dsound";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(8, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 23);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "聲音輸出驅動程式";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.Video_DirectRandering);
-            this.groupBox2.Controls.Add(this.Video_Output);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(8, 88);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 71);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "影像";
-            // 
-            // Video_DirectRandering
-            // 
-            this.Video_DirectRandering.Location = new System.Drawing.Point(8, 44);
-            this.Video_DirectRandering.Name = "Video_DirectRandering";
-            this.Video_DirectRandering.Size = new System.Drawing.Size(104, 24);
-            this.Video_DirectRandering.TabIndex = 6;
-            this.Video_DirectRandering.Text = "Direct Rendering";
-            // 
-            // Video_Output
-            // 
-            this.Video_Output.Items.AddRange(new object[] {
-            "directx",
-            "winvidix"});
-            this.Video_Output.Location = new System.Drawing.Point(118, 18);
-            this.Video_Output.Name = "Video_Output";
-            this.Video_Output.Size = new System.Drawing.Size(121, 20);
-            this.Video_Output.TabIndex = 4;
-            this.Video_Output.Text = "directx";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(6, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 23);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "影像輸出驅動程式";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tp_general.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -321,10 +211,32 @@ namespace Power_Mplayer
             this.tp_Subtitle.Size = new System.Drawing.Size(368, 271);
             this.tp_Subtitle.TabIndex = 1;
             this.tp_Subtitle.Text = "字幕";
+            this.tp_Subtitle.UseVisualStyleBackColor = true;
+            // 
+            // Srt_ChineseTrans
+            // 
+            this.Srt_ChineseTrans.FormattingEnabled = true;
+            this.Srt_ChineseTrans.Items.AddRange(new object[] {
+            "無",
+            "轉繁體",
+            "轉簡體"});
+            this.Srt_ChineseTrans.Location = new System.Drawing.Point(99, 238);
+            this.Srt_ChineseTrans.Name = "Srt_ChineseTrans";
+            this.Srt_ChineseTrans.Size = new System.Drawing.Size(121, 20);
+            this.Srt_ChineseTrans.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 241);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "中文繁簡轉換";
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.numericUpDown1);
+            this.groupBox4.Controls.Add(this.Srt_SubFontTextScale);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.btn_BroseFont);
             this.groupBox4.Controls.Add(this.label6);
@@ -336,14 +248,14 @@ namespace Power_Mplayer
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "字型";
             // 
-            // numericUpDown1
+            // Srt_SubFontTextScale
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(69, 46);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            3,
+            this.Srt_SubFontTextScale.Location = new System.Drawing.Point(69, 46);
+            this.Srt_SubFontTextScale.Name = "Srt_SubFontTextScale";
+            this.Srt_SubFontTextScale.Size = new System.Drawing.Size(120, 22);
+            this.Srt_SubFontTextScale.TabIndex = 4;
+            this.Srt_SubFontTextScale.Value = new decimal(new int[] {
+            4,
             0,
             0,
             0});
@@ -435,6 +347,7 @@ namespace Power_Mplayer
             this.tp_audio.Size = new System.Drawing.Size(368, 271);
             this.tp_audio.TabIndex = 2;
             this.tp_audio.Text = "檔案類型";
+            this.tp_audio.UseVisualStyleBackColor = true;
             // 
             // btn_SelectAllExt
             // 
@@ -501,6 +414,7 @@ namespace Power_Mplayer
             ".ra",
             ".ram",
             ".rm",
+            ".rmvb",
             ".rmi",
             ".rmm",
             ".rnx",
@@ -544,26 +458,129 @@ namespace Power_Mplayer
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.Text = "取消";
             // 
-            // label8
+            // tp_Output
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 241);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 12);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "中文繁簡轉換";
+            this.tp_Output.Controls.Add(this.groupBox3);
+            this.tp_Output.Controls.Add(this.groupBox2);
+            this.tp_Output.Location = new System.Drawing.Point(4, 21);
+            this.tp_Output.Name = "tp_Output";
+            this.tp_Output.Size = new System.Drawing.Size(368, 271);
+            this.tp_Output.TabIndex = 3;
+            this.tp_Output.Text = "輸出";
+            this.tp_Output.UseVisualStyleBackColor = true;
             // 
-            // Srt_ChineseTrans
+            // groupBox2
             // 
-            this.Srt_ChineseTrans.FormattingEnabled = true;
-            this.Srt_ChineseTrans.Items.AddRange(new object[] {
-            "無",
-            "轉繁體",
-            "轉簡體"});
-            this.Srt_ChineseTrans.Location = new System.Drawing.Point(99, 238);
-            this.Srt_ChineseTrans.Name = "Srt_ChineseTrans";
-            this.Srt_ChineseTrans.Size = new System.Drawing.Size(121, 20);
-            this.Srt_ChineseTrans.TabIndex = 10;
+            this.groupBox2.Controls.Add(this.Video_DirectRandering);
+            this.groupBox2.Controls.Add(this.Video_Output);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(8, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(352, 71);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "影像";
+            // 
+            // Video_DirectRandering
+            // 
+            this.Video_DirectRandering.Location = new System.Drawing.Point(8, 44);
+            this.Video_DirectRandering.Name = "Video_DirectRandering";
+            this.Video_DirectRandering.Size = new System.Drawing.Size(104, 24);
+            this.Video_DirectRandering.TabIndex = 6;
+            this.Video_DirectRandering.Text = "Direct Rendering";
+            // 
+            // Video_Output
+            // 
+            this.Video_Output.Items.AddRange(new object[] {
+            "directx",
+            "winvidix"});
+            this.Video_Output.Location = new System.Drawing.Point(118, 18);
+            this.Video_Output.Name = "Video_Output";
+            this.Video_Output.Size = new System.Drawing.Size(121, 20);
+            this.Video_Output.TabIndex = 4;
+            this.Video_Output.Text = "directx";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 23);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "影像輸出驅動程式";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Audio_Softvol_max);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.Audio_Softvol);
+            this.groupBox3.Controls.Add(this.Audio_Output);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(8, 80);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(352, 88);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "聲音";
+            // 
+            // Audio_Softvol_max
+            // 
+            this.Audio_Softvol_max.Location = new System.Drawing.Point(243, 49);
+            this.Audio_Softvol_max.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.Audio_Softvol_max.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.Audio_Softvol_max.Name = "Audio_Softvol_max";
+            this.Audio_Softvol_max.Size = new System.Drawing.Size(96, 22);
+            this.Audio_Softvol_max.TabIndex = 6;
+            this.Audio_Softvol_max.Value = new decimal(new int[] {
+            110,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(173, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 23);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "最大值 (%)";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Audio_Softvol
+            // 
+            this.Audio_Softvol.Location = new System.Drawing.Point(10, 46);
+            this.Audio_Softvol.Name = "Audio_Softvol";
+            this.Audio_Softvol.Size = new System.Drawing.Size(152, 24);
+            this.Audio_Softvol.TabIndex = 4;
+            this.Audio_Softvol.Text = "使用軟體音訊混合器";
+            // 
+            // Audio_Output
+            // 
+            this.Audio_Output.Items.AddRange(new object[] {
+            "win32",
+            "dsound"});
+            this.Audio_Output.Location = new System.Drawing.Point(120, 18);
+            this.Audio_Output.Name = "Audio_Output";
+            this.Audio_Output.Size = new System.Drawing.Size(121, 20);
+            this.Audio_Output.TabIndex = 2;
+            this.Audio_Output.Text = "dsound";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(8, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 23);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "聲音輸出驅動程式";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OptionForm
             // 
@@ -577,17 +594,18 @@ namespace Power_Mplayer
             this.Text = "Power Mplayer 選項";
             this.tabControl1.ResumeLayout(false);
             this.tp_general.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Audio_Softvol_max)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tp_Subtitle.ResumeLayout(false);
             this.tp_Subtitle.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Srt_SubFontTextScale)).EndInit();
             this.tp_audio.ResumeLayout(false);
+            this.tp_Output.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Audio_Softvol_max)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -623,6 +641,7 @@ namespace Power_Mplayer
             this.Srt_UseASS.Checked = (msetting[SetVars.SubASS] == "1") ? true : false;
             this.Srt_FontPath = msetting[SetVars.SubFont];
             this.Srt_ChineseTrans.SelectedIndex = int.Parse(msetting[SetVars.SubChineseTrans]);
+            this.Srt_SubFontTextScale.Value = int.Parse(msetting[SetVars.SubFontTextScale]);
 
 			this.Audio_Output.Text = this.msetting[SetVars.AO];
 			this.Audio_Softvol.Checked = (this.msetting[SetVars.Audio_Softvol] == "1") ? true : false;
@@ -646,6 +665,7 @@ namespace Power_Mplayer
             this.msetting[SetVars.SubASS] = this.Srt_UseASS.Checked ? "1" : "0";
             this.msetting[SetVars.SubFont] = this.Srt_FontPath;
             this.msetting[SetVars.SubChineseTrans] = this.Srt_ChineseTrans.SelectedIndex.ToString();
+            this.msetting[SetVars.SubFontTextScale] = this.Srt_SubFontTextScale.Value.ToString();
 
 			this.msetting[SetVars.AO] = this.Audio_Output.Text;
 			this.msetting[SetVars.Audio_Softvol] = (this.Audio_Softvol.Checked) ? "1" : "0";

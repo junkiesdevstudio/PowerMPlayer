@@ -57,12 +57,15 @@ namespace Power_Mplayer
 			return mapping;
 		}
 
-		public static void SaveShortcuts(string fname)
-		{
-			using(TextWriter tw = new StreamWriter(fname))
-			{
-				
-			}
-		}
+        public static string GetShortcutPath(string mplayerPath)
+        {
+            if (mplayerPath.IndexOf(Path.VolumeSeparatorChar) < 0)
+            {
+                mplayerPath = System.Windows.Forms.Application.StartupPath + @"\" + mplayerPath;
+            }
+            mplayerPath = Path.GetDirectoryName(mplayerPath) + @"\mplayer\input.conf";
+
+            return mplayerPath;
+        }
 	}
 }

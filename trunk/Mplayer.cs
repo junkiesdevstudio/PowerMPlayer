@@ -280,7 +280,12 @@ namespace Power_Mplayer
 					sublist = Subtitle.FindSubtitle(null);
 
 				// append filename
-				mplayerProc.StartInfo.Arguments += " " + "\"" + Win32API.ToShortPathName(this.CurrentMediaFilename) + "\"";
+                if (this.mediaType == MediaType.File)
+                {
+                    mplayerProc.StartInfo.Arguments += " " + "\"" + Win32API.ToShortPathName(this.CurrentMediaFilename) + "\"";
+                }
+                else
+                    mplayerProc.StartInfo.Arguments += " " + "\"" + this.CurrentMediaFilename + "\"";
 
 				// start mpayer
 				if(mplayerProc.Start() == false)

@@ -246,6 +246,7 @@ namespace Power_Mplayer
             this.MI_SubScaleUp = new System.Windows.Forms.MenuItem();
             this.MI_Tools = new System.Windows.Forms.MenuItem();
             this.menuItem11 = new System.Windows.Forms.MenuItem();
+            this.MI_EditShortcut = new System.Windows.Forms.MenuItem();
             this.menuItem12 = new System.Windows.Forms.MenuItem();
             this.MI_Option = new System.Windows.Forms.MenuItem();
             this.MI_Help = new System.Windows.Forms.MenuItem();
@@ -255,7 +256,6 @@ namespace Power_Mplayer
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Playlist = new System.Windows.Forms.ListView();
-            this.MI_EditShortcut = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -317,7 +317,7 @@ namespace Power_Mplayer
             this.panel1.Controls.Add(this.MovieBar);
             this.panel1.Controls.Add(this.txtShortcut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 185);
+            this.panel1.Location = new System.Drawing.Point(0, 224);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(555, 64);
             this.panel1.TabIndex = 4;
@@ -906,6 +906,12 @@ namespace Power_Mplayer
             this.menuItem11.Text = "Mplayer ¬ö¿ý";
             this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
             // 
+            // MI_EditShortcut
+            // 
+            this.MI_EditShortcut.Index = 1;
+            this.MI_EditShortcut.Text = "½s¿è§Ö³tÁä";
+            this.MI_EditShortcut.Click += new System.EventHandler(this.MI_EditShortcut_Click);
+            // 
             // menuItem12
             // 
             this.menuItem12.Index = 2;
@@ -969,15 +975,10 @@ namespace Power_Mplayer
             this.Playlist.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Playlist_KeyDown);
             this.Playlist.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.Playlist_ItemDrag);
             // 
-            // MI_EditShortcut
-            // 
-            this.MI_EditShortcut.Index = 1;
-            this.MI_EditShortcut.Text = "½s¿è§Ö³tÁä";
-            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
-            this.ClientSize = new System.Drawing.Size(555, 249);
+            this.ClientSize = new System.Drawing.Size(555, 288);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.Playlist);
             this.Controls.Add(this.MainPanel);
@@ -1917,7 +1918,10 @@ namespace Power_Mplayer
 
         private string Playlist_Current()
         {
-            return PlaylistNowItem.SourceString;
+            if(PlaylistNowItem != null)
+                return PlaylistNowItem.SourceString;
+
+            return null;
         }
 
         private string Playlist_Next()
@@ -2279,7 +2283,9 @@ namespace Power_Mplayer
 
         #endregion
 
- 
-
+        private void MI_EditShortcut_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad.exe", MShortcut.GetShortcutPath(mp.Setting[SetVars.MplayerExe]));
+        }
     }
 }
