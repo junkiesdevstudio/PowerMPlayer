@@ -1427,6 +1427,11 @@ namespace Power_Mplayer
 			if(mp.HasInstense())
 			{
                 int movie_len = (int) mp.Length;
+
+                // some video has broken header with wrong Lengh value
+                if (nowTimePos >= movie_len)
+                    needSyncTime = true;
+
                 if (needSyncTime || nowTimePos % 60 == 0)
                 {
                     nowTimePos = (int)mp.Time_Pos;
@@ -1441,7 +1446,10 @@ namespace Power_Mplayer
                 if (nowTimePos != 0 && movie_len != 0)
                 {
                     this.txtStatus.Text = strTimeStamp(nowTimePos, movie_len);
-                    this.MovieBar.Value = (100 * nowTimePos) / movie_len;
+
+                    // some video has broken header with wrong Lengh value
+                    if(nowTimePos <= movie_len)
+                        this.MovieBar.Value = (100 * nowTimePos) / movie_len;
                 }
                 else
                 {
