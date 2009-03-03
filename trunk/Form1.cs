@@ -5,6 +5,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
+using System.Diagnostics;
 
 namespace Power_Mplayer
 {
@@ -376,7 +377,7 @@ namespace Power_Mplayer
             this.VolumeBar.LargeChange = 2;
             this.VolumeBar.Location = new System.Drawing.Point(452, 3);
             this.VolumeBar.Name = "VolumeBar";
-            this.VolumeBar.Size = new System.Drawing.Size(108, 42);
+            this.VolumeBar.Size = new System.Drawing.Size(108, 45);
             this.VolumeBar.TabIndex = 6;
             this.VolumeBar.Value = 10;
             this.VolumeBar.Scroll += new System.EventHandler(this.VolumeBar_Scroll);
@@ -464,6 +465,7 @@ namespace Power_Mplayer
             // 
             // MI_OpenDVD
             // 
+            this.MI_OpenDVD.Enabled = false;
             this.MI_OpenDVD.Index = 1;
             this.MI_OpenDVD.Text = "開啟 DVD";
             // 
@@ -1002,11 +1004,29 @@ namespace Power_Mplayer
 		/// <summary>
 		/// 應用程式的主進入點。
 		/// </summary>
-		[STAThread]
-		static void Main(string[] args) 
-		{
-			Application.Run(new Form1(args));
-		}
+        [STAThread]
+        static void Main(string[] args)
+        {
+            int pid = Process.GetCurrentProcess().Id;
+            string pname = Process.GetCurrentProcess().ProcessName;
+            Process[] ps = Process.GetProcessesByName(pname);
+
+            foreach (Process p in ps)
+            {
+                if(p.Id != pid)
+                    p.Kill();
+            }
+
+            ps = Process.GetProcessesByName("mplayer.exe");
+            foreach (Process p in ps)
+            {
+                p.Kill();
+            }
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1(args));
+        }
 
 		private void btn_pause_Click(object sender, System.EventArgs e)
 		{
@@ -1225,13 +1245,12 @@ namespace Power_Mplayer
 				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
                 this.AppendAudioIDMenuItem(this.MI_SelectAudio);
 
+                //this.MI_Zoom_Click(MI_Zoom100, null);
 				this.Form1_Resize(null, null);
 
                 needSyncTime = true;
 				timer1.Start();
 			}
-
-            // to avoid Screensaver or power saver
 
 			this.txtShortcut.Focus();
 		}
@@ -1807,38 +1826,37 @@ namespace Power_Mplayer
 		{
 			if(mp.HasInstense())
 			{
-				if(this.WindowState == FormWindowState.Maximized)
-					this.WindowState = FormWindowState.Normal;
+                int width = mp.Video_Width;
+                int height = mp.Video_Height;
 
-				MenuItem mi = (MenuItem) sender;
-				int width = mp.Video_Width;
-				int height = mp.Video_Height;
+                if (width != 0 && height != 0)
+                {
+                    MenuItem mi = (MenuItem)sender;
 
-				if(mi == this.MI_Zoom50)
-				{
-					width /= 2;
-					height /= 2;
-				}
-				else if(mi == this.MI_Zoom200)
-				{
-					width *= 2;
-					height *= 2;
+                    if (this.WindowState == FormWindowState.Maximized)
+                        this.WindowState = FormWindowState.Normal;
 
-					//FIXME: why???? 50%, 100% no need....
-					//height -= this.statusBar1.Height;
-				}
+                    if (mi == this.MI_Zoom50)
+                    {
+                        width /= 2;
+                        height /= 2;
+                    }
+                    else if (mi == this.MI_Zoom200)
+                    {
+                        width *= 2;
+                        height *= 2;
+                    }
 
-				height += this.panel1.Height;
+                    height += this.panel1.Height;
 
-				if(this.Playlist.Visible)
-					width += this.Playlist.Width;
+                    if (this.Playlist.Visible)
+                        width += this.Playlist.Width;
 
-				this.ClientSize = new Size(width, height);
+                    this.ClientSize = new Size(width, height);
+                }
 
+                // for first call Form1_Resize() in Start()
 				this.Form1_Resize(null, null);
-
-				//FIXME: 200% special case....
-				//this.BigScreen.Left = 0;
 			}
 		}
 
