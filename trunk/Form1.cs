@@ -1017,7 +1017,9 @@ namespace Power_Mplayer
                     p.Kill();
             }
 
-            ps = Process.GetProcessesByName("mplayer.exe");
+            ps = Process.GetProcessesByName("mplayer");
+            //ps = Process.GetProcesses();
+
             foreach (Process p in ps)
             {
                 p.Kill();

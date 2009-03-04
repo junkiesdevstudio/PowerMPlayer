@@ -132,11 +132,15 @@ namespace Power_Mplayer
 					if(charBuf[i] == '\n')
 					{
                         string sbuf = rs.LastLine;
-                        rs.minfo.SetState(sbuf);
 
-                        if (sbuf.StartsWith("ANS_TIME_POSITION"))
+                        if (sbuf != null)
                         {
-                            rs.RequestData.Remove(rs.RequestData.Length - (sbuf.Length+2), (sbuf.Length+2));
+                            rs.minfo.SetState(sbuf);
+
+                            if (sbuf.StartsWith("ANS_TIME_POSITION"))
+                            {
+                                rs.RequestData.Remove(rs.RequestData.Length - (sbuf.Length + 2), (sbuf.Length + 2));
+                            }
                         }
 					}
 				}
