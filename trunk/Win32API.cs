@@ -180,5 +180,22 @@ namespace Power_Mplayer
         }
 
         #endregion
+
+        #region Screensaver & Powersaver
+        [DllImport("user32")]
+        private static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+        private const int KEYEVENTF_KEYUP = 0x02;
+        private const int VK_CONTROL = 0x11;
+
+        public static void ResetSystemIdle()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                keybd_event(VK_CONTROL, 0x9d, 0, 0); // Ctrl Press
+                keybd_event(VK_CONTROL, 0x9d, KEYEVENTF_KEYUP, 0); // Ctrl Release
+            }
+        }
+
+        #endregion
     }
 }
