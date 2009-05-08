@@ -1,0 +1,54 @@
+TODO:
+	* dvd support	
+
+	* playlist change order
+	* 當播放完畢，重設該檔案位置 (=0)
+	* fullscreen hide cursor
+	* aspect 根據 width-height 自行計算
+
+Power Mplayer v0.6:
+	* fullscreen in multi-screen environmnet 
+		- not finished, mplayer can't show in second screen)
+	* when fullscreen, hide mouse
+
+Power Mplayer v0.5	2008.12.28:
+	* add Shortcuts
+	* add increase speed and decrease speed
+	* add Screenshots
+	* support audio multi-channel
+	* file type associate
+	* prevent screensaver and powersaver while playing
+	* Tradional Chinese <-> Simplified Chinese
+
+Power Mplayer v0.4	2008.09.29:
+	* Only press button on MovieBar, it will show where you select time...
+	* Add Zoom, 50%, 100%, 200%.
+	* fix load wrong setting file path.
+	* auto load last mediafile position.
+	* mkv subtitle support
+	* Url auto paste at OpenURL Form
+	
+Power Mplayer v0.3	2008.09.23:
+	* add /hue/saturation/gamma
+	* rewrite some dialog
+	* fix some bugs
+	* add play url
+	* add playlist
+	* more precise of time control
+
+Power Mplayer v0.2	2008.09.15:
+	* rewrite MplayerSetting.
+	* add options.
+	* DragDropFile , temp solution. later will add files to Playlist.
+	* Add Option: Force Translate Encoding to UTF8, for loading unicode subtitle problem.
+	* Add change brightness/contrast/hue/saturation/gamma
+
+Power Mplayer v0.1	2008.09.14:
+	First Release, I have worked about three weeks.
+	This release with these feature:
+	* subtitle support
+	* Chinese TrueType fonts support
+	* ass support
+	* fullscreen support
+	* and application structured.
+	
