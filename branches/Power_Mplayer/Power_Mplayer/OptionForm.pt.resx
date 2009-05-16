@@ -129,6 +129,9 @@
   <data name="tp_audio.Text" xml:space="preserve">
     <value>Extenção de arquivos</value>
   </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Opções do Mplayer</value>
   </data>
@@ -292,5 +295,8 @@
   </data>
   <data name="btn_cancel.Text" xml:space="preserve">
     <value>Cancelar</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Opções do Power Mplayer</value>
   </data>
 </root>
