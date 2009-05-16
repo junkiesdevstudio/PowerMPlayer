@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Resources;
+using System.Globalization;
 
 namespace Power_Mplayer
 {
@@ -58,6 +60,9 @@ namespace Power_Mplayer
 		private Label label9;
         private FontSelector fontSelect;
 
+		private CultureInfo culture;
+		private ResourceManager rm;
+
 		// constructure
 		public OptionForm(MplayerSetting ms)
 		{
@@ -67,6 +72,11 @@ namespace Power_Mplayer
             this.fontSelect = null;
             
             GetAssociatedExt();
+
+			//get the current culture(language)
+			culture = CultureInfo.CurrentUICulture;
+			rm = new ResourceManager("Power_Mplayer.Strings.OptionForm", typeof(OptionForm).Assembly);
+			
 		}
 
 		/// <summary>
@@ -484,7 +494,8 @@ namespace Power_Mplayer
 			this.chkLanguage.Items.AddRange(new object[] {
             resources.GetString("chkLanguage.Items"),
             resources.GetString("chkLanguage.Items1"),
-            resources.GetString("chkLanguage.Items2")});
+            resources.GetString("chkLanguage.Items2"),
+            resources.GetString("chkLanguage.Items3")});
 			resources.ApplyResources(this.chkLanguage, "chkLanguage");
 			this.chkLanguage.Name = "chkLanguage";
 			// 
@@ -643,20 +654,27 @@ namespace Power_Mplayer
             // apply 
             ApplyFileAssociate();
 
+			//Get the current Culture used by the program
 			System.Globalization.CultureInfo currentCulture = System.Threading.Thread.CurrentThread.CurrentUICulture;
+			//Initiates a new culture
 			System.Globalization.CultureInfo culture;
+			//sets the culture acording to the user choice
 			switch (chkLanguage.SelectedIndex)
 			{
-				case 1:
+				case 1://The user chose English
 					culture = new System.Globalization.CultureInfo("en");
-					global::Power_Mplayer.Properties.Settings.Default.Language = "en";
+					global::Power_Mplayer.Properties.Settings.Default.Language = "en";//Set the properties in the .config file
 					break;
-				case 2:
+				case 2://The user chose Chinese(Traditional)
 					culture = new System.Globalization.CultureInfo("zh-CHT");
 					global::Power_Mplayer.Properties.Settings.Default.Language = "zh-CHT";
 					break;
-				default:
-					culture = System.Threading.Thread.CurrentThread.CurrentCulture;//new System.Globalization.CultureInfo("en");
+				case 3://The user chose Portuguese
+					culture = new System.Globalization.CultureInfo("pt");
+					global::Power_Mplayer.Properties.Settings.Default.Language = "pt";
+					break;
+				default://The user chose the system default
+					culture = System.Threading.Thread.CurrentThread.CurrentCulture;
 					global::Power_Mplayer.Properties.Settings.Default.Language = "";
 					break;
 			}
@@ -665,7 +683,9 @@ namespace Power_Mplayer
 
 			if (currentCulture.Name != culture.Name)
 				//TODO: change the messagebox text to allow it to display the message box in any language
-				if (MessageBox.Show("You have changed the default language. The changes willl only take place once you restart the application.\nDo you want to restart now?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+				if (MessageBox.Show(rm.GetString("LanguageChange_Restart_Message", this.culture), 
+					rm.GetString("LanguageChange_Restart_Title", this.culture),
+					MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 					Application.Restart();
         }
 
@@ -698,6 +718,7 @@ namespace Power_Mplayer
 
 		private void OptionForm_Load(object sender, EventArgs e)
 		{
+			//Get the language information in the .config file and set the default value of the combobox 
 			switch (global::Power_Mplayer.Properties.Settings.Default.Language)
 			{
 				case "":
@@ -710,7 +731,6 @@ namespace Power_Mplayer
 					chkLanguage.SelectedIndex = 2;
 					break;
 			}
-			//chkLanguage.SelectedIndex = 0;
 		}
 
     }

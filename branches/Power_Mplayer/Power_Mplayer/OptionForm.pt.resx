@@ -117,150 +117,180 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="tp_general.Text" xml:space="preserve">
+    <value>Geral</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Open:</value>
+  <data name="tp_Output.Text" xml:space="preserve">
+    <value>Saida</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
+  <data name="tp_Subtitle.Text" xml:space="preserve">
+    <value>Legenda</value>
   </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
+  <data name="tp_audio.Text" xml:space="preserve">
+    <value>Extenção de arquivos</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Opções do Mplayer</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txt_mplayer_cmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 24</value>
+  </data>
+  <data name="txt_mplayer_cmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 20</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 21</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>208, 62</value>
-  </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+    <value>100, 30</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Please Enter URL or Path (include http:// or mms:// or rstp://)</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Open URL</value>
-  </data>
-  <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
-    <value>5, 13</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 20</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 35</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>376, 103</value>
-  </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 7</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
-  </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 35</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>OpenURL</value>
+    <value>Caminho do Mplayer.exe:</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 62</value>
+    <value>285, 23</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
   </data>
   <data name="button2.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Procurar</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>Portuguese</value>
-  </metadata>
+  <data name="Audio_Softvol.Text" xml:space="preserve">
+    <value>Usar software misturador</value>
+  </data>
+  <data name="Audio_Output.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 15</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 20</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Drive da saida de Audio:</value>
+  </data>
+  <data name="Video_DirectRandering.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 21</value>
+  </data>
+  <data name="Video_Output.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 19</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Drive da saida de Video:</value>
+  </data>
+  <data name="Srt_ChineseTrans.Items" xml:space="preserve">
+    <value>Nenhum</value>
+  </data>
+  <data name="Srt_ChineseTrans.Items1" xml:space="preserve">
+    <value>Para Tradicional</value>
+  </data>
+  <data name="Srt_ChineseTrans.Items2" xml:space="preserve">
+    <value>Para Simplificado</value>
+  </data>
+  <data name="Srt_ChineseTrans.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 206</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 13</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Conversão de Chinês</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Fonte</value>
+  </data>
+  <data name="Srt_SubFontTextScale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 40</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Escala Inicial:</value>
+  </data>
+  <data name="btn_BroseFont.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 16</value>
+  </data>
+  <data name="btn_BroseFont.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
+  </data>
+  <data name="btn_BroseFont.Text" xml:space="preserve">
+    <value>Procurar</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Fonte</value>
+  </data>
+  <data name="Srt_Font.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 16</value>
+  </data>
+  <data name="Srt_Font.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 20</value>
+  </data>
+  <data name="Srt_AutoScale.Items" xml:space="preserve">
+    <value>Nenhum</value>
+  </data>
+  <data name="Srt_AutoScale.Items1" xml:space="preserve">
+    <value>Pela altura</value>
+  </data>
+  <data name="Srt_AutoScale.Items2" xml:space="preserve">
+    <value>Pela largura</value>
+  </data>
+  <data name="Srt_AutoScale.Items3" xml:space="preserve">
+    <value>Pela diagonal</value>
+  </data>
+  <data name="Srt_AutoScale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 143</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Autoescala da legenda</value>
+  </data>
+  <data name="Srt_UseASS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 17</value>
+  </data>
+  <data name="Srt_UseASS.Text" xml:space="preserve">
+    <value>Usar SSA/ASS</value>
+  </data>
+  <data name="Srt_ForceUTF8.Text" xml:space="preserve">
+    <value>Auto converter para utf8</value>
+  </data>
+  <data name="btn_SelectAllExt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 35</value>
+  </data>
+  <data name="btn_SelectAllExt.Text" xml:space="preserve">
+    <value>Selecionar Todos</value>
+  </data>
+  <data name="chkLanguage.Items" xml:space="preserve">
+    <value>System Default - Padrão do sistema</value>
+  </data>
+  <data name="chkLanguage.Items3" xml:space="preserve">
+    <value>Português - Portuguese</value>
+  </data>
+  <data name="chkLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 6</value>
+  </data>
+  <data name="chkLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 21</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 13</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Selecionar Idioma:</value>
+  </data>
+  <data name="btn_close.Text" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="btn_cancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
 </root>

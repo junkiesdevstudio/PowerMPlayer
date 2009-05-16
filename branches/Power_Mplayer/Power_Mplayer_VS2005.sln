@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Power_Mplayer", "Power_Mplayer\Power_Mplayer.csproj", "{EE4ED0C8-F043-477E-9FDD-0C60073A004C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Power_Mplayer", "Power_Mplayer\Power Mplayer_VS2005.csproj", "{EE4ED0C8-F043-477E-9FDD-0C60073A004C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
