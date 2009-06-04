@@ -661,14 +661,17 @@ namespace Power_Mplayer
 			else
 				str = this.mkconverter.getKeyName((int) e.KeyCode);
 
-			foreach(MShortcut sc in this.shortcuts)
-			{
-				if(sc.Key == str)
+			//this seens to be generating a NullReferenceException, to avoid it I check if the this.shortcuts is null
+			//TODO: Replace the shortcuts by methods that are fired by the form, avoiding these errors
+			if(this.shortcuts != null)
+				foreach (MShortcut sc in this.shortcuts)
 				{
-					str = sc.Cmd;
-					break;
+					if (sc.Key == str)
+					{
+						str = sc.Cmd;
+						break;
+					}
 				}
-			}
 
 			return str;
 		}

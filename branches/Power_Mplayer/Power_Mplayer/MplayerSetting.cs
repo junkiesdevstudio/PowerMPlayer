@@ -144,48 +144,111 @@ namespace Power_Mplayer
 
 		public void WriteSetting()
 		{
-			using(TextWriter tw = new StreamWriter(this.SettingFile))
+			foreach (MValue val in SettingValues)
 			{
-				foreach(MValue val in SettingValues)
+				switch (val.Name)
 				{
-					tw.WriteLine(val.Name + "=" + (string) val.Value);
+					//General
+					case "MplayerExe":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "SrtForceUTF8":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+
+					//Subtitle
+					case "SubFont":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "SubEncoding":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "SubAutoScale":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "SubASS":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "SubChineseTrans":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "SubFontTextScale":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+
+					// Audio
+					case "AO":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "Audio_Softvol":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "Audio_SoftvolMax":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+
+					// Video
+					case "VO":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+					case "Video_DR":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
+
+					// Lastmedia
+					case "LastMedia":
+						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						break;
 				}
 
-				tw.Close();
+				//Save the configuration
+				global::Power_Mplayer.Properties.Settings.Default.Save();
 			}
 		}
 
 		public void ReadSetting()
 		{
-			CreateDefaultValue();
+			//Clear all the seetings
+			this.SettingValues.Clear();
 
-			if(!File.Exists(this.SettingFile))
-			{
-				this.WriteSetting();
-				return;
-			}
+			//Load the seetings
+			// Power Mplayer Setting
+			this.SettingValues.Add(new MValue(SetVars.MplayerExe.ToString(), 
+				global::Power_Mplayer.Properties.Settings.Default.MplayerExe, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SrtForceUTF8.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.SrtForceUTF8, TypeCode.String));
 
-			using(TextReader tr = new StreamReader(this.SettingFile))
-			{
-				string str;
-				while((str = tr.ReadLine()) != null)
-				{
-					string[] cmds = str.Split('=');
+			// subtitle
+			this.SettingValues.Add(new MValue(SetVars.SubFont.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.SubFont, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubEncoding.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.SubEncoding, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubAutoScale.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.SubAutoScale, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubASS.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.SubASS, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubChineseTrans.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.SubChineseTrans, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.SubFontTextScale.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.SubFontTextScale, TypeCode.String));
 
-					if(cmds[1] == "")
-						continue;
+			// Audio
+			this.SettingValues.Add(new MValue(SetVars.AO.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.AO, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.Audio_Softvol.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.Audio_Softvol, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.Audio_SoftvolMax.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.Audio_SoftvolMax, TypeCode.String));
 
-					if(Enum.IsDefined(typeof(SetVars), cmds[0]))
-					{
-						SetVars sv = (SetVars) Enum.Parse(typeof(SetVars), cmds[0], true);
-						this[sv] = cmds[1];
-					}
-				}
+			// Video
+			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.VO, TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.Video_DR, TypeCode.String));
 
-				tr.Close();
-			}
-
-			return ;
+			// LastMedia
+			this.SettingValues.Add(new MValue(SetVars.LastMedia.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.LastMedia, TypeCode.String));
 		}
 	}
 }

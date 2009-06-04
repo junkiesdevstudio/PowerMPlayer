@@ -117,24 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tp_general.Text" xml:space="preserve">
-    <value>Geral</value>
-  </data>
-  <data name="tp_Output.Text" xml:space="preserve">
-    <value>Saida</value>
-  </data>
-  <data name="tp_Subtitle.Text" xml:space="preserve">
-    <value>Legenda</value>
-  </data>
-  <data name="tp_audio.Text" xml:space="preserve">
-    <value>Extenção de arquivos</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Idioma</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Opções do Mplayer</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txt_mplayer_cmd.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 24</value>
@@ -161,6 +143,12 @@
   <data name="button2.Text" xml:space="preserve">
     <value>Procurar</value>
   </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Opções do Mplayer</value>
+  </data>
+  <data name="tp_general.Text" xml:space="preserve">
+    <value>Geral</value>
+  </data>
   <data name="Audio_Softvol.Text" xml:space="preserve">
     <value>Usar software misturador</value>
   </data>
@@ -185,6 +173,9 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Drive da saida de Video:</value>
   </data>
+  <data name="tp_Output.Text" xml:space="preserve">
+    <value>Saida</value>
+  </data>
   <data name="Srt_ChineseTrans.Items" xml:space="preserve">
     <value>Nenhum</value>
   </data>
@@ -202,9 +193,6 @@
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Conversão de Chinês</value>
-  </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Fonte</value>
   </data>
   <data name="Srt_SubFontTextScale.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 40</value>
@@ -236,6 +224,9 @@
   <data name="Srt_Font.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 20</value>
   </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Fonte</value>
+  </data>
   <data name="Srt_AutoScale.Items" xml:space="preserve">
     <value>Nenhum</value>
   </data>
@@ -266,17 +257,20 @@
   <data name="Srt_ForceUTF8.Text" xml:space="preserve">
     <value>Auto converter para utf8</value>
   </data>
+  <data name="tp_Subtitle.Text" xml:space="preserve">
+    <value>Legenda</value>
+  </data>
   <data name="btn_SelectAllExt.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 35</value>
   </data>
   <data name="btn_SelectAllExt.Text" xml:space="preserve">
     <value>Selecionar Todos</value>
   </data>
+  <data name="tp_audio.Text" xml:space="preserve">
+    <value>Extenção de arquivos</value>
+  </data>
   <data name="chkLanguage.Items" xml:space="preserve">
     <value>System Default - Padrão do sistema</value>
-  </data>
-  <data name="chkLanguage.Items3" xml:space="preserve">
-    <value>Português - Portuguese</value>
   </data>
   <data name="chkLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 6</value>
@@ -289,6 +283,9 @@
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Selecionar Idioma:</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Idioma</value>
   </data>
   <data name="btn_close.Text" xml:space="preserve">
     <value>Fechar</value>

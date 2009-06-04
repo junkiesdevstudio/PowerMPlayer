@@ -2,32 +2,32 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// 組件的一般資訊是由下列的屬性集控制。
-// 變更這些屬性的值即可修改組件的相關
-// 資訊。
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
 [assembly: AssemblyTitle("Power_Mplayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Power_Mplayer")]
-[assembly: AssemblyCopyright("Copyright (C)  2009")]
+[assembly: AssemblyCopyright("Copyright © 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// 將 ComVisible 設定為 false 會使得這個組件中的型別
-// 對 COM 元件而言為不可見。如果您需要從 COM 存取這個組件中
-// 的型別，請在該型別上將 ComVisible 屬性設定為 true。
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-// 下列 GUID 為專案公開 (Expose) 至 COM 時所要使用的 typelib ID
-[assembly: Guid("7c901dc2-d195-4fdc-a570-0c4ba1323ef6")]
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("9562e5ae-0cd2-4dd1-860a-113101bba9e2")]
 
-// 組件的版本資訊是由下列四項值構成:
+// Version information for an assembly consists of the following four values:
 //
-//      主要版本
-//      次要版本 
-//      組建編號
-//      修訂編號
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
 //
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
