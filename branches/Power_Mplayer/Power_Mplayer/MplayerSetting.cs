@@ -153,51 +153,51 @@ namespace Power_Mplayer
 						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
 						break;
 					case "SrtForceUTF8":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.SrtForceUTF8 = val.Value.ToString();
 						break;
 
 					//Subtitle
 					case "SubFont":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.SubFont = val.Value.ToString();
 						break;
 					case "SubEncoding":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.SubEncoding = val.Value.ToString();
 						break;
 					case "SubAutoScale":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.SubAutoScale = val.Value.ToString();
 						break;
 					case "SubASS":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.SubASS = val.Value.ToString();
 						break;
 					case "SubChineseTrans":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.SubChineseTrans = val.Value.ToString();
 						break;
 					case "SubFontTextScale":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.SubFontTextScale = val.Value.ToString();
 						break;
 
 					// Audio
 					case "AO":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.AO = val.Value.ToString();
 						break;
 					case "Audio_Softvol":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.Audio_Softvol = val.Value.ToString();
 						break;
 					case "Audio_SoftvolMax":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.Audio_SoftvolMax = val.Value.ToString();
 						break;
 
 					// Video
 					case "VO":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.VO = val.Value.ToString();
 						break;
 					case "Video_DR":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.Video_DR = val.Value.ToString();
 						break;
 
 					// Lastmedia
 					case "LastMedia":
-						global::Power_Mplayer.Properties.Settings.Default.MplayerExe = val.Value.ToString();
+						global::Power_Mplayer.Properties.Settings.Default.LastMedia = val.Value.ToString();
 						break;
 				}
 

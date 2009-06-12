@@ -117,866 +117,1001 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="VolumeBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>452, 3</value>
-  </data>
-  <data name="&gt;&gt;MI_SelectSubtitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItem15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_pause.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="&gt;&gt;MI_SubDelayLess.Name" xml:space="preserve">
-    <value>MI_SubDelayLess</value>
-  </data>
-  <data name="&gt;&gt;menuItem6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btn_pause.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="MI_GammaLess.Text" xml:space="preserve">
-    <value>Gamma -</value>
-  </data>
-  <data name="&gt;&gt;MI_ShowPlaylist.Name" xml:space="preserve">
-    <value>MI_ShowPlaylist</value>
-  </data>
-  <data name="txtStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 36</value>
-  </data>
-  <data name="btn_pause.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="&gt;&gt;mainMenu1.Name" xml:space="preserve">
-    <value>mainMenu1</value>
+  <data name="btn_pause.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="btn_pause.ImageIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btn_stop.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;saveFileDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Playlist.Name" xml:space="preserve">
-    <value>Playlist</value>
-  </data>
-  <data name="btn_stop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 0</value>
-  </data>
-  <data name="menuItem18.Text" xml:space="preserve">
-    <value>BIG5 (Traditional Chinese charset)</value>
-  </data>
-  <data name="MI_ToSimpChinese.Text" xml:space="preserve">
-    <value>To Simplified Chinese</value>
-  </data>
-  <data name="&gt;&gt;MI_OpenURL.Name" xml:space="preserve">
-    <value>MI_OpenURL</value>
-  </data>
-  <data name="&gt;&gt;MI_SubEncoding.Name" xml:space="preserve">
-    <value>MI_SubEncoding</value>
-  </data>
-  <data name="MI_Play.Text" xml:space="preserve">
-    <value>&amp;Play</value>
-  </data>
-  <data name="&gt;&gt;MovieBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtShortcut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 16</value>
-  </data>
-  <data name="VolumeBar.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;txtStatus.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="Playlist.Location" type="System.Drawing.Point, System.Drawing">
-    <value>395, 0</value>
-  </data>
-  <data name="menuItem1.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="&gt;&gt;menuItem25.Name" xml:space="preserve">
-    <value>menuItem25</value>
-  </data>
-  <data name="&gt;&gt;MI_Zoom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_inspeed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 0</value>
-  </data>
-  <data name="&gt;&gt;MI_SubDelayMore.Name" xml:space="preserve">
-    <value>MI_SubDelayMore</value>
-  </data>
-  <data name="&gt;&gt;MI_ContrastMore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="BigScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 136</value>
-  </data>
-  <data name="&gt;&gt;menuItem9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_LastOpen.Text" xml:space="preserve">
-    <value>Open Last File</value>
-  </data>
-  <data name="&gt;&gt;MI_ContrastLess.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_GammaMore.Text" xml:space="preserve">
-    <value>Gamma +</value>
-  </data>
-  <data name="MI_SelectSubtitle.Text" xml:space="preserve">
-    <value>Choose Subtitle</value>
-  </data>
-  <data name="&gt;&gt;MI_OpenSubFile.Name" xml:space="preserve">
-    <value>MI_OpenSubFile</value>
-  </data>
-  <data name="MI_SubDelayMore.Text" xml:space="preserve">
-    <value>Delay+</value>
-  </data>
-  <data name="&gt;&gt;openFileDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_SaturationMore.Text" xml:space="preserve">
-    <value>Saturation +</value>
-  </data>
-  <data name="&gt;&gt;btn_inspeed.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;txtShortcut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItem22.Name" xml:space="preserve">
-    <value>menuItem22</value>
-  </data>
-  <data name="MI_HueLess.Text" xml:space="preserve">
-    <value>Hues -</value>
-  </data>
-  <data name="MovieBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 16</value>
-  </data>
-  <data name="&gt;&gt;BigScreen.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btn_inspeed.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;MI_Zoom.Name" xml:space="preserve">
-    <value>MI_Zoom</value>
-  </data>
-  <data name="Playlist.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="btn_mute.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;MI_OpenSubFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">
-    <value>openFileDialog1</value>
-  </data>
-  <data name="BigScreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;txtShortcut.Name" xml:space="preserve">
-    <value>txtShortcut</value>
-  </data>
-  <data name="MI_Fullscreen.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>F11</value>
-  </data>
-  <data name="menuItem24.Text" xml:space="preserve">
-    <value>UTF-8 (UTF-8)</value>
-  </data>
-  <data name="menuItem21.Text" xml:space="preserve">
-    <value>SHIFT-JIS (Japanese charset)</value>
-  </data>
-  <data name="&gt;&gt;MI_FixSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_Gamma.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtStatus.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;menuItem12.Name" xml:space="preserve">
-    <value>menuItem12</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btn_mute.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;MI_SubScaleDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItem23.Name" xml:space="preserve">
-    <value>menuItem23</value>
-  </data>
-  <data name="&gt;&gt;MovieBar.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="btn_despeed.ImageIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
-  </data>
-  <data name="txtShortcut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 15</value>
-  </data>
-  <data name="menuItem26.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="&gt;&gt;MI_BrightnessMore.Name" xml:space="preserve">
-    <value>MI_BrightnessMore</value>
-  </data>
-  <data name="&gt;&gt;menuItem24.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_OpenSubFile.Text" xml:space="preserve">
-    <value>Open Subtitle</value>
-  </data>
-  <data name="MI_Zoom100.Text" xml:space="preserve">
-    <value>100%</value>
-  </data>
-  <data name="&gt;&gt;menuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_OpenDVD.Name" xml:space="preserve">
-    <value>MI_OpenDVD</value>
-  </data>
-  <data name="VolumeBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 42</value>
-  </data>
-  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABm
-        VQAAAk1TRnQBSQFMAgEBBwEAAQkBAAEEAQABGAEAARgBAAT/ASEBEAj/AUIBTQE2BwABNgMAASgDAAFg
-        AwABMAMAAQEBAAEgBgABSBIAAQIDAQEGAgEBBgEMAgEBDgESAgEBFwEZAgEBIQEeAgEBKQEiAgEBMAEl
-        AgEBNQEmAgEBNwEkAgEBMwEhAgEBLQEcAgEBJQEXAgEBHQEQAgEBFAEKAgEBDAEIAgEBCQEMAgEBDgEU
-        AgECGQIBASABGgIBASMBFwIBAR4BEQIBARUBCgIBAQsBAwIBAQMEAAEDAgEBAwEHAgEBCAELAgEBDQEQ
-        AgEBEwEUAgEBGQEYAgEBHwEbAgEBJAEfAgEBKgEhAgEBLgEkAgEBMgElAgEBNQEmAgEBNgEkAgEBMwEi
-        AgEBMAEfAgEBKwEdAgEBJwEZAgEBIQEVAgEBGwESAgEBFgENAgEBDwEIAgEBCQEEAgEBBAECAwEEAAED
-        AgEBAwEHAgEBCAELAgEBDQEQAgEBEwEUAgEBGQEXAgEBHgEbAgEBJAEfAgEBKgEiAgEBLwEkAgEBMgEl
-        AgEBNQElAgEBNQEkAgEBMwEiAgEBLwEfAgEBKgEcAgEBJQEZAgEBIAEUAgEBGgEQAgEBFAEMAgEBDgEH
-        AgEBCAEEAgEBBGQAAQIDAQEDAgEBAwEHAgEBCAELAgEBDQEPAgECEgIBARcBFQIBARsBFwIBAR4BGAIB
-        AR8BFwIBAR0BFAIBARkBEQIBARUBDQIBAQ8BCQIBAQoBBwIBAgcCAQEIARACAQEUARcCAQEeARwCAQEl
-        ARwCAQEmARkCAQEhARQCAQEZAQkCAQEKAQMCAQECBAABAwIBAQIBBgIBAQYBCAIBAQkBDQIBAQ8BEAIB
-        AhMCAQEYARcCAQEdARkCAQEhARsCAQEkAR0CAQEnAR4CAQEpAR8CAQEqAR4CAQEpARwCAQEmARoCAQEj
-        ARgCAQEfARQCAQEaARECAQEVAQ0CAQEQAQoCAQEMAQcCAQEHAQQCAQEEAQIDAQQAAQMCAQEDAQYCAQEG
-        AQoCAQELAQ0CAQEQARECAQEVARQCAQEaARgCAQEfARoCAQEjAR0CAQEnAR8CAQEqAR8CAQErASACAQEs
-        AR8CAQErAR0CAQEnARsCAQEkARgCAQEfARUCAQEbARICAQEWAQ4CAQERAQoCAQEMAQcCAQEHAQMCAQED
-        nAABBwIBAQcBPAIDAWQBWQIYAbgBXAIdAcMBXAIgAcYBXAIgAcYBXQIeAcQBWgIcAb4BQgIEAXIBDQIB
-        AQ8kAAEDAgEBAgENAgEBDwEWAgEBHAEXAgEBHQEOAgEBEQEDAgEBA0gAAQIDAQEKAgEBDAEUAgEBGgEX
-        AgEBHgEQAgEBEwEFAgEBBZwAAQMCAQECAQcCAQEHAQoCAQELAQgCAQEJAQQCAQEECAABAgMBATICAgFO
-        AWcCIAH0Ap0BwwH/ApABwQH/ApUBxgH/ApkBygH/Ap8BzwH/AqkB1wH/AWcCKQHtAToCAgFeGAABBwIB
-        AQcBJQIBATUBQwIEAXYBVwIWAbQBYQInAdYBYgIrAeYBYAIqAegBXQImAdkBWAIYAbcBRgIFAX0BKQIB
-        ATwBDAIBAQ4wAAEFAgEBBQEhAgEBLQFAAgMBbQFWAhIBrAFfAiUB0gFjAioB5AFlAisB5wFhAikB2wFb
-        AhsBvQFKAgcBiAEtAgEBRAEOAgEBEYgAAQUCAQEFARwCAQElATcCAgFZAUcCBQF+AUwCCAGOAUoCBwGH
-        AT4CAwFnASUCAQE1AQgCAQEJAQMCAQEDAUYCBQF8Ar8BzwH/Al0BngH/AnQBpwH/AjoBlAH/AjwBkwH/
-        AnoBrQH/Ak0BmgH/AWcBMgFCAfsBSwIIAY0UAAEXAgEBHQFLAgcBiQFgAikB2AFdAh0B+AGBAWIBLQH/
-        AYQBbAEvAf8BkAF0ATQB/wGUAXkBOgH/AZABewFCAf8BgQFzAUAB/wFgAh8B+wFhAisB3gFNAgoBkwEZ
-        AgEBICgAARECAQEVAUUCBQF5AV8CIwHQAVsCIgH1AYEBbQE+Af8BigF4AUIB/wGRAXkBPQH/AZABdQE2
-        Af8BhgFtATAB/wGBAWMBLQH/AV4BKgEmAfwBYQIrAeMBUgINAZ8BIAIBASwBAgMBfAABCQIBAQoBPgID
-        AWgBXwIjAdABWgIfAfsDVAH/A1YB/wNXAf8BLAIqAfwBYwIqAeQBTQIKAZIBHgIBASkBSAIGAYECvQHS
-        Af8CfAGrAf8CxQHUAf8CgQG8Af8CgQG2Af8CzgHcAf8CZwGiAf8BegE3AU0B/AFNAgoBkhAAARoCAQEi
-        AVoCGAG5AXYBTwEqAf8BgQFfASwB/wGIAW0BLgH/AaMBfAExAf8BuwGBATMB/wHHAYEBNAH/AcQBgQE1
-        Af8BtgGBATsB/wGzAYEBUQH/AbQBgQFqAf8BhgF7AUsB/wF8AVMBLAH/AV0CJgHZASMCAQExIAABFAIB
-        ARkBVAIRAagBbwFLASgB/wGBAW0BQAH/AacBgQFiAf8BsQGBAVcB/wGxAYEBPwH/Ab0BgQE1Af8BxgGB
-        ATQB/wG9AYEBMwH/AagBgQExAf8BjgFwAS8B/wGBAWEBLAH/AXwBUgEqAf8BZwIrAeUBLAIBAUEBAgMB
-        cAABAwIBAQIBHAIBASUBUQIMAZsBWwIkAe8BYgJBAf4BVwFYAVcB/wNfAf8DZAH/A2EB/wNbAf8DWAH/
-        ASwCKgH8AVwCGwHAAVgCGAG3AsQB2AH/AkkBmQH/AoEBsgH/AugB7wH/AtsB6AH/AoEBvQH/Ai0BjwH/
-        AXoBNwFLAfwBTQIKAZIMAAESAgEBFgFWAhMBrwFgAh8B+wGBAV4BLAH/AYkBbgEvAf8BpgGBATEB/wHD
-        AYEBNAH/Ad8BgQE5Af8B7wGBAT4B/wHmAYEBQAH/Ac8BgQE8Af8BtgGBATYB/wGoAYEBQAH/AbUBgQFo
-        Af8BngGBAWMB/wGBAVkBMgH/AVwCIAHGASUCAQE0GAABDQIBARABUgINAZ8BXQIdAfgBjwGBAVoB/wGy
-        AYEBawH/AaoBgQFLAf8BrwGBATUB/wHHAYEBOgH/Ad4BgQE/Af8B7wGBAT8B/wHkAYEBOgH/AcoBgQE0
-        Af8BrQGBATEB/wGRAXEBLgH/AYEBYgEsAf8BfAFSASoB/wFdAiUB0QErAgEBP3AAARQCAQEZAU8CCwGZ
-        AV0CHQH4AVIBUwFSAf8BbQFuAW0B/wOBAf8DgQH/A4EB/wOBAf8DgQH/A3MB/wNaAf8BYAIfAfsBZwIg
-        AfQCzQHgAf8CRgGZAf8CgQG0Af8C7wH1Af8C2gHlAf8CgQG3Af8CPQGWAf8BegE3AUkB/AFNAgoBkggA
-        AQkCAQEKAU8CCgGWAWsBHQEbAfkBgQFaASsB/wGBAWkBLgH/AZwBeQEyAf8BtwGBATQB/wHQAYEBNQH/
-        AeQBgQE4Af8B7wGBATwB/wHqAYEBQwH/Ad4BgQFOAf8BzgGBAVIB/wGxAYEBPQH/AZ4BgQE8Af8BtgGB
-        AW0B/wGnAYEBcAH/AWACHwH7AVUCEgGpAQgCAQEJEAABBgIBAQYBSQIGAYMBZAEgAR8B9gGPAYEBXgH/
-        AboBhAF4Af8BnQGBAUEB/wGpAYEBOwH/AcgBgQFRAf8B2QGBAVAB/wHlAYEBQwH/AfABgQE9Af8B6QGB
-        ATgB/wHWAYEBNQH/Ab0BgQEzAf8BowF8ATEB/wGHAW0BLwH/AYEBXgEsAf8BRQEqASYB/AFXAhcBtgEN
-        AgEBEGwAATsCAgFgAWUCKgHsA0kB/wF3AXgBdwH/A4EB/wGOAZABjQH/A4EB/wOBAf8BcQFzAXAB/wFs
-        AW4BawH/AXkBewF5Af8DgQH/A1wB/wOGAf8C1AHnAf8CgQG3Af8C3AHrAf8CqQHXAf8CkwHIAf8CzAHX
-        Af8CgQGxAf8BegE4AUsB/AFNAgoBkggAATACAQFKAWACHwH7AYEBUwEqAf8BgQFiAS4B/wGPAXQBNgH/
-        AawBgQFHAf8BvwGBAUEB/wHQAYEBOgH/Ad0BgQE4Af8B4wGBATwB/wHiAYEBSwH/AdgBgQFHAf8B0AGB
-        AVAB/wHSAYwBcAH/AasBgQFIAf8BjgF1ATcB/wG7AYYBewH/AYgBgQFZAf8BTgEcARsB+gE6AgIBXhAA
-        ASoCAQE+AWQBIAEfAfYBgQFsAUUB/wGvAYEBcwH/AYkBcgE4Af8BngGBAT0B/wHIAYIBZgH/Ac0BgQFV
-        Af8B0wGBAUUB/wHfAYEBSgH/AeQBgQE+Af8B4AGBATkB/wHUAYEBOQH/AcQBgQE9Af8BsgGBAUgB/wGX
-        AXsBOwH/AYEBZgEuAf8BgQFWASoB/wFBAjAB/QFBAgQBcWgAAQ0CAQEPAVcCFQGzAWACQQH+AWoBawFq
-        Af8DgQH/AZUBlgGUAf8BhgGIAYUB/wOBAf8BbgFvAW0B/wFcAV4BWwH/AVcBWQFWAf8BYwFlAWIB/wOB
-        Af8DeAH/A4EB/wLlAfIB/wKBAcIB/wKhAdMB/wKBAcQB/wKBAcQB/wKZAckB/wKBAbkB/wFoATQBQQH7
-        AUwCCAGOBAABCwIBAQ0BUgINAZ8BawFJASgB/wGBAVcBKwH/AYEBZwEwAf8BnQGBAVEB/wHcAcgBtgH/
-        AeEBvgGbAf8B1gGOAXAB/wHYAYEBTQH/Ad0BhwFcAf8B1QG8AaUB/wHUAbUBlwH/Ac0BjQF6Af8BvwGB
-        AVYB/wHDAYIBawH/AZoBgQFEAf8BgwFyATsB/wGdAYEBZQH/AYEBWwE4Af8BXwIjAdABEgIBARYIAAEK
-        AgEBCwFPAgoBlQFsAUoBKgH/AY4BgQFcAf8BjgGBAUoB/wGLAXMBNwH/AbsBgQFlAf8BwQGBAV0B/wHI
-        AYMBaAH/AdQBrAGGAf8B1QG9AaUB/wHeAYwBZQH/AdkBgQFLAf8B1gGIAWUB/wHeAbEBhQH/AeIBzwG+
-        Af8BsAGCAYEB/wGBAWsBMgH/AYEBWwErAf8BcwFNASkB/wFgAicB2gEWAgEBHGQAASkCAQE8AWECKwHj
-        A1YB/wOBAf8BmQGbAZkB/wGWAZgBlQH/A4EB/wFhAWMBYQH/AVIBVAFSAf8BTwFRAU8B/wFRAVMBUQH/
-        AWEBYwFgAf8CgQF8Af8DgQH/A4EB/wLtAe8B/wLKAeUB/wLBAd8B/wLHAeAB/wLDAd0B/wK4AdYB/wKt
-        Ac4B/wFkAiQB7wE8AgMBZAQAAR4CAQEoAV8CIwHQAXMBTAEpAf8BgQFaASwB/wGBAWkBMgH/AaQBgQFh
-        Af8B7gHpAeQB/wH6AfgB9wH/Ae0B3wHSAf8B3AGtAYEB/wHXAZUBgQH/AdUBzgHGAf8B3QLcAf8B4QHX
-        Ac0B/wHVAbMBkgH/Ab4BhgF4Af8BsQGBAWQB/wGBAWoBMwH/AYkBgQFOAf8BgQFuAUYB/wFgAh8B+wEw
-        AgEBSggAARsCAQEkAVwCIgHLAYEBXAE4Af8BjgGBAVgB/wGBAW0BOQH/AakBgQFeAf8BvQGDAXMB/wHN
-        AaQBgQH/AeEB0wHFAf8B3gHdAdsB/wHWAdEBzAH/AdcBlQGBAf8B2QGgAYEB/wHoAdEBvQH/AfgB9gH0
-        Af8B9AHyAe8B/wG7AZQBgQH/AYMBbgE0Af8BgQFdASwB/wF5AVABKgH/ATQCJgH8ATMCAgFQZAABPwID
-        AWoBZAIgAfYBYgFjAWIB/wOBAf8BpQGnAaQB/wGTAZUBkgH/AWcBaQFnAf8BVgFYAVYB/wF4AXwBeAH/
-        A4EB/wFeAWABXQH/AWoBawFpAf8DgQH/A4EB/wNuAf8DgQH/AWUCKgHsAVwCIgHIAV0CHgHEAV0CHgHE
-        AV0CHgHEAVoCHQHCAUUCBQF7AQ4CAQERBAABLQIBAUMBYAIqAegBdQFOASkB/wGBAVoBLAH/AYEBaQEy
-        Af8BowGBAWQB/wHzAe4B6AH/A/kB/wPxAf8B5gLlAf8B2wHMAb4B/wHZAdUB0QH/AeMC5AH/A+0B/wL2
-        AfcB/wHsAeEB1wH/AckBpAGBAf8BlAGBAVQB/wGBAW0BPgH/AYEBdAFMAf8BZAFFASgB/wFFAgUBegED
-        AgEBAgQAASsCAQFAAWcCKwHlAYEBbQFHAf8BgQF2AUgB/wGIAXwBSgH/AcABlAGBAf8B4AHPAb8B/wH1
-        AvQB/wLuAe8B/wPmAf8B3AHYAdYB/wHYAcQBsQH/AeIB4AHdAf8D7gH/A/YB/wH3AfQB8gH/Ab0BlwGB
-        Af8BggFtATQB/wGBAV0BLAH/AXwBUQEqAf8BZAFFAScB/wFHAgUBfwEDAgEBA2AAAUYCBQF8AU4CHAH6
-        A2cB/wGDAYQBggH/AaoBrAGpAf8BkgGUAZEB/wFUAVUBVAH/AW4BcQFuAf8DgQH/AaQBqAGkAf8DgQH/
-        AXwBgQF7Af8DgQH/A4EB/wJ0AXMB/wNoAf8BWAIXAbUBGQIBASEBCgIBAQsBCgIBAQsBCgIBAQwBCgIB
-        AQsBAwIBAQMIAAE2AgIBVgFmAicB8QF1AU8BKQH/AYEBWQErAf8BgQFnATIB/wGgAYEBZAH/AfEB7AHn
-        Af8D9AH/A+wB/wPkAf8B3QLeAf8D3wH/A+gB/wPxAf8D+QH/A/oB/wHsAekB5gH/AccBswGhAf8BhQGB
-        AWMB/wGBAXEBSQH/AWgBSAEqAf8BTgIKAZQBBwIBAQcEAAE1AgIBVAFfAiQB8AGBAW4BSAH/AYEBfAFW
-        Af8BswGaAYQB/wHmAeEB3QH/AfYC9wH/A/kB/wPzAf8D6gH/A+EB/wLbAdwB/wPhAf8D6gH/A/EB/wH0
-        AfIB7wH/AboBlQGBAf8BgQFqATQB/wGBAVwBKwH/AXsBUgEpAf8BZgFGASgB/wFPAgoBlgEHAgEBCGAA
-        AUACAwFsAW8CIAH3A2QB/wOBAf8BrQGvAawB/wGeAaABnQH/AW0BbgFsAf8BZwFqAWcB/wOBAf8BsAGz
-        AbAB/wOBAf8DgQH/AYUBiAGEAf8DgQH/A3AB/wNxAf8BVAIRAagBEAIBARMcAAE4AgIBWgFhAiEB8wFz
-        AU0BKQH/AYEBVwErAf8BgQFlATEB/wGZAYEBYwH/AesB5gHiAf8D7gH/A+cB/wPgAf8D3gH/A+QB/wPt
-        Af8D9QH/A/wB/wP3Af8D7QH/Ad8C3gH/AZoBgwGBAf8BgQFqAUQB/wFoAUgBKwH/AVECDAGcAQgCAQEJ
-        BAABOAICAVsBYQIhAfMBgQFmAUEB/wGEAYEBbgH/Ac4ByQHDAf8C6gHrAf8D9AH/A/oB/wP2Af8D7gH/
-        A+YB/wPeAf8D3gH/A+QB/wPsAf8B7gHsAekB/wG0AZEBgQH/AYEBaAEzAf8BgQFaASsB/wF4AVABKQH/
-        AWQBRQEoAf8BUQIMAZsBCAIBAQlgAAEsAgEBQQFjAioB6QNaAf8DgQH/AakBqgGoAf8BqgGsAakB/wGP
-        AZEBjgH/AWkBagFpAf8BZwFpAWcB/wFzAXYBcwH/A4EB/wGKAYwBiQH/AZUBlwGUAf8DgQH/AWcBaAFn
-        Af8DeQH/AUsCBwGKAQkCAQEKHAABMwICAVABWwIkAe8BbwFLASkB/wGBAVQBKgH/AYEBYQExAf8BkgGB
-        AWIB/wHkAd8B2wH/AegC6QH/A+IB/wPcAf8B4ALhAf8D6AH/A/EB/wP5Af8D+wH/AfIC8wH/AeAB3QHZ
-        Af8BsQGaAYQB/wGBAXIBTQH/AYEBWQE1Af8BZAFGASkB/wFNAgoBkwEHAgEBBwQAATUCAgFTAV8CJAHw
-        AXwBVwE1Af8BgQFnAUEB/wGfAYIBgQH/AdgB0wHNAf8C7wHwAf8D+AH/A/oB/wPzAf8D6gH/AuIB4wH/
-        A9wB/wPfAf8D5gH/AecB5QHjAf8BrAGMAYEB/wGBAWQBMwH/AYEBVgErAf8BdAFNASkB/wFiAUQBJwH/
-        AU0CCQGQAQYCAQEGYAABEAIBARMBWgIZAbwBYgJBAf4BcwF0AXMB/wGIAYkBhwH/Aa4BrwGtAf8BqgGs
-        AakB/wGZAZsBmAH/AYUBhwGEAf8BigGMAYkB/wGYAZoBlwH/AZsBnQGbAf8BigGMAYoB/wOBAf8DawH/
-        AWcCIAH0ATMCAgFQAQMCAQECHAABJwIBATgBYAIqAeABaQFIASgB/wF5AVABKgH/AYEBXQEwAf8BiwGB
-        AWEB/wHcAdgB1AH/A+IB/wPaAf8B1QHQAcoB/wHRAcABrwH/AegB5QHiAf8D9QH/A/sB/wHxAe4B6wH/
-        Ac4BvQGtAf8BlgGBAXcB/wGBAW0BQgH/AYEBWQExAf8BcAFNASsB/wFfAUIBKAH/AUMCBAF0AQMCAQEC
-        BAABKQIBATwBXwIpAeIBbAFLASsB/wF8AVQBLwH/AYEBZwE9Af8BhwGBAV8B/wHAAaoBlQH/AekB4wHd
-        Af8C+gH7Af8D9wH/AesB6QHnAf8B0QG8AagB/wHTAcsBwwH/AdkB2AHXAf8D3wH/AeAB3gHcAf8BpQGH
-        AYEB/wGBAWABMgH/AYEBUgEqAf8BbgFKASgB/wFdAUEBJwH/AUECBAFuAQIDAWAAAQIDAQFAAgMBbAFb
-        AiQB7wNUAf8DgQH/AYoBiwGKAf8BrQGvAa0B/wGwAbIBrwH/Aa0BrwGsAf8BqgGsAakB/wGkAaYBowH/
-        AYsBjQGLAf8DgQH/A2oB/wFIAj8B/QFWAhMBrwESAgEBFiAAARcCAQEeAVoCHQHCAWMBRQEoAf8BcwFO
-        ASoB/wGBAV8BNgH/AYwBgQFoAf8B1AHQAc0B/wHWAdUB1AH/AckBuwGuAf8BuQGVAYEB/wG5AY4BgQH/
-        AesB5gHiAf8C+AH3Af8B6AHdAdIB/wG8AZ0BgQH/AZgBgQFnAf8BgQFxAUQB/wGBAV0BMwH/AXYBTwEr
-        Af8BaAFIASgB/wFOAhsB+gEtAgEBQwgAARkCAQEhAVoCHgHHAWQBRQEnAf8BcgFMASkB/wGBAVkBMAH/
-        AYEBaQE8Af8BjwGBAVsB/wGyAY8BgQH/Ad4B0AHBAf8B9wH2AfQB/wHvAewB6AH/AbsBkgGBAf8BtgGN
-        AYEB/wHFAbEBnQH/AdQB0gHPAf8B1wHVAdQB/wGjAYcBgQH/AYEBZAE5Af8BeAFRASsB/wFoAUcBKAH/
-        AWQBIAEfAfYBKAIBATtoAAEVAgEBGwFWAhMBrQNgAf8DVgH/AXkBegF5Af8DgQH/AYgBiQGHAf8BkgGT
-        AZIB/wGMAY0BiwH/A4EB/wOBAf8DXQH/A3MB/wFhAicB1gEjAgEBMSQAAQUCAQEFAUkCBgGEAVwBQQEn
-        Af8BdAFSATEB/wGBAWgBQgH/AYgBgQFiAf8BvAGuAaEB/wG3AZ0BhAH/AakBgQFzAf8BqQGBAWsB/wGx
-        AYEBeQH/AeEB0gHEAf8B2AHDAa8B/wGwAYQBgQH/AZsBgQFiAf8BjQGBAVYB/wGBAXcBSwH/AYEBaAFA
-        Af8BdgFSATAB/wFiAUQBKAH/AV0CIgHMAQ0CAQEPCAABBwIBAQgBTQIIAY8BXQFBAScB/wFuAU0BLAH/
-        AYEBYQE7Af8BgQFyAUcB/wGIAYEBUQH/AZYBgQFdAf8BpgGBAXAB/wHMAbABlAH/AeEB0gHEAf8BswGF
-        AYEB/wGoAYEBagH/AagBgQFwAf8BsQGQAYEB/wG+AbEBpAH/AZkCgQH/AYEBbQFFAf8BfAFXATUB/wFi
-        AUUBKQH/AVoCHAG+AQoCAQELaAABAwIBAQIBIwIBATEBVwIWAbQBYQIhAfMDWgH/A2YB/wFwAXEBcAH/
-        AXQBdQF0Af8BcwF0AXMB/wNuAf8DZwH/AUMCKgH8AVsCIwHNATUCAgFTAQIDASgAASACAQEsAWECKwHe
-        AXgBWQE6Af8BgQFwAUsB/wGDAYEBWgH/AZcBgQFtAf8BoQGBAW8B/wGnAYEBcAH/AawBgQFyAf8BsQGB
-        AXYB/wG3AYkBgQH/AbIBgwGBAf8BqAGBAXIB/wGfAYEBaAH/AZMBgQFgAf8BgwGBAVYB/wGBAXIBTAH/
-        AYEBWwE7Af8BXwIkAfABNQICAVMQAAEmAgEBNgFlAisB5wFyAVIBNQH/AYEBawFIAf8BgQF7AVMB/wGN
-        AYEBXAH/AZoBgQFlAf8BpQGBAW0B/wGuAYEBeAH/AbUBhwGBAf8BsQGBAXcB/wGtAYEBcgH/AagBgQFv
-        Af8BogGBAW0B/wGaAYEBbgH/AYkBgQFfAf8BgQF0AU0B/wGBAWABPwH/AV0CKAHqAS0CAQFEcAABAwIB
-        AQIBGQIBASABRwIFAX4BXwIlAdIBawIdAfkBawJBAf4DaAH/A2sB/wFgAh8B+wFhAisB4wFSAg4BoAEq
-        AgEBPgEHAgEBCCwAAQMCAQEDATgCAgFaAWMCKQHuAYEBdAFSAf8BhgGBAV8B/wGXAYEBagH/AaQBgQFz
-        Af8BrwGBAXoB/wG1AYYBgQH/AbkBigGBAf8BugGLAYEB/wG3AYgBgQH/AbABgQF8Af8BpgGBAXQB/wGZ
-        AYEBawH/AYkBgQFhAf8BgQF5AVYB/wFQAhwB+gFPAgsBmAEHAgEBCBAAAQUCAQEFAUACAwFsAWcCIAH0
-        AYEBcgFQAf8BhAGBAV0B/wGUAYEBZwH/AaIBgQFxAf8BrQGBAXgB/wG0AYQBgQH/AbgBiAGBAf8BuQGJ
-        AYEB/wG2AYcBgQH/AbABgQF7Af8BpwGBAXQB/wGaAYEBbAH/AYsBgQFiAf8BgQF6AVcB/wFkAiAB9gFK
-        AgcBiAEFAgEBBXgAAQMCAQEDARoCAQEiATwCAwFjAU8CCgGVAVUCEgGqAVICDgGiAUMCBAF2ASUCAQE1
-        AQUCAQEFPAABRgIFAX0BZAIgAfYBiwGBAWkB/wGdAYEBdAH/AawCgQH/AbgBjAGBAf8BwQGUAYEB/wHG
-        AZgBgQH/AccBmQGBAf8BwgGUAYEB/wG6AY0BgQH/Aa8BgwGBAf8BoAGBAXUB/wGPAYEBawH/AYEBegFZ
-        Af8BWwIcAb8BGQIBASEYAAECAwEBTQIIAY8BawIdAfkBiQGBAWcB/wGbAYEBcgH/AaoBgQF8Af8BtgGK
-        AYEB/wHAAZIBgQH/AcUBlgGBAf8BxgGXAYEB/wHCAZQBgQH/AboBjQGBAf8BrwGEAYEB/wGhAYEBdgH/
-        AZABgQFsAf8BgQF6AVkB/wFWAhQBsAEUAgEBGYgAAQUCAQEFAQgCAQEJAQcCAQEIAQMCAQECRAABDgIB
-        AREBRgIFAXwBZwIrAeUBgAF1AU8B/gGzAYkBgQH/AcMBlwGBAf8BzgGhAYEB/wHVAacBgQH/AdYBqAGB
-        Af8B0AGiAYEB/wHFAZkBgQH/AbYBjAGBAf8BoAGBAXoB/wFpAiUB8gFWAhQBsAEgAgEBLAECAwEcAAES
-        AgEBFwFLAgcBiQFpAioB6wGAAXIBTQH+AbABhwGBAf8BwAGVAYEB/wHMAZ8BgQH/AdQBpgGBAf8B1QGn
-        AYEB/wHQAaIBgQH/AcYBmQGBAf8BuAGNAYEB/wGAAXoBVAH+AWcCKQHtAVICDgGgARkCAQEh5AABCgIB
-        AQsBLgIBAUYBVQISAaoBZQIqAewBhgF/AWkB/gHSAaYBgQH/AeEBswGGAf8B4wG0AYcB/wHVAagBgQH/
-        Ab4BlAGBAf8BegIcAfoBXgIhAckBPwIDAWsBEgIBARcoAAENAgEBDwEzAgIBUAFXAhUBswFnAiQB8AG3
-        AY4BgQH/AdABowGBAf8B3gGwAYMB/wHjAbUBhwH/AdcBqgGBAf8BjAF/AW4B/gFkAiAB9gFbAhwBvwE6
-        AgIBXwEOAgEBEfAAAQcCAQEHASoCAQE+AVACDAGaAWMCJwHaAWQCIAH2AWQBIwEfAfsBZQIrAecBWAIX
-        AbUBOQICAV0BDwIBARI4AAEIAgEBCQEvAgEBRwFTAg4BowFeAigB3wF6Ah0B+AF6ASABHAH6AWMCKgHk
-        AVYCEgGsATUCAgFTAQwCAQEOgAABAwIBAQMBBwIBAQcBCwIBAQ0BDwIBARIBEwIBARgBFwIBAR4BGwIB
-        ASQBHgIBASkBIQIBAS4BIwIBATEBJQIBATQBJQIBATUBJAIBATMBIgIBATABHwIBASsBHAIBASYBGQIB
-        ASABFAIBARoBEQIBARUBDAIBAQ4BCAIBAQkBBAIBAQQBAgMBBAABAwIBAQMBBwIBAQcBCwIBAQ0BDwIB
-        ARIBEwIBARgBFwIBAR4BGwIBASQBHgIBASkBIQIBAS4BIwIBATEBJQIBATQBJQIBATUBJAIBATMBIgIB
-        ATABHwIBASsBHAIBASYBGQIBASABFAIBARoBEQIBARUBDAIBAQ4BCAIBAQkBBAIBAQQBAgMBBAABAwIB
-        AQMBBwIBAQgBCwIBAQ0BEAIBARMBFAIBARkBGAIBAR8BGwIBASQBHwIBASoBIQIBAS4BJAIBATIBJQIB
-        ATUBJgIBATYBJAIBATMBIgIBATABHwIBASsBHQIBAScBGQIBASEBFQIBARsBEgIBARYBDQIBAQ8BCAIB
-        AQkBBAIBAQQBAgMBAQIDAQEGAgEBBgEMAgEBDgESAgEBFwEZAgEBIQEeAgEBKQEiAgEBMAElAgEBNQEm
-        AgEBNwEkAgEBMwEhAgEBLQEcAgEBJQEXAgEBHQEQAgEBFAEKAgEBCwEEAgEBBAgAAQMCAQEDAQ4CAQER
-        ARgCAQEfARoCAQEiARECAQEVAQcCAQEHBAABAwIBAQIBBQIBAQUBCgIBAQsBDQIBAQ8BEAIBAhQCAQEa
-        ARgCAQEfARoCAQEjAR0CAQEnAR4CAQEpAR8CAQErASACAQEsAR8CAQErAR4CAQEoARsCAQEkARkCAQEg
-        ARUCAQEbARICAQEWAQ4CAQERAQoCAQEMAQcCAQEIAQMCAQEDAQIDAQQAAQMCAQECAQUCAQEFAQoCAQEL
-        AQ0CAQEPARACAQIUAgEBGgEYAgEBHwEaAgEBIwEdAgEBJwEeAgEBKQEfAgEBKwEgAgEBLAEfAgEBKwEe
-        AgEBKAEbAgEBJAEZAgEBIAEVAgEBGwESAgEBFgEOAgEBEQEKAgEBDAEHAgEBCAEDAgEBAwECAwEEAAED
-        AgEBAgEGAgEBBgEIAgEBCQENAgEBDwEQAgECEwIBARgBFwIBAR0BGQIBASEBGwIBASQBHQIBAScBHgIB
-        ASkBHwIBASoBHgIBASkBHAIBASYBGgIBASMBGAIBAR8BFAIBARoBEQIBARUBDQIBARABCgIBAQwBBwIB
-        AQcBBAIBAQQBAgMBAQIDAQEDAgEBAwEHAgEBCAELAgEBDQEPAgECEgIBARcBFQIBARsBFwIBAR4BGAIB
-        AR8BFwIBAR0BFAIBARkBEQIBARUBDQIBAQ8BCgIBAQsBBgIBAQYBAwIBAQIIAAEDAgEBAgEHAgEBCAEN
-        AgEBEAEOAgEBEQEKAgEBCwEDAgEBAyQAAQMCAQECAQ0CAQEPARYCAQEcARcCAQEdAQ4CAQERAQMCAQED
-        SAABAwIBAQIBDQIBAQ8BFgIBARwBFwIBAR0BDgIBAREBAwIBAQNIAAEDAgEBAgENAgEBDwEWAgEBHAEX
-        AgEBHQEOAgEBEQEDAgEBA5wAAQcCAQEHASUCAQE1AUQCBAF3AVcCFQGzAWECJwHWAWcCKwHlAWICKwHm
-        AWACKQHYAVgCGAG3AUcCBQF+ASkCAQE8AQwCAQEOMAABBwIBAQcBJQIBATUBRAIEAXcBVwIVAbMBYQIn
-        AdYBZwIrAeUBYgIrAeYBYAIpAdgBWAIYAbcBRwIFAX4BKQIBATwBDAIBAQ4wAAEHAgEBBwElAgEBNQFD
-        AgQBdgFXAhYBtAFhAicB1gFiAisB5gFgAioB6AFdAiYB2QFYAhgBtwFGAgUBfQEpAgEBPAEMAgEBDjAA
-        AQMCAQECAQcCAQEHAQoCAQELAQgCAQEJAQQCAQEEGAABBgIBAQYBOwICAWEBRwIFAX8BRwIFAX4BRwIF
-        AX4BRwIFAX4BQwIEAXQUAAEXAgEBHQFKAgcBiAFgAikB2AFdAh0B+AGBAWEBLAH/AYIBagEvAf8BjgFz
-        ATQB/wGRAXcBOgH/AYsBeAFAAf8BgQFxAT8B/wFgAh8B+wFfAioB3QFNAgoBkwEZAgEBICgAARcCAQEd
-        AUoCBwGIAWACKQHYAV0CHQH4AYEBYQEsAf8BggFqAS8B/wGOAXMBNAH/AZEBdwE6Af8BiwF4AUAB/wGB
-        AXEBPwH/AWACHwH7AV8CKgHdAU0CCgGTARkCAQEgKAABFwIBAR0BSwIHAYkBYAIpAdgBXQIdAfgBgQFi
-        AS0B/wGEAWsBLwH/AZABdAEzAf8BlAF4ATkB/wGOAXkBQAH/AYEBcgFAAf8BYAIfAfsBYQIrAd4BTQIK
-        AZMBGQIBASAkAAEFAgEBBQEcAgEBJQE3AgIBWQFHAgUBfgFMAggBjgFKAgcBhwE+AgMBZwElAgEBNQEI
-        AgEBCRAAAQcCAQEHAUECBAFwAUwCCAGOAUsCCAGNAUsCCAGNAUsCCAGNAUkCBwGFEAABGgIBASIBWQIY
-        AbgBdQFOASkB/wGBAV4BLAH/AYcBbAEuAf8BogF7ATAB/wG5AYEBMgH/AcUBgQE0Af8BwQGBATYB/wG0
-        AYEBPAH/Aa4BgQFOAf8BqgGBAWAB/wGFAXsBTAH/AXwBVAEvAf8BXgIoAdcBIwIBATEgAAEaAgEBIgFZ
-        AhgBuAF1AU4BKQH/AYEBXgEsAf8BhwFsAS4B/wGiAXsBMAH/AbkBgQEyAf8BxQGBATQB/wHBAYEBNgH/
-        AbQBgQE8Af8BrgGBAU4B/wGqAYEBYAH/AYUBewFMAf8BfAFUAS8B/wFeAigB1wEjAgEBMSAAARoCAQEi
-        AVoCGAG5AXYBTwEqAf8BgQFfASwB/wGIAW0BLgH/AaMBfAExAf8BuwGBATMB/wHIAYEBNQH/AcQBgQE2
-        Af8BtwGBAT0B/wGwAYEBTgH/AawBgQFgAf8BiAF8AUwB/wGBAVYBMAH/AV0CJgHZASMCAQExHAABCQIB
-        AQoBPgIDAWgBXwIjAdABWgIfAfsDVAH/A1YB/wNXAf8BLAIqAfwBYwIqAeQBTQIKAZIBHAIBASUBAgMB
-        DAABBAIBAQQBBwIBAQgBBwIBAQgBBwIBAQgBBwIBAQgBBQIBAQUMAAESAgEBFwFWAhMBrwFgAh8B+wGB
-        AV4BLAH/AYkBbQEvAf8BpwGBATEB/wHDAYEBNAH/Ad4BgQE4Af8B7QGBAT0B/wHjAYEBPwH/Ac0BgQE9
-        Af8BtgGBATkB/wGoAYEBQgH/Aa0BgQFgAf8BmQGBAWAB/wGBAV0BNgH/AVwCIAHGASUCAQE0GAABEgIB
-        ARcBVgITAa8BYAIfAfsBgQFeASwB/wGJAW0BLgH/AaYBgQEwAf8BwgGBATMB/wHeAYEBOAH/Ae0BgQE9
-        Af8B4wGBAT8B/wHNAYEBPQH/AbYBgQE5Af8BqAGBAUIB/wGtAYEBYAH/AZkBgQFgAf8BgQFdATYB/wFc
-        AiABxgElAgEBNBgAARICAQEWAVYCEwGvAWACHwH7AYEBXgEsAf8BiQFuAS8B/wGmAYEBMQH/AcMBgQE0
-        Af8B3wGBATkB/wHvAYEBPgH/AeYBgQE/Af8B0AGBATwB/wG4AYEBOQH/AaoBgQFDAf8BsQGBAWMB/wGc
-        AYEBYAH/AYEBXQE2Af8BXAIgAcYBJQIBATQQAAEDAgEBAgEcAgEBJQFRAgwBmwFbAiQB7wFiAkEB/gFX
-        AVgBVwH/A18B/wNkAf8DYQH/A1sB/wNYAf8BLAIqAfwBWwIbAb0BLQIBAUQBAwIBAQIoAAEJAgEBCgFP
-        AgoBlQFrAR0BGwH5AYEBWgErAf8BgQFpAS4B/wGcAXgBMQH/Ab0BgQFRAf8B2QGYAYEB/wHmAYUBTwH/
-        Ae8BgQE8Af8B6QGBAUAB/wHcAYEBSgH/AcsBgQFOAf8BsgGBAUAB/wGeAYEBPgH/Aa0BgQFlAf8BowGB
-        AWwB/wFgAh8B+wFVAhIBqQEJAgEBChAAAQkCAQEKAU8CCgGVAWsBHQEbAfkBgQFaASsB/wGBAWkBLgH/
-        AZsBdwEwAf8BtgGBATEB/wHQAYEBMwH/AeUBgQE3Af8B7wGBATsB/wHpAYEBQAH/AdwBgQFKAf8BywGB
-        AU4B/wGyAYEBQAH/AZ4BgQE+Af8BrQGBAWUB/wGjAYEBbAH/AWACHwH7AVUCEgGpAQkCAQEKEAABCQIB
-        AQoBTwIKAZYBawEdARsB+QGBAVoBKwH/AYEBaQEuAf8BmwF3ATAB/wG2AYEBMgH/AdABgQE0Af8B5AGB
-        ATcB/wHvAYEBOgH/AeoBgQFAAf8B3QGBAUkB/wHNAYEBTAH/AbMBgQE/Af8BoQGBAT8B/wGxAYEBaQH/
-        AaEBgQFqAf8BYAIfAfsBVQISAakBCAIBAQkMAAEUAgEBGQFPAgsBmQFdAh0B+AFSAVMBUgH/AW0BbgFt
-        Af8DgQH/A4EB/wOBAf8DgQH/A4EB/wNzAf8DWgH/AWACHwH7AVoCHQHCASECAQEtBAABAgMBARkCAQIh
-        AgEBLgEhAgEBLQEhAgEBLQEhAgEBLQEeAgEBKAgAATACAQFKAWACHwH7AYEBUwEqAf8BgQFhASwB/wGM
-        AW8BLgH/AacBgQE2Af8B1QGsAYUB/wHvAfEB8wH/AegBzAGxAf8B5QGTAWwB/wHgAYEBOAH/AdUBgQE4
-        Af8BzQGBAUkB/wHLAYIBZAH/AasBgQFKAf8BkAF3AToB/wGwAYEBcAH/AYYBgQFXAf8BTgEcARsB+gE6
-        AgIBXxAAATACAQFKAWACHwH7AYEBUwEqAf8BgQFhASwB/wGMAW8BLgH/AaYBgQE3Af8BwQGBAVQB/wHT
-        AYEBWwH/Ad8BgQFDAf8B4wGBATYB/wHgAYEBNQH/AdYBgQE+Af8B0QGHAWcB/wHPAZQBgQH/Aa0BgQFT
-        Af8BkAF3ATsB/wGwAYEBcAH/AYYBgQFXAf8BTgEcARsB+gE6AgIBXxAAATACAQFKAWACHwH7AYEBUwEq
-        Af8BgQFhASwB/wGLAW8BLwH/AaYBgQE4Af8BwgGBAVQB/wHUAYEBWwH/Ad8BhwFbAf8B4wGJAVsB/wHh
-        AYcBWwH/AdkBhQFeAf8B1AGMAW8B/wHSAZUBgQH/Aa4BgQFTAf8BlAF6AT4B/wGzAYEBcwH/AYYBgQFW
-        Af8BTgEcARsB+gE6AgIBXgwAATsCAgFgAWUCKgHsA0kB/wF3AXgBdwH/A4EB/wGOAZABjQH/A4EB/wOB
-        Af8BcQFzAXAB/wFsAW4BawH/AXkBewF5Af8DgQH/AVwBXQFcAf8BZgJBAf4BUgIPAaUBDQIBAQ8BBwIB
-        AQcBNwICAVgBPgIDAWgBPgIDAWcBPgIDAWcBPgIDAWcBPQIDAWUEAAEMAgEBDgFSAg0BnwFsAUkBKAH/
-        AYEBVwEqAf8BgQFlASwB/wGQAXEBLwH/AagBgQE4Af8B2QG0AZEB/wH1AfYB9wH/Ae4C7wH/AecB3AHR
-        Af8B3wGwAYIB/wHRAYIBXgH/AcEBgQE7Af8BuQGBAUMB/wG8AYEBXwH/AZoBgQFFAf8BhQF0AT4B/wGV
-        AYEBYAH/AYEBXAE5Af8BXgIlAc8BEgIBARYIAAEMAgEBDgFSAg0BnwFsAUkBKAH/AYEBVwEqAf8BgQFl
-        ASwB/wGPAXABLgH/AbgBggF2Af8B3QHTAckB/wHbAdYBzwH/Ad8BrwGCAf8B2wGBAUUB/wHZAYEBQQH/
-        AdoBlwGBAf8B4QHUAcoB/wHbAdcB0wH/AdABsQGUAf8BmwGBAUkB/wGFAXQBPgH/AZUBgQFgAf8BgQFc
-        ATkB/wFeAiUBzwESAgEBFggAAQsCAQENAVICDQGfAWsBSQEoAf8BgQFXASsB/wGBAWUBLQH/AY8BcAEu
-        Af8BugGHAXwB/wHmAdwB0gH/AecB4QHbAf8B5AHdAdcB/wHfAdgB0gH/AdsB1QHOAf8B2wHVAc4B/wHf
-        AdoB1AH/AeUB4gHdAf8B1AG2AZoB/wGdAYEBSwH/AYgBdwFBAf8BlwGBAWAB/wGBAVwBOQH/AV8CIwHQ
-        ARICAQEWBAABDQIBAQ8BVwIVAbMBYAJBAf4BagFrAWoB/wOBAf8BlQGWAZQB/wGGAYgBhQH/A4EB/wFu
-        AW8BbQH/AVwBXgFbAf8BVwFZAVYB/wFjAWUBYgH/A4EB/wF4AXkBeAH/A18B/wFbAiQB7wEvAgEBRwED
-        AgEBAwEZAgECIAIBASwBIAIBASwBIAIBASwBIAIBASwBHQIBAScEAAEdAgEBJwFfAiMB0AFzAUwBKQH/
-        AYEBWgErAf8BgQFmAS0B/wGQAXEBLwH/AaUBgQE4Af8B2QG1AZMB/wH6AfsB/AH/A/QB/wPuAf8B5gHl
-        AeMB/wHbAcgBtwH/AcgBlQGBAf8BsAGBAUMB/wGrAYEBRgH/AagBgQFWAf8BgQFrATQB/wGGAXsBTAH/
-        AYEBbQFGAf8BYAIfAfsBMAIBAUkIAAEdAgEBJwFfAiMB0AFzAUwBKQH/AYEBWgErAf8BgQFmAS0B/wGP
-        AW8BLQH/Ab8BkAGBAf8B6QHoAeUB/wHfAeAB4QH/AdkBtgGVAf8BzQGBAUAB/wHNAYEBPAH/AdwBpwGB
-        Af8B6wHoAeYB/wHfAeAB4QH/AdABuAGiAf8BqwGBAV4B/wGBAWsBNAH/AYYBewFMAf8BgQFtAUYB/wFg
-        Ah8B+wEwAgEBSQgAAR4CAQEoAV8CIwHQAXMBTAEpAf8BgQFaASsB/wGBAWYBLQH/AY4BbwEtAf8BwgGV
-        AYEB/wHyAfAB7gH/AfAC8QH/AewC7QH/AucB6AH/AeIC4wH/Ad0C3gH/A94B/wHjAeQB5QH/AdQBvQGp
-        Af8BrQGBAWAB/wGBAWwBNQH/AYcBfAFNAf8BgQFtAUYB/wFgAh8B+wEwAgEBSgQAASkCAQE8AWECKwHj
-        A1YB/wOBAf8BmQGbAZkB/wGWAZgBlQH/A4EB/wFhAWMBYQH/AVIBVAFSAf8BTwFRAU8B/wFRAVMBUQH/
-        AWEBYwFgAf8CgQF8Af8DgQH/A2MB/wNoAf8BSAIGAYIBCAIBAQkcAAEtAgEBQwFlAisB5wF2AU4BKQH/
-        AYEBWgErAf8BgQFlAS0B/wGMAW8BLgH/AaABgQE4Af8B1gGzAZIB/wH9Af4C/wP4Af8D8gH/A+sB/wLl
-        AeYB/wHcAtsB/wHKAbYBowH/AakBgQFkAf8BogGBAVAB/wGMAXoBRAH/AYEBagE6Af8BgQFwAUgB/wFl
-        AUYBKQH/AUUCBQF5AQMCAQECBAABLQIBAUMBZQIrAecBdgFOASkB/wGBAVoBKwH/AYEBZQEtAf8BiwFu
-        ASwB/wG+AZEBgQH/AfAB7QHrAf8B4wHkAeUB/wHSAbEBkQH/AcABgQE7Af8BvQGBATEB/wHTAZ0BgQH/
-        AfEB7gHrAf8C5AHlAf8BxAGrAZMB/wGjAYEBVQH/AYwBegFEAf8BgQFqAToB/wGBAXABSAH/AWUBRgEp
-        Af8BRQIFAXkBAwIBAQIEAAEtAgEBQwFgAioB6AF1AU4BKQH/AYEBWgErAf8BgQFlAS0B/wGLAW4BLQH/
-        AcEBlgGBAf8B+AH2AfQB/wP3Af8D8wH/A+0B/wPoAf8D4gH/A90B/wLeAd8B/wHHAbABmgH/AaYBgQFZ
-        Af8BjAF6AUQB/wGBAWoBOwH/AYEBcQFJAf8BZwFHASoB/wFFAgUBegEDAgEBAgE/AgMBagFkAiAB9gFi
-        AWMBYgH/A4EB/wGlAacBpAH/AZMBlQGSAf8BZwFpAWcB/wFWAVgBVgH/AXgBfAF4Af8DgQH/AV4BYAFd
-        Af8BagFrAWkB/wOBAf8DgQH/AW0BbgFtAf8DaQH/AVQCEAGnAQ8CAQESHAABNgICAVYBZgInAfEBdgFP
-        ASkB/wGBAVkBKwH/AYEBYwEtAf8BhgFsAS4B/wGYAXoBNwH/Ac8BrgGQAf8B+wH8Af0B/wP6Af8D9QH/
-        A+8B/wPoAf8D4gH/A9wB/wHTAcsBxAH/AboBmwGBAf8BkwGBAVMB/wGBAWMBNQH/AYEBaQFBAf8BaQFJ
-        ASsB/wFOAgoBlAEHAgEBBwQAATYCAgFWAWYCJwHxAXYBTwEpAf8BgQFZASsB/wGBAWMBLQH/AYUBawEs
-        Af8BuQGOAYEB/wH0AfEB7wH/AukB6gH/Ac0BrgGRAf8BtAGBAToB/wGxAYEBMAH/AcwBmAGBAf8B9AHx
-        Ae8B/wHpAuoB/wG/AacBkAH/AZABfAFDAf8BjwGBAUsB/wGBAWMBNgH/AYEBaQFBAf8BaQFJASsB/wFO
-        AgoBlAEHAgEBBwQAATYCAgFWAWYCJwHxAXUBTwEpAf8BgQFZASsB/wGBAWMBLQH/AYUBawEtAf8BuwGS
-        AYEB/wH3AfUB8gH/A/wB/wP5Af8D8wH/A+0B/wPnAf8D4QH/At0B3gH/AcABqQGTAf8BlAGBAUcB/wGQ
-        AYEBSwH/AYEBYwE1Af8BgQFqAUIB/wFrAUoBLAH/AU4CCgGUAQcCAQEHAUYCBQF8AU4CHAH6A2cB/wGD
-        AYQBggH/AaoBrAGpAf8BkgGUAZEB/wFUAVUBVAH/AW4BcQFuAf8DgQH/AaQBqAGkAf8DgQH/AXwBgQF7
-        Af8DgQH/A4EB/wJ0AXMB/wNqAf8BVwIUAbEBEgIBARcBEgIBARYBFwIBAR0BFgIBARwBFgIBARwBFgIB
-        ARwBFAIBARoEAAE4AgIBWwFhAiEB8wF0AU0BKQH/AYEBVwEqAf8BgQFgASwB/wGBAWgBLQH/AY8BdQE2
-        Af8ByQGpAY0B/wL4AfkB/wP7Af8D+AH/A/IB/wPrAf8D5QH/A94B/wPdAf8BzwHGAb0B/wGPAYEBWAH/
-        AYEBYQEzAf8BgQFfATkB/wFpAUkBKwH/AVECDAGcAQgCAQEJBAABOAICAVsBYQIhAfMBdAFNASkB/wGB
-        AVcBKgH/AYEBYAEsAf8BgQFnASsB/wGyAYkBgQH/AfQB8gHvAf8C7wHwAf8BygGtAZIB/wGoAYEBOQH/
-        AaUBfAEvAf8BwwGSAYEB/wH1AfIB8AH/Ae8C8AH/Ab4BpwGRAf8BhAFxATkB/wGFAXYBQwH/AYEBYQE0
-        Af8BgQFfATkB/wFpAUkBKwH/AVECDAGcAQgCAQEJBAABOAICAVoBYQIhAfMBcwFNASkB/wGBAVcBKgH/
-        AYEBYAEsAf8BgQFnASwB/wGzAYwBgQH/AfAB7wHsAf8D+AH/A/sB/wP5Af8D8wH/A+0B/wPnAf8B4ALh
-        Af8BvAGmAZIB/wGGAXMBPQH/AYYBdwFEAf8BgQFhATQB/wGBAWABOQH/AWoBSgEsAf8BUQIMAZwBCAIB
-        AQkBQAIDAWwBbwIgAfcDZAH/A4EB/wGtAa8BrAH/AZ4BoAGdAf8BbQFuAWwB/wFnAWoBZwH/A4EB/wGw
-        AbMBsAH/A4EB/wOBAf8BhQGIAYQB/wOBAf8DcAH/A3EB/wFUAhEBqAEQAgEBEwENAgEBDwEQAgEBEwEQ
-        AgEBEwEQAgEBEwEQAgEBEwEPAgEBEgQAATQCAgFRAVsCJAHvAXABSwEoAf8BgQFUASoB/wGBAVwBLAH/
-        AYEBZAEtAf8BhgFwATYB/wHCAaUBigH/AfQC9QH/A/kB/wP7Af8D9QH/A+4B/wPoAf8B4ALhAf8ByQG+
-        AbUB/wGXAYEBdAH/AYEBawE7Af8BgQFcATEB/wF8AVUBMAH/AWQBRgEpAf8BTQIKAZMBBwIBAQcEAAE0
-        AgIBUQFbAiQB7wFwAUsBKAH/AYEBVAEqAf8BgQFcASwB/wGBAWIBKwH/AakBgwGBAf8B8QHwAe0B/wL0
-        AfUB/wHJAa4BlAH/AZ0BfAE4Af8BmQF1AS4B/wG5AYwBgQH/AfIB8AHtAf8C9AH1Af8BvwGpAZUB/wGB
-        AWoBNwH/AYEBaQE4Af8BgQFcATEB/wF8AVUBMAH/AWQBRgEpAf8BTQIKAZMBBwIBAQcEAAEzAgIBUAFb
-        AiQB7wFvAUsBKQH/AYEBVAEqAf8BgQFcASwB/wGBAWMBKwH/AasBhwGBAf8B6gHoAeYB/wPyAf8D+AH/
-        A/wB/wP4Af8D8QH/A+sB/wPlAf8BvAGoAZQB/wGBAW0BOQH/AYEBagE5Af8BgQFcATEB/wF8AVUBMAH/
-        AWUBRwEqAf8BTQIKAZMBBwIBAQcBLAIBAUEBYwIqAekDWgH/A4EB/wGpAaoBqAH/AaoBrAGpAf8BjwGR
-        AY4B/wFpAWoBaQH/AWcBaQFnAf8BcwF2AXMB/wOBAf8BigGMAYkB/wGVAZcBlAH/A4EB/wFnAWgBZwH/
-        A3kB/wFLAgcBigEJAgEBChwAASgCAQE5AWACKgHgAWoBSAEoAf8BegFRASkB/wGBAVkBLAH/AYEBYwEw
-        Af8BhAFzAT0B/wHBAaUBigH/AfIB8AHuAf8B+AH0AfEB/wH8AfkB9QH/AfkB9QHyAf8B8QHtAekB/wHf
-        AdQBygH/AboBngGEAf8BkwGBAVwB/wGBAWUBMwH/AYEBXwExAf8BgQFVASwB/wFwAUwBKgH/AV4BQgEo
-        Af8BQwIEAXQBAwIBAQIEAAEoAgEBOQFgAioB4AFqAUgBKAH/AXoBUQEpAf8BgQFZASwB/wGBAWIBLgH/
-        AacBgwGBAf8B7wHqAeYB/wH4AfYB8wH/Ac4BswGbAf8BngGBAUkB/wGbAYEBPwH/AbgBjwGBAf8B8AHr
-        AeYB/wH4AfYB9AH/AcEBrAGYAf8BgQFoATgB/wGBAV8BMQH/AYEBVQEsAf8BcAFMASoB/wFeAUIBKAH/
-        AUMCBAF0AQMCAQECBAABJwIBATgBYAIqAeABaQFIASgB/wF5AVABKgH/AYEBWQEsAf8BgQFiAS8B/wGn
-        AYUBgQH/AeUB4gHdAf8B7wHsAekB/wH0AfEB7gH/AfoB9gHzAf8B/AH5AfUB/wH3AfQB8QH/AfEB7gHr
-        Af8B6wHpAeYB/wG/AasBmAH/AYEBawE7Af8BgQFfATEB/wGBAVUBLQH/AXABTAEqAf8BXwFCASgB/wFD
-        AgQBdAEDAgEBAgEQAgEBEwFaAhkBvAFiAkEB/gFzAXQBcwH/AYgBiQGHAf8BrgGvAa0B/wGqAawBqQH/
-        AZkBmwGYAf8BhQGHAYQB/wGKAYwBiQH/AZgBmgGXAf8BmwGdAZsB/wGKAYwBigH/A4EB/wNrAf8BZwIg
-        AfQBMwICAVABAwIBAQIcAAEXAgEBHgFaAh0BwgFkAUUBJwH/AXcBUAEsAf8BgQFmATsB/wGBAXcBRwH/
-        AZEBgQFUAf8BxgGqAZAB/wHyAewB5gH/AfYB7wHpAf8B/AH1Ae4B/wH3Ae4B5QH/AdcBvwGnAf8BsgGH
-        AYEB/wGaAYEBWAH/AY8BgQFPAf8BgQF0AUUB/wGBAWEBNwH/AXcBUAErAf8BZwFHAScB/wFOAhsB+gEt
-        AgEBQwgAARcCAQEeAVoCHQHCAWQBRQEnAf8BdwFQASwB/wGBAWYBOwH/AYEBdgFGAf8BrwGMAYEB/wHu
-        AeYB3gH/AfsB9AHuAf8B1AG6AaEB/wGlAYEBWwH/AaIBgQFTAf8BvAGWAYEB/wHuAeYB3gH/AfsB9QHv
-        Af8BygG0AZ4B/wGCAXkBSwH/AYEBYQE3Af8BdwFQASsB/wFnAUcBJwH/AU4CGwH6AS0CAQFDCAABFwIB
-        AR4BWgIdAcIBYwFFASgB/wF2AVABLAH/AYEBZgE7Af8BgQF3AUcB/wGxAY8BgQH/AeUB3gHVAf8B7QHn
-        AeAB/wHyAesB5QH/AfgB8AHqAf8B/AH1Ae4B/wH7AfUB7gH/AfYB7wHoAf8B8QHrAeUB/wHJAbMBngH/
-        AYQBewFOAf8BgQFhATcB/wF3AVABKwH/AWgBSAEoAf8BTgIbAfoBLQIBAUMEAAECAwEBQAIDAWwBWwIk
-        Ae8DVAH/A4EB/wGKAYsBigH/Aa0BrwGtAf8BsAGyAa8B/wGtAa8BrAH/AaoBrAGpAf8BpAGmAaMB/wGL
-        AY0BiwH/A4EB/wNqAf8BSAI/Af0BVgITAa8BEgIBARYgAAEFAgEBBQFJAgYBhAFcAUEBJwH/AYEBYwFA
-        Af8BgwGBAVYB/wGPAYEBXAH/AZoBgQFkAf8BygGuAZMB/wHyAekB3wH/AfYB7AHhAf8B7QHbAcoB/wHF
-        AZ4BgQH/AakBgQFrAf8BogGBAWIB/wGeAYEBYAH/AZcBgQFeAf8BkAGBAVwB/wGDAYEBVQH/AYEBXAE5
-        Af8BYQFEASgB/wFcAiIBywENAgEBDwgAAQUCAQEFAUkCBgGEAVwBQQEnAf8BgQFjAUAB/wGDAYEBVgH/
-        AY8BgQFbAf8BrAGGAYEB/wHhAdABvwH/AfIB4wHVAf8BywGqAYoB/wGoAYEBZwH/AacBgQFjAf8BuAGO
-        AYEB/wHiAdEBwAH/AfEB4wHWAf8BwwGkAYcB/wGRAYEBXwH/AYMBgQFVAf8BgQFcATkB/wFhAUQBKAH/
-        AVwCIgHLAQ0CAQEPCAABBQIBAQUBSQIGAYQBXAFBAScB/wGBAWIBQAH/AYMBgQFYAf8BjwGBAVwB/wGt
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADY
+        UQAAAk1TRnQBSQFMAgEBBwEAAQwBAAEEAQABGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
+        AwABMAMAAQEBAAEgBgABSBUAAQEDBAEGAwoBDgMRARcBGAIXASEBHQIcASkBIQIgATABJAIiATUBJQIj
+        ATcBIwIhATMBHwIeAS0DGgElAxUBHQMPARQDCQEMAwcBCQMKAQ4DEgEZAxcBIAMZASMBFgIVAR4BEAIP
+        ARUDCAELAwIBAwQAAwIBAwMGAQgDCgENAw4BEwMSARkDFgEfARoCGQEkAx0BKgEgAh8BLgEiAiEBMgEk
+        AiIBNQEkAiMBNgEjAiEBMwEhAiABMAEeAh0BKwEcAhsBJwEYAhcBIQMUARsDEAEWAwsBDwMHAQkDAwEE
+        AwABAQQAAwIBAwMGAQgDCgENAw4BEwMSARkBFgIVAR4BGgIZASQDHQEqASACHwEvASICIQEyASQCIgE1
+        ASQCIgE1ASMCIQEzASACHwEvAx0BKgMaASUDFwEgAxMBGgMPARQDCgEOAwYBCAMDAQRnAAEBAwIBAwMG
+        AQgDCgQNARIDEQEXAxQBGwEWAhUBHgMWAR8DFQEdAxIBGQEQAg8BFQMLAQ8DBwEKAwUBBwMGAQgDDwEU
+        ARYCFQEeAxoBJQEbAhoBJgEYAhcBIQMSARkDBwEKAwEBAgQAAwEBAgMEAQYDBwEJAwsBDwMOARMDEgEY
+        AxUBHQEYAhcBIQEaAhkBJAEcAhsBJwEdAhwBKQMdASoBHQIcASkBGwIaASYDGQEjAxYBHwMTARoBEAIP
+        ARUDDAEQAwkBDAMFAQcDAwEEAwABAQQAAwIBAwMEAQYDCAELAwwCEAIPARUDEwEaAxYBHwMZASMBHAIb
+        AScDHQEqAR4CHQErAR8CHgEsAR4CHQErARwCGwEnARoCGQEkAxYBHwMUARsDEAEWAw0BEQMJAQwDBQEH
+        AwIBA5wAAwUBBwE7AjIBZAFXAjYBuAFbAjYBwwFbAjcBxgFbAjcBxgFbAjYBxAFZAjcBvgFBAjQBcgML
+        AQ8kAAMBAQIDCwEPAxQBHAMVAR0DDQERAwIBA0sAAQEDCQEMAxMBGgEWAhUBHgMOARMDBAEFnAADAQEC
+        AwUBBwMIAQsDBwEJAwMBBAsAAQEBMQItAU4BZgImAfQCnQHDAf8CkAHBAf8ClQHGAf8CmQHKAf8CnwHP
+        Af8CqQHXAf8BZgIwAe0BOAIxAV4YAAMFAQcBJAIiATUBQgI1AXYBVgI2AbQBYAI4AdYBYQI1AeYBXwIy
+        AegBXAI0AdkBVwI3AbcBRQI1AX0BKAIlATwDCgEOMAADBAEFAR8CHgEtAT8CMwFtAVQCNQGsAV0CNgHS
+        AWICNQHkAWQCNQHnAV8CNgHbAVoCNgG9AUkCNgGIASwCKQFEAw0BEYgAAwQBBQMaASUBNgIwAVkBRgI1
+        AX4BSwI2AY4BSQI2AYcBPQIzAWcBJAIiATUDBwEJAwIBAwFFAjUBfAK/Ac8B/wJcAZ4B/wJzAacB/wI5
+        AZQB/wI7AZMB/wJ5Aa0B/wJMAZoB/wFkATIBQgH7AUoCNQGNFAADFQEdAUoCNgGJAV4COAHYAVwCHwH4
+        AYEBYQEsAf8BhAFrAS4B/wGQAXMBMwH/AZQBeAE5Af8BkAF6AUEB/wGBAXIBPwH/AV8CIQH7AWACNwHe
+        AUwCNgGTAxcBICgAARACDwEVAUQCNQF5AV4CNwHQAVkCJwH1AYEBbAE9Af8BigF3AUEB/wGRAXgBPAH/
+        AZABdAE1Af8BhgFsAS8B/wGBAWIBLAH/AV0BKwEnAfwBXwI1AeMBUQI1AZ8BHwIeASwDAAEBfAADBwEK
+        AT0CMwFoAV4CNwHQAVoCIQH7A1MB/wNVAf8DVgH/AysB/AFiAjUB5AFMAjYBkgEdAhwBKQFHAjUBgQK9
+        AdIB/wJ7AasB/wLFAdQB/wKBAbwB/wKBAbYB/wLOAdwB/wJmAaIB/wF5ATYBSwH8AUwCNgGSEAADGAEi
+        AVgCNgG5AXUBTgEpAf8BgQFeASsB/wGIAWwBLQH/AaMBewEwAf8BuwGBATIB/wHHAYEBMwH/AcQBgQE0
+        Af8BtgGBAToB/wGzAYEBUAH/AbQBgQFpAf8BhgF6AUoB/wF7AVIBKwH/AVwCNAHZASICIAExIAADEgEZ
+        AVMCNgGoAW4BSgEnAf8BgQFsAT8B/wGnAYEBYQH/AbEBgQFWAf8BsQGBAT4B/wG9AYEBNAH/AcYBgQEz
+        Af8BvQGBATIB/wGoAYEBMAH/AY4BbwEuAf8BgQFgASsB/wF7AVEBKQH/AWUCNgHlASoCKAFBAwABAXAA
+        AwEBAgMaASUBUAI2AZsBWgIrAe8BYgJBAf4BVgFXAVYB/wNeAf8DYwH/A2AB/wNaAf8DVwH/AysB/AFa
+        AjYBwAFXAjcBtwLEAdgB/wJIAZkB/wKBAbIB/wLoAe8B/wLbAegB/wKBAb0B/wIsAY8B/wF5ATYBSQH8
+        AUwCNgGSDAADEAEWAVQCNQGvAV8CIQH7AYEBXQErAf8BiQFtAS4B/wGmAYEBMAH/AcMBgQEzAf8B3wGB
+        ATgB/wHvAYEBPQH/AeYBgQE/Af8BzwGBATsB/wG2AYEBNQH/AagBgQE/Af8BtQGBAWcB/wGeAYEBYgH/
+        AYEBWAExAf8BWwI3AcYBIwIiATQYAAMMARABUQI1AZ8BXAIfAfgBjwGBAVkB/wGyAYEBagH/AaoBgQFK
+        Af8BrwGBATQB/wHHAYEBOQH/Ad4BgQE+Af8B7wGBAT4B/wHkAYEBOQH/AcoBgQEzAf8BrQGBATAB/wGR
+        AXABLQH/AYEBYQErAf8BewFRASkB/wFcAjcB0QEqAicBP3AAAxIBGQFOAjYBmQFcAh8B+AFRAVIBUQH/
+        AWwBbQFsAf8DgQH/A4EB/wOBAf8DgQH/A4EB/wNyAf8DWQH/AV8CIQH7AWYCJgH0As0B4AH/AkUBmQH/
+        AoEBtAH/Au8B9QH/AtoB5QH/AoEBtwH/AjwBlgH/AXkBNgFHAfwBTAI2AZIIAAMHAQoBTgI2AZYBagEf
+        AR0B+QGBAVkBKgH/AYEBaAEtAf8BnAF4ATEB/wG3AYEBMwH/AdABgQE0Af8B5AGBATcB/wHvAYEBOwH/
+        AeoBgQFCAf8B3gGBAU0B/wHOAYEBUQH/AbEBgQE8Af8BngGBATsB/wG2AYEBbAH/AacBgQFvAf8BXwIh
+        AfsBUwI2AakDBwEJEAADBAEGAUgCNgGDAWIBJAEjAfYBjwGBAV0B/wG6AYQBdwH/AZ0BgQFAAf8BqQGB
+        AToB/wHIAYEBUAH/AdkBgQFPAf8B5QGBAUIB/wHwAYEBPAH/AekBgQE3Af8B1gGBATQB/wG9AYEBMgH/
+        AaMBewEwAf8BhwFsAS4B/wGBAV0BKwH/AUMBKwEnAfwBVgI2AbYDDAEQbAABOgIyAWABZAIyAewDSAH/
+        AXYBdwF2Af8DgQH/AY4BkAGNAf8DgQH/A4EB/wFwAXIBbwH/AWsBbQFqAf8BeAF6AXgB/wOBAf8DWwH/
+        A4YB/wLUAecB/wKBAbcB/wLcAesB/wKpAdcB/wKTAcgB/wLMAdcB/wKBAbEB/wF5ATcBSQH8AUwCNgGS
+        CAABLwIrAUoBXwIhAfsBgQFSASkB/wGBAWEBLQH/AY8BcwE1Af8BrAGBAUYB/wG/AYEBQAH/AdABgQE5
+        Af8B3QGBATcB/wHjAYEBOwH/AeIBgQFKAf8B2AGBAUYB/wHQAYEBTwH/AdIBjAFvAf8BqwGBAUcB/wGO
+        AXQBNgH/AbsBhgF6Af8BiAGBAVgB/wFNAR0BHAH6ATgCMQFeEAABKQImAT4BYgEkASMB9gGBAWsBRAH/
+        Aa8BgQFyAf8BiQFxATcB/wGeAYEBPAH/AcgBggFlAf8BzQGBAVQB/wHTAYEBRAH/Ad8BgQFJAf8B5AGB
+        AT0B/wHgAYEBOAH/AdQBgQE4Af8BxAGBATwB/wGyAYEBRwH/AZcBegE6Af8BgQFlAS0B/wGBAVUBKQH/
+        AUACMQH9AUACNAFxaAADCwEPAVYCNgGzAWACQQH+AWkBagFpAf8DgQH/AZUBlgGUAf8BhgGIAYUB/wOB
+        Af8BbQFuAWwB/wFbAV0BWgH/AVYBWAFVAf8BYgFkAWEB/wOBAf8DdwH/A4EB/wLlAfIB/wKBAcIB/wKh
+        AdMB/wKBAcQB/wKBAcQB/wKZAckB/wKBAbkB/wFlATMBQQH7AUsCNgGOBAADCgENAVECNQGfAWoBSAEn
+        Af8BgQFWASoB/wGBAWYBLwH/AZ0BgQFQAf8B3AHIAbYB/wHhAb4BmwH/AdYBjgFvAf8B2AGBAUwB/wHd
+        AYcBWwH/AdUBvAGlAf8B1AG1AZcB/wHNAY0BeQH/Ab8BgQFVAf8BwwGCAWoB/wGaAYEBQwH/AYMBcQE6
+        Af8BnQGBAWQB/wGBAVoBNwH/AV4CNwHQAxABFggAAwgBCwFOAjYBlQFrAUkBKQH/AY4BgQFbAf8BjgGB
+        AUkB/wGLAXIBNgH/AbsBgQFkAf8BwQGBAVwB/wHIAYMBZwH/AdQBrAGGAf8B1QG9AaUB/wHeAYwBZAH/
+        AdkBgQFKAf8B1gGIAWQB/wHeAbEBhQH/AeIBzwG+Af8BsAGCAYEB/wGBAWoBMQH/AYEBWgEqAf8BcgFM
+        ASgB/wFfAjUB2gMUARxkAAEoAiUBPAFfAjUB4wNVAf8DgQH/AZkBmwGZAf8BlgGYAZUB/wOBAf8BYAFi
+        AWAB/wFRAVMBUQH/AU4BUAFOAf8BUAFSAVAB/wFgAWIBXwH/AoEBewH/A4EB/wOBAf8C7QHvAf8CygHl
+        Af8CwQHfAf8CxwHgAf8CwwHdAf8CuAHWAf8CrQHOAf8BYwIrAe8BOwIyAWQEAAEcAhsBKAFeAjcB0AFy
+        AUsBKAH/AYEBWQErAf8BgQFoATEB/wGkAYEBYAH/Ae4B6QHkAf8B+gH4AfcB/wHtAd8B0gH/AdwBrQGB
+        Af8B1wGVAYEB/wHVAc4BxgH/Ad0C3AH/AeEB1wHNAf8B1QGzAZIB/wG+AYYBdwH/AbEBgQFjAf8BgQFp
+        ATIB/wGJAYEBTQH/AYEBbQFFAf8BXwIhAfsBLwIrAUoIAAEaAhkBJAFbAjYBywGBAVsBNwH/AY4BgQFX
+        Af8BgQFsATgB/wGpAYEBXQH/Ab0BgwFyAf8BzQGkAYEB/wHhAdMBxQH/Ad4B3QHbAf8B1gHRAcwB/wHX
+        AZUBgQH/AdkBoAGBAf8B6AHRAb0B/wH4AfYB9AH/AfQB8gHvAf8BuwGUAYEB/wGDAW0BMwH/AYEBXAEr
+        Af8BeAFPASkB/wEzAicB/AEyAi0BUGQAAT4CMwFqAWICJAH2AWEBYgFhAf8DgQH/AaUBpwGkAf8BkwGV
+        AZIB/wFmAWgBZgH/AVUBVwFVAf8BdwF7AXcB/wOBAf8BXQFfAVwB/wFpAWoBaAH/A4EB/wOBAf8DbQH/
+        A4EB/wFkAjIB7AFbAjkByAFbAjYBxAFbAjYBxAFbAjYBxAFZAjUBwgFEAjUBewMNAREEAAEsAikBQwFf
+        AjIB6AF0AU0BKAH/AYEBWQErAf8BgQFoATEB/wGjAYEBYwH/AfMB7gHoAf8D+QH/A/EB/wHmAuUB/wHb
+        AcwBvgH/AdkB1QHRAf8B4wLkAf8D7QH/AvYB9wH/AewB4QHXAf8ByQGkAYEB/wGUAYEBUwH/AYEBbAE9
+        Af8BgQFzAUsB/wFjAUQBJwH/AUQCNQF6AwEBAgQAASoCJwFAAWUCNgHlAYEBbAFGAf8BgQF1AUcB/wGI
+        AXsBSQH/AcABlAGBAf8B4AHPAb8B/wH1AvQB/wLuAe8B/wPmAf8B3AHYAdYB/wHYAcQBsQH/AeIB4AHd
+        Af8D7gH/A/YB/wH3AfQB8gH/Ab0BlwGBAf8BggFsATMB/wGBAVwBKwH/AXsBUAEpAf8BYwFEASYB/wFG
+        AjUBfwMCAQNgAAFFAjUBfAFNAh0B+gNmAf8BgwGEAYIB/wGqAawBqQH/AZIBlAGRAf8BUwFUAVMB/wFt
+        AXABbQH/A4EB/wGkAagBpAH/A4EB/wF7AYEBegH/A4EB/wOBAf8CcwFyAf8DZwH/AVYCNgG1ARgCFwEh
+        AwgBCwMIAQsDCQEMAwgBCwMCAQMIAAE1Ai8BVgFkAi4B8QF0AU4BKAH/AYEBWAEqAf8BgQFmATEB/wGg
+        AYEBYwH/AfEB7AHnAf8D9AH/A+wB/wPkAf8B3QLeAf8D3wH/A+gB/wPxAf8D+QH/A/oB/wHsAekB5gH/
+        AccBswGhAf8BhQGBAWIB/wGBAXABSAH/AWcBRwEpAf8BTgI2AZQDBQEHBAABNAIuAVQBXQIrAfABgQFt
+        AUcB/wGBAXsBVQH/AbMBmgGEAf8B5gHhAd0B/wH2AvcB/wP5Af8D8wH/A+oB/wPhAf8C2wHcAf8D4QH/
+        A+oB/wPxAf8B9AHyAe8B/wG6AZUBgQH/AYEBaQEzAf8BgQFbASoB/wF6AVEBKAH/AWUBRQEnAf8BTgI2
+        AZYDBgEIYAABPwIzAWwBbgIkAfcDYwH/A4EB/wGtAa8BrAH/AZ4BoAGdAf8BbAFtAWsB/wFmAWkBZgH/
+        A4EB/wGwAbMBsAH/A4EB/wOBAf8BhQGIAYQB/wOBAf8DbwH/A3AB/wFTAjYBqAMOARMcAAE3AjABWgFf
+        AiUB8wFyAUwBKAH/AYEBVgEqAf8BgQFkATAB/wGZAYEBYgH/AesB5gHiAf8D7gH/A+cB/wPgAf8D3gH/
+        A+QB/wPtAf8D9QH/A/wB/wP3Af8D7QH/Ad8C3gH/AZoBgwGBAf8BgQFpAUMB/wFnAUcBKgH/AVECNgGc
+        AwcBCQQAATcCMQFbAV8CJQHzAYEBZQFAAf8BhAGBAW0B/wHOAckBwwH/AuoB6wH/A/QB/wP6Af8D9gH/
+        A+4B/wPmAf8D3gH/A94B/wPkAf8D7AH/Ae4B7AHpAf8BtAGRAYEB/wGBAWcBMgH/AYEBWQEqAf8BdwFP
+        ASgB/wFjAUQBJwH/AVACNgGbAwcBCWAAASoCKAFBAWICMgHpA1kB/wOBAf8BqQGqAagB/wGqAawBqQH/
+        AY8BkQGOAf8BaAFpAWgB/wFmAWgBZgH/AXIBdQFyAf8DgQH/AYoBjAGJAf8BlQGXAZQB/wOBAf8BZgFn
+        AWYB/wN4Af8BSgI2AYoDBwEKHAABMgItAVABWgIrAe8BbgFKASgB/wGBAVMBKQH/AYEBYAEwAf8BkgGB
+        AWEB/wHkAd8B2wH/AegC6QH/A+IB/wPcAf8B4ALhAf8D6AH/A/EB/wP5Af8D+wH/AfIC8wH/AeAB3QHZ
+        Af8BsQGaAYQB/wGBAXEBTAH/AYEBWAE0Af8BYwFFASgB/wFMAjYBkwMFAQcEAAEzAi4BUwFdAisB8AF7
+        AVYBNAH/AYEBZgFAAf8BnwGCAYEB/wHYAdMBzQH/Au8B8AH/A/gB/wP6Af8D8wH/A+oB/wLiAeMB/wPc
+        Af8D3wH/A+YB/wHnAeUB4wH/AawBjAGBAf8BgQFjATIB/wGBAVUBKgH/AXMBTAEoAf8BYQFDASYB/wFM
+        AjYBkAMEAQZgAAMOARMBWAI1AbwBYgJBAf4BcgFzAXIB/wGIAYkBhwH/Aa4BrwGtAf8BqgGsAakB/wGZ
+        AZsBmAH/AYUBhwGEAf8BigGMAYkB/wGYAZoBlwH/AZsBnQGbAf8BigGMAYoB/wOBAf8DagH/AWYCJgH0
+        ATICLQFQAwEBAhwAASYCJAE4AV8CNwHgAWgBRwEnAf8BeAFPASkB/wGBAVwBLwH/AYsBgQFgAf8B3AHY
+        AdQB/wPiAf8D2gH/AdUB0AHKAf8B0QHAAa8B/wHoAeUB4gH/A/UB/wP7Af8B8QHuAesB/wHOAb0BrQH/
+        AZYBgQF2Af8BgQFsAUEB/wGBAVgBMAH/AW8BTAEqAf8BXgFBAScB/wFCAjUBdAMBAQIEAAEoAiUBPAFe
+        AjQB4gFrAUoBKgH/AXsBUwEuAf8BgQFmATwB/wGHAYEBXgH/AcABqgGVAf8B6QHjAd0B/wL6AfsB/wP3
+        Af8B6wHpAecB/wHRAbwBqAH/AdMBywHDAf8B2QHYAdcB/wPfAf8B4AHeAdwB/wGlAYcBgQH/AYEBXwEx
+        Af8BgQFRASkB/wFtAUkBJwH/AVwBQAEmAf8BQAI0AW4DAAEBYwABAQE/AjMBbAFaAisB7wNTAf8DgQH/
+        AYoBiwGKAf8BrQGvAa0B/wGwAbIBrwH/Aa0BrwGsAf8BqgGsAakB/wGkAaYBowH/AYsBjQGLAf8DgQH/
+        A2kB/wFHAkAB/QFUAjUBrwMQARYgAAEWAhUBHgFZAjUBwgFiAUQBJwH/AXIBTQEpAf8BgQFeATUB/wGM
+        AYEBZwH/AdQB0AHNAf8B1gHVAdQB/wHJAbsBrgH/AbkBlQGBAf8BuQGOAYEB/wHrAeYB4gH/AvgB9wH/
+        AegB3QHSAf8BvAGdAYEB/wGYAYEBZgH/AYEBcAFDAf8BgQFcATIB/wF1AU4BKgH/AWcBRwEnAf8BTQIc
+        AfoBLAIpAUMIAAEYAhcBIQFZAjUBxwFjAUQBJgH/AXEBSwEoAf8BgQFYAS8B/wGBAWgBOwH/AY8BgQFa
+        Af8BsgGPAYEB/wHeAdABwQH/AfcB9gH0Af8B7wHsAegB/wG7AZIBgQH/AbYBjQGBAf8BxQGxAZ0B/wHU
+        AdIBzwH/AdcB1QHUAf8BowGHAYEB/wGBAWMBOAH/AXcBUAEqAf8BZwFGAScB/wFiASQBIwH2AScCJQE7
+        aAADFAEbAVUCNgGtA18B/wNVAf8BeAF5AXgB/wOBAf8BiAGJAYcB/wGSAZMBkgH/AYwBjQGLAf8DgQH/
+        A4EB/wNcAf8DcgH/AWACOAHWASICIAExJAADBAEFAUgCNgGEAVsBQAEmAf8BcwFRATAB/wGBAWcBQQH/
+        AYgBgQFhAf8BvAGuAaEB/wG3AZ0BhAH/AakBgQFyAf8BqQGBAWoB/wGxAYEBeAH/AeEB0gHEAf8B2AHD
+        Aa8B/wGwAYQBgQH/AZsBgQFhAf8BjQGBAVUB/wGBAXYBSgH/AYEBZwE/Af8BdQFRAS8B/wFhAUMBJwH/
+        AVwCNgHMAwsBDwgAAwYBCAFMAjYBjwFcAUABJgH/AW0BTAErAf8BgQFgAToB/wGBAXEBRgH/AYgBgQFQ
+        Af8BlgGBAVwB/wGmAYEBbwH/AcwBsAGUAf8B4QHSAcQB/wGzAYUBgQH/AagBgQFpAf8BqAGBAW8B/wGx
+        AZABgQH/Ab4BsQGkAf8BmQKBAf8BgQFsAUQB/wF7AVYBNAH/AWEBRAEoAf8BWQI3Ab4DCAELaAADAQEC
+        ASICIAExAVYCNgG0AV8CJQHzA1kB/wNlAf8BbwFwAW8B/wFzAXQBcwH/AXIBcwFyAf8DbQH/A2YB/wFB
+        AisB/AFaAjYBzQEzAi4BUwMAAQEoAAEfAh4BLAFgAjcB3gF3AVgBOQH/AYEBbwFKAf8BgwGBAVkB/wGX
+        AYEBbAH/AaEBgQFuAf8BpwGBAW8B/wGsAYEBcQH/AbEBgQF1Af8BtwGJAYEB/wGyAYMBgQH/AagBgQFx
+        Af8BnwGBAWcB/wGTAYEBXwH/AYMBgQFVAf8BgQFxAUsB/wGBAVoBOgH/AV0CKwHwATMCLgFTEAABJAIj
+        ATYBZAI1AecBcQFRATQB/wGBAWoBRwH/AYEBegFSAf8BjQGBAVsB/wGaAYEBZAH/AaUBgQFsAf8BrgGB
+        AXcB/wG1AYcBgQH/AbEBgQF2Af8BrQGBAXEB/wGoAYEBbgH/AaIBgQFsAf8BmgGBAW0B/wGJAYEBXgH/
+        AYEBcwFMAf8BgQFfAT4B/wFcAjEB6gEsAikBRHAAAwEBAgMXASABRgI1AX4BXQI2AdIBagIfAfkBawJB
+        Af4DZwH/A2oB/wFfAiEB+wFfAjUB4wFRAjcBoAEpAiYBPgMGAQgsAAMCAQMBNwIwAVoBYQIvAe4BgQFz
+        AVEB/wGGAYEBXgH/AZcBgQFpAf8BpAGBAXIB/wGvAYEBeQH/AbUBhgGBAf8BuQGKAYEB/wG6AYsBgQH/
+        AbcBiAGBAf8BsAGBAXsB/wGmAYEBcwH/AZkBgQFqAf8BiQGBAWAB/wGBAXgBVQH/AU8CHQH6AU4CNgGY
+        AwYBCBAAAwQBBQE/AjMBbAFmAiYB9AGBAXEBTwH/AYQBgQFcAf8BlAGBAWYB/wGiAYEBcAH/Aa0BgQF3
+        Af8BtAGEAYEB/wG4AYgBgQH/AbkBiQGBAf8BtgGHAYEB/wGwAYEBegH/AacBgQFzAf8BmgGBAWsB/wGL
+        AYEBYQH/AYEBeQFWAf8BYgIkAfYBSQI2AYgDBAEFeAADAgEDAxgBIgE7AjIBYwFOAjYBlQFUAjYBqgFR
+        AjYBogFCAjUBdgEkAiIBNQMEAQU8AAFFAjUBfQFiAiQB9gGLAYEBaAH/AZ0BgQFzAf8BrAKBAf8BuAGM
+        AYEB/wHBAZQBgQH/AcYBmAGBAf8BxwGZAYEB/wHCAZQBgQH/AboBjQGBAf8BrwGDAYEB/wGgAYEBdAH/
+        AY8BgQFqAf8BgQF5AVgB/wFZAjcBvwEYAhcBIRsAAQEBTAI2AY8BagIfAfkBiQGBAWYB/wGbAYEBcQH/
+        AaoBgQF7Af8BtgGKAYEB/wHAAZIBgQH/AcUBlgGBAf8BxgGXAYEB/wHCAZQBgQH/AboBjQGBAf8BrwGE
+        AYEB/wGhAYEBdQH/AZABgQFrAf8BgQF5AVgB/wFVAjYBsAMSARmIAAMEAQUDBwEJAwYBCAMBAQJEAAMN
+        AREBRQI1AXwBZQI2AeUBfwF1AU8B/gGzAYkBgQH/AcMBlwGBAf8BzgGhAYEB/wHVAacBgQH/AdYBqAGB
+        Af8B0AGiAYEB/wHFAZkBgQH/AbYBjAGBAf8BoAGBAXkB/wFoAioB8gFVAjYBsAEfAh4BLAMAAQEcAAMR
+        ARcBSgI2AYkBaAIzAesBfwFyAU0B/gGwAYcBgQH/AcABlQGBAf8BzAGfAYEB/wHUAaYBgQH/AdUBpwGB
+        Af8B0AGiAYEB/wHGAZkBgQH/AbgBjQGBAf8BfwF6AVQB/gFmAjAB7QFRAjcBoAEYAhcBIeQAAwgBCwEt
+        AioBRgFUAjYBqgFkAjIB7AGEAX8BaQH+AdIBpgGBAf8B4QGzAYYB/wHjAbQBhwH/AdUBqAGBAf8BvgGU
+        AYEB/wF5Ah0B+gFcAjYByQE+AjMBawMRARcoAAMLAQ8BMgItAVABVgI2AbMBZgIrAfABtwGOAYEB/wHQ
+        AaMBgQH/Ad4BsAGDAf8B4wG1AYcB/wHXAaoBgQH/AYoBfwFuAf4BYgIkAfYBWQI3Ab8BOQIxAV8DDQER
+        8AADBQEHASkCJgE+AVACNgGaAWICNQHaAWICJAH2AWIBIwEhAfsBZAI1AecBVgI2AbUBOAIxAV0DDQES
+        OAADBwEJAS4CKgFHAVICNgGjAV0CNQHfAXkCHwH4AXkBIQEdAfoBYgI1AeQBVAI1AawBMwIuAVMDCgEO
+        gAADAgEDAwUBBwMKBA0EEgEYARYCFQEeARoCGQEkAR0CHAEpASACHwEuASICIAExASMCIgE0ASQCIgE1
+        ASMCIQEzASECIAEwAR4CHQErARsCGgEmAxcBIAMTARoBEAIPARUDCgEOAwcBCQMDAQQDAAEBBAADAgED
+        AwUBBwMKBA0EEgEYARYCFQEeARoCGQEkAR0CHAEpASACHwEuASICIAExASMCIgE0ASQCIgE1ASMCIQEz
+        ASECIAEwAR4CHQErARsCGgEmAxcBIAMTARoBEAIPARUDCgEOAwcBCQMDAQQDAAEBBAADAgEDAwYBCAMK
+        AQ0DDgETAxIBGQMWAR8BGgIZASQDHQEqASACHwEuASICIQEyASQCIgE1ASQCIwE2ASMCIQEzASECIAEw
+        AR4CHQErARwCGwEnARgCFwEhAxQBGwMQARYDCwEPAwcBCQMDAQQDAAEBAwABAQMEAQYDCgEOAxEBFwEY
+        AhcBIQEdAhwBKQEhAiABMAEkAiIBNQElAiMBNwEjAiEBMwEfAh4BLQMaASUDFQEdAw8BFAMIAQsDAwEE
+        CAADAgEDAw0BEQMWAR8DGAEiARACDwEVAwUBBwQAAwEBAgMEAQUDCAQLBA8BFAMTARoDFgEfAxkBIwEc
+        AhsBJwEdAhwBKQEeAh0BKwEfAh4BLAEeAh0BKwEcAhsBKAEaAhkBJAMXASADFAEbAxABFgMNAREDCQEM
+        AwYBCAMCAQMDAAEBBAADAQECAwQBBQMIBAsEDwEUAxMBGgMWAR8DGQEjARwCGwEnAR0CHAEpAR4CHQEr
+        AR8CHgEsAR4CHQErARwCGwEoARoCGQEkAxcBIAMUARsDEAEWAw0BEQMJAQwDBgEIAwIBAwMAAQEEAAMB
+        AQIDBAEGAwcBCQMLAQ8DDgETAxIBGAMVAR0BGAIXASEBGgIZASQBHAIbAScBHQIcASkDHQEqAR0CHAEp
+        ARsCGgEmAxkBIwMWAR8DEwEaARACDwEVAwwBEAMJAQwDBQEHAwMBBAMAAQEDAAEBAwIBAwMGAQgDCgQN
+        ARIDEQEXAxQBGwEWAhUBHgMWAR8DFQEdAxIBGQEQAg8BFQMLAQ8DCAELAwQBBgMBAQIIAAMBAQIDBgEI
+        AwwBEAMNAREDCAELAwIBAyQAAwEBAgMLAQ8DFAEcAxUBHQMNAREDAgEDSAADAQECAwsBDwMUARwDFQEd
+        Aw0BEQMCAQNIAAMBAQIDCwEPAxQBHAMVAR0DDQERAwIBA5wAAwUBBwEkAiIBNQFDAjUBdwFWAjYBswFg
+        AjgB1gFlAjYB5QFhAjUB5gFeAjgB2AFXAjcBtwFGAjUBfgEoAiUBPAMKAQ4wAAMFAQcBJAIiATUBQwI1
+        AXcBVgI2AbMBYAI4AdYBZQI2AeUBYQI1AeYBXgI4AdgBVwI3AbcBRgI1AX4BKAIlATwDCgEOMAADBQEH
+        ASQCIgE1AUICNQF2AVYCNgG0AWACOAHWAWECNQHmAV8CMgHoAVwCNAHZAVcCNwG3AUUCNQF9ASgCJQE8
+        AwoBDjAAAwEBAgMFAQcDCAELAwcBCQMDAQQYAAMEAQYBOgIyAWEBRgI1AX8BRgI1AX4BRgI1AX4BRgI1
+        AX4BQgI1AXQUAAMVAR0BSQI2AYgBXgI4AdgBXAIfAfgBgQFgASsB/wGCAWkBLgH/AY4BcgEzAf8BkQF2
+        ATkB/wGLAXcBPwH/AYEBcAE+Af8BXwIhAfsBXgI3Ad0BTAI2AZMDFwEgKAADFQEdAUkCNgGIAV4COAHY
+        AVwCHwH4AYEBYAErAf8BggFpAS4B/wGOAXIBMwH/AZEBdgE5Af8BiwF3AT8B/wGBAXABPgH/AV8CIQH7
+        AV4CNwHdAUwCNgGTAxcBICgAAxUBHQFKAjYBiQFeAjgB2AFcAh8B+AGBAWEBLAH/AYQBagEuAf8BkAFz
+        ATIB/wGUAXcBOAH/AY4BeAE/Af8BgQFxAT8B/wFfAiEB+wFgAjcB3gFMAjYBkwMXASAkAAMEAQUDGgEl
+        ATYCMAFZAUYCNQF+AUsCNgGOAUkCNgGHAT0CMwFnASQCIgE1AwcBCRAAAwUBBwFAAjQBcAFLAjYBjgFK
+        AjUBjQFKAjUBjQFKAjUBjQFIAjYBhRAAAxgBIgFXAjYBuAF0AU0BKAH/AYEBXQErAf8BhwFrAS0B/wGi
+        AXoBLwH/AbkBgQExAf8BxQGBATMB/wHBAYEBNQH/AbQBgQE7Af8BrgGBAU0B/wGqAYEBXwH/AYUBegFL
+        Af8BewFTAS4B/wFdAjgB1wEiAiABMSAAAxgBIgFXAjYBuAF0AU0BKAH/AYEBXQErAf8BhwFrAS0B/wGi
+        AXoBLwH/AbkBgQExAf8BxQGBATMB/wHBAYEBNQH/AbQBgQE7Af8BrgGBAU0B/wGqAYEBXwH/AYUBegFL
+        Af8BewFTAS4B/wFdAjgB1wEiAiABMSAAAxgBIgFYAjYBuQF1AU4BKQH/AYEBXgErAf8BiAFsAS0B/wGj
+        AXsBMAH/AbsBgQEyAf8ByAGBATQB/wHEAYEBNQH/AbcBgQE8Af8BsAGBAU0B/wGsAYEBXwH/AYgBewFL
+        Af8BgQFVAS8B/wFcAjQB2QEiAiABMRwAAwcBCgE9AjMBaAFeAjcB0AFaAiEB+wNTAf8DVQH/A1YB/wMr
+        AfwBYgI1AeQBTAI2AZIDGgElAwABAQwAAwMBBAMGAQgDBgEIAwYBCAMGAQgDBAEFDAADEQEXAVQCNQGv
+        AV8CIQH7AYEBXQErAf8BiQFsAS4B/wGnAYEBMAH/AcMBgQEzAf8B3gGBATcB/wHtAYEBPAH/AeMBgQE+
+        Af8BzQGBATwB/wG2AYEBOAH/AagBgQFBAf8BrQGBAV8B/wGZAYEBXwH/AYEBXAE1Af8BWwI3AcYBIwIi
+        ATQYAAMRARcBVAI1Aa8BXwIhAfsBgQFdASsB/wGJAWwBLQH/AaYBgQEvAf8BwgGBATIB/wHeAYEBNwH/
+        Ae0BgQE8Af8B4wGBAT4B/wHNAYEBPAH/AbYBgQE4Af8BqAGBAUEB/wGtAYEBXwH/AZkBgQFfAf8BgQFc
+        ATUB/wFbAjcBxgEjAiIBNBgAAxABFgFUAjUBrwFfAiEB+wGBAV0BKwH/AYkBbQEuAf8BpgGBATAB/wHD
+        AYEBMwH/Ad8BgQE4Af8B7wGBAT0B/wHmAYEBPgH/AdABgQE7Af8BuAGBATgB/wGqAYEBQgH/AbEBgQFi
+        Af8BnAGBAV8B/wGBAVwBNQH/AVsCNwHGASMCIgE0EAADAQECAxoBJQFQAjYBmwFaAisB7wFiAkEB/gFW
+        AVcBVgH/A14B/wNjAf8DYAH/A1oB/wNXAf8DKwH8AVoCNgG9ASwCKQFEAwEBAigAAwcBCgFOAjYBlQFq
+        AR8BHQH5AYEBWQEqAf8BgQFoAS0B/wGcAXcBMAH/Ab0BgQFQAf8B2QGYAYEB/wHmAYUBTgH/Ae8BgQE7
+        Af8B6QGBAT8B/wHcAYEBSQH/AcsBgQFNAf8BsgGBAT8B/wGeAYEBPQH/Aa0BgQFkAf8BowGBAWsB/wFf
+        AiEB+wFTAjYBqQMHAQoQAAMHAQoBTgI2AZUBagEfAR0B+QGBAVkBKgH/AYEBaAEtAf8BmwF2AS8B/wG2
+        AYEBMAH/AdABgQEyAf8B5QGBATYB/wHvAYEBOgH/AekBgQE/Af8B3AGBAUkB/wHLAYEBTQH/AbIBgQE/
+        Af8BngGBAT0B/wGtAYEBZAH/AaMBgQFrAf8BXwIhAfsBUwI2AakDBwEKEAADBwEKAU4CNgGWAWoBHwEd
+        AfkBgQFZASoB/wGBAWgBLQH/AZsBdgEvAf8BtgGBATEB/wHQAYEBMwH/AeQBgQE2Af8B7wGBATkB/wHq
+        AYEBPwH/Ad0BgQFIAf8BzQGBAUsB/wGzAYEBPgH/AaEBgQE+Af8BsQGBAWgB/wGhAYEBaQH/AV8CIQH7
+        AVMCNgGpAwcBCQwAAxIBGQFOAjYBmQFcAh8B+AFRAVIBUQH/AWwBbQFsAf8DgQH/A4EB/wOBAf8DgQH/
+        A4EB/wNyAf8DWQH/AV8CIQH7AVkCNQHCAR8CHgEtBwABAQEYAhcBIQEgAh8BLgEfAh4BLQEfAh4BLQEf
+        Ah4BLQEcAhsBKAgAAS8CKwFKAV8CIQH7AYEBUgEpAf8BgQFgASsB/wGMAW4BLQH/AacBgQE1Af8B1QGs
+        AYUB/wHvAfEB8wH/AegBzAGxAf8B5QGTAWsB/wHgAYEBNwH/AdUBgQE3Af8BzQGBAUgB/wHLAYIBYwH/
+        AasBgQFJAf8BkAF2ATkB/wGwAYEBbwH/AYYBgQFWAf8BTQEdARwB+gE5AjEBXxAAAS8CKwFKAV8CIQH7
+        AYEBUgEpAf8BgQFgASsB/wGMAW4BLQH/AaYBgQE2Af8BwQGBAVMB/wHTAYEBWgH/Ad8BgQFCAf8B4wGB
+        ATUB/wHgAYEBNAH/AdYBgQE9Af8B0QGHAWYB/wHPAZQBgQH/Aa0BgQFSAf8BkAF2AToB/wGwAYEBbwH/
+        AYYBgQFWAf8BTQEdARwB+gE5AjEBXxAAAS8CKwFKAV8CIQH7AYEBUgEpAf8BgQFgASsB/wGLAW4BLgH/
+        AaYBgQE3Af8BwgGBAVMB/wHUAYEBWgH/Ad8BhwFaAf8B4wGJAVoB/wHhAYcBWgH/AdkBhQFdAf8B1AGM
+        AW4B/wHSAZUBgQH/Aa4BgQFSAf8BlAF5AT0B/wGzAYEBcgH/AYYBgQFVAf8BTQEdARwB+gE4AjEBXgwA
+        AToCMgFgAWQCMgHsA0gB/wF2AXcBdgH/A4EB/wGOAZABjQH/A4EB/wOBAf8BcAFyAW8B/wFrAW0BagH/
+        AXgBegF4Af8DgQH/AVsBXAFbAf8BZgJBAf4BUQI2AaUDCwEPAwUBBwE2AjABWAE9AjMBaAE9AjMBZwE9
+        AjMBZwE9AjMBZwE7AjIBZQQAAwoBDgFRAjUBnwFrAUgBJwH/AYEBVgEpAf8BgQFkASsB/wGQAXABLgH/
+        AagBgQE3Af8B2QG0AZEB/wH1AfYB9wH/Ae4C7wH/AecB3AHRAf8B3wGwAYIB/wHRAYIBXQH/AcEBgQE6
+        Af8BuQGBAUIB/wG8AYEBXgH/AZoBgQFEAf8BhQFzAT0B/wGVAYEBXwH/AYEBWwE4Af8BXAI3Ac8DEAEW
+        CAADCgEOAVECNQGfAWsBSAEnAf8BgQFWASkB/wGBAWQBKwH/AY8BbwEtAf8BuAGCAXUB/wHdAdMByQH/
+        AdsB1gHPAf8B3wGvAYIB/wHbAYEBRAH/AdkBgQFAAf8B2gGXAYEB/wHhAdQBygH/AdsB1wHTAf8B0AGx
+        AZQB/wGbAYEBSAH/AYUBcwE9Af8BlQGBAV8B/wGBAVsBOAH/AVwCNwHPAxABFggAAwoBDQFRAjUBnwFq
+        AUgBJwH/AYEBVgEqAf8BgQFkASwB/wGPAW8BLQH/AboBhwF7Af8B5gHcAdIB/wHnAeEB2wH/AeQB3QHX
+        Af8B3wHYAdIB/wHbAdUBzgH/AdsB1QHOAf8B3wHaAdQB/wHlAeIB3QH/AdQBtgGaAf8BnQGBAUoB/wGI
+        AXYBQAH/AZcBgQFfAf8BgQFbATgB/wFeAjcB0AMQARYEAAMLAQ8BVgI2AbMBYAJBAf4BaQFqAWkB/wOB
+        Af8BlQGWAZQB/wGGAYgBhQH/A4EB/wFtAW4BbAH/AVsBXQFaAf8BVgFYAVUB/wFiAWQBYQH/A4EB/wF3
+        AXgBdwH/A14B/wFaAisB7wEuAioBRwMCAQMDFwEgAR8CHgEsAR8CHgEsAR8CHgEsAR8CHgEsARwCGwEn
+        BAABHAIbAScBXgI3AdABcgFLASgB/wGBAVkBKgH/AYEBZQEsAf8BkAFwAS4B/wGlAYEBNwH/AdkBtQGT
+        Af8B+gH7AfwB/wP0Af8D7gH/AeYB5QHjAf8B2wHIAbcB/wHIAZUBgQH/AbABgQFCAf8BqwGBAUUB/wGo
+        AYEBVQH/AYEBagEzAf8BhgF6AUsB/wGBAWwBRQH/AV8CIQH7AS8CKwFJCAABHAIbAScBXgI3AdABcgFL
+        ASgB/wGBAVkBKgH/AYEBZQEsAf8BjwFuASwB/wG/AZABgQH/AekB6AHlAf8B3wHgAeEB/wHZAbYBlQH/
+        Ac0BgQE/Af8BzQGBATsB/wHcAacBgQH/AesB6AHmAf8B3wHgAeEB/wHQAbgBogH/AasBgQFdAf8BgQFq
+        ATMB/wGGAXoBSwH/AYEBbAFFAf8BXwIhAfsBLwIrAUkIAAEcAhsBKAFeAjcB0AFyAUsBKAH/AYEBWQEq
+        Af8BgQFlASwB/wGOAW4BLAH/AcIBlQGBAf8B8gHwAe4B/wHwAvEB/wHsAu0B/wLnAegB/wHiAuMB/wHd
+        At4B/wPeAf8B4wHkAeUB/wHUAb0BqQH/Aa0BgQFfAf8BgQFrATQB/wGHAXsBTAH/AYEBbAFFAf8BXwIh
+        AfsBLwIrAUoEAAEoAiUBPAFfAjUB4wNVAf8DgQH/AZkBmwGZAf8BlgGYAZUB/wOBAf8BYAFiAWAB/wFR
+        AVMBUQH/AU4BUAFOAf8BUAFSAVAB/wFgAWIBXwH/AoEBewH/A4EB/wNiAf8DZwH/AUcCNQGCAwcBCRwA
+        ASwCKQFDAWQCNQHnAXUBTQEoAf8BgQFZASoB/wGBAWQBLAH/AYwBbgEtAf8BoAGBATcB/wHWAbMBkgH/
+        Af0B/gL/A/gB/wPyAf8D6wH/AuUB5gH/AdwC2wH/AcoBtgGjAf8BqQGBAWMB/wGiAYEBTwH/AYwBeQFD
+        Af8BgQFpATkB/wGBAW8BRwH/AWQBRQEoAf8BRAI1AXkDAQECBAABLAIpAUMBZAI1AecBdQFNASgB/wGB
+        AVkBKgH/AYEBZAEsAf8BiwFtASsB/wG+AZEBgQH/AfAB7QHrAf8B4wHkAeUB/wHSAbEBkQH/AcABgQE6
+        Af8BvQGBATAB/wHTAZ0BgQH/AfEB7gHrAf8C5AHlAf8BxAGrAZMB/wGjAYEBVAH/AYwBeQFDAf8BgQFp
+        ATkB/wGBAW8BRwH/AWQBRQEoAf8BRAI1AXkDAQECBAABLAIpAUMBXwIyAegBdAFNASgB/wGBAVkBKgH/
+        AYEBZAEsAf8BiwFtASwB/wHBAZYBgQH/AfgB9gH0Af8D9wH/A/MB/wPtAf8D6AH/A+IB/wPdAf8C3gHf
+        Af8BxwGwAZoB/wGmAYEBWAH/AYwBeQFDAf8BgQFpAToB/wGBAXABSAH/AWYBRgEpAf8BRAI1AXoDAQEC
+        AT4CMwFqAWICJAH2AWEBYgFhAf8DgQH/AaUBpwGkAf8BkwGVAZIB/wFmAWgBZgH/AVUBVwFVAf8BdwF7
+        AXcB/wOBAf8BXQFfAVwB/wFpAWoBaAH/A4EB/wOBAf8BbAFtAWwB/wNoAf8BUgI2AacDDQESHAABNQIv
+        AVYBZAIuAfEBdQFOASgB/wGBAVgBKgH/AYEBYgEsAf8BhgFrAS0B/wGYAXkBNgH/Ac8BrgGQAf8B+wH8
+        Af0B/wP6Af8D9QH/A+8B/wPoAf8D4gH/A9wB/wHTAcsBxAH/AboBmwGBAf8BkwGBAVIB/wGBAWIBNAH/
+        AYEBaAFAAf8BaAFIASoB/wFOAjYBlAMFAQcEAAE1Ai8BVgFkAi4B8QF1AU4BKAH/AYEBWAEqAf8BgQFi
+        ASwB/wGFAWoBKwH/AbkBjgGBAf8B9AHxAe8B/wLpAeoB/wHNAa4BkQH/AbQBgQE5Af8BsQGBAS8B/wHM
+        AZgBgQH/AfQB8QHvAf8B6QLqAf8BvwGnAZAB/wGQAXsBQgH/AY8BgQFKAf8BgQFiATUB/wGBAWgBQAH/
+        AWgBSAEqAf8BTgI2AZQDBQEHBAABNQIvAVYBZAIuAfEBdAFOASgB/wGBAVgBKgH/AYEBYgEsAf8BhQFq
+        ASwB/wG7AZIBgQH/AfcB9QHyAf8D/AH/A/kB/wPzAf8D7QH/A+cB/wPhAf8C3QHeAf8BwAGpAZMB/wGU
+        AYEBRgH/AZABgQFKAf8BgQFiATQB/wGBAWkBQQH/AWoBSQErAf8BTgI2AZQDBQEHAUUCNQF8AU0CHQH6
+        A2YB/wGDAYQBggH/AaoBrAGpAf8BkgGUAZEB/wFTAVQBUwH/AW0BcAFtAf8DgQH/AaQBqAGkAf8DgQH/
+        AXsBgQF6Af8DgQH/A4EB/wJzAXIB/wNpAf8BVgI2AbEDEQEXAxABFgMVAR0DFAEcAxQBHAMUARwDEwEa
+        BAABNwIxAVsBXwIlAfMBcwFMASgB/wGBAVYBKQH/AYEBXwErAf8BgQFnASwB/wGPAXQBNQH/AckBqQGN
+        Af8C+AH5Af8D+wH/A/gB/wPyAf8D6wH/A+UB/wPeAf8D3QH/Ac8BxgG9Af8BjwGBAVcB/wGBAWABMgH/
+        AYEBXgE4Af8BaAFIASoB/wFRAjYBnAMHAQkEAAE3AjEBWwFfAiUB8wFzAUwBKAH/AYEBVgEpAf8BgQFf
+        ASsB/wGBAWYBKgH/AbIBiQGBAf8B9AHyAe8B/wLvAfAB/wHKAa0BkgH/AagBgQE4Af8BpQF7AS4B/wHD
+        AZIBgQH/AfUB8gHwAf8B7wLwAf8BvgGnAZEB/wGEAXABOAH/AYUBdQFCAf8BgQFgATMB/wGBAV4BOAH/
+        AWgBSAEqAf8BUQI2AZwDBwEJBAABNwIwAVoBXwIlAfMBcgFMASgB/wGBAVYBKQH/AYEBXwErAf8BgQFm
+        ASsB/wGzAYwBgQH/AfAB7wHsAf8D+AH/A/sB/wP5Af8D8wH/A+0B/wPnAf8B4ALhAf8BvAGmAZIB/wGG
+        AXIBPAH/AYYBdgFDAf8BgQFgATMB/wGBAV8BOAH/AWkBSQErAf8BUQI2AZwDBwEJAT8CMwFsAW4CJAH3
+        A2MB/wOBAf8BrQGvAawB/wGeAaABnQH/AWwBbQFrAf8BZgFpAWYB/wOBAf8BsAGzAbAB/wOBAf8DgQH/
+        AYUBiAGEAf8DgQH/A28B/wNwAf8BUwI2AagDDgETAwsBDwMOARMDDgETAw4BEwMOARMDDQESBAABMwIu
+        AVEBWgIrAe8BbwFKAScB/wGBAVMBKQH/AYEBWwErAf8BgQFjASwB/wGGAW8BNQH/AcIBpQGKAf8B9AL1
+        Af8D+QH/A/sB/wP1Af8D7gH/A+gB/wHgAuEB/wHJAb4BtQH/AZcBgQFzAf8BgQFqAToB/wGBAVsBMAH/
+        AXsBVAEvAf8BYwFFASgB/wFMAjYBkwMFAQcEAAEzAi4BUQFaAisB7wFvAUoBJwH/AYEBUwEpAf8BgQFb
+        ASsB/wGBAWEBKgH/AakBgwGBAf8B8QHwAe0B/wL0AfUB/wHJAa4BlAH/AZ0BewE3Af8BmQF0AS0B/wG5
+        AYwBgQH/AfIB8AHtAf8C9AH1Af8BvwGpAZUB/wGBAWkBNgH/AYEBaAE3Af8BgQFbATAB/wF7AVQBLwH/
+        AWMBRQEoAf8BTAI2AZMDBQEHBAABMgItAVABWgIrAe8BbgFKASgB/wGBAVMBKQH/AYEBWwErAf8BgQFi
+        ASoB/wGrAYcBgQH/AeoB6AHmAf8D8gH/A/gB/wP8Af8D+AH/A/EB/wPrAf8D5QH/AbwBqAGUAf8BgQFs
+        ATgB/wGBAWkBOAH/AYEBWwEwAf8BewFUAS8B/wFkAUYBKQH/AUwCNgGTAwUBBwEqAigBQQFiAjIB6QNZ
+        Af8DgQH/AakBqgGoAf8BqgGsAakB/wGPAZEBjgH/AWgBaQFoAf8BZgFoAWYB/wFyAXUBcgH/A4EB/wGK
+        AYwBiQH/AZUBlwGUAf8DgQH/AWYBZwFmAf8DeAH/AUoCNgGKAwcBChwAASYCJAE5AV8CNwHgAWkBRwEn
+        Af8BeQFQASgB/wGBAVgBKwH/AYEBYgEvAf8BhAFyATwB/wHBAaUBigH/AfIB8AHuAf8B+AH0AfEB/wH8
+        AfkB9QH/AfkB9QHyAf8B8QHtAekB/wHfAdQBygH/AboBngGEAf8BkwGBAVsB/wGBAWQBMgH/AYEBXgEw
+        Af8BgQFUASsB/wFvAUsBKQH/AV0BQQEnAf8BQgI1AXQDAQECBAABJgIkATkBXwI3AeABaQFHAScB/wF5
+        AVABKAH/AYEBWAErAf8BgQFhAS0B/wGnAYMBgQH/Ae8B6gHmAf8B+AH2AfMB/wHOAbMBmwH/AZ4BgQFI
+        Af8BmwGBAT4B/wG4AY8BgQH/AfAB6wHmAf8B+AH2AfQB/wHBAawBmAH/AYEBZwE3Af8BgQFeATAB/wGB
+        AVQBKwH/AW8BSwEpAf8BXQFBAScB/wFCAjUBdAMBAQIEAAEmAiQBOAFfAjcB4AFoAUcBJwH/AXgBTwEp
+        Af8BgQFYASsB/wGBAWEBLgH/AacBhQGBAf8B5QHiAd0B/wHvAewB6QH/AfQB8QHuAf8B+gH2AfMB/wH8
+        AfkB9QH/AfcB9AHxAf8B8QHuAesB/wHrAekB5gH/Ab8BqwGYAf8BgQFqAToB/wGBAV4BMAH/AYEBVAEs
+        Af8BbwFLASkB/wFeAUEBJwH/AUICNQF0AwEBAgMOARMBWAI1AbwBYgJBAf4BcgFzAXIB/wGIAYkBhwH/
+        Aa4BrwGtAf8BqgGsAakB/wGZAZsBmAH/AYUBhwGEAf8BigGMAYkB/wGYAZoBlwH/AZsBnQGbAf8BigGM
+        AYoB/wOBAf8DagH/AWYCJgH0ATICLQFQAwEBAhwAARYCFQEeAVkCNQHCAWMBRAEmAf8BdgFPASsB/wGB
+        AWUBOgH/AYEBdgFGAf8BkQGBAVMB/wHGAaoBkAH/AfIB7AHmAf8B9gHvAekB/wH8AfUB7gH/AfcB7gHl
+        Af8B1wG/AacB/wGyAYcBgQH/AZoBgQFXAf8BjwGBAU4B/wGBAXMBRAH/AYEBYAE2Af8BdgFPASoB/wFm
+        AUYBJgH/AU0CHAH6ASwCKQFDCAABFgIVAR4BWQI1AcIBYwFEASYB/wF2AU8BKwH/AYEBZQE6Af8BgQF1
+        AUUB/wGvAYwBgQH/Ae4B5gHeAf8B+wH0Ae4B/wHUAboBoQH/AaUBgQFaAf8BogGBAVIB/wG8AZYBgQH/
+        Ae4B5gHeAf8B+wH1Ae8B/wHKAbQBngH/AYIBeAFKAf8BgQFgATYB/wF2AU8BKgH/AWYBRgEmAf8BTQIc
+        AfoBLAIpAUMIAAEWAhUBHgFZAjUBwgFiAUQBJwH/AXUBTwErAf8BgQFlAToB/wGBAXYBRgH/AbEBjwGB
+        Af8B5QHeAdUB/wHtAecB4AH/AfIB6wHlAf8B+AHwAeoB/wH8AfUB7gH/AfsB9QHuAf8B9gHvAegB/wHx
+        AesB5QH/AckBswGeAf8BhAF6AU0B/wGBAWABNgH/AXYBTwEqAf8BZwFHAScB/wFNAhwB+gEsAikBQwcA
+        AQEBPwIzAWwBWgIrAe8DUwH/A4EB/wGKAYsBigH/Aa0BrwGtAf8BsAGyAa8B/wGtAa8BrAH/AaoBrAGp
+        Af8BpAGmAaMB/wGLAY0BiwH/A4EB/wNpAf8BRwJAAf0BVAI1Aa8DEAEWIAADBAEFAUgCNgGEAVsBQAEm
+        Af8BgQFiAT8B/wGDAYEBVQH/AY8BgQFbAf8BmgGBAWMB/wHKAa4BkwH/AfIB6QHfAf8B9gHsAeEB/wHt
+        AdsBygH/AcUBngGBAf8BqQGBAWoB/wGiAYEBYQH/AZ4BgQFfAf8BlwGBAV0B/wGQAYEBWwH/AYMBgQFU
+        Af8BgQFbATgB/wFgAUMBJwH/AVsCNgHLAwsBDwgAAwQBBQFIAjYBhAFbAUABJgH/AYEBYgE/Af8BgwGB
+        AVUB/wGPAYEBWgH/AawBhgGBAf8B4QHQAb8B/wHyAeMB1QH/AcsBqgGKAf8BqAGBAWYB/wGnAYEBYgH/
+        AbgBjgGBAf8B4gHRAcAB/wHxAeMB1gH/AcMBpAGHAf8BkQGBAV4B/wGDAYEBVAH/AYEBWwE4Af8BYAFD
+        AScB/wFbAjYBywMLAQ8IAAMEAQUBSAI2AYQBWwFAASYB/wGBAWEBPwH/AYMBgQFXAf8BjwGBAVsB/wGt
         AYgBgQH/AdoBygG5Af8B5AHWAcgB/wHpAdoBzAH/Ae4B3wHQAf8B8gHjAdQB/wH0AeYB1wH/AfEB4gHU
-        Af8B7AHeAdAB/wHCAaQBiAH/AZQBgQFiAf8BhAGBAVYB/wGBAVwBOQH/AWIBRQEoAf8BXQIiAcwBDQIB
-        AQ8IAAEVAgEBGwFWAhMBrQNgAf8DVgH/AXkBegF5Af8DgQH/AYgBiQGHAf8BkgGTAZIB/wGMAY0BiwH/
-        A4EB/wOBAf8DXQH/A3MB/wFhAicB1gEjAgEBMSgAASACAQEsAV8CKgHdAYEBdQFUAf8BkAGBAWYB/wGZ
-        AYEBagH/AaIBgQFwAf8BxAGjAYMB/wHnAdQBwgH/AdYBuQGcAf8BvAGRAYEB/wGvAYEBdAH/Aa0BgQFz
-        Af8BqwGBAXEB/wGnAYEBbwH/AaEBgQFtAf8BmgGBAWsB/wGSAYEBZwH/AYEBdQFSAf8BXwIkAfABNQIC
-        AVMQAAEgAgEBLAFfAioB3QGBAXUBVAH/AZABgQFmAf8BmQGBAWoB/wGiAYEBbwH/Aa4BggGBAf8BtAGI
-        AYEB/wGxAYEBeAH/Aa8BgQFzAf8BrwGBAXMB/wGvAYEBdQH/AbIBhQGBAf8BsQGFAYEB/wGlAYEBcwH/
-        AZoBgQFrAf8BkgGBAWcB/wGBAXUBUgH/AV8CJAHwATUCAgFTEAABIAIBASwBYQIrAd4BgQF2AVUB/wGR
-        AYEBaAH/AZoBgQFrAf8BowGBAXEB/wGuAYIBgQH/AbMBhwGBAf8BtgGJAYEB/wG4AYsBgQH/AbkBiwGB
-        Af8BuAGLAYEB/wG2AYoBgQH/AbEBhgGBAf8BpgGBAXUB/wGcAYEBbAH/AZQBgQFoAf8BgQF1AVMB/wFf
-        AiQB8AE1AgIBUwwAAQMCAQECASMCAQExAVcCFgG0AWECIQHzA1oB/wNmAf8BcAFxAXAB/wF0AXUBdAH/
-        AXMBdAFzAf8DbgH/A2cB/wFDAioB/AFbAiMBzQE1AgIBUwECAwEoAAEDAgEBAwE4AgIBWgFnAikB7QGY
-        AYEBcgH/AaQBgQF4Af8BqwGBAXwB/wG2AYsBgQH/AcEBmAGBAf8BvAGOAYEB/wG5AYoBgQH/AbkBigGB
-        Af8BuAGJAYEB/wG2AYcBgQH/AbEBhAGBAf8BrAGBAXsB/wGlAYEBeQH/AZ4BgQF1Af8BawIdAfkBTwIL
-        AZgBBwIBAQgQAAEDAgEBAwE4AgIBWgFnAikB7QGYAYEBcgH/AaQBgQF4Af8BqwGBAXsB/wGxAYMBgQH/
-        AbUBhgGBAf8BuAGJAYEB/wG5AYoBgQH/AbkBigGBAf8BuAGJAYEB/wG2AYYBgQH/AbEBgwGBAf8BrAGB
-        AXsB/wGlAYEBeQH/AZ4BgQF1Af8BawIdAfkBTwILAZgBBwIBAQgQAAEDAgEBAwE4AgIBWgFjAikB7gGZ
-        AYEBcwH/AaUBgQF5Af8BrAGBAXwB/wGyAYQBgQH/AbYBhwGBAf8BuQGJAYEB/wG7AYsBgQH/AbsBiwGB
-        Af8BuQGKAYEB/wG3AYgBgQH/AbMBhAGBAf8BrQGBAXwB/wGnAYEBegH/AZ8BgQF2Af8BcgIcAfoBTwIL
-        AZgBBwIBAQgQAAEDAgEBAgEZAgEBIAFHAgUBfgFfAiUB0gFrAh0B+QFrAkEB/gNoAf8DawH/AWACHwH7
-        AWECKwHjAVICDgGgASoCAQE+AQcCAQEINAABRgIFAXwBbAIiAfUBsQGHAYEB/wG3AYwBgQH/Ab0BkQGB
-        Af8BwQGUAYEB/wHEAZcBgQH/AcYBmAGBAf8BxgGYAYEB/wHFAZcBgQH/AcIBlQGBAf8BvgGRAYEB/wG4
-        AY0BgQH/AbIBiAGBAf8BnwGBAXoB/wFaAhwBvgEZAgEBIRwAAUYCBQF8AWwCIgH1AbEBhwGBAf8BtwGM
-        AYEB/wG9AZEBgQH/AcIBlAGBAf8BxAGXAYEB/wHGAZgBgQH/AcYBmAGBAf8BxQGXAYEB/wHCAZUBgQH/
-        Ab4BkQGBAf8BuAGNAYEB/wGyAYgBgQH/AZ8BgQF6Af8BWgIcAb4BGQIBASEcAAFGAgUBfQFkAiAB9gGx
-        AYgBgQH/AbgBjQGBAf8BvgGSAYEB/wHDAZUBgQH/AcYBmAGBAf8ByAGZAYEB/wHIAZkBgQH/AcYBmAGB
-        Af8BwwGWAYEB/wG/AZIBgQH/AbkBjgGBAf8BswGJAYEB/wGhAYEBewH/AVsCHAG/ARkCAQEhHAABAwIB
-        AQMBGgIBASIBPAIDAWMBTwIKAZUBVQISAaoBUgIOAaIBQwIEAXYBJQIBATUBBQIBAQU8AAEOAgEBEQFF
-        AgUBewFjAioB5AG2Aj8B/QHJAZ0BgQH/AdABowGBAf8B1AGmAYEB/wHWAagBgQH/AdUBqAGBAf8B0wGm
-        AYEB/wHRAaMBgQH/AcsBngGBAf8BvgGUAYEB/wFuAicB8QFWAhMBrwEgAgEBLAECAwEcAAEOAgEBEQFF
-        AgUBewFjAioB5AG2Aj8B/QHJAZ0BgQH/AdABowGBAf8B1AGmAYEB/wHWAagBgQH/AdUBqAGBAf8B0wGm
-        AYEB/wHRAaMBgQH/AcsBngGBAf8BvgGUAYEB/wFuAicB8QFWAhMBrwEgAgEBLAECAwEcAAEOAgEBEQFG
-        AgUBfAFnAisB5QGGAX8BaQH+AcoBngGBAf8B0QGkAYEB/wHVAacBgQH/AdcBqQGBAf8B1wGpAYEB/wHV
-        AacBgQH/AdIBpQGBAf8BzQGgAYEB/wG/AZUBgQH/AW4CJwHxAVYCFAGwASACAQEsAQIDASgAAQUCAQEF
-        AQgCAQEJAQcCAQEIAQMCAQECSAABCgIBAQsBLQIBAUQBVAIRAagBaQIqAesBkgF/AXkB/gHeAbABgwH/
-        AeUBtgGIAf8B5QG3AYkB/wHeAbEBhAH/AdABpAGBAf8BawEfAR0B+QFcAiIByAE/AgMBagESAgEBFigA
-        AQoCAQELAS0CAQFEAVQCEQGoAWkCKgHrAZIBfwF5Af4B3gGwAYMB/wHlAbYBiAH/AeUBtwGJAf8B3gGx
-        AYQB/wHQAaQBgQH/AWsBHwEdAfkBXAIiAcgBPwIDAWoBEgIBARYoAAEKAgEBCwEuAgEBRQFVAhIBqgFl
-        AioB7AGSAX8BeQH+Ad4BsAGEAf8B5gG3AYkB/wHnAbgBigH/Ad8BsgGEAf8B0QGlAYEB/wFrAR8BHQH5
-        AV4CIQHJAT8CAwFqARICAQEXkAABBwIBAQcBKgIBAT0BTwILAZgBYAIpAdgBZAIgAfYBZgElAR8B+wFl
-        AisB5wFXAhUBswE5AgIBXAEPAgEBEjgAAQcCAQEHASoCAQE9AU8CCwGYAWACKQHYAWQCIAH2AWYBJQEf
-        AfsBZQIrAecBVwIVAbMBOQICAVwBDwIBARI4AAEGAgEBBgEpAgEBPAFPAgsBmAFgAiYB2QFsAiIB9QFl
-        ASMBHwH7AWUCKwHnAVcCFgG0ATkCAgFcAQ4CAQERfAABQgFNAT4HAAE+AwABKAMAAWADAAEwAwABAQEA
-        AQEFAAFAAQIWAAP/BAABgAIAAYABAAEBBgABgAIAAYABAAEBAwAB/wH8AQAB/wGBAv8BgQH/AwAB/AEY
-        AQAB/AEAAT8B/AEAAT8DAAHwAgAB+AEAAR8B+AEAAQ8DAAHgAgAB8AEAAQ8B8AEAAQcDAAGAAgAB4AEA
-        AQcB4AEAAQcDAAGAAgABwAEAAQMBwAEAAQMDAAGAAgABwAEAAQMBwAEAAQMGAAGAAQABAQGAAQABAQYA
-        AYABAAEBAYABAAEBBgABgAIAAYAHAAEBAYACAAGABwABPwGAAgABgAcAAT8BgAIAAYAHAAE/AYACAAGA
-        BwABfwGAAQABAQGAAQABAQMAAYABAAH/AYABAAEBAYABAAEBAwABgAEAAf8BwAEAAQMBwAEAAQMDAAHA
-        AQEB/wHAAQABAwHAAQABAwMAAfABBwH/AfABAAEHAeABAAEHAwAB/gEfAf8B8AEAAQcB8AEAAQ8DAAP/
-        AfgBAAEfAfgBAAEfAwAD/wH+AQABfwH+AQABfwMAAYACAAGAAgABgAQAAcABgAIAAYACAAGABAABwAH/
-        AYEC/wGBAv8BgQT/AfwBAAE/AfwBAAE/AfwBAAE/AfwBHwGAAfgBAAEfAfgBAAEfAfgBAAEfAfABBwGA
-        AfABAAEPAfABAAEPAfABAAEPAeABAQHAAeABAAEHAeABAAEHAeABAAEHAYABAAH/AcABAAEDAcABAAED
-        AcABAAEDAYABAAGAAcABAAEDAcABAAEDAcABAAEDAYACAAGAAQABAQGAAQABAQGAAQABAQMAAYABAAEB
-        AYABAAEBAYABAAEBAgABPwGAAgABgAIAAYAEAAE/AYACAAGAAgABgAUAAYACAAGAAgABgAUAAYACAAGA
-        AgABgAQAAT8BgAIAAYACAAGABAABPwGAAQABAQGAAQABAQGAAQABAQIAAX8BgAEAAQEBgAEAAQEBgAEA
-        AQEBgAEAAf8BwAEAAQMBwAEAAQMBwAEAAQMBgAEAAf8BwAEAAQMBwAEAAQMBwAEAAQMBwAEBAf8B8AEA
-        AQcB8AEAAQcB8AEAAQcB8AEHAf8B8AEAAQcB8AEAAQcB8AEAAQcB/gEfAf8B+AEAAR8B+AEAAR8B+AEA
-        AR8D/wH+AQABfwH+AQABfwH+AQABfwP/FgAL
+        Af8B7AHeAdAB/wHCAaQBiAH/AZQBgQFhAf8BhAGBAVUB/wGBAVsBOAH/AWEBRAEnAf8BXAI2AcwDCwEP
+        CAADFAEbAVUCNgGtA18B/wNVAf8BeAF5AXgB/wOBAf8BiAGJAYcB/wGSAZMBkgH/AYwBjQGLAf8DgQH/
+        A4EB/wNcAf8DcgH/AWACOAHWASICIAExKAABHwIeASwBXgI3Ad0BgQF0AVMB/wGQAYEBZQH/AZkBgQFp
+        Af8BogGBAW8B/wHEAaMBgwH/AecB1AHCAf8B1gG5AZwB/wG8AZEBgQH/Aa8BgQFzAf8BrQGBAXIB/wGr
+        AYEBcAH/AacBgQFuAf8BoQGBAWwB/wGaAYEBagH/AZIBgQFmAf8BgQF0AVEB/wFdAisB8AEzAi4BUxAA
+        AR8CHgEsAV4CNwHdAYEBdAFTAf8BkAGBAWUB/wGZAYEBaQH/AaIBgQFuAf8BrgGCAYEB/wG0AYgBgQH/
+        AbEBgQF3Af8BrwGBAXIB/wGvAYEBcgH/Aa8BgQF0Af8BsgGFAYEB/wGxAYUBgQH/AaUBgQFyAf8BmgGB
+        AWoB/wGSAYEBZgH/AYEBdAFRAf8BXQIrAfABMwIuAVMQAAEfAh4BLAFgAjcB3gGBAXUBVAH/AZEBgQFn
+        Af8BmgGBAWoB/wGjAYEBcAH/Aa4BggGBAf8BswGHAYEB/wG2AYkBgQH/AbgBiwGBAf8BuQGLAYEB/wG4
+        AYsBgQH/AbYBigGBAf8BsQGGAYEB/wGmAYEBdAH/AZwBgQFrAf8BlAGBAWcB/wGBAXQBUgH/AV0CKwHw
+        ATMCLgFTDAADAQECASICIAExAVYCNgG0AV8CJQHzA1kB/wNlAf8BbwFwAW8B/wFzAXQBcwH/AXIBcwFy
+        Af8DbQH/A2YB/wFBAisB/AFaAjYBzQEzAi4BUwMAAQEoAAMCAQMBNwIwAVoBZgIwAe0BmAGBAXEB/wGk
+        AYEBdwH/AasBgQF7Af8BtgGLAYEB/wHBAZgBgQH/AbwBjgGBAf8BuQGKAYEB/wG5AYoBgQH/AbgBiQGB
+        Af8BtgGHAYEB/wGxAYQBgQH/AawBgQF6Af8BpQGBAXgB/wGeAYEBdAH/AWoCHwH5AU4CNgGYAwYBCBAA
+        AwIBAwE3AjABWgFmAjAB7QGYAYEBcQH/AaQBgQF3Af8BqwGBAXoB/wGxAYMBgQH/AbUBhgGBAf8BuAGJ
+        AYEB/wG5AYoBgQH/AbkBigGBAf8BuAGJAYEB/wG2AYYBgQH/AbEBgwGBAf8BrAGBAXoB/wGlAYEBeAH/
+        AZ4BgQF0Af8BagIfAfkBTgI2AZgDBgEIEAADAgEDATcCMAFaAWECLwHuAZkBgQFyAf8BpQGBAXgB/wGs
+        AYEBewH/AbIBhAGBAf8BtgGHAYEB/wG5AYkBgQH/AbsBiwGBAf8BuwGLAYEB/wG5AYoBgQH/AbcBiAGB
+        Af8BswGEAYEB/wGtAYEBewH/AacBgQF5Af8BnwGBAXUB/wFxAh0B+gFOAjYBmAMGAQgQAAMBAQIDFwEg
+        AUYCNQF+AV0CNgHSAWoCHwH5AWsCQQH+A2cB/wNqAf8BXwIhAfsBXwI1AeMBUQI3AaABKQImAT4DBgEI
+        NAABRQI1AXwBawInAfUBsQGHAYEB/wG3AYwBgQH/Ab0BkQGBAf8BwQGUAYEB/wHEAZcBgQH/AcYBmAGB
+        Af8BxgGYAYEB/wHFAZcBgQH/AcIBlQGBAf8BvgGRAYEB/wG4AY0BgQH/AbIBiAGBAf8BnwGBAXkB/wFZ
+        AjcBvgEYAhcBIRwAAUUCNQF8AWsCJwH1AbEBhwGBAf8BtwGMAYEB/wG9AZEBgQH/AcIBlAGBAf8BxAGX
+        AYEB/wHGAZgBgQH/AcYBmAGBAf8BxQGXAYEB/wHCAZUBgQH/Ab4BkQGBAf8BuAGNAYEB/wGyAYgBgQH/
+        AZ8BgQF5Af8BWQI3Ab4BGAIXASEcAAFFAjUBfQFiAiQB9gGxAYgBgQH/AbgBjQGBAf8BvgGSAYEB/wHD
+        AZUBgQH/AcYBmAGBAf8ByAGZAYEB/wHIAZkBgQH/AcYBmAGBAf8BwwGWAYEB/wG/AZIBgQH/AbkBjgGB
+        Af8BswGJAYEB/wGhAYEBegH/AVkCNwG/ARgCFwEhHAADAgEDAxgBIgE7AjIBYwFOAjYBlQFUAjYBqgFR
+        AjYBogFCAjUBdgEkAiIBNQMEAQU8AAMNAREBRAI1AXsBYgI1AeQBtQJAAf0ByQGdAYEB/wHQAaMBgQH/
+        AdQBpgGBAf8B1gGoAYEB/wHVAagBgQH/AdMBpgGBAf8B0QGjAYEB/wHLAZ4BgQH/Ab4BlAGBAf8BbQIu
+        AfEBVAI1Aa8BHwIeASwDAAEBHAADDQERAUQCNQF7AWICNQHkAbUCQAH9AckBnQGBAf8B0AGjAYEB/wHU
+        AaYBgQH/AdYBqAGBAf8B1QGoAYEB/wHTAaYBgQH/AdEBowGBAf8BywGeAYEB/wG+AZQBgQH/AW0CLgHx
+        AVQCNQGvAR8CHgEsAwABARwAAw0BEQFFAjUBfAFlAjYB5QGEAX8BaQH+AcoBngGBAf8B0QGkAYEB/wHV
+        AacBgQH/AdcBqQGBAf8B1wGpAYEB/wHVAacBgQH/AdIBpQGBAf8BzQGgAYEB/wG/AZUBgQH/AW0CLgHx
+        AVUCNgGwAR8CHgEsAwABASgAAwQBBQMHAQkDBgEIAwEBAkgAAwgBCwEsAikBRAFTAjYBqAFoAjMB6wGQ
+        AX8BeQH+Ad4BsAGDAf8B5QG2AYgB/wHlAbcBiQH/Ad4BsQGEAf8B0AGkAYEB/wFqASEBHwH5AVsCOQHI
+        AT4CMwFqAxABFigAAwgBCwEsAikBRAFTAjYBqAFoAjMB6wGQAX8BeQH+Ad4BsAGDAf8B5QG2AYgB/wHl
+        AbcBiQH/Ad4BsQGEAf8B0AGkAYEB/wFqASEBHwH5AVsCOQHIAT4CMwFqAxABFigAAwgBCwEtAikBRQFU
+        AjYBqgFkAjIB7AGQAX8BeQH+Ad4BsAGEAf8B5gG3AYkB/wHnAbgBigH/Ad8BsgGEAf8B0QGlAYEB/wFq
+        ASEBHwH5AVwCNgHJAT4CMwFqAxEBF5AAAwUBBwEoAiYBPQFOAjYBmAFeAjgB2AFiAiQB9gFkASUBIQH7
+        AWQCNQHnAVYCNgGzATgCMQFcAw0BEjgAAwUBBwEoAiYBPQFOAjYBmAFeAjgB2AFiAiQB9gFkASUBIQH7
+        AWQCNQHnAVYCNgGzATgCMQFcAw0BEjgAAwQBBgEoAiUBPAFOAjYBmAFfAjQB2QFrAicB9QFjASMBIQH7
+        AWQCNQHnAVYCNgG0ATgCMQFcAw0BEXwAAUIBTQE+BwABPgMAASgDAAFgAwABMAMAAQEBAAEBBQABQAEC
+        FgAD/wQAAYACAAGAAQABAQYAAYACAAGAAQABAQMAAf8B/AEAAf8BgQL/AYEB/wMAAfwBGAEAAfwBAAE/
+        AfwBAAE/AwAB8AIAAfgBAAEfAfgBAAEPAwAB4AIAAfABAAEPAfABAAEHAwABgAIAAeABAAEHAeABAAEH
+        AwABgAIAAcABAAEDAcABAAEDAwABgAIAAcABAAEDAcABAAEDBgABgAEAAQEBgAEAAQEGAAGAAQABAQGA
+        AQABAQYAAYACAAGABwABAQGAAgABgAcAAT8BgAIAAYAHAAE/AYACAAGABwABPwGAAgABgAcAAX8BgAEA
+        AQEBgAEAAQEDAAGAAQAB/wGAAQABAQGAAQABAQMAAYABAAH/AcABAAEDAcABAAEDAwABwAEBAf8BwAEA
+        AQMBwAEAAQMDAAHwAQcB/wHwAQABBwHgAQABBwMAAf4BHwH/AfABAAEHAfABAAEPAwAD/wH4AQABHwH4
+        AQABHwMAA/8B/gEAAX8B/gEAAX8DAAGAAgABgAIAAYAEAAHAAYACAAGAAgABgAQAAcAB/wGBAv8BgQL/
+        AYEE/wH8AQABPwH8AQABPwH8AQABPwH8AR8BgAH4AQABHwH4AQABHwH4AQABHwHwAQcBgAHwAQABDwHw
+        AQABDwHwAQABDwHgAQEBwAHgAQABBwHgAQABBwHgAQABBwGAAQAB/wHAAQABAwHAAQABAwHAAQABAwGA
+        AQABgAHAAQABAwHAAQABAwHAAQABAwGAAgABgAEAAQEBgAEAAQEBgAEAAQEDAAGAAQABAQGAAQABAQGA
+        AQABAQIAAT8BgAIAAYACAAGABAABPwGAAgABgAIAAYAFAAGAAgABgAIAAYAFAAGAAgABgAIAAYAEAAE/
+        AYACAAGAAgABgAQAAT8BgAEAAQEBgAEAAQEBgAEAAQECAAF/AYABAAEBAYABAAEBAYABAAEBAYABAAH/
+        AcABAAEDAcABAAEDAcABAAEDAYABAAH/AcABAAEDAcABAAEDAcABAAEDAcABAQH/AfABAAEHAfABAAEH
+        AfABAAEHAfABBwH/AfABAAEHAfABAAEHAfABAAEHAf4BHwH/AfgBAAEfAfgBAAEfAfgBAAEfA/8B/gEA
+        AX8B/gEAAX8B/gEAAX8D/ws=
 </value>
   </data>
-  <data name="&gt;&gt;menuItem18.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_pause.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;menuItem7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btn_pause.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 26</value>
   </data>
-  <data name="MI_Zoom200.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>Ctrl3</value>
+  <data name="btn_pause.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;MI_Zoom50.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btn_pause.Name" xml:space="preserve">
+    <value>btn_pause</value>
   </data>
-  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btn_pause.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_inspeed.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;btn_pause.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="&gt;&gt;MI_OpenDVD.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btn_pause.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>555, 63</value>
+  <metadata name="contextMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>121, 17</value>
+  </metadata>
+  <data name="BigScreen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="BigScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 118</value>
+  </data>
+  <data name="BigScreen.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;BigScreen.Name" xml:space="preserve">
+    <value>BigScreen</value>
+  </data>
+  <data name="&gt;&gt;BigScreen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BigScreen.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;BigScreen.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 31</value>
+  </data>
+  <data name="txtStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="txtStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;txtStatus.Name" xml:space="preserve">
+    <value>txtStatus</value>
   </data>
   <data name="&gt;&gt;txtStatus.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MI_Contrast.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtStatus.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="&gt;&gt;menuItem12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="menuItem23.Text" xml:space="preserve">
-    <value>Unicode (Unicode)</value>
+  <data name="btn_inspeed.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="MI_Fullscreen.Text" xml:space="preserve">
-    <value>Fullscreen</value>
+  <data name="btn_inspeed.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_inspeed.ImageIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btn_inspeed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 0</value>
+  </data>
+  <data name="btn_inspeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 26</value>
+  </data>
+  <data name="btn_inspeed.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btn_inspeed.Name" xml:space="preserve">
+    <value>btn_inspeed</value>
+  </data>
+  <data name="&gt;&gt;btn_inspeed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_inspeed.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btn_inspeed.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_despeed.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btn_despeed.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_despeed.ImageIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btn_despeed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 0</value>
+  </data>
+  <data name="btn_despeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 26</value>
+  </data>
+  <data name="btn_despeed.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btn_despeed.Name" xml:space="preserve">
+    <value>btn_despeed</value>
+  </data>
+  <data name="&gt;&gt;btn_despeed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_despeed.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btn_despeed.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btn_mute.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_mute.ImageIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btn_mute.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 3</value>
+  </data>
+  <data name="btn_mute.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 26</value>
+  </data>
+  <data name="btn_mute.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btn_mute.Name" xml:space="preserve">
+    <value>btn_mute</value>
+  </data>
+  <data name="&gt;&gt;btn_mute.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_mute.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;btn_mute.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="MI_SubPosUp.Text" xml:space="preserve">
-    <value>Move up</value>
+  <data name="VolumeBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>452, 3</value>
   </data>
-  <data name="&gt;&gt;MI_TopMost.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="VolumeBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 45</value>
   </data>
-  <data name="&gt;&gt;MI_FixSize.Name" xml:space="preserve">
-    <value>MI_FixSize</value>
+  <data name="VolumeBar.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;VolumeBar.Name" xml:space="preserve">
+    <value>VolumeBar</value>
+  </data>
+  <data name="&gt;&gt;VolumeBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VolumeBar.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;VolumeBar.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="MI_BrightnessLess.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlE</value>
+  <data name="btn_stop.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;MI_Screenshot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btn_stop.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="&gt;&gt;MI_ToTradChinese.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btn_stop.ImageIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btn_stop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 0</value>
+  </data>
+  <data name="btn_stop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 26</value>
+  </data>
+  <data name="btn_stop.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btn_stop.Name" xml:space="preserve">
+    <value>btn_stop</value>
+  </data>
+  <data name="&gt;&gt;btn_stop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_stop.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btn_stop.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="MovieBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 14</value>
+  </data>
+  <data name="MovieBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 14</value>
+  </data>
+  <data name="MovieBar.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;MovieBar.Name" xml:space="preserve">
+    <value>MovieBar</value>
+  </data>
+  <data name="&gt;&gt;MovieBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MovieBar.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;MovieBar.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txtShortcut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 14</value>
+  </data>
+  <data name="txtShortcut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 13</value>
+  </data>
+  <data name="txtShortcut.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtShortcut.Name" xml:space="preserve">
+    <value>txtShortcut</value>
+  </data>
+  <data name="&gt;&gt;txtShortcut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtShortcut.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;txtShortcut.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 259</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>555, 54</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="MainPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, -3</value>
+  </data>
+  <data name="MainPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 163</value>
+  </data>
+  <data name="MainPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Name" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="mainMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>240, 17</value>
+  </metadata>
+  <data name="MI_OpenFile.Text" xml:space="preserve">
+    <value>&amp;Open file</value>
+  </data>
+  <data name="MI_OpenDVD.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="MI_OpenDVD.Text" xml:space="preserve">
+    <value>Open DVD...</value>
+  </data>
+  <data name="MI_OpenURL.Text" xml:space="preserve">
+    <value>Open URL</value>
+  </data>
+  <data name="menuItem6.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="MI_LastOpen.Text" xml:space="preserve">
+    <value>Open Last File</value>
+  </data>
+  <data name="menuItem4.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="MI_Exit.Text" xml:space="preserve">
+    <value>&amp;Exit</value>
+  </data>
+  <data name="MI_File.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="MI_ShowPlaylist.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlL</value>
+  </data>
+  <data name="MI_ShowPlaylist.Text" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="MI_TopMost.Text" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="MI_Fullscreen.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>F11</value>
+  </data>
+  <data name="MI_Fullscreen.Text" xml:space="preserve">
+    <value>Fullscreen</value>
+  </data>
+  <data name="MI_Play.Text" xml:space="preserve">
+    <value>&amp;Play</value>
+  </data>
+  <data name="MI_Zoom50.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>Ctrl1</value>
   </data>
   <data name="MI_Zoom50.Text" xml:space="preserve">
     <value>50%</value>
   </data>
-  <data name="splitter1.Visible" type="System.Boolean, mscorlib">
+  <data name="MI_Zoom100.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>Ctrl2</value>
+  </data>
+  <data name="MI_Zoom100.Text" xml:space="preserve">
+    <value>100%</value>
+  </data>
+  <data name="MI_Zoom200.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>Ctrl3</value>
+  </data>
+  <data name="MI_Zoom200.Text" xml:space="preserve">
+    <value>200%</value>
+  </data>
+  <data name="menuItem1.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="MI_FixSize.Text" xml:space="preserve">
+    <value>Fix Scale</value>
+  </data>
+  <data name="MI_Zoom.Text" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="menuItem2.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="MI_BrightnessLess.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlE</value>
+  </data>
+  <data name="MI_BrightnessLess.Text" xml:space="preserve">
+    <value>Brightness -</value>
+  </data>
+  <data name="MI_BrightnessMore.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlR</value>
+  </data>
+  <data name="MI_BrightnessMore.Text" xml:space="preserve">
+    <value>Brightness +</value>
+  </data>
+  <data name="MI_Brightness.Text" xml:space="preserve">
+    <value>Brightness</value>
+  </data>
+  <data name="MI_ContrastLess.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlD</value>
+  </data>
+  <data name="MI_ContrastLess.Text" xml:space="preserve">
+    <value>Contrast -</value>
+  </data>
+  <data name="MI_ContrastMore.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlF</value>
+  </data>
+  <data name="MI_ContrastMore.Text" xml:space="preserve">
+    <value>Contrast +</value>
+  </data>
+  <data name="MI_Contrast.Text" xml:space="preserve">
+    <value>Contrast</value>
+  </data>
+  <data name="MI_GammaLess.Text" xml:space="preserve">
+    <value>Gamma -</value>
+  </data>
+  <data name="MI_GammaMore.Text" xml:space="preserve">
+    <value>Gamma +</value>
+  </data>
+  <data name="MI_Gamma.Text" xml:space="preserve">
+    <value>Gamma</value>
+  </data>
+  <data name="MI_HueLess.Text" xml:space="preserve">
+    <value>Hues -</value>
+  </data>
+  <data name="MI_HueMore.Text" xml:space="preserve">
+    <value>Hues +</value>
+  </data>
+  <data name="MI_Hue.Text" xml:space="preserve">
+    <value>Hues</value>
+  </data>
+  <data name="MI_SaturationLess.Text" xml:space="preserve">
+    <value>Saturation -</value>
+  </data>
+  <data name="MI_SaturationMore.Text" xml:space="preserve">
+    <value>Saturation +</value>
+  </data>
+  <data name="MI_Saturation.Text" xml:space="preserve">
+    <value>Saturation</value>
+  </data>
+  <data name="menuItem7.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="MI_Screenshot.Text" xml:space="preserve">
+    <value>Take Screenshot</value>
+  </data>
+  <data name="MI_Video.Text" xml:space="preserve">
+    <value>&amp;Video</value>
+  </data>
+  <data name="MI_SelectAudio.Text" xml:space="preserve">
+    <value>Select Audio Channel</value>
+  </data>
+  <data name="MI_Audio.Text" xml:space="preserve">
+    <value>&amp;Audio</value>
+  </data>
+  <data name="MI_SelectSubtitle.Text" xml:space="preserve">
+    <value>Choose Subtitle</value>
+  </data>
+  <data name="MI_OpenSubFile.Text" xml:space="preserve">
+    <value>Open Subtitle</value>
+  </data>
+  <data name="menuItem9.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="menuItem18.Text" xml:space="preserve">
+    <value>BIG5 (Traditional Chinese charset)</value>
+  </data>
+  <data name="menuItem15.Text" xml:space="preserve">
+    <value>GB2312 (Simplified Chinese charset)</value>
+  </data>
+  <data name="menuItem5.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="menuItem5.Text" xml:space="preserve">
     <value>CP936 (Korean charset)</value>
   </data>
-  <data name="&gt;&gt;MI_Zoom50.Name" xml:space="preserve">
-    <value>MI_Zoom50</value>
+  <data name="menuItem21.Text" xml:space="preserve">
+    <value>SHIFT-JIS (Japanese charset)</value>
   </data>
-  <data name="&gt;&gt;MI_Video.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="menuItem25.Text" xml:space="preserve">
+    <value>CP949 (Korean charset)</value>
   </data>
-  <data name="MI_SubPosDown.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlS</value>
+  <data name="menuItem24.Text" xml:space="preserve">
+    <value>UTF-8 (UTF-8)</value>
   </data>
-  <data name="MI_Help.Text" xml:space="preserve">
-    <value>&amp;Help</value>
+  <data name="menuItem23.Text" xml:space="preserve">
+    <value>Unicode (Unicode)</value>
   </data>
-  <data name="&gt;&gt;MainPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="MI_SubEncoding.Text" xml:space="preserve">
+    <value>Subtitle Encoding</value>
   </data>
-  <data name="btn_inspeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
+  <data name="MI_ChineseNone.Text" xml:space="preserve">
+    <value>None</value>
   </data>
-  <data name="MI_EditShortcut.Text" xml:space="preserve">
-    <value>Edit shortcut</value>
+  <data name="MI_ToTradChinese.Text" xml:space="preserve">
+    <value>To Traditional Chinese</value>
   </data>
-  <data name="&gt;&gt;btn_stop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MI_ToSimpChinese.Text" xml:space="preserve">
+    <value>To Simplified Chinese</value>
   </data>
-  <data name="MI_ContrastLess.Text" xml:space="preserve">
-    <value>Contrast -</value>
-  </data>
-  <data name="&gt;&gt;menuItem5.Name" xml:space="preserve">
-    <value>menuItem5</value>
-  </data>
-  <data name="&gt;&gt;MI_HueLess.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_SubScaleUp.Text" xml:space="preserve">
-    <value>Scale +</value>
-  </data>
-  <data name="MI_FixSize.Text" xml:space="preserve">
-    <value>Fix Scale</value>
-  </data>
-  <data name="&gt;&gt;btn_inspeed.Name" xml:space="preserve">
-    <value>btn_inspeed</value>
-  </data>
-  <data name="menuItem7.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="&gt;&gt;txtStatus.Name" xml:space="preserve">
-    <value>txtStatus</value>
-  </data>
-  <data name="&gt;&gt;btn_pause.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;menuItem9.Name" xml:space="preserve">
-    <value>menuItem9</value>
-  </data>
-  <data name="btn_pause.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItem11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItem2.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="&gt;&gt;btn_inspeed.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItem15.Text" xml:space="preserve">
-    <value>GB2312 (Simplified Chinese charset)</value>
-  </data>
-  <data name="MI_Audio.Text" xml:space="preserve">
-    <value>&amp;Audio</value>
-  </data>
-  <data name="MovieBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 16</value>
-  </data>
-  <data name="MI_OpenDVD.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;MI_Exit.Name" xml:space="preserve">
-    <value>MI_Exit</value>
-  </data>
-  <data name="MainPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;MI_Brightness.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MovieBar.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;menuItem26.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_Play.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItem26.Name" xml:space="preserve">
-    <value>menuItem26</value>
-  </data>
-  <data name="&gt;&gt;btn_despeed.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="btn_despeed.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="MI_Zoom50.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>Ctrl1</value>
-  </data>
-  <data name="&gt;&gt;menuItem7.Name" xml:space="preserve">
-    <value>menuItem7</value>
-  </data>
-  <data name="MI_Hue.Text" xml:space="preserve">
-    <value>Hues</value>
-  </data>
-  <data name="Playlist.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 185</value>
-  </data>
-  <data name="MI_BrightnessMore.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlR</value>
-  </data>
-  <data name="&gt;&gt;MI_Subtitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MI_SubChineseTrans.Text" xml:space="preserve">
+    <value>Chinese Convert</value>
   </data>
   <data name="menuItem3.Text" xml:space="preserve">
     <value>-</value>
   </data>
+  <data name="MI_SubDelayLess.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlQ</value>
+  </data>
+  <data name="MI_SubDelayLess.Text" xml:space="preserve">
+    <value>Delay-</value>
+  </data>
+  <data name="MI_SubDelayMore.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlW</value>
+  </data>
+  <data name="MI_SubDelayMore.Text" xml:space="preserve">
+    <value>Delay+</value>
+  </data>
+  <data name="menuItem22.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="MI_SubPosUp.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlA</value>
+  </data>
+  <data name="MI_SubPosUp.Text" xml:space="preserve">
+    <value>Move up</value>
+  </data>
+  <data name="MI_SubPosDown.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlS</value>
+  </data>
+  <data name="MI_SubPosDown.Text" xml:space="preserve">
+    <value>Move down</value>
+  </data>
+  <data name="menuItem26.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="MI_SubScaleDown.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlZ</value>
+  </data>
+  <data name="MI_SubScaleDown.Text" xml:space="preserve">
+    <value>Scale -</value>
+  </data>
+  <data name="MI_SubScaleUp.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
+    <value>CtrlX</value>
+  </data>
+  <data name="MI_SubScaleUp.Text" xml:space="preserve">
+    <value>Scale +</value>
+  </data>
+  <data name="MI_Subtitle.Text" xml:space="preserve">
+    <value>&amp;Subtitle</value>
+  </data>
+  <data name="menuItem11.Text" xml:space="preserve">
+    <value>Mplayer Log</value>
+  </data>
+  <data name="MI_EditShortcut.Text" xml:space="preserve">
+    <value>Edit shortcut</value>
+  </data>
   <data name="menuItem12.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="&gt;&gt;MI_SubDelayMore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MI_Option.Text" xml:space="preserve">
+    <value>Option</value>
   </data>
-  <data name="&gt;&gt;MI_Saturation.Name" xml:space="preserve">
-    <value>MI_Saturation</value>
+  <data name="MI_Tools.Text" xml:space="preserve">
+    <value>&amp;Tools</value>
   </data>
-  <data name="&gt;&gt;menuItem5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MI_About.Text" xml:space="preserve">
+    <value>About</value>
   </data>
-  <data name="MI_Contrast.Text" xml:space="preserve">
-    <value>Contrast</value>
+  <data name="MI_Help.Text" xml:space="preserve">
+    <value>&amp;Help</value>
   </data>
-  <data name="&gt;&gt;MovieBar.Name" xml:space="preserve">
-    <value>MovieBar</value>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>348, 17</value>
+  </metadata>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>477, 17</value>
+  </metadata>
+  <data name="splitter1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 0</value>
   </data>
-  <data name="&gt;&gt;MI_Audio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="splitter1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>4, 263</value>
   </data>
-  <data name="&gt;&gt;MI_Fullscreen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="splitter1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;mainMenu1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MainMenu, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="splitter1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;saveFileDialog1.Name" xml:space="preserve">
-    <value>saveFileDialog1</value>
+  <data name="&gt;&gt;splitter1.Name" xml:space="preserve">
+    <value>splitter1</value>
   </data>
-  <data name="&gt;&gt;MI_SubPosUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitter1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MI_File.Name" xml:space="preserve">
-    <value>MI_File</value>
+  <data name="&gt;&gt;splitter1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;MI_Help.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitter1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
+  <data name="Playlist.Location" type="System.Drawing.Point, System.Drawing">
+    <value>395, 0</value>
+  </data>
+  <data name="Playlist.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 160</value>
+  </data>
+  <data name="Playlist.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Playlist.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Playlist.Name" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="&gt;&gt;Playlist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Playlist.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Playlist.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
+    <value>5, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>555, 313</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2110,628 +2245,475 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="&gt;&gt;MI_OpenFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Power Mplayer</value>
   </data>
-  <data name="&gt;&gt;MI_GammaLess.Name" xml:space="preserve">
-    <value>MI_GammaLess</value>
+  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
   </data>
-  <data name="&gt;&gt;txtShortcut.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;contextMenu1.Name" xml:space="preserve">
     <value>contextMenu1</value>
   </data>
-  <data name="&gt;&gt;MI_SaturationMore.Name" xml:space="preserve">
-    <value>MI_SaturationMore</value>
+  <data name="&gt;&gt;contextMenu1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenu, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItem4.Name" xml:space="preserve">
-    <value>menuItem4</value>
+  <data name="&gt;&gt;mainMenu1.Name" xml:space="preserve">
+    <value>mainMenu1</value>
   </data>
-  <data name="&gt;&gt;menuItem25.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;mainMenu1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MainMenu, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="splitter1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>4, 303</value>
+  <data name="&gt;&gt;MI_File.Name" xml:space="preserve">
+    <value>MI_File</value>
   </data>
-  <data name="&gt;&gt;MI_Option.Name" xml:space="preserve">
-    <value>MI_Option</value>
-  </data>
-  <data name="MI_ShowPlaylist.Text" xml:space="preserve">
-    <value>Playlist</value>
-  </data>
-  <data name="&gt;&gt;Playlist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_Video.Text" xml:space="preserve">
-    <value>&amp;Video</value>
-  </data>
-  <data name="Playlist.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;MI_Option.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_File.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MI_OpenFile.Name" xml:space="preserve">
     <value>MI_OpenFile</value>
   </data>
-  <data name="&gt;&gt;MI_ContrastMore.Name" xml:space="preserve">
-    <value>MI_ContrastMore</value>
+  <data name="&gt;&gt;MI_OpenFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItem3.Name" xml:space="preserve">
-    <value>menuItem3</value>
+  <data name="&gt;&gt;MI_OpenDVD.Name" xml:space="preserve">
+    <value>MI_OpenDVD</value>
   </data>
-  <data name="MI_Exit.Text" xml:space="preserve">
-    <value>&amp;Exit</value>
+  <data name="&gt;&gt;MI_OpenDVD.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_pause.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="btn_stop.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;MI_OpenURL.Name" xml:space="preserve">
+    <value>MI_OpenURL</value>
   </data>
   <data name="&gt;&gt;MI_OpenURL.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MI_Gamma.Name" xml:space="preserve">
-    <value>MI_Gamma</value>
+  <data name="&gt;&gt;menuItem6.Name" xml:space="preserve">
+    <value>menuItem6</value>
   </data>
-  <data name="MI_Gamma.Text" xml:space="preserve">
-    <value>Gamma</value>
+  <data name="&gt;&gt;menuItem6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItem11.Name" xml:space="preserve">
-    <value>menuItem11</value>
-  </data>
-  <data name="&gt;&gt;MI_Hue.Name" xml:space="preserve">
-    <value>MI_Hue</value>
+  <data name="&gt;&gt;MI_LastOpen.Name" xml:space="preserve">
+    <value>MI_LastOpen</value>
   </data>
   <data name="&gt;&gt;MI_LastOpen.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_mute.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuItem4.Name" xml:space="preserve">
+    <value>menuItem4</value>
   </data>
-  <data name="&gt;&gt;btn_stop.Name" xml:space="preserve">
-    <value>btn_stop</value>
-  </data>
-  <data name="&gt;&gt;MI_Zoom100.Name" xml:space="preserve">
-    <value>MI_Zoom100</value>
-  </data>
-  <data name="&gt;&gt;menuItem24.Name" xml:space="preserve">
-    <value>menuItem24</value>
-  </data>
-  <data name="&gt;&gt;contextMenu1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenu, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_SubDelayLess.Type" xml:space="preserve">
+  <data name="&gt;&gt;menuItem4.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Playlist.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;MI_Exit.Name" xml:space="preserve">
+    <value>MI_Exit</value>
   </data>
-  <data name="menuItem4.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="&gt;&gt;menuItem15.Name" xml:space="preserve">
-    <value>menuItem15</value>
-  </data>
-  <data name="MI_ChineseNone.Text" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;menuItem6.Name" xml:space="preserve">
-    <value>menuItem6</value>
-  </data>
-  <data name="MI_SaturationLess.Text" xml:space="preserve">
-    <value>Saturation -</value>
-  </data>
-  <data name="MI_OpenURL.Text" xml:space="preserve">
-    <value>Open URL</value>
-  </data>
-  <data name="menuItem9.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="MI_SubScaleDown.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlZ</value>
-  </data>
-  <data name="MI_Zoom.Text" xml:space="preserve">
-    <value>Scale</value>
-  </data>
-  <data name="&gt;&gt;btn_mute.Name" xml:space="preserve">
-    <value>btn_mute</value>
-  </data>
-  <data name="&gt;&gt;btn_pause.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="menuItem6.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="MI_ContrastMore.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlF</value>
-  </data>
-  <data name="MI_Saturation.Text" xml:space="preserve">
-    <value>Saturation</value>
-  </data>
-  <data name="MI_SubScaleDown.Text" xml:space="preserve">
-    <value>Scale -</value>
-  </data>
-  <data name="&gt;&gt;MainPanel.Name" xml:space="preserve">
-    <value>MainPanel</value>
-  </data>
-  <data name="&gt;&gt;MI_Screenshot.Name" xml:space="preserve">
-    <value>MI_Screenshot</value>
-  </data>
-  <data name="&gt;&gt;MI_ContrastLess.Name" xml:space="preserve">
-    <value>MI_ContrastLess</value>
-  </data>
-  <data name="&gt;&gt;MI_SubPosDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_EditShortcut.Name" xml:space="preserve">
-    <value>MI_EditShortcut</value>
-  </data>
-  <data name="&gt;&gt;MI_SubScaleUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_pause.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_Audio.Name" xml:space="preserve">
-    <value>MI_Audio</value>
-  </data>
-  <data name="&gt;&gt;MI_Subtitle.Name" xml:space="preserve">
-    <value>MI_Subtitle</value>
-  </data>
-  <data name="btn_mute.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;MI_Hue.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_Exit.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MI_Play.Name" xml:space="preserve">
     <value>MI_Play</value>
   </data>
-  <data name="&gt;&gt;MI_SaturationLess.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_Play.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitter1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuItem2.Name" xml:space="preserve">
-    <value>menuItem2</value>
-  </data>
-  <data name="MI_SubScaleUp.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlX</value>
-  </data>
-  <data name="MI_File.Text" xml:space="preserve">
-    <value>&amp;File</value>
-  </data>
-  <data name="&gt;&gt;btn_despeed.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_ToSimpChinese.Name" xml:space="preserve">
-    <value>MI_ToSimpChinese</value>
-  </data>
-  <data name="splitter1.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btn_stop.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="MI_SubPosDown.Text" xml:space="preserve">
-    <value>Move down</value>
-  </data>
-  <data name="MI_Screenshot.Text" xml:space="preserve">
-    <value>Take Screenshot</value>
-  </data>
-  <data name="&gt;&gt;MI_ChineseNone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_Brightness.Text" xml:space="preserve">
-    <value>Brightness</value>
-  </data>
-  <data name="MI_SubChineseTrans.Text" xml:space="preserve">
-    <value>Chinese Convert</value>
-  </data>
-  <data name="MI_OpenDVD.Text" xml:space="preserve">
-    <value>Open DVD...</value>
-  </data>
-  <data name="txtStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="MI_Subtitle.Text" xml:space="preserve">
-    <value>&amp;Subtitle</value>
-  </data>
-  <data name="&gt;&gt;MI_BrightnessMore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItem25.Text" xml:space="preserve">
-    <value>CP949 (Korean charset)</value>
-  </data>
-  <data name="&gt;&gt;MI_GammaMore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_SubScaleUp.Name" xml:space="preserve">
-    <value>MI_SubScaleUp</value>
-  </data>
-  <data name="&gt;&gt;MI_HueMore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtShortcut.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;MI_Contrast.Name" xml:space="preserve">
-    <value>MI_Contrast</value>
-  </data>
-  <data name="&gt;&gt;MI_SubChineseTrans.Name" xml:space="preserve">
-    <value>MI_SubChineseTrans</value>
-  </data>
-  <data name="MI_ContrastMore.Text" xml:space="preserve">
-    <value>Contrast +</value>
-  </data>
-  <data name="&gt;&gt;BigScreen.Parent" xml:space="preserve">
-    <value>MainPanel</value>
-  </data>
-  <data name="MI_SubDelayMore.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlW</value>
-  </data>
-  <data name="splitter1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>392, 0</value>
-  </data>
-  <data name="&gt;&gt;MI_TopMost.Name" xml:space="preserve">
-    <value>MI_TopMost</value>
-  </data>
-  <data name="&gt;&gt;btn_pause.Name" xml:space="preserve">
-    <value>btn_pause</value>
-  </data>
-  <data name="MI_Zoom100.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>Ctrl2</value>
-  </data>
-  <data name="&gt;&gt;MI_Zoom200.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_mute.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="&gt;&gt;MI_Fullscreen.Name" xml:space="preserve">
-    <value>MI_Fullscreen</value>
-  </data>
-  <data name="&gt;&gt;MI_BrightnessLess.Name" xml:space="preserve">
-    <value>MI_BrightnessLess</value>
-  </data>
-  <data name="&gt;&gt;MI_About.Name" xml:space="preserve">
-    <value>MI_About</value>
-  </data>
-  <data name="&gt;&gt;MainPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MovieBar.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="menuItem22.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="btn_inspeed.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;MI_SubChineseTrans.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_Zoom200.Text" xml:space="preserve">
-    <value>200%</value>
-  </data>
-  <data name="&gt;&gt;MI_ChineseNone.Name" xml:space="preserve">
-    <value>MI_ChineseNone</value>
-  </data>
-  <data name="&gt;&gt;btn_despeed.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;menuItem18.Name" xml:space="preserve">
-    <value>menuItem18</value>
-  </data>
-  <data name="&gt;&gt;splitter1.Name" xml:space="preserve">
-    <value>splitter1</value>
-  </data>
-  <data name="&gt;&gt;VolumeBar.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;splitter1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;MI_ShowPlaylist.Name" xml:space="preserve">
+    <value>MI_ShowPlaylist</value>
   </data>
   <data name="&gt;&gt;MI_ShowPlaylist.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MI_SelectAudio.Text" xml:space="preserve">
-    <value>Select Audio Channel</value>
+  <data name="&gt;&gt;MI_TopMost.Name" xml:space="preserve">
+    <value>MI_TopMost</value>
   </data>
-  <data name="&gt;&gt;btn_stop.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="MI_BrightnessLess.Text" xml:space="preserve">
-    <value>Brightness -</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MI_SaturationLess.Name" xml:space="preserve">
-    <value>MI_SaturationLess</value>
-  </data>
-  <data name="btn_mute.ImageIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;menuItem22.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_TopMost.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MI_SubDelayLess.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlQ</value>
+  <data name="&gt;&gt;MI_Fullscreen.Name" xml:space="preserve">
+    <value>MI_Fullscreen</value>
   </data>
-  <data name="&gt;&gt;BigScreen.Name" xml:space="preserve">
-    <value>BigScreen</value>
-  </data>
-  <data name="&gt;&gt;MI_LastOpen.Name" xml:space="preserve">
-    <value>MI_LastOpen</value>
+  <data name="&gt;&gt;MI_Fullscreen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MI_Video.Name" xml:space="preserve">
     <value>MI_Video</value>
   </data>
-  <data name="MI_HueMore.Text" xml:space="preserve">
-    <value>Hues +</value>
-  </data>
-  <data name="&gt;&gt;MI_Exit.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_Video.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitter1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;MI_Zoom.Name" xml:space="preserve">
+    <value>MI_Zoom</value>
   </data>
-  <data name="&gt;&gt;MI_SubPosDown.Name" xml:space="preserve">
-    <value>MI_SubPosDown</value>
+  <data name="&gt;&gt;MI_Zoom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_Zoom50.Name" xml:space="preserve">
+    <value>MI_Zoom50</value>
+  </data>
+  <data name="&gt;&gt;MI_Zoom50.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_Zoom100.Name" xml:space="preserve">
+    <value>MI_Zoom100</value>
+  </data>
+  <data name="&gt;&gt;MI_Zoom100.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MI_Zoom200.Name" xml:space="preserve">
     <value>MI_Zoom200</value>
   </data>
+  <data name="&gt;&gt;MI_Zoom200.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem1.Name" xml:space="preserve">
+    <value>menuItem1</value>
+  </data>
+  <data name="&gt;&gt;menuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_FixSize.Name" xml:space="preserve">
+    <value>MI_FixSize</value>
+  </data>
+  <data name="&gt;&gt;MI_FixSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem2.Name" xml:space="preserve">
+    <value>menuItem2</value>
+  </data>
   <data name="&gt;&gt;menuItem2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="MI_TopMost.Text" xml:space="preserve">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;VolumeBar.Name" xml:space="preserve">
-    <value>VolumeBar</value>
-  </data>
-  <data name="btn_stop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
-    <value>5, 15</value>
-  </data>
-  <data name="&gt;&gt;MI_HueMore.Name" xml:space="preserve">
-    <value>MI_HueMore</value>
-  </data>
-  <data name="&gt;&gt;VolumeBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItem4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MI_About.Text" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="&gt;&gt;MI_BrightnessLess.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_SubPosUp.Name" xml:space="preserve">
-    <value>MI_SubPosUp</value>
-  </data>
-  <data name="&gt;&gt;MI_HueLess.Name" xml:space="preserve">
-    <value>MI_HueLess</value>
-  </data>
-  <data name="&gt;&gt;menuItem3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_despeed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 0</value>
-  </data>
-  <data name="MI_ToTradChinese.Text" xml:space="preserve">
-    <value>To Traditional Chinese</value>
-  </data>
-  <data name="&gt;&gt;MI_Saturation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_Help.Name" xml:space="preserve">
-    <value>MI_Help</value>
-  </data>
-  <data name="&gt;&gt;MI_About.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_SelectSubtitle.Name" xml:space="preserve">
-    <value>MI_SelectSubtitle</value>
-  </data>
-  <data name="txtShortcut.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;MI_SelectAudio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;MI_GammaLess.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_SelectAudio.Name" xml:space="preserve">
-    <value>MI_SelectAudio</value>
-  </data>
-  <data name="&gt;&gt;MI_File.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MI_Brightness.Name" xml:space="preserve">
     <value>MI_Brightness</value>
   </data>
-  <data name="&gt;&gt;MI_SaturationMore.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_Brightness.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MI_Tools.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_BrightnessLess.Name" xml:space="preserve">
+    <value>MI_BrightnessLess</value>
+  </data>
+  <data name="&gt;&gt;MI_BrightnessLess.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_despeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
+  <data name="&gt;&gt;MI_BrightnessMore.Name" xml:space="preserve">
+    <value>MI_BrightnessMore</value>
   </data>
-  <data name="&gt;&gt;btn_stop.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;MI_BrightnessMore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuItem11.Text" xml:space="preserve">
-    <value>Mplayer Log</value>
+  <data name="&gt;&gt;MI_Contrast.Name" xml:space="preserve">
+    <value>MI_Contrast</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>555, 313</value>
+  <data name="&gt;&gt;MI_Contrast.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;BigScreen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;MI_ContrastLess.Name" xml:space="preserve">
+    <value>MI_ContrastLess</value>
+  </data>
+  <data name="&gt;&gt;MI_ContrastLess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_ContrastMore.Name" xml:space="preserve">
+    <value>MI_ContrastMore</value>
+  </data>
+  <data name="&gt;&gt;MI_ContrastMore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_Gamma.Name" xml:space="preserve">
+    <value>MI_Gamma</value>
+  </data>
+  <data name="&gt;&gt;MI_Gamma.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_GammaLess.Name" xml:space="preserve">
+    <value>MI_GammaLess</value>
+  </data>
+  <data name="&gt;&gt;MI_GammaLess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MI_GammaMore.Name" xml:space="preserve">
     <value>MI_GammaMore</value>
   </data>
-  <data name="&gt;&gt;menuItem23.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_GammaMore.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_mute.Location" type="System.Drawing.Point, System.Drawing">
-    <value>416, 3</value>
+  <data name="&gt;&gt;MI_Hue.Name" xml:space="preserve">
+    <value>MI_Hue</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Power Mplayer</value>
-  </data>
-  <data name="&gt;&gt;menuItem21.Name" xml:space="preserve">
-    <value>menuItem21</value>
-  </data>
-  <data name="&gt;&gt;timer1.Name" xml:space="preserve">
-    <value>timer1</value>
-  </data>
-  <data name="btn_stop.ImageIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="MI_OpenFile.Text" xml:space="preserve">
-    <value>&amp;Open file</value>
-  </data>
-  <data name="&gt;&gt;MI_EditShortcut.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_Hue.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MI_ShowPlaylist.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlL</value>
+  <data name="&gt;&gt;MI_HueLess.Name" xml:space="preserve">
+    <value>MI_HueLess</value>
   </data>
-  <data name="&gt;&gt;btn_despeed.Name" xml:space="preserve">
-    <value>btn_despeed</value>
-  </data>
-  <data name="&gt;&gt;MI_ToSimpChinese.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_HueLess.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
-    <value>imageList1</value>
+  <data name="&gt;&gt;MI_HueMore.Name" xml:space="preserve">
+    <value>MI_HueMore</value>
   </data>
-  <data name="MI_SubPosUp.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlA</value>
-  </data>
-  <data name="btn_despeed.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_Tools.Name" xml:space="preserve">
-    <value>MI_Tools</value>
-  </data>
-  <data name="MI_Option.Text" xml:space="preserve">
-    <value>Option</value>
-  </data>
-  <data name="MainPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 188</value>
-  </data>
-  <data name="MainPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, -3</value>
-  </data>
-  <data name="&gt;&gt;btn_inspeed.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;MI_ToTradChinese.Name" xml:space="preserve">
-    <value>MI_ToTradChinese</value>
-  </data>
-  <data name="&gt;&gt;menuItem21.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_HueMore.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuItem5.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;MI_Saturation.Name" xml:space="preserve">
+    <value>MI_Saturation</value>
   </data>
-  <data name="&gt;&gt;menuItem1.Name" xml:space="preserve">
-    <value>menuItem1</value>
+  <data name="&gt;&gt;MI_Saturation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MI_SubDelayLess.Text" xml:space="preserve">
-    <value>Delay-</value>
+  <data name="&gt;&gt;MI_SaturationLess.Name" xml:space="preserve">
+    <value>MI_SaturationLess</value>
   </data>
-  <data name="BigScreen.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;MI_SaturationLess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MI_Tools.Text" xml:space="preserve">
-    <value>&amp;Tools</value>
+  <data name="&gt;&gt;MI_SaturationMore.Name" xml:space="preserve">
+    <value>MI_SaturationMore</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 250</value>
+  <data name="&gt;&gt;MI_SaturationMore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MI_SubScaleDown.Name" xml:space="preserve">
-    <value>MI_SubScaleDown</value>
+  <data name="&gt;&gt;menuItem7.Name" xml:space="preserve">
+    <value>menuItem7</value>
   </data>
-  <data name="MI_ContrastLess.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
-    <value>CtrlD</value>
+  <data name="&gt;&gt;menuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_despeed.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;MI_Screenshot.Name" xml:space="preserve">
+    <value>MI_Screenshot</value>
   </data>
-  <data name="btn_inspeed.ImageIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;MI_Screenshot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MI_BrightnessMore.Text" xml:space="preserve">
-    <value>Brightness +</value>
+  <data name="&gt;&gt;MI_Audio.Name" xml:space="preserve">
+    <value>MI_Audio</value>
   </data>
-  <data name="MI_SubEncoding.Text" xml:space="preserve">
-    <value>Subtitle Encoding</value>
+  <data name="&gt;&gt;MI_Audio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Playlist.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;MI_SelectAudio.Name" xml:space="preserve">
+    <value>MI_SelectAudio</value>
+  </data>
+  <data name="&gt;&gt;MI_SelectAudio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_Subtitle.Name" xml:space="preserve">
+    <value>MI_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;MI_Subtitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SelectSubtitle.Name" xml:space="preserve">
+    <value>MI_SelectSubtitle</value>
+  </data>
+  <data name="&gt;&gt;MI_SelectSubtitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_OpenSubFile.Name" xml:space="preserve">
+    <value>MI_OpenSubFile</value>
+  </data>
+  <data name="&gt;&gt;MI_OpenSubFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem9.Name" xml:space="preserve">
+    <value>menuItem9</value>
+  </data>
+  <data name="&gt;&gt;menuItem9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SubEncoding.Name" xml:space="preserve">
+    <value>MI_SubEncoding</value>
   </data>
   <data name="&gt;&gt;MI_SubEncoding.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MI_Zoom100.Type" xml:space="preserve">
+  <data name="&gt;&gt;menuItem18.Name" xml:space="preserve">
+    <value>menuItem18</value>
+  </data>
+  <data name="&gt;&gt;menuItem18.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_pause.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;menuItem15.Name" xml:space="preserve">
+    <value>menuItem15</value>
   </data>
-  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="contextMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>121, 17</value>
-  </metadata>
-  <metadata name="mainMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>240, 17</value>
-  </metadata>
-  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 54</value>
-  </metadata>
-  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>477, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>348, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>Portuguese</value>
-  </metadata>
+  <data name="&gt;&gt;menuItem15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem5.Name" xml:space="preserve">
+    <value>menuItem5</value>
+  </data>
+  <data name="&gt;&gt;menuItem5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem21.Name" xml:space="preserve">
+    <value>menuItem21</value>
+  </data>
+  <data name="&gt;&gt;menuItem21.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem25.Name" xml:space="preserve">
+    <value>menuItem25</value>
+  </data>
+  <data name="&gt;&gt;menuItem25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem24.Name" xml:space="preserve">
+    <value>menuItem24</value>
+  </data>
+  <data name="&gt;&gt;menuItem24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem23.Name" xml:space="preserve">
+    <value>menuItem23</value>
+  </data>
+  <data name="&gt;&gt;menuItem23.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SubChineseTrans.Name" xml:space="preserve">
+    <value>MI_SubChineseTrans</value>
+  </data>
+  <data name="&gt;&gt;MI_SubChineseTrans.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_ChineseNone.Name" xml:space="preserve">
+    <value>MI_ChineseNone</value>
+  </data>
+  <data name="&gt;&gt;MI_ChineseNone.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_ToTradChinese.Name" xml:space="preserve">
+    <value>MI_ToTradChinese</value>
+  </data>
+  <data name="&gt;&gt;MI_ToTradChinese.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_ToSimpChinese.Name" xml:space="preserve">
+    <value>MI_ToSimpChinese</value>
+  </data>
+  <data name="&gt;&gt;MI_ToSimpChinese.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem3.Name" xml:space="preserve">
+    <value>menuItem3</value>
+  </data>
+  <data name="&gt;&gt;menuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SubDelayLess.Name" xml:space="preserve">
+    <value>MI_SubDelayLess</value>
+  </data>
+  <data name="&gt;&gt;MI_SubDelayLess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SubDelayMore.Name" xml:space="preserve">
+    <value>MI_SubDelayMore</value>
+  </data>
+  <data name="&gt;&gt;MI_SubDelayMore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem22.Name" xml:space="preserve">
+    <value>menuItem22</value>
+  </data>
+  <data name="&gt;&gt;menuItem22.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SubPosUp.Name" xml:space="preserve">
+    <value>MI_SubPosUp</value>
+  </data>
+  <data name="&gt;&gt;MI_SubPosUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SubPosDown.Name" xml:space="preserve">
+    <value>MI_SubPosDown</value>
+  </data>
+  <data name="&gt;&gt;MI_SubPosDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem26.Name" xml:space="preserve">
+    <value>menuItem26</value>
+  </data>
+  <data name="&gt;&gt;menuItem26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SubScaleDown.Name" xml:space="preserve">
+    <value>MI_SubScaleDown</value>
+  </data>
+  <data name="&gt;&gt;MI_SubScaleDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_SubScaleUp.Name" xml:space="preserve">
+    <value>MI_SubScaleUp</value>
+  </data>
+  <data name="&gt;&gt;MI_SubScaleUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_Tools.Name" xml:space="preserve">
+    <value>MI_Tools</value>
+  </data>
+  <data name="&gt;&gt;MI_Tools.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem11.Name" xml:space="preserve">
+    <value>menuItem11</value>
+  </data>
+  <data name="&gt;&gt;menuItem11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_EditShortcut.Name" xml:space="preserve">
+    <value>MI_EditShortcut</value>
+  </data>
+  <data name="&gt;&gt;MI_EditShortcut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem12.Name" xml:space="preserve">
+    <value>menuItem12</value>
+  </data>
+  <data name="&gt;&gt;menuItem12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_Option.Name" xml:space="preserve">
+    <value>MI_Option</value>
+  </data>
+  <data name="&gt;&gt;MI_Option.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_Help.Name" xml:space="preserve">
+    <value>MI_Help</value>
+  </data>
+  <data name="&gt;&gt;MI_Help.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_About.Name" xml:space="preserve">
+    <value>MI_About</value>
+  </data>
+  <data name="&gt;&gt;MI_About.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">
+    <value>openFileDialog1</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timer1.Name" xml:space="preserve">
+    <value>timer1</value>
+  </data>
+  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveFileDialog1.Name" xml:space="preserve">
+    <value>saveFileDialog1</value>
+  </data>
+  <data name="&gt;&gt;saveFileDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

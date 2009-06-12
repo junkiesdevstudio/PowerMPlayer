@@ -126,6 +126,9 @@
   <data name="&gt;&gt;btn_Cancel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -148,6 +151,9 @@
   </data>
   <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
     <value>textBox1</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FontSelector</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Select Font in the list or browse the font file</value>
@@ -172,9 +178,6 @@
   </data>
   <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_OK.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -221,9 +224,6 @@
   <data name="&gt;&gt;openFileDialog1.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
@@ -269,22 +269,19 @@
   <data name="btn_Cancel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FontSelector</value>
+  <data name="&gt;&gt;btn_OK.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 160</value>
   </data>
-  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>Portuguese</value>
   </metadata>
 </root>

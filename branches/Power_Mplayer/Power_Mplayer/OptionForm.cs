@@ -726,33 +726,33 @@ namespace Power_Mplayer
 		private void SaveLanguageConfig()
 		{
 			//Get the current Culture used by the program
-			System.Globalization.CultureInfo currentCulture = System.Threading.Thread.CurrentThread.CurrentUICulture;
+			string currentCulture = global::Power_Mplayer.Properties.Settings.Default.Language;
 			//Initiates a new culture
-			System.Globalization.CultureInfo culture;
+			string newCulture;
 			//sets the culture acording to the user choice
 			switch (chkLanguage.SelectedIndex)
 			{
 				case 1://The user chose English
-					culture = new System.Globalization.CultureInfo("en");
+					newCulture = "en";
 					global::Power_Mplayer.Properties.Settings.Default.Language = "en";//Set the properties in the .config file
 					break;
 				case 2://The user chose Chinese(Traditional)
-					culture = new System.Globalization.CultureInfo("zh-CHT");
+					newCulture = "zh-CHT";
 					global::Power_Mplayer.Properties.Settings.Default.Language = "zh-CHT";
 					break;
 				case 3://The user chose Portuguese
-					culture = new System.Globalization.CultureInfo("pt");
+					newCulture = "pt";
 					global::Power_Mplayer.Properties.Settings.Default.Language = "pt";
 					break;
-				default://The user chose the system default
-					culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+				default://The user chose the system default, it will use the standard windows ui language, if avalible
+					newCulture = "";
 					global::Power_Mplayer.Properties.Settings.Default.Language = "";
 					break;
 			}
 
 			global::Power_Mplayer.Properties.Settings.Default.Save();
 
-			if (currentCulture.Name != culture.Name)
+			if (currentCulture != newCulture)
 				//TODO: change the messagebox text to allow it to display the message box in any language
 				if (MessageBox.Show(rm.GetString("LanguageChange_Restart_Message", this.culture),
 					rm.GetString("LanguageChange_Restart_Title", this.culture),
