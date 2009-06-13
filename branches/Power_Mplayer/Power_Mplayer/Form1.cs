@@ -112,10 +112,14 @@ namespace Power_Mplayer
 		// constructure
 		private Form1()
 		{
+			mp = new Mplayer(this);
+
+			//set the UI language
+			if (this.mp.Setting[SetVars.Language] != "")
+				System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(this.mp.Setting[SetVars.Language]);
+
 			// Windows Form
 			InitializeComponent();
-
-			mp = new Mplayer(this);
 
 			string var = mp.Setting[SetVars.SubEncoding];
 			foreach(MenuItem mi in this.MI_SubEncoding.MenuItems)
@@ -960,13 +964,9 @@ namespace Power_Mplayer
                 p.Kill();
             }
 
-			//set the UI language
-			if(global::Power_Mplayer.Properties.Settings.Default.Language != "")
-				System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(global::Power_Mplayer.Properties.Settings.Default.Language);
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(args));
+			Application.Run(new Form1(args));
         }
 
 		private void btn_pause_Click(object sender, System.EventArgs e)

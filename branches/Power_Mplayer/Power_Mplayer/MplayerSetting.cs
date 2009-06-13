@@ -1,3 +1,6 @@
+//indicates that the source will be compiled to be used by portable devices, i will change the way it will save the configurations file
+#define portable
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -22,8 +25,11 @@ namespace Power_Mplayer
 		// Video
 		VO, Video_DR, 
 
-		// Âø¶µ
-		LastMedia
+		// LastMedia
+		LastMedia,
+
+		//Language, will only be used in the .ini file
+		Language
 	}
 	public class MplayerSetting
 	{
@@ -56,8 +62,11 @@ namespace Power_Mplayer
 			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"directx",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"0",			TypeCode.String));
 
-			// Âø¶µ
+			// LastMedia
 			this.SettingValues.Add(new MValue(SetVars.LastMedia.ToString(),		"",				TypeCode.String));
+
+			//Language
+			this.SettingValues.Add(new MValue(SetVars.Language.ToString(),		"",				TypeCode.String));
 		}
 
 		public string MplayerArguements
@@ -144,6 +153,21 @@ namespace Power_Mplayer
 
 		public void WriteSetting()
 		{
+			//if portable is defined in the begining of the file, it will be compiled to generate the .ini file, otherwise, it will use the .config file
+#if portable
+			#region portable
+			using (TextWriter tw = new StreamWriter(this.SettingFile))
+			{
+				foreach (MValue val in SettingValues)
+				{
+					tw.WriteLine(val.Name + "=" + (string)val.Value);
+				}
+
+				tw.Close();
+			}
+			#endregion
+#else
+			#region local
 			foreach (MValue val in SettingValues)
 			{
 				switch (val.Name)
@@ -199,15 +223,56 @@ namespace Power_Mplayer
 					case "LastMedia":
 						global::Power_Mplayer.Properties.Settings.Default.LastMedia = val.Value.ToString();
 						break;
-				}
 
-				//Save the configuration
-				global::Power_Mplayer.Properties.Settings.Default.Save();
+					// Language
+					this.SettingValues.Add(new MValue(SetVars.Language.ToString(),
+						global::Power_Mplayer.Properties.Settings.Default.Language, TypeCode.String));
+					break;
+				}
 			}
+			//Save the configuration
+			global::Power_Mplayer.Properties.Settings.Default.Save();
+			#endregion
+#endif
 		}
 
 		public void ReadSetting()
 		{
+			//if portable is defined in the begining of the file, it will be compiled to generate the .ini file, otherwise, it will use the .config file
+			#if (portable)
+			#region portable
+			CreateDefaultValue();
+
+			if (!File.Exists(this.SettingFile))
+			{
+				this.WriteSetting();
+				return;
+			}
+
+			using (TextReader tr = new StreamReader(this.SettingFile))
+			{
+				string str;
+				while ((str = tr.ReadLine()) != null)
+				{
+					string[] cmds = str.Split('=');
+
+					if (cmds[1] == "")
+						continue;
+
+					if (Enum.IsDefined(typeof(SetVars), cmds[0]))
+					{
+						SetVars sv = (SetVars)Enum.Parse(typeof(SetVars), cmds[0], true);
+						this[sv] = cmds[1];
+					}
+				}
+
+				tr.Close();
+			}
+
+			return;
+			#endregion
+			#else
+			#region local
 			//Clear all the seetings
 			this.SettingValues.Clear();
 
@@ -249,6 +314,12 @@ namespace Power_Mplayer
 			// LastMedia
 			this.SettingValues.Add(new MValue(SetVars.LastMedia.ToString(),
 				global::Power_Mplayer.Properties.Settings.Default.LastMedia, TypeCode.String));
+
+			// Language
+			this.SettingValues.Add(new MValue(SetVars.Language.ToString(),
+				global::Power_Mplayer.Properties.Settings.Default.Language, TypeCode.String));
+			#endregion
+			#endif
 		}
 	}
 }

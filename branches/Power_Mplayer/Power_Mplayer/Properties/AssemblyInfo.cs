@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Power_Mplayer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Power Mplayer is an easy use MPlayer frontend written in C#")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Power_Mplayer")]
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.6.0.96")]
-[assembly: AssemblyFileVersion("0.6.0.96")]
+[assembly: AssemblyVersion("0.6.0.97")]
+[assembly: AssemblyFileVersion("0.6.0.97")]

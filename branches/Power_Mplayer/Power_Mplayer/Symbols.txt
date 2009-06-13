@@ -1,0 +1,5 @@
+﻿This files indicates where are the symbols, defined with #define name, and what they do, they must be changed in all the files they are contained
+
+portable - this one tells if the compilation is to be used in a portable device, usb, or package in a msi setup, comment it to compile it to be used in msi files
+	MplayerSetting.cs - Line 2
+	portable - Line 1
