@@ -1,20 +1,53 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Power_Mplayer", "Power_Mplayer\Power Mplayer_VS2005.csproj", "{EE4ED0C8-F043-477E-9FDD-0C60073A004C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Power Mplayer_VS2005", "Power_Mplayer\Power Mplayer_VS2005.csproj", "{EE4ED0C8-F043-477E-9FDD-0C60073A004C}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "powermplayerSetup_EN", "powermplayerSetup_EN\powermplayerSetup_EN.vdproj", "{A5CFC9DD-8170-4445-89D5-2C4F5909FF08}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "powermplayerSetup_PT", "powermplayerSetup_PT\powermplayerSetup_PT.vdproj", "{19172FA8-802B-4AE4-96F9-83084B1AC83E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "powermplayerSetup_zh-CHT", "powermplayerSetup_zh-CHT\powermplayerSetup_zh-CHT.vdproj", "{05AF8091-F569-4670-BA80-BCB083AD9502}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Portable|Any CPU = Debug Portable|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		Release Portable|Any CPU = Release Portable|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE4ED0C8-F043-477E-9FDD-0C60073A004C}.Debug Portable|Any CPU.ActiveCfg = Debug Portable|Any CPU
+		{EE4ED0C8-F043-477E-9FDD-0C60073A004C}.Debug Portable|Any CPU.Build.0 = Debug Portable|Any CPU
 		{EE4ED0C8-F043-477E-9FDD-0C60073A004C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE4ED0C8-F043-477E-9FDD-0C60073A004C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE4ED0C8-F043-477E-9FDD-0C60073A004C}.Release Portable|Any CPU.ActiveCfg = Release Portable|Any CPU
+		{EE4ED0C8-F043-477E-9FDD-0C60073A004C}.Release Portable|Any CPU.Build.0 = Release Portable|Any CPU
 		{EE4ED0C8-F043-477E-9FDD-0C60073A004C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE4ED0C8-F043-477E-9FDD-0C60073A004C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5CFC9DD-8170-4445-89D5-2C4F5909FF08}.Debug Portable|Any CPU.ActiveCfg = Debug
+		{A5CFC9DD-8170-4445-89D5-2C4F5909FF08}.Debug|Any CPU.ActiveCfg = Debug
+		{A5CFC9DD-8170-4445-89D5-2C4F5909FF08}.Release Portable|Any CPU.ActiveCfg = Release
+		{A5CFC9DD-8170-4445-89D5-2C4F5909FF08}.Release|Any CPU.ActiveCfg = Release
+		{19172FA8-802B-4AE4-96F9-83084B1AC83E}.Debug Portable|Any CPU.ActiveCfg = Debug
+		{19172FA8-802B-4AE4-96F9-83084B1AC83E}.Debug Portable|Any CPU.Build.0 = Debug
+		{19172FA8-802B-4AE4-96F9-83084B1AC83E}.Debug|Any CPU.ActiveCfg = Debug
+		{19172FA8-802B-4AE4-96F9-83084B1AC83E}.Debug|Any CPU.Build.0 = Debug
+		{19172FA8-802B-4AE4-96F9-83084B1AC83E}.Release Portable|Any CPU.ActiveCfg = Release
+		{19172FA8-802B-4AE4-96F9-83084B1AC83E}.Release Portable|Any CPU.Build.0 = Release
+		{19172FA8-802B-4AE4-96F9-83084B1AC83E}.Release|Any CPU.ActiveCfg = Release
+		{19172FA8-802B-4AE4-96F9-83084B1AC83E}.Release|Any CPU.Build.0 = Release
+		{05AF8091-F569-4670-BA80-BCB083AD9502}.Debug Portable|Any CPU.ActiveCfg = Debug
+		{05AF8091-F569-4670-BA80-BCB083AD9502}.Debug Portable|Any CPU.Build.0 = Debug
+		{05AF8091-F569-4670-BA80-BCB083AD9502}.Debug|Any CPU.ActiveCfg = Debug
+		{05AF8091-F569-4670-BA80-BCB083AD9502}.Debug|Any CPU.Build.0 = Debug
+		{05AF8091-F569-4670-BA80-BCB083AD9502}.Release Portable|Any CPU.ActiveCfg = Release
+		{05AF8091-F569-4670-BA80-BCB083AD9502}.Release Portable|Any CPU.Build.0 = Release
+		{05AF8091-F569-4670-BA80-BCB083AD9502}.Release|Any CPU.ActiveCfg = Release
+		{05AF8091-F569-4670-BA80-BCB083AD9502}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
+

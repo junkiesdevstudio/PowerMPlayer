@@ -23,6 +23,7 @@
     </BootstrapperUrlHistory>
     <FallbackCulture>zh-TW</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ApplicationRevision>98</ApplicationRevision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <EnableASPDebugging>false</EnableASPDebugging>
@@ -64,6 +65,12 @@
     </StartURL>
     <StartWorkingDirectory>
     </StartWorkingDirectory>
+    <StartWithIE>true</StartWithIE>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Portable|AnyCPU' ">
+    <StartWithIE>true</StartWithIE>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Portable|AnyCPU' ">
     <StartWithIE>true</StartWithIE>
   </PropertyGroup>
 </Project>

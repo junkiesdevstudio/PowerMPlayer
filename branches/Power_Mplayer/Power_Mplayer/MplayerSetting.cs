@@ -1,6 +1,3 @@
-//indicates that the source will be compiled to be used by portable devices, i will change the way it will save the configurations file
-#define portable
-
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -225,6 +222,7 @@ namespace Power_Mplayer
 						break;
 
 					// Language
+					case "Language":
 					this.SettingValues.Add(new MValue(SetVars.Language.ToString(),
 						global::Power_Mplayer.Properties.Settings.Default.Language, TypeCode.String));
 					break;

@@ -3,7 +3,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DD688880-45E9-4EB2-BF27-77D223CB8A09}</ProjectGuid>
+    <ProjectGuid>{EE4ED0C8-F043-477E-9FDD-0C60073A004C}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>Icons\background.ico</ApplicationIcon>
@@ -89,8 +89,8 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Portable|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;/define:portable</DefineConstants>
+    <OutputPath>bin\Debug Portable\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;portable</DefineConstants>
     <BaseAddress>285212672</BaseAddress>
     <FileAlignment>4096</FileAlignment>
     <DebugType>full</DebugType>
@@ -99,7 +99,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Portable|AnyCPU' ">
     <OutputPath>bin\Release Portable\</OutputPath>
-    <DefineConstants>TRACE;/define:portable</DefineConstants>
+    <DefineConstants>TRACE;portable</DefineConstants>
     <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
