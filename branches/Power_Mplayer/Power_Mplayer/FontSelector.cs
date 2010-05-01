@@ -23,7 +23,7 @@ namespace Power_Mplayer
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button btn_browse;
 		private System.Windows.Forms.OpenFileDialog openFileDialog1;
-		private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.Button btn_Cancel;
 		/// <summary>
 		/// 設計工具所需的變數。
 		/// </summary>
@@ -88,95 +88,95 @@ namespace Power_Mplayer
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FontSelector));
-			this.listBox1 = new System.Windows.Forms.ListBox();
-			this.btn_OK = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.btn_browse = new System.Windows.Forms.Button();
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.btn_Cancel = new System.Windows.Forms.Button();
-			this.SuspendLayout();
-			// 
-			// listBox1
-			// 
-			this.listBox1.AccessibleDescription = null;
-			this.listBox1.AccessibleName = null;
-			resources.ApplyResources(this.listBox1, "listBox1");
-			this.listBox1.BackgroundImage = null;
-			this.listBox1.Font = null;
-			this.listBox1.Name = "listBox1";
-			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-			// 
-			// btn_OK
-			// 
-			this.btn_OK.AccessibleDescription = null;
-			this.btn_OK.AccessibleName = null;
-			resources.ApplyResources(this.btn_OK, "btn_OK");
-			this.btn_OK.BackgroundImage = null;
-			this.btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btn_OK.Font = null;
-			this.btn_OK.Name = "btn_OK";
-			// 
-			// label1
-			// 
-			this.label1.AccessibleDescription = null;
-			this.label1.AccessibleName = null;
-			resources.ApplyResources(this.label1, "label1");
-			this.label1.Font = null;
-			this.label1.Name = "label1";
-			// 
-			// textBox1
-			// 
-			this.textBox1.AccessibleDescription = null;
-			this.textBox1.AccessibleName = null;
-			resources.ApplyResources(this.textBox1, "textBox1");
-			this.textBox1.BackgroundImage = null;
-			this.textBox1.Font = null;
-			this.textBox1.Name = "textBox1";
-			// 
-			// btn_browse
-			// 
-			this.btn_browse.AccessibleDescription = null;
-			this.btn_browse.AccessibleName = null;
-			resources.ApplyResources(this.btn_browse, "btn_browse");
-			this.btn_browse.BackgroundImage = null;
-			this.btn_browse.Font = null;
-			this.btn_browse.Name = "btn_browse";
-			this.btn_browse.Click += new System.EventHandler(this.btn_browse_Click);
-			// 
-			// openFileDialog1
-			// 
-			resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
-			// 
-			// btn_Cancel
-			// 
-			this.btn_Cancel.AccessibleDescription = null;
-			this.btn_Cancel.AccessibleName = null;
-			resources.ApplyResources(this.btn_Cancel, "btn_Cancel");
-			this.btn_Cancel.BackgroundImage = null;
-			this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btn_Cancel.Font = null;
-			this.btn_Cancel.Name = "btn_Cancel";
-			// 
-			// FontSelector
-			// 
-			this.AccessibleDescription = null;
-			this.AccessibleName = null;
-			resources.ApplyResources(this, "$this");
-			this.BackgroundImage = null;
-			this.Controls.Add(this.btn_Cancel);
-			this.Controls.Add(this.btn_browse);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.btn_OK);
-			this.Controls.Add(this.listBox1);
-			this.Font = null;
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Icon = null;
-			this.Name = "FontSelector";
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FontSelector));
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btn_OK = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_browse = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // listBox1
+            // 
+            this.listBox1.AccessibleDescription = null;
+            this.listBox1.AccessibleName = null;
+            resources.ApplyResources(this.listBox1, "listBox1");
+            this.listBox1.BackgroundImage = null;
+            this.listBox1.Font = null;
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // btn_OK
+            // 
+            this.btn_OK.AccessibleDescription = null;
+            this.btn_OK.AccessibleName = null;
+            resources.ApplyResources(this.btn_OK, "btn_OK");
+            this.btn_OK.BackgroundImage = null;
+            this.btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btn_OK.Font = null;
+            this.btn_OK.Name = "btn_OK";
+            // 
+            // label1
+            // 
+            this.label1.AccessibleDescription = null;
+            this.label1.AccessibleName = null;
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Font = null;
+            this.label1.Name = "label1";
+            // 
+            // textBox1
+            // 
+            this.textBox1.AccessibleDescription = null;
+            this.textBox1.AccessibleName = null;
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.BackgroundImage = null;
+            this.textBox1.Font = null;
+            this.textBox1.Name = "textBox1";
+            // 
+            // btn_browse
+            // 
+            this.btn_browse.AccessibleDescription = null;
+            this.btn_browse.AccessibleName = null;
+            resources.ApplyResources(this.btn_browse, "btn_browse");
+            this.btn_browse.BackgroundImage = null;
+            this.btn_browse.Font = null;
+            this.btn_browse.Name = "btn_browse";
+            this.btn_browse.Click += new System.EventHandler(this.btn_browse_Click);
+            // 
+            // openFileDialog1
+            // 
+            resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.AccessibleDescription = null;
+            this.btn_Cancel.AccessibleName = null;
+            resources.ApplyResources(this.btn_Cancel, "btn_Cancel");
+            this.btn_Cancel.BackgroundImage = null;
+            this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_Cancel.Font = null;
+            this.btn_Cancel.Name = "btn_Cancel";
+            // 
+            // FontSelector
+            // 
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
+            resources.ApplyResources(this, "$this");
+            this.BackgroundImage = null;
+            this.Controls.Add(this.btn_Cancel);
+            this.Controls.Add(this.btn_browse);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_OK);
+            this.Controls.Add(this.listBox1);
+            this.Font = null;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = null;
+            this.Name = "FontSelector";
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 		#endregion

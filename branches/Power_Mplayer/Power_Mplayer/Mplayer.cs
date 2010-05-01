@@ -37,7 +37,7 @@ namespace Power_Mplayer
 
 		public MediaType mediaType;
 		private string mediaFilename;
-		private Panel BigScreen;
+		public Panel BigScreen;
         private Form1 MainForm;
 
 		private string CurrentMediaFilename

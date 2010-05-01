@@ -123,6 +123,9 @@
   <data name="btn_browse.Text" xml:space="preserve">
     <value>Browse</value>
   </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;btn_Cancel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -147,7 +150,10 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_Cancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 55</value>
+    <value>224, 63</value>
+  </data>
+  <data name="listBox1.ItemHeight" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
     <value>textBox1</value>
@@ -162,16 +168,13 @@
     <value>Select Font</value>
   </data>
   <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
-    <value>5, 13</value>
+    <value>5, 15</value>
   </data>
   <data name="&gt;&gt;btn_browse.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;btn_browse.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 14</value>
   </data>
   <data name="&gt;&gt;btn_browse.Parent" xml:space="preserve">
     <value>$this</value>
@@ -188,17 +191,17 @@
   <data name="&gt;&gt;btn_OK.Name" xml:space="preserve">
     <value>btn_OK</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 16</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btn_browse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 20</value>
+    <value>72, 23</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 20</value>
+    <value>208, 22</value>
   </data>
   <data name="btn_Cancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -207,7 +210,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btn_OK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 21</value>
+    <value>72, 25</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -216,7 +219,7 @@
     <value>$this</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 7</value>
+    <value>8, 8</value>
   </data>
   <data name="btn_browse.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -231,10 +234,10 @@
     <value>306, 282</value>
   </data>
   <data name="btn_Cancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 21</value>
+    <value>72, 25</value>
   </data>
   <data name="btn_browse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 215</value>
+    <value>224, 248</value>
   </data>
   <data name="btn_OK.Text" xml:space="preserve">
     <value>OK</value>
@@ -249,7 +252,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btn_OK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 28</value>
+    <value>224, 32</value>
   </data>
   <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
     <value>listBox1</value>
@@ -258,13 +261,13 @@
     <value>$this</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 215</value>
+    <value>8, 248</value>
   </data>
   <data name="&gt;&gt;btn_OK.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 28</value>
+    <value>8, 32</value>
   </data>
   <data name="btn_Cancel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -273,7 +276,7 @@
     <value>$this</value>
   </data>
   <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 160</value>
+    <value>208, 184</value>
   </data>
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
