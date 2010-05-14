@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Threading;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Power_Mplayer
 {
@@ -29,10 +30,10 @@ namespace Power_Mplayer
 
 		// power mplayer info
 		private MediaInfo minfo;
-		private MplayerSetting msetting;
-		private ArrayList sublist;
-		private Subtitle sub;
-		public ArrayList shortcuts;
+        public MplayerSetting Setting {get; private set;}
+        public List<Subtitle> SubList { get; private set; }
+        public Subtitle CurrentSubtitle {get; set;}
+        private Dictionary<string, MShortcut> shortcuts;
 		private MKeyConverter mkconverter;
 
 		public MediaType mediaType;
@@ -67,22 +68,6 @@ namespace Power_Mplayer
 			}
 		}
 
-		public MplayerSetting Setting
-		{
-			get	{ return msetting; }
-		}
-
-		public ArrayList SubList
-		{
-			get { return sublist; }
-		}
-
-		public Subtitle CurrentSubtitle
-		{
-			get	{ return sub; }
-			set	{ sub = value;}
-		}
-
 		// constructure
 		public Mplayer(Form1 f)
 		{
@@ -96,9 +81,9 @@ namespace Power_Mplayer
 			stdout = new MyStreamReader(minfo);
 			stderr = new MyStreamReader(minfo);
 
-			msetting = new MplayerSetting();
+			Setting = new MplayerSetting();
 			
-			string fname = msetting[SetVars.MplayerExe];
+			string fname = Setting[SetVars.MplayerExe];
 			if(fname.IndexOf(Path.VolumeSeparatorChar) < 0)
 			{
 				fname = System.Windows.Forms.Application.StartupPath + @"\" + fname;
@@ -163,18 +148,18 @@ namespace Power_Mplayer
 		{
 			try
 			{
-				Encoding code = Encoding.GetEncoding(this.msetting[SetVars.SubEncoding]);
+				Encoding code = Encoding.GetEncoding(this.Setting[SetVars.SubEncoding]);
 				using(StreamReader sr = new StreamReader(src, code))
 				{
 					StreamWriter sw = new StreamWriter(dest, false, Encoding.UTF8);
 
 					string buf = sr.ReadToEnd();
 
-                    if (msetting[SetVars.SubChineseTrans] == "1")
+                    if (Setting[SetVars.SubChineseTrans] == "1")
                     {
                         buf = Win32API.ToTraditional(buf);
                     }
-                    else if (msetting[SetVars.SubChineseTrans] == "2")
+                    else if (Setting[SetVars.SubChineseTrans] == "2")
                     {
                         buf = Win32API.ToSimplified(buf);
                     }
@@ -214,9 +199,9 @@ namespace Power_Mplayer
 			}
 
 			System.Environment.CurrentDirectory = System.Windows.Forms.Application.StartupPath;
-			if(!File.Exists(msetting[SetVars.MplayerExe]))
+			if(!File.Exists(Setting[SetVars.MplayerExe]))
 			{
-				System.Windows.Forms.MessageBox.Show("找不到 " + Path.GetFullPath(msetting[SetVars.MplayerExe]) + "\n請從[工具]->[選項]中設定。");
+				System.Windows.Forms.MessageBox.Show("找不到 " + Path.GetFullPath(Setting[SetVars.MplayerExe]) + "\n請從[工具]->[選項]中設定。");
 				return false;
 			}
 
@@ -231,7 +216,7 @@ namespace Power_Mplayer
 				mplayerProc.StartInfo.RedirectStandardOutput = true;
 
 				// create command
-				mplayerProc.StartInfo.FileName = msetting[SetVars.MplayerExe];
+				mplayerProc.StartInfo.FileName = Setting[SetVars.MplayerExe];
 				mplayerProc.StartInfo.WorkingDirectory = Path.GetDirectoryName(mplayerProc.StartInfo.FileName);
 
 				mplayerProc.StartInfo.Arguments = "-slave -quiet" + // salve mode
@@ -242,33 +227,33 @@ namespace Power_Mplayer
 				string colorkey = "0x" + ColorTranslator.ToHtml(this.BigScreen.BackColor).TrimStart('#');
 				mplayerProc.StartInfo.Arguments += " -wid " + this.BigScreen.Handle + " -colorkey " + colorkey;
 
-				mplayerProc.StartInfo.Arguments += msetting.MplayerArguements;
+				mplayerProc.StartInfo.Arguments += Setting.MplayerArguements;
 
 				// according MediaType
 				switch(this.mediaType)
 				{
 					case MediaType.File:
 						// load all subtitles
-						sublist = Subtitle.FindSubtitle(this.CurrentMediaFilename);
-						if(this.sub == null)
+						SubList = Subtitle.FindSubtitle(this.CurrentMediaFilename);
+						if(this.CurrentSubtitle == null)
 						{
-							if(this.sublist.Count > 1)
-								this.sub = (Subtitle) sublist[1];
+                            if (this.SubList.Count > 1)
+                                this.CurrentSubtitle = SubList[1];
 							else
-								this.sub = (Subtitle) sublist[0];
+                                this.CurrentSubtitle = SubList[0];
 						}
 
 						// use subtitle
-						if(this.msetting[SetVars.SrtForceUTF8] != "1" 
-							|| (sub.SubType != SubtitleType.Ass && sub.SubType != SubtitleType.Srt))
+						if(this.Setting[SetVars.SrtForceUTF8] != "1" 
+							|| (CurrentSubtitle.SubType != SubtitleType.Ass && CurrentSubtitle.SubType != SubtitleType.Srt))
 						{
-							mplayerProc.StartInfo.Arguments += sub.MplayerStartArgs;
+							mplayerProc.StartInfo.Arguments += CurrentSubtitle.MplayerStartArgs;
 						}
 						else
 						{
-							string ext = Path.GetExtension(sub.Filename);
+                            string ext = Path.GetExtension(CurrentSubtitle.Filename);
 							string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + ext;
-							this.tran2utf8(sub.Filename, dest);
+                            this.tran2utf8(CurrentSubtitle.Filename, dest);
 
 							Subtitle s = new Subtitle(dest);
 							mplayerProc.StartInfo.Arguments += s.MplayerStartArgs;
@@ -280,8 +265,8 @@ namespace Power_Mplayer
 						break;
 				}
 
-				if(this.sublist == null || this.sublist.Count == 0)
-					sublist = Subtitle.FindSubtitle(null);
+                if (this.SubList == null || this.SubList.Count == 0)
+                    SubList = Subtitle.FindSubtitle(null);
 
 				// append filename
                 if (this.mediaType == MediaType.File)
@@ -384,14 +369,14 @@ namespace Power_Mplayer
             if (this.mediaType == MediaType.File)
             {
                 // delete temp_subtitle for ForeceUTF8
-                string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(sub.Filename);
+                string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(CurrentSubtitle.Filename);
                 if (File.Exists(dest))
                     File.Delete(dest);
 
-                this.sublist.Clear();
+                this.SubList.Clear();
             }
 
-            sub = null;
+            CurrentSubtitle = null;
 
             this.mediaType = MediaType.None;
             this.mediaFilename = null;
@@ -663,15 +648,18 @@ namespace Power_Mplayer
 
 			//this seens to be generating a NullReferenceException, to avoid it I check if the this.shortcuts is null
 			//TODO: Replace the shortcuts by methods that are fired by the form, avoiding these errors
-			if(this.shortcuts != null)
-				foreach (MShortcut sc in this.shortcuts)
-				{
-					if (sc.Key == str)
-					{
-						str = sc.Cmd;
-						break;
-					}
-				}
+            if (this.shortcuts != null)
+            {
+                try
+                {
+                    str = this.shortcuts[str].Cmd;
+                }
+                catch 
+                {
+                    // not found
+                    str = "None";
+                }
+            }
 
 			return str;
 		}
@@ -702,7 +690,7 @@ namespace Power_Mplayer
                     fname = fname.Substring(str_sample.Length, fname.Length - 5 - str_sample.Length);
                 }
 
-                return Path.GetDirectoryName(this.msetting[SetVars.MplayerExe]) + @"\" + fname;
+                return Path.GetDirectoryName(this.Setting[SetVars.MplayerExe]) + @"\" + fname;
             }
 
             return "";

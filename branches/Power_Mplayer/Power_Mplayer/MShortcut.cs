@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Power_Mplayer
@@ -11,9 +12,9 @@ namespace Power_Mplayer
 		public string Cmd;
 		public string Comment;
 
-		public static ArrayList LoadShortcuts(string fname)
+		public static Dictionary<string, MShortcut> LoadShortcuts(string fname)
 		{
-			ArrayList mapping = new ArrayList();
+            Dictionary<string, MShortcut> mapping = new Dictionary<string, MShortcut>();
 
 			if(!File.Exists(fname))
 			{
@@ -49,8 +50,15 @@ namespace Power_Mplayer
 					}
 
 					sc.Cmd = sc.Cmd.TrimStart(' ', '\t').TrimEnd(' ', '\t');
-					
-					mapping.Add(sc);
+
+                    try
+                    {
+                        mapping.Add(sc.Key, sc);
+                    }
+                    catch
+                    {
+                        // Key repeat 
+                    }
 				}
 			}
 

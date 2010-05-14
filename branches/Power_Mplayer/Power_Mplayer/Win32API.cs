@@ -143,7 +143,7 @@ namespace Power_Mplayer
                     return kv.StartsWith(ProgramName);
                 }
             }
-            catch (Exception ee)
+            catch
             {
                 //System.Windows.Forms.MessageBox.Show(ee.ToString());
             }

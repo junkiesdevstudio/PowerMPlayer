@@ -117,1243 +117,1249 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Video_DirectRandering.Text" xml:space="preserve">
-    <value>Direct Rendering</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Audio_Softvol.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 40</value>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 90</value>
   </data>
-  <data name="&gt;&gt;txt_mplayer_cmd.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 12</value>
   </data>
-  <data name="&gt;&gt;tp_general.Name" xml:space="preserve">
-    <value>tp_general</value>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Sub Autoscale</value>
+  <data name="label10.Text" xml:space="preserve">
+    <value>You can only change the mplayer.exe path in the portable version</value>
+  </data>
+  <data name="label10.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;label10.Name" xml:space="preserve">
     <value>label10</value>
   </data>
-  <data name="Video_Output.Items1" xml:space="preserve">
-    <value>winvidix</value>
-  </data>
-  <data name="Srt_UseASS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 17</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tp_Subtitle.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Srt_ForceUTF8.Name" xml:space="preserve">
-    <value>Srt_ForceUTF8</value>
-  </data>
-  <data name="&gt;&gt;tp_general.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tp_Output.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Srt_ChineseTrans.Parent" xml:space="preserve">
-    <value>tp_Subtitle</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 13</value>
-  </data>
-  <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">
-    <value>openFileDialog1</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;Video_Output.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="clb_FileAssociate.Items3" xml:space="preserve">
-    <value>.ac3</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Video_DirectRandering.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btn_SelectAllExt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="chkLanguage.Items" xml:space="preserve">
-    <value>System Default</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>376, 341</value>
-  </data>
-  <data name="tp_general.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="Video_Output.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
-    <value>5, 13</value>
-  </data>
-  <data name="Audio_Output.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 16</value>
-  </data>
-  <data name="Srt_AutoScale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 144</value>
-  </data>
-  <data name="Srt_ChineseTrans.Items2" xml:space="preserve">
-    <value>To Simplified</value>
-  </data>
-  <data name="txt_mplayer_cmd.Text" xml:space="preserve">
-    <value>.\mplayer.exe</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;Audio_Output.Name" xml:space="preserve">
-    <value>Audio_Output</value>
-  </data>
-  <data name="Video_Output.Text" xml:space="preserve">
-    <value>directx</value>
-  </data>
-  <data name="&gt;&gt;tp_audio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Video_DirectRandering.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>OptionForm</value>
-  </data>
-  <data name="&gt;&gt;Srt_Font.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;Srt_ChineseTrans.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="clb_FileAssociate.Items69" xml:space="preserve">
-    <value>.xmz</value>
-  </data>
-  <data name="clb_FileAssociate.Items68" xml:space="preserve">
-    <value>.xm</value>
-  </data>
-  <data name="clb_FileAssociate.Items65" xml:space="preserve">
-    <value>.wav</value>
-  </data>
-  <data name="clb_FileAssociate.Items64" xml:space="preserve">
-    <value>.VOC</value>
-  </data>
-  <data name="clb_FileAssociate.Items67" xml:space="preserve">
-    <value>.wmv</value>
-  </data>
-  <data name="clb_FileAssociate.Items66" xml:space="preserve">
-    <value>.wma</value>
-  </data>
-  <data name="clb_FileAssociate.Items61" xml:space="preserve">
-    <value>.stm</value>
-  </data>
-  <data name="clb_FileAssociate.Items60" xml:space="preserve">
-    <value>.snd</value>
-  </data>
-  <data name="btn_cancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 21</value>
-  </data>
-  <data name="clb_FileAssociate.Items62" xml:space="preserve">
-    <value>.stz</value>
-  </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;btn_cancel.Name" xml:space="preserve">
-    <value>btn_cancel</value>
-  </data>
-  <data name="&gt;&gt;Audio_Softvol_max.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label10.Parent" xml:space="preserve">
     <value>tp_general</value>
   </data>
-  <data name="Srt_UseASS.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btn_cancel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>Select Language:</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Srt_AutoScale.Items3" xml:space="preserve">
-    <value>By diagonal</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="clb_FileAssociate.Items63" xml:space="preserve">
-    <value>.ult</value>
-  </data>
-  <data name="&gt;&gt;btn_cancel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btn_close.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 270</value>
+  <data name="txt_mplayer_cmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 21</value>
   </data>
-  <data name="tp_Output.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Video_DirectRandering.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 38</value>
+  <data name="txt_mplayer_cmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
   <data name="txt_mplayer_cmd.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="clb_FileAssociate.Items2" xml:space="preserve">
-    <value>.AAC</value>
+  <data name="txt_mplayer_cmd.Text" xml:space="preserve">
+    <value>.\mplayer.exe</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
+  <data name="&gt;&gt;txt_mplayer_cmd.Name" xml:space="preserve">
+    <value>txt_mplayer_cmd</value>
   </data>
-  <data name="Audio_Softvol.Text" xml:space="preserve">
-    <value>Use Software Mixer</value>
+  <data name="&gt;&gt;txt_mplayer_cmd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 16</value>
+  <data name="&gt;&gt;txt_mplayer_cmd.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="Srt_ChineseTrans.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="&gt;&gt;txt_mplayer_cmd.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 21</value>
   </data>
-  <data name="btn_SelectAllExt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
-  </data>
-  <data name="Video_DirectRandering.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Srt_ForceUTF8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 185</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tp_Output.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Mplayer.exe path:</value>
   </data>
-  <data name="clb_FileAssociate.Items53" xml:space="preserve">
-    <value>.rnx</value>
+  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
-  <data name="btn_close.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 21</value>
+  </data>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 23</value>
+  </data>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="&gt;&gt;button2.Name" xml:space="preserve">
+    <value>button2</value>
+  </data>
+  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 79</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Mplayer Option</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>tp_general</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tp_general.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tp_general.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 269</value>
+  </data>
+  <data name="tp_general.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tp_general.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="&gt;&gt;tp_general.Name" xml:space="preserve">
+    <value>tp_general</value>
+  </data>
+  <data name="&gt;&gt;tp_general.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tp_general.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tp_general.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Audio_Softvol_max.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 48</value>
+  </data>
+  <data name="Audio_Softvol_max.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 22</value>
+  </data>
+  <data name="Audio_Softvol_max.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Audio_Softvol_max.Name" xml:space="preserve">
+    <value>Audio_Softvol_max</value>
+  </data>
+  <data name="&gt;&gt;Audio_Softvol_max.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Audio_Softvol_max.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;Audio_Softvol_max.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 48</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 24</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Max(%)</value>
+  </data>
+  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Audio_Softvol.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 46</value>
+  </data>
+  <data name="Audio_Softvol.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 24</value>
+  </data>
+  <data name="Audio_Softvol.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Audio_Softvol.Text" xml:space="preserve">
+    <value>Use Software Mixer</value>
+  </data>
+  <data name="&gt;&gt;Audio_Softvol.Name" xml:space="preserve">
+    <value>Audio_Softvol</value>
+  </data>
+  <data name="&gt;&gt;Audio_Softvol.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Audio_Softvol.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;Audio_Softvol.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Audio_Output.Items" xml:space="preserve">
+    <value>win32</value>
+  </data>
+  <data name="Audio_Output.Items1" xml:space="preserve">
+    <value>dsound</value>
+  </data>
+  <data name="Audio_Output.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 18</value>
+  </data>
+  <data name="Audio_Output.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="Audio_Output.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Audio_Output.Text" xml:space="preserve">
+    <value>dsound</value>
+  </data>
+  <data name="&gt;&gt;Audio_Output.Name" xml:space="preserve">
+    <value>Audio_Output</value>
+  </data>
+  <data name="&gt;&gt;Audio_Output.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Audio_Output.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;Audio_Output.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 18</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 24</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Audio output driver:</value>
+  </data>
+  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 80</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 88</value>
+  </data>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>tp_Output</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Video_DirectRandering.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 44</value>
+  </data>
+  <data name="Video_DirectRandering.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 24</value>
+  </data>
+  <data name="Video_DirectRandering.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Video_DirectRandering.Text" xml:space="preserve">
+    <value>Direct Rendering</value>
+  </data>
+  <data name="&gt;&gt;Video_DirectRandering.Name" xml:space="preserve">
+    <value>Video_DirectRandering</value>
+  </data>
+  <data name="&gt;&gt;Video_DirectRandering.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Video_DirectRandering.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;Video_DirectRandering.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Video_Output.Items" xml:space="preserve">
+    <value>direct3d</value>
+  </data>
+  <data name="Video_Output.Items1" xml:space="preserve">
+    <value>gl</value>
+  </data>
+  <data name="Video_Output.Items2" xml:space="preserve">
+    <value>gl2</value>
+  </data>
+  <data name="Video_Output.Items3" xml:space="preserve">
+    <value>directx</value>
+  </data>
+  <data name="Video_Output.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 18</value>
+  </data>
+  <data name="Video_Output.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="Video_Output.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Video_Output.Text" xml:space="preserve">
+    <value>direct3d</value>
+  </data>
+  <data name="&gt;&gt;Video_Output.Name" xml:space="preserve">
+    <value>Video_Output</value>
+  </data>
+  <data name="&gt;&gt;Video_Output.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Video_Output.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;Video_Output.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 18</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 24</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Video output driver:</value>
+  </data>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 71</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>tp_Output</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tp_Output.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tp_Output.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 269</value>
+  </data>
+  <data name="tp_Output.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tp_Output.Text" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="&gt;&gt;tp_Output.Name" xml:space="preserve">
+    <value>tp_Output</value>
+  </data>
+  <data name="&gt;&gt;tp_Output.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tp_Output.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tp_Output.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Srt_ChineseTrans.Items" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Srt_ChineseTrans.Items1" xml:space="preserve">
+    <value>To Traditional</value>
+  </data>
+  <data name="Srt_ChineseTrans.Items2" xml:space="preserve">
+    <value>To Simplified</value>
+  </data>
+  <data name="Srt_ChineseTrans.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 238</value>
+  </data>
+  <data name="Srt_ChineseTrans.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="Srt_ChineseTrans.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;Srt_ChineseTrans.Name" xml:space="preserve">
+    <value>Srt_ChineseTrans</value>
+  </data>
+  <data name="&gt;&gt;Srt_ChineseTrans.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Srt_ChineseTrans.Parent" xml:space="preserve">
+    <value>tp_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;Srt_ChineseTrans.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 241</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 12</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Chinese convert</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
   </data>
-  <data name="clb_FileAssociate.Items59" xml:space="preserve">
-    <value>.smil</value>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>tp_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Srt_SubFontTextScale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 46</value>
+  </data>
+  <data name="Srt_SubFontTextScale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="Srt_SubFontTextScale.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Srt_SubFontTextScale.Name" xml:space="preserve">
+    <value>Srt_SubFontTextScale</value>
+  </data>
+  <data name="&gt;&gt;Srt_SubFontTextScale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Srt_SubFontTextScale.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;Srt_SubFontTextScale.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 48</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Initial Scale</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_BroseFont.Location" type="System.Drawing.Point, System.Drawing">
+    <value>271, 18</value>
+  </data>
+  <data name="btn_BroseFont.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 24</value>
+  </data>
+  <data name="btn_BroseFont.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btn_BroseFont.Text" xml:space="preserve">
+    <value>Browse Font</value>
+  </data>
+  <data name="&gt;&gt;btn_BroseFont.Name" xml:space="preserve">
+    <value>btn_BroseFont</value>
+  </data>
+  <data name="&gt;&gt;btn_BroseFont.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_BroseFont.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;btn_BroseFont.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 23</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 12</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Srt_Font.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 18</value>
+  </data>
+  <data name="Srt_Font.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="Srt_Font.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Srt_Font.Name" xml:space="preserve">
     <value>Srt_Font</value>
   </data>
-  <data name="&gt;&gt;tp_audio.Name" xml:space="preserve">
+  <data name="&gt;&gt;Srt_Font.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Srt_Font.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;Srt_Font.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 80</value>
+  </data>
+  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
+    <value>tp_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Srt_AutoScale.Items" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Srt_AutoScale.Items1" xml:space="preserve">
+    <value>By height</value>
+  </data>
+  <data name="Srt_AutoScale.Items2" xml:space="preserve">
+    <value>By width</value>
+  </data>
+  <data name="Srt_AutoScale.Items3" xml:space="preserve">
+    <value>By diagonal</value>
+  </data>
+  <data name="Srt_AutoScale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 166</value>
+  </data>
+  <data name="Srt_AutoScale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="Srt_AutoScale.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Srt_AutoScale.Name" xml:space="preserve">
+    <value>Srt_AutoScale</value>
+  </data>
+  <data name="&gt;&gt;Srt_AutoScale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Srt_AutoScale.Parent" xml:space="preserve">
+    <value>tp_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;Srt_AutoScale.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 168</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 12</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Sub Autoscale</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>tp_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Srt_UseASS.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Srt_UseASS.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 192</value>
+  </data>
+  <data name="Srt_UseASS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 16</value>
+  </data>
+  <data name="Srt_UseASS.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="Srt_UseASS.Text" xml:space="preserve">
+    <value>Use SSA/ASS</value>
+  </data>
+  <data name="&gt;&gt;Srt_UseASS.Name" xml:space="preserve">
+    <value>Srt_UseASS</value>
+  </data>
+  <data name="&gt;&gt;Srt_UseASS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Srt_UseASS.Parent" xml:space="preserve">
+    <value>tp_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;Srt_UseASS.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Srt_ForceUTF8.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Srt_ForceUTF8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 213</value>
+  </data>
+  <data name="Srt_ForceUTF8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 25</value>
+  </data>
+  <data name="Srt_ForceUTF8.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Srt_ForceUTF8.Text" xml:space="preserve">
+    <value>Auto convert to utf8</value>
+  </data>
+  <data name="&gt;&gt;Srt_ForceUTF8.Name" xml:space="preserve">
+    <value>Srt_ForceUTF8</value>
+  </data>
+  <data name="&gt;&gt;Srt_ForceUTF8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Srt_ForceUTF8.Parent" xml:space="preserve">
+    <value>tp_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;Srt_ForceUTF8.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="tp_Subtitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tp_Subtitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 269</value>
+  </data>
+  <data name="tp_Subtitle.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tp_Subtitle.Text" xml:space="preserve">
+    <value>Subtitle</value>
+  </data>
+  <data name="&gt;&gt;tp_Subtitle.Name" xml:space="preserve">
+    <value>tp_Subtitle</value>
+  </data>
+  <data name="&gt;&gt;tp_Subtitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tp_Subtitle.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tp_Subtitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btn_SelectAllExt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>285, 12</value>
+  </data>
+  <data name="btn_SelectAllExt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btn_SelectAllExt.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btn_SelectAllExt.Text" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="&gt;&gt;btn_SelectAllExt.Name" xml:space="preserve">
+    <value>btn_SelectAllExt</value>
+  </data>
+  <data name="&gt;&gt;btn_SelectAllExt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_SelectAllExt.Parent" xml:space="preserve">
+    <value>tp_audio</value>
+  </data>
+  <data name="&gt;&gt;btn_SelectAllExt.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="clb_FileAssociate.Items" xml:space="preserve">
+    <value>.3gp</value>
+  </data>
+  <data name="clb_FileAssociate.Items1" xml:space="preserve">
+    <value>.669</value>
+  </data>
+  <data name="clb_FileAssociate.Items2" xml:space="preserve">
+    <value>.AAC</value>
+  </data>
+  <data name="clb_FileAssociate.Items3" xml:space="preserve">
+    <value>.ac3</value>
+  </data>
+  <data name="clb_FileAssociate.Items4" xml:space="preserve">
+    <value>.aif</value>
+  </data>
+  <data name="clb_FileAssociate.Items5" xml:space="preserve">
+    <value>.aifc</value>
+  </data>
+  <data name="clb_FileAssociate.Items6" xml:space="preserve">
+    <value>.aiff</value>
+  </data>
+  <data name="clb_FileAssociate.Items7" xml:space="preserve">
+    <value>.amc</value>
+  </data>
+  <data name="clb_FileAssociate.Items8" xml:space="preserve">
+    <value>.amf</value>
+  </data>
+  <data name="clb_FileAssociate.Items9" xml:space="preserve">
+    <value>.APL</value>
+  </data>
+  <data name="clb_FileAssociate.Items10" xml:space="preserve">
+    <value>.asf</value>
+  </data>
+  <data name="clb_FileAssociate.Items11" xml:space="preserve">
+    <value>.au</value>
+  </data>
+  <data name="clb_FileAssociate.Items12" xml:space="preserve">
+    <value>.avi</value>
+  </data>
+  <data name="clb_FileAssociate.Items13" xml:space="preserve">
+    <value>.cda</value>
+  </data>
+  <data name="clb_FileAssociate.Items14" xml:space="preserve">
+    <value>.far</value>
+  </data>
+  <data name="clb_FileAssociate.Items15" xml:space="preserve">
+    <value>.it</value>
+  </data>
+  <data name="clb_FileAssociate.Items16" xml:space="preserve">
+    <value>.itz</value>
+  </data>
+  <data name="clb_FileAssociate.Items17" xml:space="preserve">
+    <value>.KAR</value>
+  </data>
+  <data name="clb_FileAssociate.Items18" xml:space="preserve">
+    <value>.M2V</value>
+  </data>
+  <data name="clb_FileAssociate.Items19" xml:space="preserve">
+    <value>.M4A</value>
+  </data>
+  <data name="clb_FileAssociate.Items20" xml:space="preserve">
+    <value>.mdz</value>
+  </data>
+  <data name="clb_FileAssociate.Items21" xml:space="preserve">
+    <value>.mid</value>
+  </data>
+  <data name="clb_FileAssociate.Items22" xml:space="preserve">
+    <value>.midi</value>
+  </data>
+  <data name="clb_FileAssociate.Items23" xml:space="preserve">
+    <value>.MIZ</value>
+  </data>
+  <data name="clb_FileAssociate.Items24" xml:space="preserve">
+    <value>.mka</value>
+  </data>
+  <data name="clb_FileAssociate.Items25" xml:space="preserve">
+    <value>.mkv</value>
+  </data>
+  <data name="clb_FileAssociate.Items26" xml:space="preserve">
+    <value>.mod</value>
+  </data>
+  <data name="clb_FileAssociate.Items27" xml:space="preserve">
+    <value>.mov</value>
+  </data>
+  <data name="clb_FileAssociate.Items28" xml:space="preserve">
+    <value>.MP1</value>
+  </data>
+  <data name="clb_FileAssociate.Items29" xml:space="preserve">
+    <value>.mp2</value>
+  </data>
+  <data name="clb_FileAssociate.Items30" xml:space="preserve">
+    <value>.mp2v</value>
+  </data>
+  <data name="clb_FileAssociate.Items31" xml:space="preserve">
+    <value>.mp3</value>
+  </data>
+  <data name="clb_FileAssociate.Items32" xml:space="preserve">
+    <value>.mp4</value>
+  </data>
+  <data name="clb_FileAssociate.Items33" xml:space="preserve">
+    <value>.mpa</value>
+  </data>
+  <data name="clb_FileAssociate.Items34" xml:space="preserve">
+    <value>.mpe</value>
+  </data>
+  <data name="clb_FileAssociate.Items35" xml:space="preserve">
+    <value>.mpeg</value>
+  </data>
+  <data name="clb_FileAssociate.Items36" xml:space="preserve">
+    <value>.mpg</value>
+  </data>
+  <data name="clb_FileAssociate.Items37" xml:space="preserve">
+    <value>.mpg4</value>
+  </data>
+  <data name="clb_FileAssociate.Items38" xml:space="preserve">
+    <value>.mpv2</value>
+  </data>
+  <data name="clb_FileAssociate.Items39" xml:space="preserve">
+    <value>.mtm</value>
+  </data>
+  <data name="clb_FileAssociate.Items40" xml:space="preserve">
+    <value>.NSA</value>
+  </data>
+  <data name="clb_FileAssociate.Items41" xml:space="preserve">
+    <value>.nst</value>
+  </data>
+  <data name="clb_FileAssociate.Items42" xml:space="preserve">
+    <value>.NSV</value>
+  </data>
+  <data name="clb_FileAssociate.Items43" xml:space="preserve">
+    <value>.OGG</value>
+  </data>
+  <data name="clb_FileAssociate.Items44" xml:space="preserve">
+    <value>.ogm</value>
+  </data>
+  <data name="clb_FileAssociate.Items45" xml:space="preserve">
+    <value>.okt</value>
+  </data>
+  <data name="clb_FileAssociate.Items46" xml:space="preserve">
+    <value>.ptm</value>
+  </data>
+  <data name="clb_FileAssociate.Items47" xml:space="preserve">
+    <value>.ra</value>
+  </data>
+  <data name="clb_FileAssociate.Items48" xml:space="preserve">
+    <value>.ram</value>
+  </data>
+  <data name="clb_FileAssociate.Items49" xml:space="preserve">
+    <value>.rm</value>
+  </data>
+  <data name="clb_FileAssociate.Items50" xml:space="preserve">
+    <value>.rmvb</value>
+  </data>
+  <data name="clb_FileAssociate.Items51" xml:space="preserve">
+    <value>.rmi</value>
+  </data>
+  <data name="clb_FileAssociate.Items52" xml:space="preserve">
+    <value>.rmm</value>
+  </data>
+  <data name="clb_FileAssociate.Items53" xml:space="preserve">
+    <value>.rnx</value>
+  </data>
+  <data name="clb_FileAssociate.Items54" xml:space="preserve">
+    <value>.rp</value>
+  </data>
+  <data name="clb_FileAssociate.Items55" xml:space="preserve">
+    <value>.rv</value>
+  </data>
+  <data name="clb_FileAssociate.Items56" xml:space="preserve">
+    <value>.s3m</value>
+  </data>
+  <data name="clb_FileAssociate.Items57" xml:space="preserve">
+    <value>.s3z</value>
+  </data>
+  <data name="clb_FileAssociate.Items58" xml:space="preserve">
+    <value>.smi</value>
+  </data>
+  <data name="clb_FileAssociate.Items59" xml:space="preserve">
+    <value>.smil</value>
+  </data>
+  <data name="clb_FileAssociate.Items60" xml:space="preserve">
+    <value>.snd</value>
+  </data>
+  <data name="clb_FileAssociate.Items61" xml:space="preserve">
+    <value>.stm</value>
+  </data>
+  <data name="clb_FileAssociate.Items62" xml:space="preserve">
+    <value>.stz</value>
+  </data>
+  <data name="clb_FileAssociate.Items63" xml:space="preserve">
+    <value>.ult</value>
+  </data>
+  <data name="clb_FileAssociate.Items64" xml:space="preserve">
+    <value>.VOC</value>
+  </data>
+  <data name="clb_FileAssociate.Items65" xml:space="preserve">
+    <value>.wav</value>
+  </data>
+  <data name="clb_FileAssociate.Items66" xml:space="preserve">
+    <value>.wma</value>
+  </data>
+  <data name="clb_FileAssociate.Items67" xml:space="preserve">
+    <value>.wmv</value>
+  </data>
+  <data name="clb_FileAssociate.Items68" xml:space="preserve">
+    <value>.xm</value>
+  </data>
+  <data name="clb_FileAssociate.Items69" xml:space="preserve">
+    <value>.xmz</value>
+  </data>
+  <data name="clb_FileAssociate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 12</value>
+  </data>
+  <data name="clb_FileAssociate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 191</value>
+  </data>
+  <data name="clb_FileAssociate.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;clb_FileAssociate.Name" xml:space="preserve">
+    <value>clb_FileAssociate</value>
+  </data>
+  <data name="&gt;&gt;clb_FileAssociate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;clb_FileAssociate.Parent" xml:space="preserve">
     <value>tp_audio</value>
   </data>
   <data name="&gt;&gt;clb_FileAssociate.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="clb_FileAssociate.Items50" xml:space="preserve">
-    <value>.rmvb</value>
+  <data name="tp_audio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
-  <data name="&gt;&gt;tp_general.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chkLanguage.Items2" xml:space="preserve">
-    <value>中文（繁體) - Chinese (Traditional)</value>
-  </data>
-  <data name="Video_Output.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 16</value>
+  <data name="tp_audio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 269</value>
   </data>
   <data name="tp_audio.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;Srt_UseASS.Parent" xml:space="preserve">
-    <value>tp_Subtitle</value>
+  <data name="tp_audio.Text" xml:space="preserve">
+    <value>File Extension</value>
   </data>
-  <data name="&gt;&gt;Video_Output.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;tp_audio.Name" xml:space="preserve">
+    <value>tp_audio</value>
   </data>
-  <data name="Srt_ForceUTF8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 21</value>
-  </data>
-  <data name="clb_FileAssociate.Items58" xml:space="preserve">
-    <value>.smi</value>
-  </data>
-  <data name="clb_FileAssociate.Items55" xml:space="preserve">
-    <value>.rv</value>
-  </data>
-  <data name="clb_FileAssociate.Items54" xml:space="preserve">
-    <value>.rp</value>
-  </data>
-  <data name="clb_FileAssociate.Items57" xml:space="preserve">
-    <value>.s3z</value>
-  </data>
-  <data name="clb_FileAssociate.Items56" xml:space="preserve">
-    <value>.s3m</value>
-  </data>
-  <data name="clb_FileAssociate.Items51" xml:space="preserve">
-    <value>.rmi</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>376, 256</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="clb_FileAssociate.Items52" xml:space="preserve">
-    <value>.rmm</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 20</value>
-  </data>
-  <data name="Srt_AutoScale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="clb_FileAssociate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 184</value>
-  </data>
-  <data name="&gt;&gt;Audio_Output.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 16</value>
-  </data>
-  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;Srt_ChineseTrans.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tp_Output.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 230</value>
-  </data>
-  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_BroseFont.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="clb_FileAssociate.Items46" xml:space="preserve">
-    <value>.ptm</value>
-  </data>
-  <data name="clb_FileAssociate.Items40" xml:space="preserve">
-    <value>.NSA</value>
-  </data>
-  <data name="&gt;&gt;Audio_Softvol.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Srt_UseASS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="clb_FileAssociate.Items9" xml:space="preserve">
-    <value>.APL</value>
-  </data>
-  <data name="tp_Subtitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 230</value>
-  </data>
-  <data name="clb_FileAssociate.Items1" xml:space="preserve">
-    <value>.669</value>
-  </data>
-  <data name="&gt;&gt;Srt_ForceUTF8.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;Video_Output.Name" xml:space="preserve">
-    <value>Video_Output</value>
-  </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 69</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;tp_audio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tp_audio.Parent" xml:space="preserve">
     <value>tabControl1</value>
   </data>
-  <data name="btn_BroseFont.Text" xml:space="preserve">
-    <value>Browse Font</value>
-  </data>
-  <data name="Video_Output.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;chkLanguage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="Srt_SubFontTextScale.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Srt_ChineseTrans.Name" xml:space="preserve">
-    <value>Srt_ChineseTrans</value>
-  </data>
-  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Srt_UseASS.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;clb_FileAssociate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Srt_AutoScale.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 42</value>
-  </data>
-  <data name="btn_cancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 270</value>
-  </data>
-  <data name="tp_audio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="clb_FileAssociate.Items49" xml:space="preserve">
-    <value>.rm</value>
-  </data>
-  <data name="clb_FileAssociate.Items48" xml:space="preserve">
-    <value>.ram</value>
-  </data>
-  <data name="clb_FileAssociate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 10</value>
-  </data>
-  <data name="&gt;&gt;Srt_ForceUTF8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="clb_FileAssociate.Items45" xml:space="preserve">
-    <value>.okt</value>
-  </data>
-  <data name="clb_FileAssociate.Items44" xml:space="preserve">
-    <value>.ogm</value>
-  </data>
-  <data name="clb_FileAssociate.Items47" xml:space="preserve">
-    <value>.ra</value>
-  </data>
-  <data name="&gt;&gt;Audio_Softvol_max.Name" xml:space="preserve">
-    <value>Audio_Softvol_max</value>
-  </data>
-  <data name="clb_FileAssociate.Items41" xml:space="preserve">
-    <value>.nst</value>
-  </data>
-  <data name="label8.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="clb_FileAssociate.Items43" xml:space="preserve">
-    <value>.OGG</value>
-  </data>
-  <data name="clb_FileAssociate.Items42" xml:space="preserve">
-    <value>.NSV</value>
-  </data>
-  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="txt_mplayer_cmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 20</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;btn_BroseFont.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Audio_Output.Items1" xml:space="preserve">
-    <value>dsound</value>
-  </data>
-  <data name="&gt;&gt;Srt_Font.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>tp_Subtitle</value>
-  </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="clb_FileAssociate.Items21" xml:space="preserve">
-    <value>.mid</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;Audio_Softvol.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="label10.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;Srt_SubFontTextScale.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btn_close.Name" xml:space="preserve">
-    <value>btn_close</value>
-  </data>
-  <data name="Srt_AutoScale.Items1" xml:space="preserve">
-    <value>By height</value>
-  </data>
-  <data name="&gt;&gt;Video_DirectRandering.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="button2.Text" xml:space="preserve">
-    <value>Browse</value>
-  </data>
-  <data name="clb_FileAssociate.Items8" xml:space="preserve">
-    <value>.amf</value>
-  </data>
-  <data name="&gt;&gt;txt_mplayer_cmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_SelectAllExt.Text" xml:space="preserve">
-    <value>Select All</value>
-  </data>
-  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
-  </data>
-  <data name="tp_general.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 230</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Srt_AutoScale.Name" xml:space="preserve">
-    <value>Srt_AutoScale</value>
-  </data>
-  <data name="&gt;&gt;tp_Subtitle.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="txt_mplayer_cmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 18</value>
-  </data>
-  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 18</value>
-  </data>
-  <data name="tp_audio.Text" xml:space="preserve">
-    <value>File Extension</value>
-  </data>
-  <data name="&gt;&gt;tp_Subtitle.Name" xml:space="preserve">
-    <value>tp_Subtitle</value>
-  </data>
-  <data name="Video_Output.Items" xml:space="preserve">
-    <value>directx</value>
-  </data>
-  <data name="clb_FileAssociate.Items18" xml:space="preserve">
-    <value>.M2V</value>
-  </data>
-  <data name="clb_FileAssociate.Items" xml:space="preserve">
-    <value>.3gp</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Initial Scale</value>
-  </data>
-  <data name="clb_FileAssociate.Items16" xml:space="preserve">
-    <value>.itz</value>
-  </data>
-  <data name="Audio_Softvol_max.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Mplayer Option</value>
-  </data>
-  <data name="clb_FileAssociate.Items12" xml:space="preserve">
-    <value>.avi</value>
-  </data>
-  <data name="Audio_Output.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 7</value>
-  </data>
-  <data name="&gt;&gt;Audio_Softvol.Name" xml:space="preserve">
-    <value>Audio_Softvol</value>
-  </data>
-  <data name="Srt_ChineseTrans.Items1" xml:space="preserve">
-    <value>To Traditional</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Video</value>
-  </data>
-  <data name="clb_FileAssociate.Items39" xml:space="preserve">
-    <value>.mtm</value>
-  </data>
-  <data name="clb_FileAssociate.Items38" xml:space="preserve">
-    <value>.mpv2</value>
-  </data>
-  <data name="&gt;&gt;Srt_ForceUTF8.Parent" xml:space="preserve">
-    <value>tp_Subtitle</value>
-  </data>
-  <data name="clb_FileAssociate.Items35" xml:space="preserve">
-    <value>.mpeg</value>
-  </data>
-  <data name="clb_FileAssociate.Items34" xml:space="preserve">
-    <value>.mpe</value>
-  </data>
-  <data name="clb_FileAssociate.Items37" xml:space="preserve">
-    <value>.mpg4</value>
-  </data>
-  <data name="clb_FileAssociate.Items36" xml:space="preserve">
-    <value>.mpg</value>
-  </data>
-  <data name="clb_FileAssociate.Items31" xml:space="preserve">
-    <value>.mp3</value>
-  </data>
-  <data name="clb_FileAssociate.Items30" xml:space="preserve">
-    <value>.mp2v</value>
-  </data>
-  <data name="clb_FileAssociate.Items33" xml:space="preserve">
-    <value>.mpa</value>
-  </data>
-  <data name="clb_FileAssociate.Items32" xml:space="preserve">
-    <value>.mp4</value>
-  </data>
-  <data name="&gt;&gt;btn_BroseFont.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btn_BroseFont.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 16</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;clb_FileAssociate.Name" xml:space="preserve">
-    <value>clb_FileAssociate</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 68</value>
-  </data>
-  <data name="&gt;&gt;tp_Output.Name" xml:space="preserve">
-    <value>tp_Output</value>
-  </data>
-  <data name="tp_general.Text" xml:space="preserve">
-    <value>General</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Audio output driver:</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>You can only change the mplayer.exe path in the portable version</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Audio</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 61</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="clb_FileAssociate.Items7" xml:space="preserve">
-    <value>.amc</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 42</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>Chinese convert</value>
-  </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Font</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="Srt_AutoScale.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 146</value>
-  </data>
-  <data name="&gt;&gt;Video_DirectRandering.Name" xml:space="preserve">
-    <value>Video_DirectRandering</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
-  </data>
-  <data name="Srt_AutoScale.Items" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 77</value>
-  </data>
-  <data name="&gt;&gt;btn_SelectAllExt.Parent" xml:space="preserve">
-    <value>tp_audio</value>
-  </data>
   <data name="&gt;&gt;tp_audio.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="btn_SelectAllExt.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 78</value>
-  </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 13</value>
-  </data>
-  <data name="&gt;&gt;btn_BroseFont.Name" xml:space="preserve">
-    <value>btn_BroseFont</value>
-  </data>
-  <data name="Audio_Output.Items" xml:space="preserve">
-    <value>win32</value>
-  </data>
-  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 69</value>
-  </data>
-  <data name="&gt;&gt;tp_Subtitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;Audio_Softvol_max.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="Audio_Softvol.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 21</value>
-  </data>
-  <data name="clb_FileAssociate.Items29" xml:space="preserve">
-    <value>.mp2</value>
-  </data>
-  <data name="clb_FileAssociate.Items28" xml:space="preserve">
-    <value>.MP1</value>
-  </data>
-  <data name="clb_FileAssociate.Items25" xml:space="preserve">
-    <value>.mkv</value>
-  </data>
-  <data name="clb_FileAssociate.Items24" xml:space="preserve">
-    <value>.mka</value>
-  </data>
-  <data name="clb_FileAssociate.Items27" xml:space="preserve">
-    <value>.mov</value>
-  </data>
-  <data name="clb_FileAssociate.Items26" xml:space="preserve">
-    <value>.mod</value>
-  </data>
-  <data name="&gt;&gt;btn_SelectAllExt.Name" xml:space="preserve">
-    <value>btn_SelectAllExt</value>
-  </data>
-  <data name="clb_FileAssociate.Items20" xml:space="preserve">
-    <value>.mdz</value>
-  </data>
-  <data name="clb_FileAssociate.Items23" xml:space="preserve">
-    <value>.MIZ</value>
-  </data>
-  <data name="clb_FileAssociate.Items22" xml:space="preserve">
-    <value>.midi</value>
-  </data>
-  <data name="btn_close.Text" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="&gt;&gt;Audio_Softvol.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tp_Subtitle.Text" xml:space="preserve">
-    <value>Subtitle</value>
-  </data>
-  <data name="&gt;&gt;chkLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 9</value>
-  </data>
-  <data name="&gt;&gt;Srt_SubFontTextScale.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;btn_close.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chkLanguage.Items3" xml:space="preserve">
-    <value>Português - Portuguese</value>
-  </data>
-  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
-  </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 20</value>
-  </data>
-  <data name="chkLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Srt_UseASS.Text" xml:space="preserve">
-    <value>Use SSA/ASS</value>
-  </data>
-  <data name="&gt;&gt;btn_BroseFont.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="clb_FileAssociate.Items6" xml:space="preserve">
-    <value>.aiff</value>
-  </data>
-  <data name="Srt_Font.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 16</value>
-  </data>
-  <data name="Srt_ForceUTF8.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="tp_Output.Text" xml:space="preserve">
-    <value>Output</value>
-  </data>
-  <data name="&gt;&gt;Video_Output.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Srt_AutoScale.Parent" xml:space="preserve">
-    <value>tp_Subtitle</value>
-  </data>
-  <data name="Srt_ForceUTF8.Text" xml:space="preserve">
-    <value>Auto convert to utf8</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
-    <value>tp_Output</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 18</value>
-  </data>
-  <data name="Srt_ForceUTF8.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="tp_Subtitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
-    <value>tp_Subtitle</value>
-  </data>
-  <data name="Audio_Softvol.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_mplayer_cmd.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="btn_SelectAllExt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>285, 10</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Mplayer.exe path:</value>
-  </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 209</value>
-  </data>
-  <data name="Audio_Output.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btn_cancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Audio_Output.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="clb_FileAssociate.Items19" xml:space="preserve">
-    <value>.M4A</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="clb_FileAssociate.Items15" xml:space="preserve">
-    <value>.it</value>
-  </data>
-  <data name="clb_FileAssociate.Items14" xml:space="preserve">
-    <value>.far</value>
-  </data>
-  <data name="clb_FileAssociate.Items17" xml:space="preserve">
-    <value>.KAR</value>
-  </data>
-  <data name="&gt;&gt;tp_Subtitle.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="clb_FileAssociate.Items11" xml:space="preserve">
-    <value>.au</value>
-  </data>
-  <data name="clb_FileAssociate.Items10" xml:space="preserve">
-    <value>.asf</value>
-  </data>
-  <data name="clb_FileAssociate.Items13" xml:space="preserve">
-    <value>.cda</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Srt_ChineseTrans.Items" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;clb_FileAssociate.Parent" xml:space="preserve">
-    <value>tp_audio</value>
-  </data>
-  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Srt_UseASS.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tp_general.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="btn_close.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 21</value>
-  </data>
-  <data name="Srt_SubFontTextScale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 40</value>
-  </data>
-  <data name="&gt;&gt;btn_close.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Srt_ChineseTrans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="Audio_Softvol_max.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 20</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>tp_Subtitle</value>
-  </data>
-  <data name="clb_FileAssociate.Items5" xml:space="preserve">
-    <value>.aifc</value>
-  </data>
-  <data name="&gt;&gt;Srt_SubFontTextScale.Name" xml:space="preserve">
-    <value>Srt_SubFontTextScale</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 13</value>
-  </data>
-  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;txt_mplayer_cmd.Name" xml:space="preserve">
-    <value>txt_mplayer_cmd</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Power Mplayer Options</value>
+  <data name="chkLanguage.Items" xml:space="preserve">
+    <value>System Default</value>
   </data>
   <data name="chkLanguage.Items1" xml:space="preserve">
     <value>English</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Font</value>
+  <data name="chkLanguage.Items2" xml:space="preserve">
+    <value>中文（繁體) - Chinese (Traditional)</value>
   </data>
-  <data name="btn_cancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="chkLanguage.Items3" xml:space="preserve">
+    <value>Português - Portuguese</value>
+  </data>
+  <data name="chkLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 7</value>
+  </data>
+  <data name="chkLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 20</value>
+  </data>
+  <data name="chkLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;chkLanguage.Name" xml:space="preserve">
     <value>chkLanguage</value>
   </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btn_SelectAllExt.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btn_BroseFont.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
-  </data>
-  <data name="tp_general.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 13</value>
-  </data>
-  <data name="Srt_ChineseTrans.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 206</value>
-  </data>
-  <data name="&gt;&gt;Srt_SubFontTextScale.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chkLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 21</value>
-  </data>
-  <data name="label10.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="tp_audio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 230</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="Srt_Font.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
-  </data>
-  <data name="&gt;&gt;Srt_AutoScale.Type" xml:space="preserve">
+  <data name="&gt;&gt;chkLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 6</value>
+  <data name="&gt;&gt;chkLanguage.Parent" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 230</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 20</value>
-  </data>
-  <data name="Srt_UseASS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 166</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;openFileDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Video output driver:</value>
-  </data>
-  <data name="clb_FileAssociate.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Max(%)</value>
-  </data>
-  <data name="Srt_AutoScale.Items2" xml:space="preserve">
-    <value>By width</value>
-  </data>
-  <data name="&gt;&gt;btn_close.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Audio_Softvol_max.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 20</value>
-  </data>
-  <data name="Video_DirectRandering.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 21</value>
-  </data>
-  <data name="clb_FileAssociate.Items4" xml:space="preserve">
-    <value>.aif</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>tp_Output</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;Srt_UseASS.Name" xml:space="preserve">
-    <value>Srt_UseASS</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tp_Output.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>tp_general</value>
-  </data>
-  <data name="&gt;&gt;tp_Output.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="Audio_Output.Text" xml:space="preserve">
-    <value>dsound</value>
-  </data>
-  <data name="&gt;&gt;Audio_Output.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Srt_Font.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 13</value>
-  </data>
-  <data name="Audio_Softvol_max.Location" type="System.Drawing.Point, System.Drawing">
-    <value>243, 42</value>
-  </data>
-  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label9.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="Srt_Font.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;chkLanguage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 10</value>
   </data>
-  <data name="&gt;&gt;chkLanguage.Parent" xml:space="preserve">
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 12</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Select Language:</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;btn_cancel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 269</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 8</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>376, 295</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Srt_SubFontTextScale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btn_close.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 312</value>
+  </data>
+  <data name="btn_close.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 24</value>
+  </data>
+  <data name="btn_close.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btn_close.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="&gt;&gt;btn_close.Name" xml:space="preserve">
+    <value>btn_close</value>
+  </data>
+  <data name="&gt;&gt;btn_close.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_close.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_close.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="btn_cancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 312</value>
+  </data>
+  <data name="btn_cancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 24</value>
+  </data>
+  <data name="btn_cancel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btn_cancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;btn_cancel.Name" xml:space="preserve">
+    <value>btn_cancel</value>
+  </data>
+  <data name="&gt;&gt;btn_cancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_cancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_cancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
+    <value>5, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>376, 341</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Power Mplayer Options</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">
+    <value>openFileDialog1</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>OptionForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

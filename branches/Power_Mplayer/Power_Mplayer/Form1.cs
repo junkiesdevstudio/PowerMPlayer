@@ -1452,7 +1452,7 @@ namespace Power_Mplayer
                     needSyncTime = false;
 
                     // To avoid screensaver or powersaver
-                    //Win32API.ResetSystemIdle();
+                    // Win32API.ResetSystemIdle();
                 }
                 else
                     nowTimePos++;

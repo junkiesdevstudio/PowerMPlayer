@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Power_Mplayer
 {
@@ -100,9 +101,9 @@ namespace Power_Mplayer
 		/// <summary>Find all available subtitles</summary>
 		/// <param name="filename">Media filename</param>
 		/// <returns>Numbers of found subtitles.</returns>
-		public static ArrayList FindSubtitle(string filename)
+        public static List<Subtitle> FindSubtitle(string filename)
 		{
-			ArrayList sublist = new ArrayList();
+            List<Subtitle> sublist = new List<Subtitle>();
 
 			// add no subtitle			
 			sublist.Add(new Subtitle(null));
@@ -140,7 +141,7 @@ namespace Power_Mplayer
 		/// <param name="subfile">Vobsub Filename</param>
 		/// <param name="str">Mplayer -identify ID_ string</param>
 		/// <returns></returns>
-		public static bool AddVobSub(ArrayList sublist, string subfile, string str)
+		public static bool AddVobSub(List<Subtitle> sublist, string subfile, string str)
 		{
 			if(!str.StartsWith("VSID_"))
 				return false;
@@ -155,7 +156,7 @@ namespace Power_Mplayer
 			return true;
 		}
 
-		public static bool AddDemuxSub(ArrayList sublist, string subfile, string str)
+        public static bool AddDemuxSub(List<Subtitle> sublist, string subfile, string str)
 		{
 			if(!str.StartsWith("SID_"))
 				return false;
