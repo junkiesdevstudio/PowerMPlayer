@@ -16,13 +16,11 @@ namespace Power_Mplayer
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern bool SystemParametersInfo(
-           int uAction, int uParam, ref int lpvParam,
-           int flags);
+            int uAction, int uParam, ref int lpvParam, int flags);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern bool SystemParametersInfo(
-           int uAction, int uParam, ref bool lpvParam,
-           int flags);
+           int uAction, int uParam, ref bool lpvParam, int flags);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern int PostMessage(IntPtr hWnd,
@@ -30,29 +28,24 @@ namespace Power_Mplayer
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern IntPtr OpenDesktop(
-           string hDesktop, int Flags, bool Inherit,
-           uint DesiredAccess);
+           string hDesktop, int Flags, bool Inherit, uint DesiredAccess);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern bool CloseDesktop(
-           IntPtr hDesktop);
+        private static extern bool CloseDesktop(IntPtr hDesktop);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern bool EnumDesktopWindows(
-           IntPtr hDesktop, EnumDesktopWindowsProc callback,
-           IntPtr lParam);
+           IntPtr hDesktop, EnumDesktopWindowsProc callback, IntPtr lParam);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern bool IsWindowVisible(
-           IntPtr hWnd);
+        private static extern bool IsWindowVisible(IntPtr hWnd);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern IntPtr GetForegroundWindow();
 
         // Callbacks
 
-        private delegate bool EnumDesktopWindowsProc(
-           IntPtr hDesktop, IntPtr lParam);
+        private delegate bool EnumDesktopWindowsProc(IntPtr hDesktop, IntPtr lParam);
 
         // Constants
 
@@ -70,19 +63,18 @@ namespace Power_Mplayer
 
         // Returns TRUE if the screen saver is active 
         // (enabled, but not necessarily running).
-
         public static bool GetScreenSaverActive()
         {
             bool isActive = false;
 
-            SystemParametersInfo(SPI_GETSCREENSAVERACTIVE, 0,
-               ref isActive, 0);
+            SystemParametersInfo(SPI_GETSCREENSAVERACTIVE, 0, ref isActive, 0);
             return isActive;
         }
 
-        // Pass in TRUE(1) to activate or FALSE(0) to deactivate
-        // the screen saver.
-
+        /// <summary>
+        /// Set Screensaver active state
+        /// </summary>
+        /// <param name="Active">Pass in TRUE(1) to activate or FALSE(0) to deactivate the screen saver.</param>
         public static void SetScreenSaverActive(int Active)
         {
             int nullVar = 0;
@@ -97,8 +89,7 @@ namespace Power_Mplayer
         {
             Int32 value = 0;
 
-            SystemParametersInfo(SPI_GETSCREENSAVERTIMEOUT, 0,
-               ref value, 0);
+            SystemParametersInfo(SPI_GETSCREENSAVERTIMEOUT, 0, ref value, 0);
             return value;
         }
 
@@ -147,13 +138,38 @@ namespace Power_Mplayer
             }
         }
 
-        private static bool KillScreenSaverFunc(IntPtr hWnd,
-           IntPtr lParam)
+        private static bool KillScreenSaverFunc(IntPtr hWnd, IntPtr lParam)
         {
             if (IsWindowVisible(hWnd))
                 PostMessage(hWnd, WM_CLOSE, 0, 0);
             return true;
         }
 
+        #region powersaver
+        // code from http://www.dotblogs.com.tw/kuanll/archive/2009/11/27/12193.aspx
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern EXECUTION_STATE SetThreadExecutionState(EXECUTION_STATE flags);
+
+        [Flags]
+        private enum EXECUTION_STATE : uint
+        {
+            ES_SYSTEM_REQUIRED = 0x00000001,
+            ES_DISPLAY_REQUIRED = 0x00000002,
+            // ES_USER_PRESENT = 0x00000004, 
+            ES_CONTINUOUS = 0x80000000
+        }
+
+        public static void PreventMonitorPowerdown()
+        {
+            SetThreadExecutionState(EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
+        }
+
+        public static void AllowMonitorPowerdown()
+        {
+            SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS);
+        }
+
+        #endregion
     }
 }

@@ -1556,6 +1556,7 @@ namespace Power_Mplayer
                 Bounds = Screen.FromHandle(this.Handle).Bounds;
 
                 ScreenSaver.SetScreenSaverActive(0);
+                ScreenSaver.PreventMonitorPowerdown();
                 HideMouse();
 
 				//int cx = Win32API.GetSystemMetrics(Win32API.SM_CXSCREEN);
@@ -1575,6 +1576,7 @@ namespace Power_Mplayer
                 this.Location = oldFormLocation;
 
                 ScreenSaver.SetScreenSaverActive(1);
+                ScreenSaver.AllowMonitorPowerdown();
                 ShowMouse();
 			}
 

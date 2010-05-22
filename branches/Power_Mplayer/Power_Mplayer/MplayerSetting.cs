@@ -56,7 +56,7 @@ namespace Power_Mplayer
 			this.SettingValues.Add(new MValue(SetVars.Audio_SoftvolMax.ToString(), "110",		TypeCode.String));
 
 			// Video
-			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"directx",		TypeCode.String));
+			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"direct3d",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"0",			TypeCode.String));
 
 			// LastMedia

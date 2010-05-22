@@ -696,12 +696,12 @@ namespace Power_Mplayer
             return "";
         }
 
-        public ArrayList AudioChannels
+        public List<int> AudioChannels
         {
             get { return minfo.AudioChannel; }
         }
 
-        public ArrayList VideoChannels
+        public List<int> VideoChannels
         {
             get { return minfo.VideoChannel; }
         }

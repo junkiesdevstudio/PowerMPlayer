@@ -6,24 +6,14 @@ namespace Power_Mplayer
 {
 	public class MValue
 	{
-		private string NAME;
 		public Object Value;
-		private System.TypeCode VType;
-
-		public string Name
-		{
-			get { return NAME; }
-		}
-
-		public TypeCode ValueType
-		{
-			get { return VType; }
-		}
+		public string Name { get; private set;}
+		public TypeCode ValueType { get; private set;}
 
 		public MValue(string name, TypeCode code)
 		{
-			NAME = name;
-			VType = code;
+			Name = name;
+			ValueType = code;
 
 			switch(code)
 			{
@@ -71,8 +61,8 @@ namespace Power_Mplayer
 	{
 		private List<MValue> MValues;
 		private Mplayer mp;
-        public ArrayList AudioChannel;
-        public ArrayList VideoChannel;
+        public List<int> AudioChannel;
+        public List<int> VideoChannel;
 
 		// constructure
 		public MediaInfo(Mplayer m)
@@ -80,8 +70,8 @@ namespace Power_Mplayer
 			MValues = new List<MValue>();
 			mp = m;
 
-            AudioChannel = new ArrayList();
-            VideoChannel = new ArrayList();
+            AudioChannel = new List<int>();
+            VideoChannel = new List<int>();
 
 			CreateValues();
 		}
