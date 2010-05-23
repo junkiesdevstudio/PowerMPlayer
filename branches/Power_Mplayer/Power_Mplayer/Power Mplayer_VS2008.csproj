@@ -26,6 +26,10 @@
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <OldToolsVersion>2.0</OldToolsVersion>
+    <ManifestCertificateThumbprint>FD7A716548ACE7A7B61A955855EC254D360B3D72</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Power Mplayer_VS2008_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -272,7 +276,6 @@
     <Content Include="Icons\stop.ico" />
     <Content Include="Icons\Volume.ico" />
     <Content Include="Readme.txt" />
-    <None Include="Symbols.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -293,7 +296,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
