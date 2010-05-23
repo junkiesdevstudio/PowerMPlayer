@@ -52,6 +52,16 @@ namespace Power_Mplayer
 					break;
 			}
 		}
+
+        public int ToInt()
+        {
+            return int.Parse((string)Value);
+        }
+
+        public double ToDouble()
+        {
+            return double.Parse((string)Value);
+        }
 	}
 
 	/// <summary>

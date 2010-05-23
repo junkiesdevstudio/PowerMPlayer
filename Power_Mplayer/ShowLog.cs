@@ -93,8 +93,8 @@ namespace Power_Mplayer
 
 		private void ShowLog_Resize(object sender, System.EventArgs e)
 		{
-			this.richTextBox1.Height = this.Height-10;
-			this.richTextBox1.Width = this.Width-10;
+            this.richTextBox1.Height = this.ClientSize.Height;
+            this.richTextBox1.Width = this.ClientSize.Width;
 		}
 	}
 }
