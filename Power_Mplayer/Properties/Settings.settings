@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Power_Mplayer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MplayerExe" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\mplayer.exe</Value>
+    </Setting>
+    <Setting Name="SrtForceUTF8" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="SubFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\mplayer\subfont.ttf</Value>
+    </Setting>
+    <Setting Name="SubEncoding" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BIG5</Value>
+    </Setting>
+    <Setting Name="SubAutoScale" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="SubASS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SubChineseTrans" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SubFontTextScale" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="AO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dsound</Value>
+    </Setting>
+    <Setting Name="Audio_Softvol" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Audio_SoftvolMax" Type="System.String" Scope="User">
+      <Value Profile="(Default)">110</Value>
+    </Setting>
+    <Setting Name="VO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">directx</Value>
+    </Setting>
+    <Setting Name="Video_DR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LastMedia" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
