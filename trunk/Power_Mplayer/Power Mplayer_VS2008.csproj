@@ -264,7 +264,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="Changelog.txt" />
-    <Content Include="Docs\slave.txt" />
     <Content Include="Icons\background.ico" />
     <Content Include="Icons\background.png" />
     <Content Include="Icons\decrease_speed.ico" />
@@ -300,6 +299,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Docs\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
