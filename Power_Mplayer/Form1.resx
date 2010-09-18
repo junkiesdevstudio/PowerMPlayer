@@ -155,8 +155,8 @@
   <data name="&gt;&gt;menuItem2.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MainPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 188</value>
+  <data name="&gt;&gt;MI_Zoom.Name" xml:space="preserve">
+    <value>MI_Zoom</value>
   </data>
   <data name="&gt;&gt;MI_Exit.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -217,9 +217,6 @@
   </data>
   <data name="&gt;&gt;VolumeBar.Name" xml:space="preserve">
     <value>VolumeBar</value>
-  </data>
-  <data name="&gt;&gt;MI_HueMore.Name" xml:space="preserve">
-    <value>MI_HueMore</value>
   </data>
   <data name="menuItem6.Text" xml:space="preserve">
     <value>-</value>
@@ -301,7 +298,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAQ
-        TwAAAk1TRnQBSQFMAgEBBwEAAUwBAAFUAQABGAEAARgBAAT/ASEBEAj/AUIBTQE2BwABNgMAASgDAAFg
+        TwAAAk1TRnQBSQFMAgEBBwEAAUwBAAFkAQABGAEAARgBAAT/ASEBEAj/AUIBTQE2BwABNgMAASgDAAFg
         AwABMAMAAQEBAAEgBgABSBUAAQEDBAEGAwoBDgMRARcDGAEhAx0BKQMhATADJAE1AyUBNwMjATMDHwEt
         AxoBJQMVAR0DDwEUAwkBDAMHAQkDCgEOAxIBGQMXASADGQEjAxYBHgMQARUDCAELAwIBAwQAAwIBAwMG
         AQgDCgENAw4BEwMSARkDFgEfAxoBJAMdASoDIAEuAyIBMgMkATUDJAE2AyMBMwMhATADHgErAxwBJwMY
@@ -747,8 +744,8 @@
   <data name="MI_SubPosDown.Text" xml:space="preserve">
     <value>Move down</value>
   </data>
-  <data name="MI_OpenURL.Text" xml:space="preserve">
-    <value>Open URL</value>
+  <data name="&gt;&gt;MI_Screenshot.Name" xml:space="preserve">
+    <value>MI_Screenshot</value>
   </data>
   <data name="VolumeBar.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -796,6 +793,9 @@
     <value>menuItem6</value>
   </data>
   <data name="&gt;&gt;MI_ContrastLess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItem7.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="MI_SelectSubtitle.Text" xml:space="preserve">
@@ -986,6 +986,9 @@
   </data>
   <data name="btn_stop.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="MainPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 188</value>
   </data>
   <data name="btn_mute.Location" type="System.Drawing.Point, System.Drawing">
     <value>416, 3</value>
@@ -2422,6 +2425,9 @@
   <data name="&gt;&gt;MI_Gamma.Name" xml:space="preserve">
     <value>MI_Gamma</value>
   </data>
+  <data name="MI_OpenURL.Text" xml:space="preserve">
+    <value>Open URL</value>
+  </data>
   <data name="btn_pause.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 30</value>
   </data>
@@ -2457,9 +2463,6 @@
   </data>
   <data name="&gt;&gt;menuItem3.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MI_Zoom.Name" xml:space="preserve">
-    <value>MI_Zoom</value>
   </data>
   <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2500,8 +2503,8 @@
   <data name="&gt;&gt;txtStatus.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;menuItem7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;MI_HueMore.Name" xml:space="preserve">
+    <value>MI_HueMore</value>
   </data>
   <data name="txtShortcut.Location" type="System.Drawing.Point, System.Drawing">
     <value>336, 16</value>
@@ -2598,9 +2601,6 @@
   </data>
   <data name="btn_stop.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 30</value>
-  </data>
-  <data name="&gt;&gt;MI_Screenshot.Name" xml:space="preserve">
-    <value>MI_Screenshot</value>
   </data>
   <data name="txtStatus.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -2739,8 +2739,5 @@
   </metadata>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>348, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>Chinese (Traditional)</value>
   </metadata>
 </root>

@@ -16,7 +16,7 @@ using System.Collections.Generic;
 namespace Power_Mplayer
 {
 	public enum MediaType {None, File, DVD, VCD, URL, CDDA};
-    public enum SlaveCommandMode { None, Pausing, Pausing_Keep, Pausing_Toggle, Pauseing_Keep_Force };
+    public enum SlaveCommandMode { None, Pausing, Pausing_Keep, Pausing_Toggle, Pausing_Keep_Force };
 
 	/// <summary>
 	/// Mplayer Class
@@ -381,16 +381,18 @@ namespace Power_Mplayer
 
 		#endregion
 
-        public void SendSlaveCommand(string cmd, SlaveCommandMode mode)
+        public bool SendSlaveCommand(SlaveCommandMode mode, string format, params object[] args)
         {
             if (HasInstense())
             {
-                cmd = string.Format("{0}{1} ",
+                string cmd = string.Format("{0}{1} ",
                     (mode == SlaveCommandMode.None) ? "" : mode.ToString().ToLower() + " ",
-                    cmd);
+                    string.Format(format, args));
 
                 stdin.WriteLine(cmd);
+                return true;
             }
+            return false;
         }
 
 		public string Read()
@@ -435,10 +437,7 @@ namespace Power_Mplayer
 			}
 			set
 			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("seek {0} 1 ", value);
-				}
+                SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "seek {0} 1 ", value);
 			}
 		}
 
@@ -457,10 +456,7 @@ namespace Power_Mplayer
 			}
 			set
 			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("seek {0} 2 ", value);
-				}
+                SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "seek {0} 2", value);
 			}
 		}
 
@@ -468,10 +464,7 @@ namespace Power_Mplayer
 		{
 			set
 			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("seek {0} ", value);
-				}
+                SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "seek {0}", value);
 			}
 		}
 
@@ -481,11 +474,10 @@ namespace Power_Mplayer
 		{
 			set
 			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("pausing_keep_force volume {0} 1 ", value);
-					Muted = false;
-				}
+                if (SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "volume {0} 1", value) == true)
+                {
+                    Muted = false;
+                }
 			}
 		}
 
