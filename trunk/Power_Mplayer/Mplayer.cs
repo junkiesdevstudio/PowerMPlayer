@@ -16,6 +16,7 @@ using System.Collections.Generic;
 namespace Power_Mplayer
 {
 	public enum MediaType {None, File, DVD, VCD, URL, CDDA};
+    public enum SlaveCommandMode { None, Pausing, Pausing_Keep, Pausing_Toggle, Pauseing_Keep_Force };
 
 	/// <summary>
 	/// Mplayer Class
@@ -380,6 +381,18 @@ namespace Power_Mplayer
 
 		#endregion
 
+        public void SendSlaveCommand(string cmd, SlaveCommandMode mode)
+        {
+            if (HasInstense())
+            {
+                cmd = string.Format("{0}{1} ",
+                    (mode == SlaveCommandMode.None) ? "" : mode.ToString().ToLower() + " ",
+                    cmd);
+
+                stdin.WriteLine(cmd);
+            }
+        }
+
 		public string Read()
 		{
 			return stdout.RequestData.ToString();
@@ -470,7 +483,7 @@ namespace Power_Mplayer
 			{
 				if(this.HasInstense())
 				{
-					stdin.WriteLine("volume {0} 1 ", value);
+					stdin.WriteLine("pausing_keep_force volume {0} 1 ", value);
 					Muted = false;
 				}
 			}
@@ -659,13 +672,7 @@ namespace Power_Mplayer
 			return str;
 		}
 
-		public void SendSlaveCommand(string cmd)
-		{
-            if (HasInstense())
-            {
-                stdin.WriteLine(cmd);
-            }
-		}
+
 
         public string Screenshot()
         {
