@@ -1129,7 +1129,7 @@ namespace Power_Mplayer
             txtStatus.Left = 0;
 
 			Playlist.Top = 0;
-			Playlist.Columns.Add("播放清單", -2, HorizontalAlignment.Left);
+			Playlist.Columns.Add("Playlist", -2, HorizontalAlignment.Left);
 
 			this.txtShortcut.Size = new Size(0, 0);
 
@@ -1266,7 +1266,7 @@ namespace Power_Mplayer
 
 			if(mp.Start())
 			{
-                txtStatus.Text = "開始播放 " + mp.Filename;
+                txtStatus.Text = "Start playing " + mp.Filename;
 
 				// log last file
 				if(mp.mediaType == MediaType.File)
@@ -1313,14 +1313,14 @@ namespace Power_Mplayer
 				if(btn_pause.ImageIndex == 0)
 				{
 					btn_pause.ImageIndex = 1;
-                    this.txtStatus.Text = "繼續播放 - " + strTimeStamp(this.nowTimePos, (int)mp.Length);
+                    this.txtStatus.Text = "Continue playing - " + strTimeStamp(this.nowTimePos, (int)mp.Length);
                     timer1.Start();
 				}
 				else
 				{
 					timer1.Stop();
 					btn_pause.ImageIndex = 0;
-                    this.txtStatus.Text = "暫停播放 - " + strTimeStamp(this.nowTimePos, (int) mp.Length);
+                    this.txtStatus.Text = "Playing paused - " + strTimeStamp(this.nowTimePos, (int) mp.Length);
 				}
 			}
 
@@ -1338,7 +1338,7 @@ namespace Power_Mplayer
             this.nowTimePos = 0;
 
 			this.txtShortcut.Focus();
-            this.txtStatus.Text = "已停止";
+            this.txtStatus.Text = "Stopped";
 		}
 
 		private void Quit()
@@ -1360,7 +1360,7 @@ namespace Power_Mplayer
 			this.MI_SelectSubtitle.MenuItems.Clear();
             this.MI_SelectAudio.MenuItems.Clear();
 
-            this.txtStatus.Text = "播放結束";
+            this.txtStatus.Text = "End";
 		}
 
 		private void Restart()
@@ -1410,9 +1410,6 @@ namespace Power_Mplayer
 
 			MovieBar.Value = (int) (100 * time_pos / length);
             this.txtStatus.Text = strTimeStamp((int) time_pos, (int) length);
-
-			this.BackToPauseState();
-
 			this.txtShortcut.Focus();
 		}
 
@@ -1608,10 +1605,10 @@ namespace Power_Mplayer
                 ShowMouse();
 			}
 
-			if(btn_pause.ImageIndex == 0)
-				this.Pause();
+            this.Form1_Resize(sender, e);
+            this.Refresh(); // force the Form do refresh / resize
 
-			this.Form1_Resize(sender, e);
+            mp.RelativeTime_Pos = 0; // then we refresh the screen to fit new size
 		}
 
 		private void MI_Option_Click(object sender, System.EventArgs e)
@@ -2249,7 +2246,7 @@ namespace Power_Mplayer
 			}
 			else
 			{
-				mp.SendSlaveCommand(cmd, SlaveCommandMode.None);
+				mp.SendSlaveCommand(SlaveCommandMode.None, cmd);
 			}
 
             this.needSyncTime = true;
@@ -2357,13 +2354,13 @@ namespace Power_Mplayer
         {
             if (sender == MI_AudioBalance_Center)
             {
-                mp.SendSlaveCommand("balance -2", SlaveCommandMode.Pausing_Keep);
-                mp.SendSlaveCommand("balance +1", SlaveCommandMode.Pausing_Keep);
+                mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "balance -2");
+                mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "balance +1");
             }
             else if (sender == MI_AudioBalance_Left)
-                mp.SendSlaveCommand("balance -2", SlaveCommandMode.Pausing_Keep);
+                mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "balance -2");
             else if (sender == MI_AudioBalance_Right)
-                mp.SendSlaveCommand("balance +2", SlaveCommandMode.Pausing_Keep);
+                mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "balance +2");
         }
 
     }
