@@ -29,7 +29,8 @@
     <ManifestCertificateThumbprint>FD7A716548ACE7A7B61A955855EC254D360B3D72</ManifestCertificateThumbprint>
     <ManifestKeyFile>Power Mplayer_VS2008_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
