@@ -36,9 +36,9 @@ namespace Power_Mplayer
         private Dictionary<string, MShortcut> shortcuts;
 		private MKeyConverter mkconverter;
 
-		public MediaType mediaType;
+        public MediaType mediaType;
 		private string mediaFilename;
-		public Panel BigScreen;
+        public Panel BigScreen { get; set; }
         private Form1 MainForm;
 
 		private string CurrentMediaFilename
@@ -69,7 +69,7 @@ namespace Power_Mplayer
 		}
 
 		// constructure
-		public Mplayer(Form1 f)
+		public Mplayer(Form1 f, MplayerSetting ms)
 		{
 			mplayerProc = null;
 			mediaFilename = null;
@@ -81,7 +81,8 @@ namespace Power_Mplayer
 			stdout = new MyStreamReader(minfo);
 			stderr = new MyStreamReader(minfo);
 
-			Setting = new MplayerSetting();
+			//Setting = new MplayerSetting();
+            Setting = ms;
 			
 			string fname = Setting[SetVars.MplayerExe];
 			if(fname.IndexOf(Path.VolumeSeparatorChar) < 0)
@@ -112,11 +113,13 @@ namespace Power_Mplayer
 
 				for(int i=0;i<len;i++)
 				{
-					rs.RequestData.Append(charBuf[i]);
+					//rs.RequestData.Append(charBuf[i]);
+                    rs.AppendChar(charBuf[i]);
 
 					if(charBuf[i] == '\n')
 					{
-                        string sbuf = rs.LastLine;
+                        string sbuf = rs.LastLine.ToString().Trim();
+                        rs.AppendLastlineToRequestData();
 
                         if (sbuf != null)
                         {
@@ -178,14 +181,6 @@ namespace Power_Mplayer
 			}
 
 			return false;
-		}
-
-		public void MoveScreen()
-		{
-			if(this.HasInstense())
-			{
-				//stdin.WriteLine("seek 0 ");
-			}
 		}
 
 		#region controls of movie
@@ -429,7 +424,7 @@ namespace Power_Mplayer
 			{
 				if(this.HasInstense())
 				{
-					stdin.WriteLine("seek " + value.ToString() + " 1 ");
+					stdin.WriteLine("seek {0} 1 ", value);
 				}
 			}
 		}
@@ -451,7 +446,7 @@ namespace Power_Mplayer
 			{
 				if(this.HasInstense())
 				{
-					stdin.WriteLine("seek " + value.ToString() + " 2 ");
+					stdin.WriteLine("seek {0} 2 ", value);
 				}
 			}
 		}
@@ -462,7 +457,7 @@ namespace Power_Mplayer
 			{
 				if(this.HasInstense())
 				{
-					stdin.WriteLine("seek " + value.ToString() + " ");
+					stdin.WriteLine("seek {0} ", value);
 				}
 			}
 		}
@@ -475,7 +470,7 @@ namespace Power_Mplayer
 			{
 				if(this.HasInstense())
 				{
-					stdin.WriteLine("volume " + value.ToString() + " 1 ");
+					stdin.WriteLine("volume {0} 1 ", value);
 					Muted = false;
 				}
 			}
@@ -633,7 +628,7 @@ namespace Power_Mplayer
 			{
 				if(this.HasInstense())
 				{
-					stdin.WriteLine("speed_mult " + value.ToString() + " ");
+					stdin.WriteLine("speed_mult {0} ", value);
 				}
 			}
 		}
@@ -683,7 +678,7 @@ namespace Power_Mplayer
                 Pause();
 
                 Thread.Sleep(1000);
-                fname = stdout.LastLine;
+                fname = stdout.LastLine.ToString();
 
                 if (fname.StartsWith(str_sample))
                 {

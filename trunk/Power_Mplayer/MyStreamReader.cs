@@ -11,20 +11,35 @@ namespace Power_Mplayer
 	{
 		public const int BUFFER_SIZE = 128;
 
-		public System.IO.StreamReader stream;
-		public byte[] Buffer;
-		public System.Text.StringBuilder RequestData;
+        public StreamReader stream { get; set; }
+        public byte[] Buffer { get; private set; }
+        public StringBuilder RequestData { get; private set; }
 
-		public MediaInfo minfo;
+        public MediaInfo minfo { get; private set; }
 
 		public MyStreamReader(MediaInfo mi)
 		{
 			Buffer = new byte[BUFFER_SIZE];
 			RequestData = new StringBuilder();
+            LastLine = new StringBuilder();
 
 			minfo = mi;
 		}
 
+        public StringBuilder LastLine { get; private set; }
+
+        public void AppendLastlineToRequestData()
+        {
+            RequestData.Append(LastLine.ToString());
+            LastLine.Remove(0, LastLine.Length);
+        }
+
+        public void AppendChar(char c)
+        {
+            LastLine.Append(c);
+        }
+
+        /*
 		public string LastLine
 		{
 			get
@@ -58,6 +73,7 @@ namespace Power_Mplayer
 				return RequestData.ToString(start, end-start);
 			}
 		}
+        */
 
 
 	}

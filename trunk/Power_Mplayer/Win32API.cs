@@ -121,7 +121,7 @@ namespace Power_Mplayer
             }
 
             rkTest = rk.CreateSubKey(ProgramName + @"\shell\open");
-            rkTest.SetValue("", "¥H PowerMplayer ¶}±Ò");
+            rkTest.SetValue("", "Open with PowerMplayer");
 
             rkTest = rk.CreateSubKey(ProgramName + @"\shell\open\command");
             rkTest.SetValue("", "\"" + System.Windows.Forms.Application.ExecutablePath + "\" \"%1\"");
