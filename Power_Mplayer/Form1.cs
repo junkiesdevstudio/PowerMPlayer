@@ -2143,6 +2143,41 @@ namespace Power_Mplayer
             this.txtShortcut.Focus();
 		}
 
+        private string ScreenshotFilename = null;
+
+        public void ScreenshotHandler(MyStreamReader sender, string s)
+        {
+            string str_sample = "*** screenshot '";
+
+            if (s.StartsWith(str_sample))
+            {
+                string fname = s.Substring(str_sample.Length, s.Length - 5 - str_sample.Length);
+                fname = string.Format(@"{0}\{1}", Path.GetDirectoryName(mp.Setting[SetVars.MplayerExe]), fname);
+
+                while (!File.Exists(fname))
+                    System.Threading.Thread.Sleep(500);
+
+                System.Threading.Thread.Sleep(1000);    // waiting for mplayer creating picture
+
+                ScreenshotFilename += Path.GetExtension(fname);
+
+                if (ScreenshotFilename != null)
+                {
+                    if (File.Exists(ScreenshotFilename))
+                        File.Delete(ScreenshotFilename);
+
+                    File.Move(fname, ScreenshotFilename);
+                }
+                else
+                    File.Delete(fname);
+
+                ScreenshotFilename = null;
+                sender.OnAppendNewLine -= ScreenshotHandler;
+            }
+
+            return;
+        }
+
         private void MI_Screenshot_Click(object sender, EventArgs e)
         {
             if (mp.HasInstense())
@@ -2150,21 +2185,11 @@ namespace Power_Mplayer
                 if (isPlaying)
                     Pause();
 
-                string fname = mp.Screenshot();
+                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel || saveFileDialog1.FileName == "")
+                    return;
 
-                string Ext = Path.GetExtension(fname);
-
-                this.saveFileDialog1.FileName = fname;
-                this.saveFileDialog1.Filter = "*" + Ext + "|" + Ext;
-
-                if (this.saveFileDialog1.ShowDialog() != DialogResult.Cancel && saveFileDialog1.FileName != "")
-                {
-                    File.Move(fname, saveFileDialog1.FileName);
-                }
-                else
-                {
-                    File.Delete(fname);
-                }
+                ScreenshotFilename = String.Format(@"{0}\{1}",Path.GetDirectoryName(saveFileDialog1.FileName), Path.GetFileNameWithoutExtension(saveFileDialog1.FileName));
+                mp.Screenshot(ScreenshotHandler);
             }
         }
 
