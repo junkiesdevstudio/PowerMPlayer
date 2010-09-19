@@ -325,25 +325,10 @@ namespace Power_Mplayer
 		private bool Muted = false;
 		public bool Mute()
 		{
-			if(Muted)
-			{
-				stdin.WriteLine("mute 0 ");
-			}
-			else
-			{
-				stdin.WriteLine("mute 1 ");
-			}
+			SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "mute {0}", (Muted) ? 0 : 1);
 			Muted = !Muted;
-
 			return Muted;
 		}
-
-		/*
-		public void Exit()
-		{
-			stdin.WriteLine("exit ");
-		}
-		*/
 
         public void Quit()
         {
@@ -525,97 +510,9 @@ namespace Power_Mplayer
 			}
 		}
 
-		public int Video_Brightness
-		{
-			set
-			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("brightness " + value.ToString() + " ");
-				}
-			}
-		}
-
-		public int Video_Contrast
-		{
-			set
-			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("contrast " + value.ToString() + " ");
-				}
-			}
-		}
-
-		public int Video_Hue
-		{
-			set
-			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("hue " + value.ToString() + " ");
-				}
-			}
-		}
-
-		public int Video_Saturation
-		{
-			set
-			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("saturation " + value.ToString() + " ");
-				}
-			}
-		}
-
-		public int Video_Gamma
-		{
-			set
-			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("gamma " + value.ToString() + " ");
-				}
-			}
-		}
-
 		#endregion
 
 		#region Sub Property
-
-		public double Sub_Scale
-		{
-			set
-			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("sub_scale " + value + " ");
-				}
-			}
-		}
-
-		public int Sub_Pos
-		{
-			set
-			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("sub_pos " + value + " ");
-				}
-			}
-		}
-
-		public double Sub_Delay
-		{
-			set
-			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("sub_delay " + value + " ");
-				}
-			}
-		}
 
 		public void SelectSub(Subtitle sub)
 		{
@@ -663,8 +560,6 @@ namespace Power_Mplayer
 
 			return str;
 		}
-
-
 
         public string Screenshot()
         {
