@@ -15,66 +15,37 @@ namespace Power_Mplayer
         public byte[] Buffer { get; private set; }
         public StringBuilder RequestData { get; private set; }
 
-        public MediaInfo minfo { get; private set; }
-
-		public MyStreamReader(MediaInfo mi)
+		public MyStreamReader()
 		{
 			Buffer = new byte[BUFFER_SIZE];
 			RequestData = new StringBuilder();
             LastLine = new StringBuilder();
-
-			minfo = mi;
 		}
 
-        public StringBuilder LastLine { get; private set; }
-
-        public void AppendLastlineToRequestData()
-        {
-            RequestData.Append(LastLine.ToString());
-            LastLine.Remove(0, LastLine.Length);
-        }
+        private StringBuilder LastLine;
 
         public void AppendChar(char c)
         {
             LastLine.Append(c);
+
+            if (c == '\n')
+            {
+                string sbuf = LastLine.ToString().Trim();
+
+                if (sbuf != null)
+                {
+                    if (OnAppendNewLine != null)
+                        OnAppendNewLine(this, sbuf);
+
+                    if (!sbuf.StartsWith("ANS_TIME_POSITION"))
+                        RequestData.Append(LastLine.ToString());
+                }
+
+                LastLine.Remove(0, LastLine.Length);
+            }
         }
 
-        /*
-		public string LastLine
-		{
-			get
-			{
-				int end = -1, start = -1;
-				
-				for(int i = RequestData.Length-1;i>=0;i--)
-				{
-					if(RequestData[i] == '\n')
-					{
-						if(end < 0)
-							end = i;
-						else
-						{
-							start = i+1;
-							break;
-						}
-					}
-				}
-				
-				if(RequestData[end - 1] == '\r')
-					--end;
-
-				if(end > 0 && start < 0)
-					start = 0;
-
-				// should this happened ? 
-				if(start < 0)
-					return null;
-
-				return RequestData.ToString(start, end-start);
-			}
-		}
-        */
-
-
+        public delegate void NewLineEventHandler(MyStreamReader sender, string s);
+        public event NewLineEventHandler OnAppendNewLine;
 	}
 }

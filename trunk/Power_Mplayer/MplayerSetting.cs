@@ -86,7 +86,7 @@ namespace Power_Mplayer
 				if(this[SetVars.Video_DR] == "1")
 					args += " -dr";
 
-                args += " -vf screenshot";
+                args += " -vf screenshot,eq2";
 
 				// using ass
 				if(this[SetVars.SubASS] == "1")

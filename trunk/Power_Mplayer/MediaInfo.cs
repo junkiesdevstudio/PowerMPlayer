@@ -146,7 +146,8 @@ namespace Power_Mplayer
 				return null;
 		}
 
-		public void SetState(string str)
+        // EventHandler of Mplayer.stdout
+		public void SetState(MyStreamReader sender, string str)
 		{
 			str = isStateString(str);
 

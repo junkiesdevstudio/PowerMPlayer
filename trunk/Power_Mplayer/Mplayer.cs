@@ -79,10 +79,10 @@ namespace Power_Mplayer
 
 			minfo = new MediaInfo(this);
 
-			stdout = new MyStreamReader(minfo);
-			stderr = new MyStreamReader(minfo);
+			stdout = new MyStreamReader();
+			stderr = new MyStreamReader();
+            stdout.OnAppendNewLine += minfo.SetState;
 
-			//Setting = new MplayerSetting();
             Setting = ms;
 			
 			string fname = Setting[SetVars.MplayerExe];
@@ -102,9 +102,9 @@ namespace Power_Mplayer
 		}
 
 		// receive data from mplayer 
-		private static void ReadCallBack(IAsyncResult asyncResult)
+		private void ReadCallBack(IAsyncResult asyncResult)
 		{
-			MyStreamReader rs = (MyStreamReader) asyncResult.AsyncState;
+			MyStreamReader rs = asyncResult.AsyncState as MyStreamReader;
 			int read = rs.stream.BaseStream.EndRead(asyncResult);
 
 			if(read > 0)
@@ -113,26 +113,7 @@ namespace Power_Mplayer
 				int len = Encoding.Default.GetDecoder().GetChars(rs.Buffer, 0, read, charBuf, 0);
 
 				for(int i=0;i<len;i++)
-				{
-					//rs.RequestData.Append(charBuf[i]);
                     rs.AppendChar(charBuf[i]);
-
-					if(charBuf[i] == '\n')
-					{
-                        string sbuf = rs.LastLine.ToString().Trim();
-                        rs.AppendLastlineToRequestData();
-
-                        if (sbuf != null)
-                        {
-                            rs.minfo.SetState(sbuf);
-
-                            if (sbuf.StartsWith("ANS_TIME_POSITION"))
-                            {
-                                rs.RequestData.Remove(rs.RequestData.Length - (sbuf.Length + 2), (sbuf.Length + 2));
-                            }
-                        }
-					}
-				}
 				
 				rs.stream.BaseStream.BeginRead(rs.Buffer, 0, rs.Buffer.Length, new AsyncCallback(ReadCallBack), rs);
 			}
@@ -287,12 +268,14 @@ namespace Power_Mplayer
 				stdin.AutoFlush = true;
 
 				stdout.RequestData.Append(mplayerProc.StartInfo.FileName + " " + mplayerProc.StartInfo.Arguments + "\n\n");
+                
+                
 				stdout.stream.BaseStream.BeginRead(stdout.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stdout);
 				stderr.stream.BaseStream.BeginRead(stderr.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stderr);
 
 				// config show area
-				Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
-				Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
+				//Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
+				//Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
 				this.BigScreen.BackgroundImage = null;
 
 				Pause();
@@ -561,28 +544,15 @@ namespace Power_Mplayer
 			return str;
 		}
 
-        public string Screenshot()
+        public void Screenshot(MyStreamReader.NewLineEventHandler handler)
         {
             if (HasInstense())
             {
-                string str_sample = "*** screenshot '";
-                string fname = "";
-                
-                stdin.WriteLine("screenshot 0 ");
-                Pause();
-
-                Thread.Sleep(1000);
-                fname = stdout.LastLine.ToString();
-
-                if (fname.StartsWith(str_sample))
-                {
-                    fname = fname.Substring(str_sample.Length, fname.Length - 5 - str_sample.Length);
-                }
-
-                return Path.GetDirectoryName(this.Setting[SetVars.MplayerExe]) + @"\" + fname;
+                stdout.OnAppendNewLine += handler;
+                SendSlaveCommand(SlaveCommandMode.Pausing, "screenshot 0");
             }
 
-            return "";
+            return;
         }
 
         public List<int> AudioChannels
