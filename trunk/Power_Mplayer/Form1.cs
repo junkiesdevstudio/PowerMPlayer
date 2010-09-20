@@ -186,10 +186,6 @@ namespace Power_Mplayer
             this.BigScreen = new System.Windows.Forms.Panel();
             this.contextMenu1 = new System.Windows.Forms.ContextMenu();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_pause = new Power_Mplayer.GlassButton();
-            this.btn_inspeed = new Power_Mplayer.GlassButton();
-            this.btn_despeed = new Power_Mplayer.GlassButton();
-            this.btn_stop = new Power_Mplayer.GlassButton();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.btn_mute = new System.Windows.Forms.Button();
             this.VolumeBar = new System.Windows.Forms.TrackBar();
@@ -277,6 +273,10 @@ namespace Power_Mplayer
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Playlist = new System.Windows.Forms.ListView();
+            this.btn_pause = new Power_Mplayer.GlassButton();
+            this.btn_inspeed = new Power_Mplayer.GlassButton();
+            this.btn_despeed = new Power_Mplayer.GlassButton();
+            this.btn_stop = new Power_Mplayer.GlassButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -321,54 +321,6 @@ namespace Power_Mplayer
             this.panel1.Controls.Add(this.txtShortcut);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            // 
-            // btn_pause
-            // 
-            this.btn_pause.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.btn_pause, "btn_pause");
-            this.btn_pause.FontAntiAlias = true;
-            this.btn_pause.ForeColor = System.Drawing.Color.Black;
-            this.btn_pause.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
-            this.btn_pause.Name = "btn_pause";
-            this.btn_pause.RoundedCornerRadius = 3;
-            this.btn_pause.UseVisualStyleBackColor = false;
-            this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
-            // 
-            // btn_inspeed
-            // 
-            this.btn_inspeed.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.btn_inspeed, "btn_inspeed");
-            this.btn_inspeed.FontAntiAlias = true;
-            this.btn_inspeed.ForeColor = System.Drawing.Color.Black;
-            this.btn_inspeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.btn_inspeed.Name = "btn_inspeed";
-            this.btn_inspeed.RoundedCornerRadius = 3;
-            this.btn_inspeed.UseVisualStyleBackColor = false;
-            this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
-            // 
-            // btn_despeed
-            // 
-            this.btn_despeed.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.btn_despeed, "btn_despeed");
-            this.btn_despeed.FontAntiAlias = true;
-            this.btn_despeed.ForeColor = System.Drawing.Color.Black;
-            this.btn_despeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.btn_despeed.Name = "btn_despeed";
-            this.btn_despeed.RoundedCornerRadius = 3;
-            this.btn_despeed.UseVisualStyleBackColor = false;
-            this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
-            // 
-            // btn_stop
-            // 
-            this.btn_stop.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.btn_stop, "btn_stop");
-            this.btn_stop.FontAntiAlias = true;
-            this.btn_stop.ForeColor = System.Drawing.Color.Black;
-            this.btn_stop.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_stop.Name = "btn_stop";
-            this.btn_stop.RoundedCornerRadius = 3;
-            this.btn_stop.UseVisualStyleBackColor = false;
-            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
             // txtStatus
             // 
@@ -975,6 +927,54 @@ namespace Power_Mplayer
             this.Playlist.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Playlist_KeyDown);
             this.Playlist.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.Playlist_ItemDrag);
             this.Playlist.DragOver += new System.Windows.Forms.DragEventHandler(this.Playlist_DragOver);
+            // 
+            // btn_pause
+            // 
+            this.btn_pause.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.btn_pause, "btn_pause");
+            this.btn_pause.FontAntiAlias = true;
+            this.btn_pause.ForeColor = System.Drawing.Color.Black;
+            this.btn_pause.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.btn_pause.Name = "btn_pause";
+            this.btn_pause.RoundedCornerRadius = 3;
+            this.btn_pause.UseVisualStyleBackColor = false;
+            this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
+            // 
+            // btn_inspeed
+            // 
+            this.btn_inspeed.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.btn_inspeed, "btn_inspeed");
+            this.btn_inspeed.FontAntiAlias = true;
+            this.btn_inspeed.ForeColor = System.Drawing.Color.Black;
+            this.btn_inspeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
+            this.btn_inspeed.Name = "btn_inspeed";
+            this.btn_inspeed.RoundedCornerRadius = 3;
+            this.btn_inspeed.UseVisualStyleBackColor = false;
+            this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
+            // 
+            // btn_despeed
+            // 
+            this.btn_despeed.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.btn_despeed, "btn_despeed");
+            this.btn_despeed.FontAntiAlias = true;
+            this.btn_despeed.ForeColor = System.Drawing.Color.Black;
+            this.btn_despeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
+            this.btn_despeed.Name = "btn_despeed";
+            this.btn_despeed.RoundedCornerRadius = 3;
+            this.btn_despeed.UseVisualStyleBackColor = false;
+            this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
+            // 
+            // btn_stop
+            // 
+            this.btn_stop.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.btn_stop, "btn_stop");
+            this.btn_stop.FontAntiAlias = true;
+            this.btn_stop.ForeColor = System.Drawing.Color.Black;
+            this.btn_stop.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.RoundedCornerRadius = 3;
+            this.btn_stop.UseVisualStyleBackColor = false;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
             // Form1
             // 
