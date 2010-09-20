@@ -139,6 +139,9 @@
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GlassButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MediaInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -42,7 +42,7 @@ namespace Power_Mplayer
         public Panel BigScreen { get; set; }
         private Form1 MainForm;
 
-		private string CurrentMediaFilename
+		public string Filename
 		{
 			set
 			{
@@ -211,7 +211,7 @@ namespace Power_Mplayer
 				{
 					case MediaType.File:
 						// load all subtitles
-						SubList = Subtitle.FindSubtitle(this.CurrentMediaFilename);
+						SubList = Subtitle.FindSubtitle(this.Filename);
 						if(this.CurrentSubtitle == null)
 						{
                             if (this.SubList.Count > 1)
@@ -248,10 +248,10 @@ namespace Power_Mplayer
 				// append filename
                 if (this.mediaType == MediaType.File)
                 {
-                    mplayerProc.StartInfo.Arguments += " " + "\"" + Win32API.ToShortPathName(this.CurrentMediaFilename) + "\"";
+                    mplayerProc.StartInfo.Arguments += " " + "\"" + Win32API.ToShortPathName(this.Filename) + "\"";
                 }
                 else
-                    mplayerProc.StartInfo.Arguments += " " + "\"" + this.CurrentMediaFilename + "\"";
+                    mplayerProc.StartInfo.Arguments += " " + "\"" + this.Filename + "\"";
 
 				// start mpayer
 				if(mplayerProc.Start() == false)
@@ -366,19 +366,6 @@ namespace Power_Mplayer
 		public string Read()
 		{
 			return stdout.RequestData.ToString();
-		}
-
-		public string Filename
-		{
-			get
-			{
-				//return (string) minfo["FILENAME"];
-				return this.CurrentMediaFilename;
-			}
-			set
-			{
-				this.CurrentMediaFilename = value;
-			}
 		}
 
 		public double Length
