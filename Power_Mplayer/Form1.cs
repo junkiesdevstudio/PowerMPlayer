@@ -1413,6 +1413,49 @@ namespace Power_Mplayer
         private bool needSyncTime = true;
         private int nowTimePos = 0;
 
+        private delegate void SetTimeDelegate(int newTimePos);
+
+        private void SetTimePosUI(int newTimePos)
+        {
+            nowTimePos = newTimePos;
+            int movie_len = (int)mp.Length;
+
+            if (nowTimePos != 0 && movie_len != 0)
+            {
+                this.txtStatus.Text = strTimeStamp(nowTimePos, movie_len);
+
+                // some video has broken header with wrong Lengh value
+                if (nowTimePos <= movie_len)
+                    this.MovieBar.Value = (100 * nowTimePos) / movie_len;
+            }
+            else
+            {
+                this.txtStatus.Text = "0:0:0 / 0:0:0";
+                this.MovieBar.Value = 0;
+            }
+        }
+
+        public void SetTimePos(MyStreamReader sender, string str)
+        {
+            str = MediaInfo.isStateString(str);
+
+            if (str != null && this != null && str.StartsWith("TIME_POSITION"))
+            {
+                mp.minfo.SetState(sender, str);
+                int time_pos = (int)mp.Time_Pos;
+
+                // safe Thread
+                if (this.MovieBar.InvokeRequired || this.txtStatus.InvokeRequired)
+                {
+                    SetTimeDelegate d = new SetTimeDelegate(SetTimePosUI);
+                    this.Invoke(d, new object[] { time_pos });
+                }
+                else
+                    SetTimePosUI(time_pos);
+            }
+            return;
+        }
+
 		private void timer1_Tick(object sender, System.EventArgs e)
 		{
 			if(mp.HasInstense())
@@ -1421,29 +1464,18 @@ namespace Power_Mplayer
 
                 // some video has broken header with wrong Lengh value
                 if (nowTimePos >= movie_len)
+                {
+                    mp.SendSlaveCommand(SlaveCommandMode.None, "get_length");
                     needSyncTime = true;
+                }
 
                 if (needSyncTime || nowTimePos % 60 == 0)
                 {
-                    nowTimePos = (int)mp.Time_Pos;
+                    mp.SendSlaveCommand(SlaveCommandMode.None, "get_time_pos");
                     needSyncTime = false;
                 }
                 else
-                    nowTimePos++;
-
-                if (nowTimePos != 0 && movie_len != 0)
-                {
-                    this.txtStatus.Text = strTimeStamp(nowTimePos, movie_len);
-
-                    // some video has broken header with wrong Lengh value
-                    if(nowTimePos <= movie_len)
-                        this.MovieBar.Value = (100 * nowTimePos) / movie_len;
-                }
-                else
-                {
-                    this.txtStatus.Text = "0:0:0 / 0:0:0";
-                    this.MovieBar.Value = 0;
-                }
+                    SetTimePosUI(nowTimePos+1);
 
                 if (isFullscreen)
                 {
@@ -2284,6 +2316,5 @@ namespace Power_Mplayer
             else if (sender == MI_AudioBalance_Right)
                 mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "balance +2");
         }
-
     }
 }

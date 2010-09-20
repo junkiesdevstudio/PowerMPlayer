@@ -53,16 +53,6 @@ namespace Power_Mplayer
 					break;
 			}
 		}
-
-        public int ToInt()
-        {
-            return int.Parse((string)Value);
-        }
-
-        public double ToDouble()
-        {
-            return double.Parse((string)Value);
-        }
 	}
 
 	/// <summary>
@@ -90,7 +80,7 @@ namespace Power_Mplayer
             MInfo.Clear();
         }
 
-		private string isStateString(string str)
+		public static string isStateString(string str)
 		{
 			if(str == null)
 				return null;
@@ -149,34 +139,32 @@ namespace Power_Mplayer
                 }
                 catch
                 {
-                    return "0"; // cheat int / double parser
+                    return null;
                 }               
 			}
 		}
 
-        public object TryParse(string IndexName, Type type)
+        public int ToInt32(string IndexName)
         {
-            MethodInfo[] methods = type.GetMethods();
-            MethodInfo method = null;
+            int ret;
+            string s = this[IndexName];
 
-            foreach(MethodInfo m in methods)
-            {
-                if(m.Name == "Parse" && m.GetParameters().Length == 1)
-                {
-                    method = m;
-                    break;
-                }
-            }
+            if (s != null && int.TryParse(s, out ret) == true)
+                return ret;
 
-            try
-            {
-                if (method != null)
-                    return method.Invoke(null, new object[] {this[IndexName]} );
-            }
-            catch
-            {  }
-
-            return null;
+            return 0;
         }
+
+        public double ToDouble(string IndexName)
+        {
+            double ret;
+            string s = this[IndexName];
+
+            if (s != null && double.TryParse(s, out ret) == true)
+                return ret;
+
+            return 0;
+        }
+ 
 	}
 }
