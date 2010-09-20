@@ -64,6 +64,8 @@ namespace Power_Mplayer
 		//Allow the use of MUI for this form
 		private CultureInfo culture;
 		private Label label10;
+        private LinkLabel linkLabel1;
+        private Label label11;
 		private ResourceManager rm;
 
 		// constructure
@@ -146,6 +148,8 @@ namespace Power_Mplayer
             this.btn_close = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tp_general.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -187,6 +191,8 @@ namespace Power_Mplayer
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.txt_mplayer_cmd);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button2);
@@ -531,6 +537,18 @@ namespace Power_Mplayer
             resources.ApplyResources(this.btn_cancel, "btn_cancel");
             this.btn_cancel.Name = "btn_cancel";
             // 
+            // linkLabel1
+            // 
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
             // OptionForm
             // 
             resources.ApplyResources(this, "$this");
@@ -789,6 +807,13 @@ namespace Power_Mplayer
 			clb_FileAssociate.Enabled = isAdmin;
 			btn_SelectAllExt.Enabled = isAdmin;
 		}
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel label = sender as LinkLabel;
+
+            System.Diagnostics.Process.Start(label.Text);
+        }
 
     }
 }

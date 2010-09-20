@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Power_Mplayer
 {
@@ -68,69 +69,25 @@ namespace Power_Mplayer
 	/// MplayerState ªººK­n´y­z¡C
 	/// </summary>
 	public class MediaInfo
-	{
-		private List<MValue> MValues;
+	{       
 		private Mplayer mp;
-        public List<int> AudioChannel;
-        public List<int> VideoChannel;
+        private Dictionary<string, string> MInfo;
+        public List<int> AudioChannel {get; private set;}
+        public List<int> VideoChannel {get; private set;}
 
 		// constructure
 		public MediaInfo(Mplayer m)
 		{
-			MValues = new List<MValue>();
+            MInfo = new Dictionary<string, string>();
 			mp = m;
 
             AudioChannel = new List<int>();
             VideoChannel = new List<int>();
-
-			CreateValues();
-		}
-
-		// create values that used in mplayer
-		private void CreateValues()
-		{
-			MValues.Add(new MValue("FILENAME",		TypeCode.String));
-			MValues.Add(new MValue("LENGTH",		TypeCode.Double));
-			MValues.Add(new MValue("DEMUXER",		TypeCode.String));
-			MValues.Add(new MValue("SEEKABLE",		TypeCode.Int32));
-
-			// Audio
-
-//			MValues.Add(new MValue("AUDIO_ID",		TypeCode.Int32));
-            AudioChannel.Clear();
-			MValues.Add(new MValue("AUDIO_BITRATE", TypeCode.Int32));
-			MValues.Add(new MValue("AUDIO_RATE",	TypeCode.Int32));
-			MValues.Add(new MValue("AUDIO_NCH",		TypeCode.Int32));
-			MValues.Add(new MValue("AUDIO_FORMAT",	TypeCode.String));
-			MValues.Add(new MValue("AUDIO_CODEC",	TypeCode.String));
-
-			// Video
-
-//			MValues.Add(new MValue("VIDEO_ID",		TypeCode.Int32));
-            VideoChannel.Clear();
-			MValues.Add(new MValue("VIDEO_FORMAT",	TypeCode.String));
-			MValues.Add(new MValue("VIDEO_BITRATE",	TypeCode.Int32));
-			MValues.Add(new MValue("VIDEO_WIDTH",	TypeCode.Int32));
-			MValues.Add(new MValue("VIDEO_HEIGHT",	TypeCode.Int32));
-			MValues.Add(new MValue("VIDEO_FPS",		TypeCode.Double));
-			MValues.Add(new MValue("VIDEO_ASPECT",	TypeCode.Double));
-			MValues.Add(new MValue("VIDEO_CODEC",	TypeCode.String));
-
-			// Palyer State
-
-			MValues.Add(new MValue("TIME_POSITION",		TypeCode.Double));
-			MValues.Add(new MValue("PERCENT_POSITION",	TypeCode.Int32));
-
-			// Subtitle
-
-//			MValues.Add(new MValue("FILE_SUB_ID",		TypeCode.Int32));
-//			MValues.Add(new MValue("FILE_SUB_FILENAME",	TypeCode.String));
 		}
 
         public void ClearValues()
         {
-            MValues.Clear();
-            this.CreateValues();
+            MInfo.Clear();
         }
 
 		private string isStateString(string str)
@@ -175,30 +132,51 @@ namespace Power_Mplayer
                     this.VideoChannel.Add(int.Parse(cmds[1]));
                 }
 
-				foreach(MValue val in MValues)
-				{
-					if(cmds[0] == val.Name)
-					{
-						val.SetValue(cmds[1]);
-						break;
-					}
-				}
+                MInfo[cmds[0]] = cmds[1];
 			}
 			// end of if
 		}
 
-		public Object this[string dataname]
+
+		public string this[string dataname]
 		{
 			get
 			{
-				foreach(MValue val in MValues)
-				{
-					if(val.Name == dataname)
-						return val.Value;
-				}
-
-				return null;
+                try
+                {
+                    string s = MInfo[dataname];
+                    return s;
+                }
+                catch
+                {
+                    return "0"; // cheat int / double parser
+                }               
 			}
 		}
+
+        public object TryParse(string IndexName, Type type)
+        {
+            MethodInfo[] methods = type.GetMethods();
+            MethodInfo method = null;
+
+            foreach(MethodInfo m in methods)
+            {
+                if(m.Name == "Parse" && m.GetParameters().Length == 1)
+                {
+                    method = m;
+                    break;
+                }
+            }
+
+            try
+            {
+                if (method != null)
+                    return method.Invoke(null, new object[] {this[IndexName]} );
+            }
+            catch
+            {  }
+
+            return null;
+        }
 	}
 }

@@ -372,7 +372,7 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				return (double) minfo["LENGTH"];
+                return (double) minfo.TryParse("LENGTH", typeof(double));
 			}
 		}
 
@@ -386,7 +386,8 @@ namespace Power_Mplayer
 				{
 					stdin.WriteLine("get_percent_pos ");
 					this.WaitForReceive();
-					return (int) minfo["PERCENT_POSITION"];
+
+					return (int) minfo.TryParse("PERCENT_POSITION", typeof(int));
 				}
 				return 0;
 			}
@@ -404,7 +405,7 @@ namespace Power_Mplayer
 				{
 					stdin.WriteLine("get_time_pos ");
 					this.WaitForReceive();
-					return (double) minfo["TIME_POSITION"];
+					return (double) minfo.TryParse("TIME_POSITION", typeof(double));
 				}
 
 				return 0;
@@ -447,8 +448,8 @@ namespace Power_Mplayer
 
 //				if(ret == 0)
 				{
-					int wid = (int) minfo["VIDEO_WIDTH"];
-					int hei = (int) minfo["VIDEO_HEIGHT"];
+                    int wid = (int) minfo.TryParse("VIDEO_WIDTH", typeof(int));
+					int hei = (int) minfo.TryParse("VIDEO_HEIGHT", typeof(int));
 
                     if (hei == 0)
                         ret = 0;
@@ -468,7 +469,7 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				return (int) minfo["VIDEO_WIDTH"];
+				return (int) minfo.TryParse("VIDEO_WIDTH", typeof(int));
 			}
 		}
 
@@ -476,7 +477,7 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				return (int) minfo["VIDEO_HEIGHT"];
+				return (int) minfo.TryParse("VIDEO_HEIGHT", typeof(int));
 			}
 		}
 
