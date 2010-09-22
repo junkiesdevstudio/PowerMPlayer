@@ -1169,7 +1169,7 @@ namespace Power_Mplayer
 			mp.Volume = VolumeBar.Value * 10;
 			btn_mute.ImageIndex = 3;
 
-			//this.BackToPauseState();
+            this.txtShortcut.Focus();
 		}
 
 
@@ -2070,6 +2070,8 @@ namespace Power_Mplayer
 
             if(this.isPlaying)
 			    this.timer1.Start();
+
+            this.txtShortcut.Focus();
 		}
 
         private string strTimeStamp(int pos, int len)
