@@ -1285,10 +1285,8 @@ namespace Power_Mplayer
 
 		private void Stop()
 		{
-			if(mp.HasInstense())
-				mp.Stop();
-
-			timer1.Stop();
+            timer1.Stop();
+            mp.Stop();
             SetBtnPlay();
 			MovieBar.Value = 0;
             this.nowTimePos = 0;
