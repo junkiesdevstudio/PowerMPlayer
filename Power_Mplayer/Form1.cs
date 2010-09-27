@@ -1289,7 +1289,7 @@ namespace Power_Mplayer
 				mp.Stop();
 
 			timer1.Stop();
-			btn_pause.ImageIndex = 0;
+            SetBtnPlay();
 			MovieBar.Value = 0;
             this.nowTimePos = 0;
 
