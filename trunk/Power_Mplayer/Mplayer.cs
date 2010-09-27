@@ -297,11 +297,7 @@ namespace Power_Mplayer
 
 		public void Stop()
 		{
-			if(this.HasInstense())
-			{
-				this.Time_Pos = 0;
-				Pause();
-			}
+            SendSlaveCommand(SlaveCommandMode.Pausing, "seek 0 2");
 		}
 
 		private bool Muted = false;
