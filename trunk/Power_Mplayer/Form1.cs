@@ -2280,6 +2280,8 @@ namespace Power_Mplayer
 
         private void AppendAudioIDMenuItem(MenuItem owner)
         {
+            owner.MenuItems.Clear();
+
             if (mp.AudioChannels.Count > 0)
             {
                 foreach (int j in mp.AudioChannels)
