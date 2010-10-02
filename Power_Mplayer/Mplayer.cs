@@ -312,7 +312,8 @@ namespace Power_Mplayer
         {
             if (this.HasInstense())
             {
-                stdin.WriteLine("quit ");
+                //stdin.WriteLine("quit ");
+                SendSlaveCommand(SlaveCommandMode.None, "quit");
                 mplayerProc.WaitForExit();
 
                 // wait for last callback in stdout
@@ -336,7 +337,9 @@ namespace Power_Mplayer
             }
 
             CurrentSubtitle = null;
-
+            AudioChannels.Clear();
+            VideoChannels.Clear();
+            
             this.mediaType = MediaType.None;
             this.mediaFilename = null;
             this.minfo.ClearValues();
