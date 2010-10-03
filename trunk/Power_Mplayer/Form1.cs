@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -18,14 +19,12 @@ namespace Power_Mplayer
         public Panel BigScreen;
 		private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel MainPanel;
-		private System.Windows.Forms.TrackBar VolumeBar;
         private System.Windows.Forms.MainMenu mainMenu1;
 		private System.Windows.Forms.ProgressBar MovieBar;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ImageList imageList1;
 		private System.Windows.Forms.MenuItem menuItem11;
-		private System.Windows.Forms.MenuItem menuItem12;
-		private System.Windows.Forms.Button btn_mute;
+        private System.Windows.Forms.MenuItem menuItem12;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuItem menuItem18;
 		private System.Windows.Forms.MenuItem MI_Option;
@@ -89,7 +88,6 @@ namespace Power_Mplayer
         private MenuItem menuItem7;
         private MenuItem MI_Screenshot;
         private SaveFileDialog saveFileDialog1;
-        private TextBox txtStatus;
         private MenuItem MI_SubChineseTrans;
         private MenuItem MI_ChineseNone;
         private MenuItem MI_ToTradChinese;
@@ -114,6 +112,9 @@ namespace Power_Mplayer
         private MenuItem MI_SelectAudio;
 
         private Font FontPlay, FontPause;
+        private GlassButton btn_mute;
+        private MTrackBar VolumeBar;
+        private Label txtStatus;
 
 		// constructure
 		private Form1()
@@ -186,9 +187,7 @@ namespace Power_Mplayer
             this.BigScreen = new System.Windows.Forms.Panel();
             this.contextMenu1 = new System.Windows.Forms.ContextMenu();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.btn_mute = new System.Windows.Forms.Button();
-            this.VolumeBar = new System.Windows.Forms.TrackBar();
+            this.txtStatus = new System.Windows.Forms.Label();
             this.MovieBar = new System.Windows.Forms.ProgressBar();
             this.txtShortcut = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
@@ -273,12 +272,13 @@ namespace Power_Mplayer
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Playlist = new System.Windows.Forms.ListView();
+            this.VolumeBar = new Power_Mplayer.MTrackBar();
+            this.btn_mute = new Power_Mplayer.GlassButton();
             this.btn_pause = new Power_Mplayer.GlassButton();
             this.btn_inspeed = new Power_Mplayer.GlassButton();
             this.btn_despeed = new Power_Mplayer.GlassButton();
             this.btn_stop = new Power_Mplayer.GlassButton();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).BeginInit();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -309,43 +309,26 @@ namespace Power_Mplayer
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.VolumeBar);
+            this.panel1.Controls.Add(this.btn_mute);
+            this.panel1.Controls.Add(this.txtStatus);
             this.panel1.Controls.Add(this.btn_pause);
             this.panel1.Controls.Add(this.btn_inspeed);
             this.panel1.Controls.Add(this.btn_despeed);
             this.panel1.Controls.Add(this.btn_stop);
-            this.panel1.Controls.Add(this.txtStatus);
-            this.panel1.Controls.Add(this.btn_mute);
-            this.panel1.Controls.Add(this.VolumeBar);
             this.panel1.Controls.Add(this.MovieBar);
             this.panel1.Controls.Add(this.txtShortcut);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtStatus
             // 
+            resources.ApplyResources(this.txtStatus, "txtStatus");
             this.txtStatus.BackColor = System.Drawing.Color.Black;
             this.txtStatus.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtStatus, "txtStatus");
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.ReadOnly = true;
-            this.txtStatus.TabStop = false;
-            // 
-            // btn_mute
-            // 
-            this.btn_mute.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btn_mute, "btn_mute");
-            this.btn_mute.ImageList = this.imageList1;
-            this.btn_mute.Name = "btn_mute";
-            this.btn_mute.Click += new System.EventHandler(this.btn_mute_Click);
-            // 
-            // VolumeBar
-            // 
-            resources.ApplyResources(this.VolumeBar, "VolumeBar");
-            this.VolumeBar.LargeChange = 2;
-            this.VolumeBar.Name = "VolumeBar";
-            this.VolumeBar.Value = 10;
-            this.VolumeBar.Scroll += new System.EventHandler(this.VolumeBar_Scroll);
             // 
             // MovieBar
             // 
@@ -928,12 +911,34 @@ namespace Power_Mplayer
             this.Playlist.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.Playlist_ItemDrag);
             this.Playlist.DragOver += new System.Windows.Forms.DragEventHandler(this.Playlist_DragOver);
             // 
+            // VolumeBar
+            // 
+            this.VolumeBar.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.VolumeBar, "VolumeBar");
+            this.VolumeBar.Maximum = 10;
+            this.VolumeBar.Minimum = 0;
+            this.VolumeBar.Name = "VolumeBar";
+            this.VolumeBar.Value = 10;
+            this.VolumeBar.OnValueChanged += new System.EventHandler(this.VolumeBar_Scroll);
+            // 
+            // btn_mute
+            // 
+            this.btn_mute.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.btn_mute, "btn_mute");
+            this.btn_mute.FontAntiAlias = true;
+            this.btn_mute.ForeColor = System.Drawing.Color.White;
+            this.btn_mute.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
+            this.btn_mute.Name = "btn_mute";
+            this.btn_mute.RoundedCornerRadius = 3;
+            this.btn_mute.UseVisualStyleBackColor = false;
+            this.btn_mute.Click += new System.EventHandler(this.btn_mute_Click);
+            // 
             // btn_pause
             // 
-            this.btn_pause.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_pause.BackColor = System.Drawing.Color.DimGray;
             resources.ApplyResources(this.btn_pause, "btn_pause");
             this.btn_pause.FontAntiAlias = true;
-            this.btn_pause.ForeColor = System.Drawing.Color.Black;
+            this.btn_pause.ForeColor = System.Drawing.Color.White;
             this.btn_pause.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
             this.btn_pause.Name = "btn_pause";
             this.btn_pause.RoundedCornerRadius = 3;
@@ -942,10 +947,10 @@ namespace Power_Mplayer
             // 
             // btn_inspeed
             // 
-            this.btn_inspeed.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_inspeed.BackColor = System.Drawing.Color.DimGray;
             resources.ApplyResources(this.btn_inspeed, "btn_inspeed");
             this.btn_inspeed.FontAntiAlias = true;
-            this.btn_inspeed.ForeColor = System.Drawing.Color.Black;
+            this.btn_inspeed.ForeColor = System.Drawing.Color.White;
             this.btn_inspeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
             this.btn_inspeed.Name = "btn_inspeed";
             this.btn_inspeed.RoundedCornerRadius = 3;
@@ -954,10 +959,10 @@ namespace Power_Mplayer
             // 
             // btn_despeed
             // 
-            this.btn_despeed.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_despeed.BackColor = System.Drawing.Color.DimGray;
             resources.ApplyResources(this.btn_despeed, "btn_despeed");
             this.btn_despeed.FontAntiAlias = true;
-            this.btn_despeed.ForeColor = System.Drawing.Color.Black;
+            this.btn_despeed.ForeColor = System.Drawing.Color.White;
             this.btn_despeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
             this.btn_despeed.Name = "btn_despeed";
             this.btn_despeed.RoundedCornerRadius = 3;
@@ -966,10 +971,10 @@ namespace Power_Mplayer
             // 
             // btn_stop
             // 
-            this.btn_stop.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_stop.BackColor = System.Drawing.Color.DimGray;
             resources.ApplyResources(this.btn_stop, "btn_stop");
             this.btn_stop.FontAntiAlias = true;
-            this.btn_stop.ForeColor = System.Drawing.Color.Black;
+            this.btn_stop.ForeColor = System.Drawing.Color.White;
             this.btn_stop.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.RoundedCornerRadius = 3;
@@ -979,9 +984,10 @@ namespace Power_Mplayer
             // Form1
             // 
             resources.ApplyResources(this, "$this");
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.Playlist);
-            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.panel1);
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
@@ -989,7 +995,6 @@ namespace Power_Mplayer
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VolumeBar)).EndInit();
             this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1402,7 +1407,7 @@ namespace Power_Mplayer
 		private void btn_mute_Click(object sender, System.EventArgs e)
 		{
 			// mute
-            btn_mute.ImageIndex = (mp.Mute() == true) ? 4 : 3;
+            btn_mute.Text = (mp.Mute() == true) ? "ƒè" : "ƒÅ";
             this.txtShortcut.Focus();
 		}
 
@@ -1556,7 +1561,8 @@ namespace Power_Mplayer
 				this.FormBorderStyle = FormBorderStyle.None;
                 this.TopMost = true;
                 this.WindowState = FormWindowState.Normal;
-                
+                this.panel1.BackColor = Color.Transparent;
+                                
                 Bounds = Screen.FromHandle(this.Handle).Bounds;
 
                 ScreenSaver.SetScreenSaverActive(0);
@@ -1574,6 +1580,7 @@ namespace Power_Mplayer
 				this.Size = oldFormSize;
 				this.Playlist.Width = this.oldPlaylistWidth;
                 this.Location = oldFormLocation;
+                this.panel1.BackColor = SystemColors.Control;
 
                 ScreenSaver.SetScreenSaverActive(1);
                 ScreenSaver.AllowMonitorPowerdown();
@@ -2317,6 +2324,23 @@ namespace Power_Mplayer
                 mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "balance -2");
             else if (sender == MI_AudioBalance_Right)
                 mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "balance +2");
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Panel pl = sender as Panel;
+            Graphics g = e.Graphics;
+
+            Color c1 = Color.Black;
+            Color c2 = Color.DimGray;
+
+            Brush linearBrush = new LinearGradientBrush(pl.ClientRectangle, c2, c1, LinearGradientMode.Vertical);
+
+            int width = pl.Width;
+            int height = pl.Height;
+
+            g.FillRectangle(new SolidBrush(c1), 0, height / 2, width, height / 2);
+            g.FillRectangle(linearBrush, 0, 0, width, height / 2);
         }
     }
 }

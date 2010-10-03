@@ -195,7 +195,7 @@ namespace Power_Mplayer
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
-            e.Graphics.FillRectangle(SystemBrushes.Control, new Rectangle(0, 0, this.Width, this.Height));
+            e.Graphics.FillRectangle(Brushes.Transparent, new Rectangle(0, 0, this.Width, this.Height));
 
             if (_bmpBackBuffer == null)
             {
