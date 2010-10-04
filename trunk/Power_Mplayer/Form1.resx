@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADs
-        SAAAAk1TRnQBSQFMAgEBBwEAAXwBCgF8AQoBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
+        SAAAAk1TRnQBSQFMAgEBBwEAAQQBCwEEAQsBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
         AwABMAMAAQEBAAEgBgABSBUAAQEDBAEGAwoBDgMRARcDGAEhAx0BKQMhATADJAE1AyUBNwMjATMDHwEt
         AxoBJQMVAR0DDwEUAwkBDAMHAQkDCgEOAxIBGQMXASADGQEjAxYBHgMQARUDCAELAwIBAwQAAwIBAwMG
         AQgDCgENAw4BEwMSARkDFgEfAxoBJAMdASoDIAEuAyIBMgMkATUDJAE2AyMBMwMhATADHgErAxwBJwMY
@@ -716,7 +716,7 @@
     <value>Bottom</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 238</value>
+    <value>0, 227</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>583, 72</value>
@@ -763,11 +763,8 @@
   <data name="MI_OpenFile.Text" xml:space="preserve">
     <value>&amp;Open File</value>
   </data>
-  <data name="MI_OpenDVD.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="MI_OpenDVD.Text" xml:space="preserve">
-    <value>Open DVD...</value>
+  <data name="MI_OpenVCD.Text" xml:space="preserve">
+    <value>Open VCD...</value>
   </data>
   <data name="MI_OpenURL.Text" xml:space="preserve">
     <value>Open URL</value>
@@ -1093,6 +1090,9 @@
   <data name="&gt;&gt;Playlist.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>159, 54</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1100,7 +1100,7 @@
     <value>5, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>583, 310</value>
+    <value>583, 299</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2270,10 +2270,10 @@
   <data name="&gt;&gt;MI_OpenFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MI_OpenDVD.Name" xml:space="preserve">
-    <value>MI_OpenDVD</value>
+  <data name="&gt;&gt;MI_OpenVCD.Name" xml:space="preserve">
+    <value>MI_OpenVCD</value>
   </data>
-  <data name="&gt;&gt;MI_OpenDVD.Type" xml:space="preserve">
+  <data name="&gt;&gt;MI_OpenVCD.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MI_OpenURL.Name" xml:space="preserve">
@@ -2725,6 +2725,12 @@
   </data>
   <data name="&gt;&gt;saveFileDialog1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDialog1.Name" xml:space="preserve">
+    <value>folderBrowserDialog1</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>

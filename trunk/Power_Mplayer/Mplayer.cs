@@ -37,43 +37,33 @@ namespace Power_Mplayer
         private Dictionary<string, MShortcut> shortcuts;
 		private MKeyConverter mkconverter;
 
-        public MediaType mediaType;
-		private string mediaFilename;
+        private MPlaylistItem PlayItem { get; set; }
         public Panel BigScreen { get; set; }
         private Form1 MainForm;
 
-		public string Filename
-		{
-			set
-			{
-				this.mediaFilename = value;
+        public string Filename
+        {
+            get
+            {
+                return PlayItem.SourcePath;
+            }
+        }
 
-				if(this.mediaFilename != null)
-				{
-					if(this.mediaFilename.StartsWith("vcd://"))
-						this.mediaType = MediaType.VCD;
-					else if(this.mediaFilename.StartsWith("dvd://"))
-						this.mediaType = MediaType.DVD;
-					else if(this.mediaFilename.StartsWith("file://"))
-					{
-						this.mediaFilename = this.mediaFilename.Substring(7);
-						this.mediaType = MediaType.File;
-					}
-					else if(this.mediaFilename.IndexOf("//") > 0)
-						this.mediaType = MediaType.URL;
-				}
-			}
-			get
-			{
-				return this.mediaFilename;
-			}
-		}
+        public MediaType mediaType
+        {
+            get
+            {
+                if (PlayItem != null)       // quit before playing anything
+                    return PlayItem.ItemType;
+                else
+                    return MediaType.None;
+            }
+        }
 
 		// constructure
 		public Mplayer(Form1 f, MplayerSetting ms)
 		{
 			mplayerProc = null;
-			mediaFilename = null;
             this.MainForm = f;
 			this.BigScreen = f.BigScreen;
 
@@ -169,123 +159,130 @@ namespace Power_Mplayer
 		#region controls of movie
 
 		// create process
-		public bool Start()
-		{			
-			if(this.HasInstense())
-			{
-				this.Quit();
-			}
+        public bool Start(MPlaylistItem item)
+        {
+            if (this.HasInstense())
+                this.Quit();
 
-			System.Environment.CurrentDirectory = System.Windows.Forms.Application.StartupPath;
-			if(!File.Exists(Setting[SetVars.MplayerExe]))
-			{
-				System.Windows.Forms.MessageBox.Show("找不到 " + Path.GetFullPath(Setting[SetVars.MplayerExe]) + "\n請從[工具]->[選項]中設定。");
-				return false;
-			}
+            System.Environment.CurrentDirectory = System.Windows.Forms.Application.StartupPath;
+            if (!File.Exists(Setting[SetVars.MplayerExe]))
+            {
+                System.Windows.Forms.MessageBox.Show("找不到 " + Path.GetFullPath(Setting[SetVars.MplayerExe]) + "\n請從[工具]->[選項]中設定。");
+                return false;
+            }
 
-			if(this.mediaFilename != null)
-			{
-				mplayerProc = new Process();
+            PlayItem = item;
 
-				mplayerProc.StartInfo.CreateNoWindow = true;
-				mplayerProc.StartInfo.UseShellExecute = false;
-				mplayerProc.StartInfo.RedirectStandardError = true;
-				mplayerProc.StartInfo.RedirectStandardInput = true;
-				mplayerProc.StartInfo.RedirectStandardOutput = true;
+            mplayerProc = new Process();
 
-				// create command
-				mplayerProc.StartInfo.FileName = Setting[SetVars.MplayerExe];
-				mplayerProc.StartInfo.WorkingDirectory = Path.GetDirectoryName(mplayerProc.StartInfo.FileName);
+            mplayerProc.StartInfo.CreateNoWindow = true;
+            mplayerProc.StartInfo.UseShellExecute = false;
+            mplayerProc.StartInfo.RedirectStandardError = true;
+            mplayerProc.StartInfo.RedirectStandardInput = true;
+            mplayerProc.StartInfo.RedirectStandardOutput = true;
 
-				mplayerProc.StartInfo.Arguments = "-slave -quiet" + // salve mode
-					" -msglevel identify=6" +	// show ID_ tag , an easy way to extract information
-					" -nokeepaspect"; // to avoid MPlayer-specific bug with non-4:3 displays
+            // create command
+            mplayerProc.StartInfo.FileName = Setting[SetVars.MplayerExe];
+            mplayerProc.StartInfo.WorkingDirectory = Path.GetDirectoryName(mplayerProc.StartInfo.FileName);
 
-				// embed window
-				string colorkey = "0x" + ColorTranslator.ToHtml(this.BigScreen.BackColor).TrimStart('#');
-				mplayerProc.StartInfo.Arguments += " -wid " + this.BigScreen.Handle + " -colorkey " + colorkey;
+            // enable slave mode
+            string slaveArgs = "-slave -quiet" + // salve mode
+                " -msglevel identify=6" +	// show ID_ tag , an easy way to extract information
+                " -nokeepaspect";
 
-				mplayerProc.StartInfo.Arguments += Setting.MplayerArguements;
+            // embed window
+            string colorkey = "0x" + ColorTranslator.ToHtml(this.BigScreen.BackColor).TrimStart('#');
+            string windowArgs = string.Format("-wid {0} -colorkey {1}", this.BigScreen.Handle.ToString(), colorkey);
 
-				// according MediaType
-				switch(this.mediaType)
-				{
-					case MediaType.File:
-						// load all subtitles
-						SubList = Subtitle.FindSubtitle(this.Filename);
-						if(this.CurrentSubtitle == null)
-						{
-                            if (this.SubList.Count > 1)
-                                this.CurrentSubtitle = SubList[1];
-							else
-                                this.CurrentSubtitle = SubList[0];
-						}
+            // setting arguements
+            //mplayerProc.StartInfo.Arguments += Setting.MplayerArguements;
+            string args = string.Format("{0} {1} {2}", slaveArgs, windowArgs, Setting.MplayerArguements);
 
-						// use subtitle
-						if(this.Setting[SetVars.SrtForceUTF8] != "1" 
-							|| (CurrentSubtitle.SubType != SubtitleType.Ass && CurrentSubtitle.SubType != SubtitleType.Srt))
-						{
-							mplayerProc.StartInfo.Arguments += CurrentSubtitle.MplayerStartArgs;
-						}
-						else
-						{
-                            string ext = Path.GetExtension(CurrentSubtitle.Filename);
-							string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + ext;
-                            this.tran2utf8(CurrentSubtitle.Filename, dest);
+            // according MediaType
+            switch (this.mediaType)
+            {
+                case MediaType.File:
+                    // load all subtitles
+                    SubList = Subtitle.FindSubtitle(this.Filename);
+                    if (this.CurrentSubtitle == null)
+                    {
+                        if (this.SubList.Count > 1)
+                            this.CurrentSubtitle = SubList[1];
+                        else
+                            this.CurrentSubtitle = SubList[0];
+                    }
 
-							Subtitle s = new Subtitle(dest);
-							mplayerProc.StartInfo.Arguments += s.MplayerStartArgs;
-						}
-						break;
+                    string subArgs = "";
 
-					case MediaType.URL:
-						mplayerProc.StartInfo.Arguments += " -cache 8192";
-						break;
-				}
+                    // use subtitle
+                    if (this.Setting[SetVars.SrtForceUTF8] != "1"
+                        || (CurrentSubtitle.SubType != SubtitleType.Ass && CurrentSubtitle.SubType != SubtitleType.Srt))
+                    {
+                        subArgs = CurrentSubtitle.MplayerStartArgs;
+                    }
+                    else
+                    {
+                        string ext = Path.GetExtension(CurrentSubtitle.Filename);
+                        string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + ext;
+                        this.tran2utf8(CurrentSubtitle.Filename, dest);
 
-                if (this.SubList == null || this.SubList.Count == 0)
-                    SubList = Subtitle.FindSubtitle(null);
+                        Subtitle s = new Subtitle(dest);
+                        subArgs = s.MplayerStartArgs;
+                    }
 
-				// append filename
-                if (this.mediaType == MediaType.File)
-                {
-                    mplayerProc.StartInfo.Arguments += " " + "\"" + Win32API.ToShortPathName(this.Filename) + "\"";
-                }
-                else
-                    mplayerProc.StartInfo.Arguments += " " + "\"" + this.Filename + "\"";
+                    // create arugments
+                    mplayerProc.StartInfo.Arguments = string.Format("{0} {1} \"{2}\"",
+                        args, subArgs, Win32API.ToShortPathName(this.Filename));
 
-				// start mpayer
-				if(mplayerProc.Start() == false)
-				{
-					mplayerProc = null;
-					return false;
-				}
+                    break;
 
-				// redirect in/output
-				stdin = mplayerProc.StandardInput;
-				stdout.stream = mplayerProc.StandardOutput;		
-				stderr.stream = mplayerProc.StandardError;
+                case MediaType.VCD:
+                    // create arguments
+                    mplayerProc.StartInfo.Arguments = string.Format("{0} {1}",
+                        PlayItem.GetMplayerCommand(), args);
+                    break;
 
-				stdin.AutoFlush = true;
+                case MediaType.URL:
+                default:
+                    // create arguments
+                    mplayerProc.StartInfo.Arguments = string.Format("{0} -cache 8192 \"{1}\"",
+                        args, this.Filename);
 
-				stdout.RequestData.Append(mplayerProc.StartInfo.FileName + " " + mplayerProc.StartInfo.Arguments + "\n\n");
-				stdout.stream.BaseStream.BeginRead(stdout.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stdout);
-				stderr.stream.BaseStream.BeginRead(stderr.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stderr);
+                    break;
+            }
 
-				// config show area
-				//Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
-				//Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
-				this.BigScreen.BackgroundImage = null;
+            if (this.SubList == null || this.SubList.Count == 0)
+                SubList = Subtitle.FindSubtitle(null);  // create empty SubList
 
-				Pause();
-				System.Threading.Thread.Sleep(1000);
-				Pause();
+            // start mpayer
+            if (mplayerProc.Start() == false)
+            {
+                mplayerProc = null;
+                return false;
+            }
 
-				return true;
-			}			
+            // redirect in/output
+            stdin = mplayerProc.StandardInput;
+            stdout.stream = mplayerProc.StandardOutput;
+            stderr.stream = mplayerProc.StandardError;
 
-			return false;
-		}
+            stdin.AutoFlush = true;
+
+            stdout.RequestData.Append(mplayerProc.StartInfo.FileName + " " + mplayerProc.StartInfo.Arguments + "\n\n");
+            stdout.stream.BaseStream.BeginRead(stdout.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stdout);
+            stderr.stream.BaseStream.BeginRead(stderr.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stderr);
+
+            // config show area
+            //Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
+            //Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
+            this.BigScreen.BackgroundImage = null;
+
+            Pause();
+            System.Threading.Thread.Sleep(1000);
+            Pause();
+
+            return true;
+        }
 
 		public void Pause()
 		{
@@ -326,7 +323,7 @@ namespace Power_Mplayer
                 stderr.RequestData.Remove(0, stderr.RequestData.Length);
             }
 
-            if (this.mediaType == MediaType.File)
+            if (this.mediaType == MediaType.File && CurrentSubtitle != null)
             {
                 // delete temp_subtitle for ForeceUTF8
                 string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(CurrentSubtitle.Filename);
@@ -336,12 +333,12 @@ namespace Power_Mplayer
                 this.SubList.Clear();
             }
 
+            
             CurrentSubtitle = null;
             AudioChannels.Clear();
             VideoChannels.Clear();
-            
-            this.mediaType = MediaType.None;
-            this.mediaFilename = null;
+
+            PlayItem = null;
             this.minfo.ClearValues();
         }
 
@@ -558,5 +555,58 @@ namespace Power_Mplayer
             }
         }
 
-	}
+        public static string[] getVCDTracks(string mpalyerPath, string VolumeLetter)
+        {
+            if (!File.Exists(mpalyerPath))
+            {
+                MessageBox.Show("mplayer.exe not found.");
+                return null;
+            }
+
+            Process p = new Process();
+
+            p.StartInfo.CreateNoWindow = true;
+            p.StartInfo.UseShellExecute = false;
+
+            // create command
+            p.StartInfo.FileName = mpalyerPath;
+            p.StartInfo.WorkingDirectory = Path.GetDirectoryName(p.StartInfo.FileName);
+            p.StartInfo.Arguments = string.Format("vcd:// -cdrom-device {0} -msglevel identify=6", VolumeLetter);
+
+            p.StartInfo.RedirectStandardOutput = true;
+
+            p.Start();
+
+            int num = 0;
+            using (StreamReader sr = p.StandardOutput)
+            {
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+
+                    if (line.StartsWith("ID_VCD_END_TRACK"))
+                    {
+                        string snum = line.Substring(line.IndexOf('=') + 1).Trim();
+                        num = int.Parse(snum);
+                        break;
+                    }
+                }
+
+                sr.Close();
+                p.Kill();
+            }
+
+            if (num <= 0)
+                return null;
+
+            string[] pathes = new string[num-1];
+            for (int i = 0; i < num-1; i++)
+            {
+                pathes[i] = string.Format("{0}{1}", VolumeLetter, i + 2);
+            }
+
+            return pathes;
+        }
+
+    }
 }
