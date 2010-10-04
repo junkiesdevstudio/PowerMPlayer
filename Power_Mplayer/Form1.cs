@@ -1171,8 +1171,14 @@ namespace Power_Mplayer
 
 		private void VolumeBar_Scroll(object sender, System.EventArgs e)
 		{
-			mp.Volume = VolumeBar.Value * 10;
-			btn_mute.ImageIndex = 3;
+            double old_volume = mp.Volume;
+            double new_volume = ((int)VolumeBar.Value) * 10;
+
+            if (new_volume != old_volume)
+            {
+                mp.Volume = VolumeBar.Value * 10;
+                btn_mute.ImageIndex = 3;
+            }
 
             this.txtShortcut.Focus();
 		}
@@ -1274,14 +1280,14 @@ namespace Power_Mplayer
 				if(!isPlaying)
 				{
                     SetBtnPause();
-                    this.txtStatus.Text = "Continue playing - " + strTimeStamp(this.nowTimePos, (int)mp.Length);
+                    this.txtStatus.Text = "Playing - " + strTimeStamp(this.nowTimePos, (int)mp.Length);
                     timer1.Start();
 				}
 				else
 				{
 					timer1.Stop();
                     SetBtnPlay();
-                    this.txtStatus.Text = "Playing paused - " + strTimeStamp(this.nowTimePos, (int) mp.Length);
+                    this.txtStatus.Text = "Paused - " + strTimeStamp(this.nowTimePos, (int) mp.Length);
 				}
 			}
 
@@ -1561,7 +1567,6 @@ namespace Power_Mplayer
 				this.FormBorderStyle = FormBorderStyle.None;
                 this.TopMost = true;
                 this.WindowState = FormWindowState.Normal;
-                this.panel1.BackColor = Color.Transparent;
                                 
                 Bounds = Screen.FromHandle(this.Handle).Bounds;
 
@@ -1580,7 +1585,6 @@ namespace Power_Mplayer
 				this.Size = oldFormSize;
 				this.Playlist.Width = this.oldPlaylistWidth;
                 this.Location = oldFormLocation;
-                this.panel1.BackColor = SystemColors.Control;
 
                 ScreenSaver.SetScreenSaverActive(1);
                 ScreenSaver.AllowMonitorPowerdown();

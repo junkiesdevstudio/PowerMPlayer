@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(0, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(15, 23);
+            this.button1.Size = new System.Drawing.Size(15, 15);
             this.button1.TabIndex = 0;
-            this.button1.TabStop = false;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.button1.CheckedChanged += new System.EventHandler(this.button1_CheckedChanged);
             this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button1_MouseUp);
             // 
             // MTrackBar
@@ -51,14 +52,18 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.button1);
             this.Name = "MTrackBar";
-            this.Size = new System.Drawing.Size(150, 25);
+            this.Size = new System.Drawing.Size(150, 38);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button1_MouseUp);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton button1;
+
 
     }
 }

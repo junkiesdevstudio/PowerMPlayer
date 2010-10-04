@@ -217,6 +217,7 @@ namespace Power_Mplayer
 
             using (Graphics gr = Graphics.FromImage(bmp))
             {
+                gr.Clear(Color.Transparent);
                 DrawGlass(gr, new Rectangle(0, 0, this.Width, this.Height));
                 gr.Dispose();
             }

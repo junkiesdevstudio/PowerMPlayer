@@ -418,15 +418,20 @@ namespace Power_Mplayer
 
 		#endregion
 
+        private double _volume;
+
 		public double Volume
 		{
 			set
 			{
+                _volume = value;
                 if (SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "volume {0} 1", value) == true)
-                {
                     Muted = false;
-                }
 			}
+            get
+            {
+                return _volume;
+            }
 		}
 
 		#region Video Property
