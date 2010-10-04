@@ -1151,41 +1151,54 @@ namespace Power_Mplayer
 			this.txtShortcut.Focus();
 		}
 
-		public void adjBigScreen()
-		{
-			double aspect = 0;
+        public void adjBigScreen()
+        {
+            double aspect = 0;
 
-			if(mp.HasInstense())
-			{
-				aspect = mp.Video_Aspect;
-			}
+            if (mp.HasInstense())
+            {
+                aspect = mp.Video_Aspect;
+            }
 
-			if(aspect == 0)
-			{
-				BigScreen.Height = MainPanel.Height;
-				BigScreen.Width = MainPanel.Width;
-
+            if (aspect == 0)
+            {
                 needAdjBigScreen = true;
-			}
-			else
-			{
-				double now_aspect = (double) MainPanel.Width / MainPanel.Height;
 
-				if(now_aspect < aspect)
-				{
-					BigScreen.Width = MainPanel.Width;
-					BigScreen.Height = (int) (BigScreen.Width / aspect);
-				}
-				else
-				{
-					BigScreen.Height = MainPanel.Height;
-					BigScreen.Width = (int) (BigScreen.Height * aspect);
-				}
+                int height = mp.Video_Height;
+                int width = mp.Video_Width;
+                if (width == 0 || height == 0)
+                {
+                    width = MainPanel.Width;
+                    height = MainPanel.Height;
+                }
 
-				BigScreen.Left = (MainPanel.Width - BigScreen.Width) / 2;
-				BigScreen.Top = (MainPanel.Height - BigScreen.Height) / 2;
-			}
-		}
+                // still return 0 , we have been adjusted so we do not need to change again
+                if (BigScreen.Width / BigScreen.Height == width / height && 
+                    (BigScreen.Width == MainPanel.Width || BigScreen.Height == MainPanel.Height))
+                    return;
+
+                BigScreen.Width = width;
+                BigScreen.Height = height;
+
+                aspect = (double)BigScreen.Width / BigScreen.Height;
+            }
+
+            double now_aspect = (double)MainPanel.Width / MainPanel.Height;
+
+            if (now_aspect < aspect)
+            {
+                BigScreen.Width = MainPanel.Width;
+                BigScreen.Height = (int)(BigScreen.Width / aspect);
+            }
+            else
+            {
+                BigScreen.Height = MainPanel.Height;
+                BigScreen.Width = (int)(BigScreen.Height * aspect);
+            }
+
+            BigScreen.Left = (MainPanel.Width - BigScreen.Width) / 2;
+            BigScreen.Top = (MainPanel.Height - BigScreen.Height) / 2;
+        }
 
         private bool isPlaying
         {
@@ -1513,6 +1526,7 @@ namespace Power_Mplayer
                 // FIXME: ...........
                 if (needAdjBigScreen == true)
                 {
+                    mp.SendSlaveCommand(SlaveCommandMode.None, "get_aspect");
                     needAdjBigScreen = false;
                     this.adjBigScreen();
                 }
