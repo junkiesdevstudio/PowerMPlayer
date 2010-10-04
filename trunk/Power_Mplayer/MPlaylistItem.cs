@@ -25,14 +25,16 @@ namespace Power_Mplayer
             else if (type == MediaType.VCD || type == MediaType.DVD)
             {
                 //
-                // sourcePath format Volume (D:\) track (1) : D:\1 
+                // sourcePath format Volume (D:\) track (1) : "1 D:\" 
                 ///////////////
 
-                DriveVolume = sourcePath.Substring(0, 3);
+                int spaceIndex = sourcePath.IndexOf(' ');
+
+                DriveVolume = sourcePath.Substring(spaceIndex + 1);
 
                 try
                 {
-                    Track = int.Parse(sourcePath.Substring(3));
+                    Track = int.Parse(sourcePath.Substring(0, spaceIndex));
                 }
                 catch
                 {

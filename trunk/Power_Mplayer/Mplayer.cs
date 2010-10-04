@@ -599,7 +599,9 @@ namespace Power_Mplayer
                 }
 
                 sr.Close();
-                p.Kill();
+
+                if(!p.HasExited)
+                    p.Kill();
             }
 
             if (num <= 0)
@@ -608,7 +610,7 @@ namespace Power_Mplayer
             string[] pathes = new string[num-1];
             for (int i = 0; i < num-1; i++)
             {
-                pathes[i] = string.Format("{0}{1}", VolumeLetter, i + 2);
+                pathes[i] = string.Format("{1} {0}", VolumeLetter, i + 2);
             }
 
             return pathes;
@@ -661,7 +663,7 @@ namespace Power_Mplayer
             string[] pathes = new string[num];
             for (int i = 0; i < num; i++)
             {
-                pathes[i] = string.Format("{0}{1}", VolumeLetter, i + 1);
+                pathes[i] = string.Format("{1} {0}", VolumeLetter, i + 1);
             }
 
             return pathes;
