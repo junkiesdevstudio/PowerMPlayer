@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADs
-        SAAAAk1TRnQBSQFMAgEBBwEAAQQBCwEEAQsBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
+        SAAAAk1TRnQBSQFMAgEBBwEAAawBDAGsAQwBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
         AwABMAMAAQEBAAEgBgABSBUAAQEDBAEGAwoBDgMRARcDGAEhAx0BKQMhATADJAE1AyUBNwMjATMDHwEt
         AxoBJQMVAR0DDwEUAwkBDAMHAQkDCgEOAxIBGQMXASADGQEjAxYBHgMQARUDCAELAwIBAwQAAwIBAwMG
         AQgDCgENAw4BEwMSARkDFgEfAxoBJAMdASoDIAEuAyIBMgMkATUDJAE2AyMBMwMhATADHgErAxwBJwMY
@@ -527,13 +527,13 @@
     <value>285, 39</value>
   </data>
   <data name="txtStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 12</value>
+    <value>35, 12</value>
   </data>
   <data name="txtStatus.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
   <data name="txtStatus.Text" xml:space="preserve">
-    <value>label1</value>
+    <value>Ready</value>
   </data>
   <data name="&gt;&gt;txtStatus.Name" xml:space="preserve">
     <value>txtStatus</value>
@@ -716,7 +716,7 @@
     <value>Bottom</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 227</value>
+    <value>0, 243</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>583, 72</value>
@@ -764,7 +764,10 @@
     <value>&amp;Open File</value>
   </data>
   <data name="MI_OpenVCD.Text" xml:space="preserve">
-    <value>Open VCD...</value>
+    <value>Open VCD</value>
+  </data>
+  <data name="MI_OpenDVD.Text" xml:space="preserve">
+    <value>Open DVD</value>
   </data>
   <data name="MI_OpenURL.Text" xml:space="preserve">
     <value>Open URL</value>
@@ -1100,7 +1103,7 @@
     <value>5, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>583, 299</value>
+    <value>583, 315</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2234,9 +2237,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Power Mplayer</value>
   </data>
@@ -2274,6 +2274,12 @@
     <value>MI_OpenVCD</value>
   </data>
   <data name="&gt;&gt;MI_OpenVCD.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MI_OpenDVD.Name" xml:space="preserve">
+    <value>MI_OpenDVD</value>
+  </data>
+  <data name="&gt;&gt;MI_OpenDVD.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MI_OpenURL.Name" xml:space="preserve">
