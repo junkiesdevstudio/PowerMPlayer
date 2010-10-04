@@ -5,32 +5,59 @@ using System.IO;
 
 namespace Power_Mplayer
 {
-    class MPlaylistItem : System.Windows.Forms.ListViewItem
+    public class MPlaylistItem : System.Windows.Forms.ListViewItem
     {
-        public string SourceString;
+        public MediaType ItemType { get; private set; }
+        public TimeSpan Time { get; set; }
+        public string SourcePath { get; private set; }
+        public int Track { get; set; }
+        public string DriveVolume { get; set; }
 
-        public MPlaylistItem(string str) : base()
+        public MPlaylistItem(MediaType type, string sourcePath) : base()
         {
-            if (str.IndexOf("//") <= 0)
-            {
-                this.SourceString = "file://" + str;
-            }
-            else
-            {
-                this.SourceString = str;
-            }
+            ItemType = type;
+            SourcePath = sourcePath;
 
-            if (SourceString.StartsWith("file://"))
+            if (type == MediaType.File)
             {
-                str = System.IO.Path.GetFileName(str);
+                this.Text = System.IO.Path.GetFileName(SourcePath);
             }
+            else if (type == MediaType.VCD)
+            {
+                //
+                // sourcePath format Volume (D:\) track (1) : D:\1 
+                ///////////////
 
-            this.Text = str;
+                DriveVolume = sourcePath.Substring(0, 3);
+
+                try
+                {
+                    Track = int.Parse(sourcePath.Substring(3));
+                }
+                catch
+                {
+                    Track = 0;
+                }
+
+                this.Text = sourcePath;
+            }
+        }
+
+        public string GetMplayerCommand()
+        {
+            switch (ItemType)
+            {
+                case MediaType.VCD:
+                    return string.Format("vcd://{0}/{1}", Track, DriveVolume);
+                case MediaType.File:
+                default:
+                    return SourcePath;
+            }
         }
 
         public override object Clone()
         {
-            return new MPlaylistItem(this.SourceString);
+            return new MPlaylistItem(ItemType, this.SourcePath);
         }
     }
 }

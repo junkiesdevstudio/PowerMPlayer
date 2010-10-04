@@ -96,7 +96,7 @@ namespace Power_Mplayer
         private MenuItem MI_AudioBalance;
         private MenuItem MI_File;
         private MenuItem MI_OpenFile;
-        private MenuItem MI_OpenDVD;
+        private MenuItem MI_OpenVCD;
         private MenuItem MI_OpenURL;
         private MenuItem menuItem6;
         private MenuItem MI_LastOpen;
@@ -114,6 +114,7 @@ namespace Power_Mplayer
         private Font FontPlay, FontPause;
         private GlassButton btn_mute;
         private MTrackBar VolumeBar;
+        private FolderBrowserDialog folderBrowserDialog1;
         private Label txtStatus;
 
 		// constructure
@@ -152,7 +153,7 @@ namespace Power_Mplayer
 		{
 			if(str != null && str.Length > 0)
 			{
-				this.Playlist_AddItem(str);
+				Playlist_AddItem(MediaType.File, str);
 				this.Start(Playlist_First());
 			}
 		}
@@ -194,7 +195,7 @@ namespace Power_Mplayer
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.MI_File = new System.Windows.Forms.MenuItem();
             this.MI_OpenFile = new System.Windows.Forms.MenuItem();
-            this.MI_OpenDVD = new System.Windows.Forms.MenuItem();
+            this.MI_OpenVCD = new System.Windows.Forms.MenuItem();
             this.MI_OpenURL = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.MI_LastOpen = new System.Windows.Forms.MenuItem();
@@ -272,6 +273,7 @@ namespace Power_Mplayer
             this.splitter1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Playlist = new System.Windows.Forms.ListView();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.VolumeBar = new Power_Mplayer.MTrackBar();
             this.btn_mute = new Power_Mplayer.GlassButton();
             this.btn_pause = new Power_Mplayer.GlassButton();
@@ -378,7 +380,7 @@ namespace Power_Mplayer
             this.MI_File.Index = 0;
             this.MI_File.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.MI_OpenFile,
-            this.MI_OpenDVD,
+            this.MI_OpenVCD,
             this.MI_OpenURL,
             this.menuItem6,
             this.MI_LastOpen,
@@ -392,10 +394,11 @@ namespace Power_Mplayer
             resources.ApplyResources(this.MI_OpenFile, "MI_OpenFile");
             this.MI_OpenFile.Click += new System.EventHandler(this.Menu_OpenFile);
             // 
-            // MI_OpenDVD
+            // MI_OpenVCD
             // 
-            resources.ApplyResources(this.MI_OpenDVD, "MI_OpenDVD");
-            this.MI_OpenDVD.Index = 1;
+            this.MI_OpenVCD.Index = 1;
+            resources.ApplyResources(this.MI_OpenVCD, "MI_OpenVCD");
+            this.MI_OpenVCD.Click += new System.EventHandler(this.MI_OpenVCD_Click);
             // 
             // MI_OpenURL
             // 
@@ -1044,19 +1047,6 @@ namespace Power_Mplayer
 
 		private void Form1_Load(object sender, System.EventArgs e)
 		{
-            //Drive Setting
-            DriveInfo[] allDrives = DriveInfo.GetDrives();
-
-            foreach (DriveInfo d in allDrives)
-            {
-                if (d.DriveType == DriveType.CDRom)
-                {
-                    MenuItem mi = new MenuItem(d.Name);
-                    mi.Click += new System.EventHandler(this.MI_DVDDrive_Click);
-                    MI_OpenDVD.MenuItems.Add(mi);
-                }
-            }
-
             //UI Setting
 			MainPanel.Top = 0;
 			MainPanel.Left = 0;
@@ -1188,6 +1178,7 @@ namespace Power_Mplayer
 		{
 			OpenURL urlForm = new OpenURL();
 
+            /*
 			if(urlForm.ShowDialog() == DialogResult.OK)
 			{
 				if(urlForm.URL.IndexOf("//") > 0)
@@ -1195,29 +1186,19 @@ namespace Power_Mplayer
 					this.Start(urlForm.URL);
 				}
 			}
+            */
 		}
 
 		#region GUI Movie Control
 
-		private void Start(string filename)
+        private void Start(MPlaylistItem item)
 		{
 			if(mp.HasInstense())
 				Quit();
 
-			mp.Filename = filename;
-
-			if(filename != null)
-				this.Start();
-		}
-
-		private void Start()
-		{
-			if(mp.HasInstense())
-				Quit();
-
-			if(mp.Start())
+			if(mp.Start(item))
 			{
-                txtStatus.Text = "Start playing " + mp.Filename;
+                txtStatus.Text = string.Format("Start playing {0}", mp.Filename);
 
 				// log last file
 				if(mp.mediaType == MediaType.File)
@@ -1338,17 +1319,13 @@ namespace Power_Mplayer
 			if(mp.HasInstense())
 			{
 				double pos = mp.Time_Pos - 0.5;
-				bool paused = (btn_pause.ImageIndex == 0) ? true : false;
-				string filename = mp.Filename;
-				int movieBar = MovieBar.Value;
-				MediaType mt = mp.mediaType;
+				bool paused = (isPlaying) ? false : true;
+                int movieBar = MovieBar.Value;
 
 				Quit();
 				mp.CurrentSubtitle = sub;
-				mp.Filename = filename;
-				mp.mediaType = mt;
 
-				Start();
+				Start(Playlist_Current());
 
 				MovieBar.Value = movieBar;
 				mp.Time_Pos = pos;
@@ -1396,7 +1373,7 @@ namespace Power_Mplayer
                 }
     
 				Playlist.Items.Clear();
-				this.Playlist_AddItem(fnames);
+				this.Playlist_AddItem(MediaType.File, fnames);
 
 				Start(Playlist_First());
 			}
@@ -1509,10 +1486,10 @@ namespace Power_Mplayer
 			{
 				Quit();
 
-				string fname = Playlist_Next();
-                if (fname != null)
+				MPlaylistItem item = Playlist_Next();
+                if (item != null)
                 {
-                    Start(fname);
+                    Start(item);
                 }
                 else
                 {
@@ -1606,13 +1583,6 @@ namespace Power_Mplayer
 			if(optForm.ShowDialog() == DialogResult.OK)
 			{
 				optForm.WriteSetting();
-                
-                /*
-                this.mp = null;
-                mp = new Mplayer(this);
-                */
-
-
 				Restart();
 			}
 		}
@@ -1774,7 +1744,7 @@ namespace Power_Mplayer
 			string[] s = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
 
             Playlist.Items.Clear();
-			this.Playlist_AddItem(s);
+			this.Playlist_AddItem(MediaType.File, s);
 
 			Start(Playlist_First());
 		}
@@ -1906,46 +1876,40 @@ namespace Power_Mplayer
 
         private MPlaylistItem PlaylistNowItem;
 
-        private string Playlist_First()
+        private MPlaylistItem Playlist_First()
         {
             PlaylistNowItem = null;
 
             if (Playlist.Items.Count > 0)
             {
-                PlaylistNowItem = (MPlaylistItem)Playlist.Items[0];
-                return PlaylistNowItem.SourceString;
+                return PlaylistNowItem = Playlist.Items[0] as MPlaylistItem;
             }
 
             return null;
         }
 
-        private string Playlist_Current()
+        private MPlaylistItem Playlist_Current()
         {
-            if(PlaylistNowItem != null)
-                return PlaylistNowItem.SourceString;
-
-            return null;
+            return PlaylistNowItem;
         }
 
-        private string Playlist_Next()
+        private MPlaylistItem Playlist_Next()
         {
             int PlaylistNowIndex = Playlist.Items.IndexOf((ListViewItem)PlaylistNowItem);
 
             if (PlaylistNowIndex >= 0 && PlaylistNowIndex < Playlist.Items.Count - 1)
             {
-                PlaylistNowItem = (MPlaylistItem) Playlist.Items[++PlaylistNowIndex];
-                return PlaylistNowItem.SourceString;
+                return PlaylistNowItem = Playlist.Items[++PlaylistNowIndex] as MPlaylistItem;
             }
 
             return null;
         }
 
-        private string Playlist_GetFilename(int index)
+        private MPlaylistItem Playlist_GetItem(int index)
         {
             if (index >= 0 && index < Playlist.Items.Count)
             {
-                PlaylistNowItem = (MPlaylistItem) Playlist.Items[index];
-                return PlaylistNowItem.SourceString;
+                return PlaylistNowItem = (MPlaylistItem) Playlist.Items[index];
             }
 
             return null;
@@ -1954,16 +1918,20 @@ namespace Power_Mplayer
 		private void Playlist_DoubleClick(object sender, System.EventArgs e)
 		{
 			int index = Playlist.SelectedIndices[0];
-
-			this.Start( Playlist_GetFilename(index) );
+			this.Start( Playlist_GetItem(index) );
 		}
 
-		private void Playlist_AddItem(params string[] s)
+        private void Playlist_AddItem(MediaType type, params string[] files)
+        {
+            foreach (string s in files)
+            {
+                Playlist_AddItem(new MPlaylistItem(type, s));
+            }
+        }
+
+		private void Playlist_AddItem(MPlaylistItem item)
 		{
-			foreach(string str in s)
-			{
-                this.Playlist.Items.Add((ListViewItem) new MPlaylistItem(str));
-			}
+            this.Playlist.Items.Add(item as ListViewItem);
 		}
 
         // Sets the target drop effect.
@@ -1983,7 +1951,7 @@ namespace Power_Mplayer
             {
                 string[] s = (string[])e.Data.GetData(DataFormats.FileDrop, false);
 
-                this.Playlist_AddItem(s);
+                this.Playlist_AddItem(MediaType.File, s);
 
                 //MessageBox.Show("Add success");
             }
@@ -2122,7 +2090,7 @@ namespace Power_Mplayer
 				int index = s.IndexOf(':', 3);
 
                 Playlist.Items.Clear();
-				this.Playlist_AddItem("file://" + s.Substring(0, index));
+				this.Playlist_AddItem(MediaType.File, s.Substring(0, index));
 
 				this.Start(Playlist_First());
 			}
@@ -2261,20 +2229,6 @@ namespace Power_Mplayer
             }
         }
 
-        private void MI_DVDDrive_Click(object sender, EventArgs e)
-        {
-            MenuItem mi = (MenuItem)sender;
-
-            /*
-            mp.Playlist.Clear();
-            this.Playlist_AddItem("dvd://1" + " -dvd-device=" + mi.Text[0] + ":");
-
-            Start(mp.Playlist.First());
-            */
-
-            MessageBox.Show("ÁÙ¨S¼g...");
-        }
-
         #region Audio
 
         private void MI_AudioID_Click(object sender, EventArgs e)
@@ -2345,6 +2299,32 @@ namespace Power_Mplayer
 
             g.FillRectangle(new SolidBrush(c1), 0, height / 2, width, height / 2);
             g.FillRectangle(linearBrush, 0, 0, width, height / 2);
+        }
+
+        private void MI_OpenVCD_Click(object sender, EventArgs e)
+        {
+            DialogResult result = this.folderBrowserDialog1.ShowDialog();
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            string path = folderBrowserDialog1.SelectedPath;
+            string volumeName = path.Substring(0, 3);
+
+            DriveInfo di = new DriveInfo(volumeName);
+            if (di.DriveFormat != "CDFS")
+            {
+                MessageBox.Show("Please put VCD disk.");
+                return;
+            }
+
+            this.Playlist.Items.Clear();
+
+            string[] files = Mplayer.getVCDTracks(mp.Setting[SetVars.MplayerExe], volumeName);
+
+            this.Playlist_AddItem(MediaType.VCD, files);
+
+            Start(Playlist_First());
         }
     }
 }
