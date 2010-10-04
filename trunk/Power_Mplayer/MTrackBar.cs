@@ -56,6 +56,12 @@ namespace Power_Mplayer
         {
             InitializeComponent();
 
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.DoubleBuffer, true);
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            this.SetStyle(ControlStyles.Selectable, false);
+            this.SetStyle(ControlStyles.UserPaint, true);
+
             button1.Left = _btnLeftMin;
             _bmpCache = null;
         }
@@ -81,8 +87,11 @@ namespace Power_Mplayer
             if (_bmpCache == null)
             {
                 _bmpCache = new Bitmap(ClientSize.Width, ClientSize.Height);
-                Graphics g = Graphics.FromImage(_bmpCache);
-                DrawLine(g);
+                using (Graphics g = Graphics.FromImage(_bmpCache))
+                {
+                    DrawLine(g);
+                    g.Dispose();
+                }
             }
 
             e.Graphics.DrawImage(_bmpCache, e.ClipRectangle, e.ClipRectangle, GraphicsUnit.Pixel);
@@ -91,24 +100,26 @@ namespace Power_Mplayer
         }
 
         private bool _mouseDown = false;
-        private int _mouseDownX;
 
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
             _mouseDown = true;
-            _mouseDownX = e.X;
+
+            if (sender != button1)
+                setBtnPos(e.X);
         }
 
         private void button1_MouseUp(object sender, MouseEventArgs e)
         {
             _mouseDown = false;
+            //MessageBox.Show("mouse up");
         }
 
-        private void button1_MouseMove(object sender, MouseEventArgs e)
+        private void setBtnPos(int pos)
         {
             if (_mouseDown)
             {
-                int newPos = button1.Left + e.X - _mouseDownX;
+                int newPos = pos - (button1.Width / 2);
 
                 if (newPos < _btnLeftMin)
                     newPos = _btnLeftMin;
@@ -119,7 +130,7 @@ namespace Power_Mplayer
                 {
                     button1.Left = newPos;
 
-                    _value = (newPos - _btnLeftMin) / (double) (_btnLeftMax - _btnLeftMin);
+                    _value = (newPos - _btnLeftMin) / (double)(_btnLeftMax - _btnLeftMin);
                     _value = _value * (Maximum - Minimum);
                     this.Update();
                     button1.Update();
@@ -130,10 +141,22 @@ namespace Power_Mplayer
             }
         }
 
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(sender == button1)
+                setBtnPos(e.X+button1.Left);
+            else
+                setBtnPos(e.X);
+        }
+
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1_MouseUp(null, null);
         }
 
+        private void button1_CheckedChanged(object sender, EventArgs e)
+        {
+            button1.Checked = false;
+        }
     }
 }
