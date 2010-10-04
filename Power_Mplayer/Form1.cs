@@ -115,6 +115,7 @@ namespace Power_Mplayer
         private GlassButton btn_mute;
         private MTrackBar VolumeBar;
         private FolderBrowserDialog folderBrowserDialog1;
+        private MenuItem MI_OpenDVD;
         private Label txtStatus;
 
 		// constructure
@@ -188,7 +189,13 @@ namespace Power_Mplayer
             this.BigScreen = new System.Windows.Forms.Panel();
             this.contextMenu1 = new System.Windows.Forms.ContextMenu();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.VolumeBar = new Power_Mplayer.MTrackBar();
+            this.btn_mute = new Power_Mplayer.GlassButton();
             this.txtStatus = new System.Windows.Forms.Label();
+            this.btn_pause = new Power_Mplayer.GlassButton();
+            this.btn_inspeed = new Power_Mplayer.GlassButton();
+            this.btn_despeed = new Power_Mplayer.GlassButton();
+            this.btn_stop = new Power_Mplayer.GlassButton();
             this.MovieBar = new System.Windows.Forms.ProgressBar();
             this.txtShortcut = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
@@ -196,6 +203,7 @@ namespace Power_Mplayer
             this.MI_File = new System.Windows.Forms.MenuItem();
             this.MI_OpenFile = new System.Windows.Forms.MenuItem();
             this.MI_OpenVCD = new System.Windows.Forms.MenuItem();
+            this.MI_OpenDVD = new System.Windows.Forms.MenuItem();
             this.MI_OpenURL = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.MI_LastOpen = new System.Windows.Forms.MenuItem();
@@ -274,12 +282,6 @@ namespace Power_Mplayer
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Playlist = new System.Windows.Forms.ListView();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.VolumeBar = new Power_Mplayer.MTrackBar();
-            this.btn_mute = new Power_Mplayer.GlassButton();
-            this.btn_pause = new Power_Mplayer.GlassButton();
-            this.btn_inspeed = new Power_Mplayer.GlassButton();
-            this.btn_despeed = new Power_Mplayer.GlassButton();
-            this.btn_stop = new Power_Mplayer.GlassButton();
             this.panel1.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -323,14 +325,83 @@ namespace Power_Mplayer
             this.panel1.Controls.Add(this.txtShortcut);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // VolumeBar
+            // 
+            this.VolumeBar.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.VolumeBar, "VolumeBar");
+            this.VolumeBar.Maximum = 10;
+            this.VolumeBar.Minimum = 0;
+            this.VolumeBar.Name = "VolumeBar";
+            this.VolumeBar.Value = 10;
+            this.VolumeBar.OnValueChanged += new System.EventHandler(this.VolumeBar_Scroll);
+            // 
+            // btn_mute
+            // 
+            this.btn_mute.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.btn_mute, "btn_mute");
+            this.btn_mute.FontAntiAlias = true;
+            this.btn_mute.ForeColor = System.Drawing.Color.White;
+            this.btn_mute.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
+            this.btn_mute.Name = "btn_mute";
+            this.btn_mute.RoundedCornerRadius = 3;
+            this.btn_mute.UseVisualStyleBackColor = false;
+            this.btn_mute.Click += new System.EventHandler(this.btn_mute_Click);
             // 
             // txtStatus
             // 
             resources.ApplyResources(this.txtStatus, "txtStatus");
-            this.txtStatus.BackColor = System.Drawing.Color.Black;
+            this.txtStatus.BackColor = System.Drawing.Color.Transparent;
             this.txtStatus.ForeColor = System.Drawing.Color.White;
             this.txtStatus.Name = "txtStatus";
+            // 
+            // btn_pause
+            // 
+            this.btn_pause.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.btn_pause, "btn_pause");
+            this.btn_pause.FontAntiAlias = true;
+            this.btn_pause.ForeColor = System.Drawing.Color.White;
+            this.btn_pause.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
+            this.btn_pause.Name = "btn_pause";
+            this.btn_pause.RoundedCornerRadius = 3;
+            this.btn_pause.UseVisualStyleBackColor = false;
+            this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
+            // 
+            // btn_inspeed
+            // 
+            this.btn_inspeed.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.btn_inspeed, "btn_inspeed");
+            this.btn_inspeed.FontAntiAlias = true;
+            this.btn_inspeed.ForeColor = System.Drawing.Color.White;
+            this.btn_inspeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
+            this.btn_inspeed.Name = "btn_inspeed";
+            this.btn_inspeed.RoundedCornerRadius = 3;
+            this.btn_inspeed.UseVisualStyleBackColor = false;
+            this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
+            // 
+            // btn_despeed
+            // 
+            this.btn_despeed.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.btn_despeed, "btn_despeed");
+            this.btn_despeed.FontAntiAlias = true;
+            this.btn_despeed.ForeColor = System.Drawing.Color.White;
+            this.btn_despeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
+            this.btn_despeed.Name = "btn_despeed";
+            this.btn_despeed.RoundedCornerRadius = 3;
+            this.btn_despeed.UseVisualStyleBackColor = false;
+            this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
+            // 
+            // btn_stop
+            // 
+            this.btn_stop.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.btn_stop, "btn_stop");
+            this.btn_stop.FontAntiAlias = true;
+            this.btn_stop.ForeColor = System.Drawing.Color.White;
+            this.btn_stop.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.RoundedCornerRadius = 3;
+            this.btn_stop.UseVisualStyleBackColor = false;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
             // MovieBar
             // 
@@ -381,6 +452,7 @@ namespace Power_Mplayer
             this.MI_File.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.MI_OpenFile,
             this.MI_OpenVCD,
+            this.MI_OpenDVD,
             this.MI_OpenURL,
             this.menuItem6,
             this.MI_LastOpen,
@@ -400,31 +472,37 @@ namespace Power_Mplayer
             resources.ApplyResources(this.MI_OpenVCD, "MI_OpenVCD");
             this.MI_OpenVCD.Click += new System.EventHandler(this.MI_OpenVCD_Click);
             // 
+            // MI_OpenDVD
+            // 
+            this.MI_OpenDVD.Index = 2;
+            resources.ApplyResources(this.MI_OpenDVD, "MI_OpenDVD");
+            this.MI_OpenDVD.Click += new System.EventHandler(this.MI_OpenDVD_Click);
+            // 
             // MI_OpenURL
             // 
-            this.MI_OpenURL.Index = 2;
+            this.MI_OpenURL.Index = 3;
             resources.ApplyResources(this.MI_OpenURL, "MI_OpenURL");
             this.MI_OpenURL.Click += new System.EventHandler(this.MI_OpenURL_Click);
             // 
             // menuItem6
             // 
-            this.menuItem6.Index = 3;
+            this.menuItem6.Index = 4;
             resources.ApplyResources(this.menuItem6, "menuItem6");
             // 
             // MI_LastOpen
             // 
-            this.MI_LastOpen.Index = 4;
+            this.MI_LastOpen.Index = 5;
             resources.ApplyResources(this.MI_LastOpen, "MI_LastOpen");
             this.MI_LastOpen.Click += new System.EventHandler(this.MI_LastOpen_Click);
             // 
             // menuItem4
             // 
-            this.menuItem4.Index = 5;
+            this.menuItem4.Index = 6;
             resources.ApplyResources(this.menuItem4, "menuItem4");
             // 
             // MI_Exit
             // 
-            this.MI_Exit.Index = 6;
+            this.MI_Exit.Index = 7;
             resources.ApplyResources(this.MI_Exit, "MI_Exit");
             this.MI_Exit.Click += new System.EventHandler(this.MI_Exit_Click);
             // 
@@ -914,76 +992,6 @@ namespace Power_Mplayer
             this.Playlist.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.Playlist_ItemDrag);
             this.Playlist.DragOver += new System.Windows.Forms.DragEventHandler(this.Playlist_DragOver);
             // 
-            // VolumeBar
-            // 
-            this.VolumeBar.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.VolumeBar, "VolumeBar");
-            this.VolumeBar.Maximum = 10;
-            this.VolumeBar.Minimum = 0;
-            this.VolumeBar.Name = "VolumeBar";
-            this.VolumeBar.Value = 10;
-            this.VolumeBar.OnValueChanged += new System.EventHandler(this.VolumeBar_Scroll);
-            // 
-            // btn_mute
-            // 
-            this.btn_mute.BackColor = System.Drawing.Color.DimGray;
-            resources.ApplyResources(this.btn_mute, "btn_mute");
-            this.btn_mute.FontAntiAlias = true;
-            this.btn_mute.ForeColor = System.Drawing.Color.White;
-            this.btn_mute.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.btn_mute.Name = "btn_mute";
-            this.btn_mute.RoundedCornerRadius = 3;
-            this.btn_mute.UseVisualStyleBackColor = false;
-            this.btn_mute.Click += new System.EventHandler(this.btn_mute_Click);
-            // 
-            // btn_pause
-            // 
-            this.btn_pause.BackColor = System.Drawing.Color.DimGray;
-            resources.ApplyResources(this.btn_pause, "btn_pause");
-            this.btn_pause.FontAntiAlias = true;
-            this.btn_pause.ForeColor = System.Drawing.Color.White;
-            this.btn_pause.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(153)))));
-            this.btn_pause.Name = "btn_pause";
-            this.btn_pause.RoundedCornerRadius = 3;
-            this.btn_pause.UseVisualStyleBackColor = false;
-            this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
-            // 
-            // btn_inspeed
-            // 
-            this.btn_inspeed.BackColor = System.Drawing.Color.DimGray;
-            resources.ApplyResources(this.btn_inspeed, "btn_inspeed");
-            this.btn_inspeed.FontAntiAlias = true;
-            this.btn_inspeed.ForeColor = System.Drawing.Color.White;
-            this.btn_inspeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.btn_inspeed.Name = "btn_inspeed";
-            this.btn_inspeed.RoundedCornerRadius = 3;
-            this.btn_inspeed.UseVisualStyleBackColor = false;
-            this.btn_inspeed.Click += new System.EventHandler(this.btn_inspeed_Click);
-            // 
-            // btn_despeed
-            // 
-            this.btn_despeed.BackColor = System.Drawing.Color.DimGray;
-            resources.ApplyResources(this.btn_despeed, "btn_despeed");
-            this.btn_despeed.FontAntiAlias = true;
-            this.btn_despeed.ForeColor = System.Drawing.Color.White;
-            this.btn_despeed.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.btn_despeed.Name = "btn_despeed";
-            this.btn_despeed.RoundedCornerRadius = 3;
-            this.btn_despeed.UseVisualStyleBackColor = false;
-            this.btn_despeed.Click += new System.EventHandler(this.btn_despeed_Click);
-            // 
-            // btn_stop
-            // 
-            this.btn_stop.BackColor = System.Drawing.Color.DimGray;
-            resources.ApplyResources(this.btn_stop, "btn_stop");
-            this.btn_stop.FontAntiAlias = true;
-            this.btn_stop.ForeColor = System.Drawing.Color.White;
-            this.btn_stop.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_stop.Name = "btn_stop";
-            this.btn_stop.RoundedCornerRadius = 3;
-            this.btn_stop.UseVisualStyleBackColor = false;
-            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -1045,6 +1053,39 @@ namespace Power_Mplayer
 			}
 		}
 
+        private Bitmap DrawPanelBackground(int height)
+        {
+            Bitmap bmp = new Bitmap(1, height);
+
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                Color c2 = Color.Black;
+                Color c1 = Color.FromArgb(130, c2);
+
+                Rectangle rect = new Rectangle(0, 0, 1, height);
+
+                rect.Y = MovieBar.Height;
+                rect.Height = (rect.Height - rect.Y) / 2 + 10;
+
+                Brush linearBrush = new LinearGradientBrush(rect, c1, c2, LinearGradientMode.Vertical);
+                rect.Height *= 2;
+                Brush linearBrush2 = new LinearGradientBrush(rect, c2, c1, LinearGradientMode.Vertical);
+                rect.Height = (rect.Height - rect.Y) / 2 + 10;
+
+                height -= MovieBar.Height;
+
+                rect.Y = MovieBar.Height;
+                rect.Height = height / 2 + 1;
+
+                g.FillRectangle(linearBrush, 0, MovieBar.Height, 1, rect.Height);
+                g.FillRectangle(linearBrush2, 0, MovieBar.Height + rect.Height, 1, height);
+
+                g.Dispose();
+            }
+
+            return bmp;
+        }
+
 		private void Form1_Load(object sender, System.EventArgs e)
 		{
             //UI Setting
@@ -1055,7 +1096,8 @@ namespace Power_Mplayer
 			BigScreen.Left = 0;
 
             // setup panel1
-            panel1.Height = MovieBar.Height + btn_pause.Height + txtStatus.Height;			
+            panel1.Height = MovieBar.Height + btn_pause.Height + txtStatus.Height;
+            panel1.BackgroundImage = this.DrawPanelBackground(panel1.Height);
 
 			MovieBar.Top = MovieBar.Left = 0;
 
@@ -1145,8 +1187,6 @@ namespace Power_Mplayer
 			}
 		}
 
-
-
         private bool isPlaying
         {
             //get { return !(btn_pause.ImageIndex == 0); }
@@ -1158,8 +1198,7 @@ namespace Power_Mplayer
 			Stop();
 		}
 
-
-		private void VolumeBar_Scroll(object sender, System.EventArgs e)
+        private void VolumeBar_Scroll(object sender, System.EventArgs e)
 		{
             double old_volume = mp.Volume;
             double new_volume = ((int)VolumeBar.Value) * 10;
@@ -1195,6 +1234,9 @@ namespace Power_Mplayer
 		{
 			if(mp.HasInstense())
 				Quit();
+
+            if (item == null)
+                return;
 
 			if(mp.Start(item))
 			{
@@ -1347,12 +1389,10 @@ namespace Power_Mplayer
 			else if(time_pos < 0)
 				time_pos = 0;
 
-			mp.Time_Pos = time_pos;
-            nowTimePos = (int)time_pos;
+            mp.Time_Pos = time_pos;
+            SetTimePosUI((int) time_pos);
 
-			MovieBar.Value = (int) (100 * time_pos / length);
-            this.txtStatus.Text = strTimeStamp((int) time_pos, (int) length);
-			this.txtShortcut.Focus();
+            this.txtShortcut.Focus();
 		}
 
 		#endregion
@@ -2284,22 +2324,7 @@ namespace Power_Mplayer
                 mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "balance +2");
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            Panel pl = sender as Panel;
-            Graphics g = e.Graphics;
 
-            Color c1 = Color.Black;
-            Color c2 = Color.DimGray;
-
-            Brush linearBrush = new LinearGradientBrush(pl.ClientRectangle, c2, c1, LinearGradientMode.Vertical);
-
-            int width = pl.Width;
-            int height = pl.Height;
-
-            g.FillRectangle(new SolidBrush(c1), 0, height / 2, width, height / 2);
-            g.FillRectangle(linearBrush, 0, 0, width, height / 2);
-        }
 
         private void MI_OpenVCD_Click(object sender, EventArgs e)
         {
@@ -2318,11 +2343,35 @@ namespace Power_Mplayer
                 return;
             }
 
-            this.Playlist.Items.Clear();
-
             string[] files = Mplayer.getVCDTracks(mp.Setting[SetVars.MplayerExe], volumeName);
 
+            this.Playlist.Items.Clear();
             this.Playlist_AddItem(MediaType.VCD, files);
+
+            Start(Playlist_First());
+        }
+
+        private void MI_OpenDVD_Click(object sender, EventArgs e)
+        {
+            DialogResult result = this.folderBrowserDialog1.ShowDialog();
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            string path = folderBrowserDialog1.SelectedPath;
+            string volumeName = path.Substring(0, 3);
+
+            DriveInfo di = new DriveInfo(volumeName);
+            if (di.DriveFormat != "UDF")
+            {
+                MessageBox.Show("Please put DVD disk.");
+                return;
+            }
+
+            string[] files = Mplayer.getDVDTitles(mp.Setting[SetVars.MplayerExe], volumeName);
+
+            this.Playlist.Items.Clear();
+            this.Playlist_AddItem(MediaType.DVD, files);
 
             Start(Playlist_First());
         }

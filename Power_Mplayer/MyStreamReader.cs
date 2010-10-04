@@ -37,7 +37,7 @@ namespace Power_Mplayer
                     if (OnAppendNewLine != null)
                         OnAppendNewLine(this, sbuf);
 
-                    if (!sbuf.StartsWith("ANS_TIME_POSITION"))
+                    //if (!sbuf.StartsWith("ANS_TIME_POSITION"))
                         RequestData.Append(LastLine.ToString());
                 }
 

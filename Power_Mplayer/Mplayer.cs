@@ -45,7 +45,10 @@ namespace Power_Mplayer
         {
             get
             {
-                return PlayItem.SourcePath;
+                if (PlayItem != null)
+                    return PlayItem.SourcePath;
+                else
+                    return null;
             }
         }
 
@@ -236,6 +239,7 @@ namespace Power_Mplayer
 
                     break;
 
+                case MediaType.DVD:
                 case MediaType.VCD:
                     // create arguments
                     mplayerProc.StartInfo.Arguments = string.Format("{0} {1}",
@@ -437,10 +441,12 @@ namespace Power_Mplayer
 		{
 			get
 			{
-//				double ret = (double) minfo["VIDEO_ASPECT"];
-                double ret = 0;
+				double ret = minfo.ToDouble("VIDEO_ASPECT");
 
-//				if(ret == 0)
+                /*
+//                double ret = 0;
+
+				if(ret == 0)
 				{
                     int wid = minfo.ToInt32("VIDEO_WIDTH");
                     int hei = minfo.ToInt32("VIDEO_HEIGHT");
@@ -450,7 +456,7 @@ namespace Power_Mplayer
                     else
                         ret = (double)wid / hei;
 				}			
-
+                */
 				return ret ;
 			}
 			set
@@ -603,6 +609,59 @@ namespace Power_Mplayer
             for (int i = 0; i < num-1; i++)
             {
                 pathes[i] = string.Format("{0}{1}", VolumeLetter, i + 2);
+            }
+
+            return pathes;
+        }
+
+        public static string[] getDVDTitles(string mpalyerPath, string VolumeLetter)
+        {
+            if (!File.Exists(mpalyerPath))
+            {
+                MessageBox.Show("mplayer.exe not found.");
+                return null;
+            }
+
+            Process p = new Process();
+
+            p.StartInfo.CreateNoWindow = true;
+            p.StartInfo.UseShellExecute = false;
+
+            // create command
+            p.StartInfo.FileName = mpalyerPath;
+            p.StartInfo.WorkingDirectory = Path.GetDirectoryName(p.StartInfo.FileName);
+            p.StartInfo.Arguments = string.Format("dvd:// -dvd-device {0} -msglevel identify=6", VolumeLetter);
+
+            p.StartInfo.RedirectStandardOutput = true;
+
+            p.Start();
+
+            int num = 0;
+            using (StreamReader sr = p.StandardOutput)
+            {
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+
+                    if (line.StartsWith("ID_DVD_TITLES"))
+                    {
+                        string snum = line.Substring(line.IndexOf('=') + 1).Trim();
+                        num = int.Parse(snum);
+                        break;
+                    }
+                }
+
+                sr.Close();
+                p.Kill();
+            }
+
+            if (num <= 0)
+                return null;
+
+            string[] pathes = new string[num];
+            for (int i = 0; i < num; i++)
+            {
+                pathes[i] = string.Format("{0}{1}", VolumeLetter, i + 1);
             }
 
             return pathes;

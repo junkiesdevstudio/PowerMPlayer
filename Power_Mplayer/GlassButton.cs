@@ -293,8 +293,7 @@ namespace Power_Mplayer
                 ColorGlowStart, ColorGlowEnd);
 
             // Draw the button
-            gr.FillRectangle(new SolidBrush(this.Parent.BackColor), rectBar);
-            //gr.FillEllipse(new SolidBrush(this.Parent.BackColor), rectBar);
+            gr.FillRectangle(Brushes.Transparent, rectBar);
             gr.FillPath(new SolidBrush(ColorFillBK), rectBarPath);
             gr.FillPath(pgr, rectBarPath);
             gr.FillPath(brGlow, rectBarPathHalf);

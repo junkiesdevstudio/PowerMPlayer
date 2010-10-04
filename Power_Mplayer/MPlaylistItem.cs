@@ -22,7 +22,7 @@ namespace Power_Mplayer
             {
                 this.Text = System.IO.Path.GetFileName(SourcePath);
             }
-            else if (type == MediaType.VCD)
+            else if (type == MediaType.VCD || type == MediaType.DVD)
             {
                 //
                 // sourcePath format Volume (D:\) track (1) : D:\1 
@@ -49,6 +49,8 @@ namespace Power_Mplayer
             {
                 case MediaType.VCD:
                     return string.Format("vcd://{0}/{1}", Track, DriveVolume);
+                case MediaType.DVD:
+                    return string.Format("dvd://{0}/{1}", Track, DriveVolume);
                 case MediaType.File:
                 default:
                     return SourcePath;
