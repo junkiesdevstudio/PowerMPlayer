@@ -1356,7 +1356,7 @@ namespace Power_Mplayer
 			MovieBar.Value = 0;
             this.nowTimePos = 0;
 
-			this.txtShortcut.Focus();
+            this.txtShortcut.Focus();
             this.txtStatus.Text = "Stopped";
 		}
 
@@ -1421,8 +1421,6 @@ namespace Power_Mplayer
 				time_pos = 0;
 
             mp.Time_Pos = time_pos;
-            SetTimePosUI((int) time_pos);
-
             this.txtShortcut.Focus();
 		}
 
@@ -1496,16 +1494,19 @@ namespace Power_Mplayer
         {
             str = MediaInfo.isStateString(str);
 
-            if (str != null && this != null && str.StartsWith("TIME_POSITION"))
+            if (str != null && str.StartsWith("TIME_POSITION"))
             {
                 mp.minfo.SetState(sender, str);
-                int time_pos = (int)mp.Time_Pos;
+                int time_pos = (int)double.Parse(str.Substring(str.IndexOf('=') + 1));
 
                 // safe Thread
                 if (this.MovieBar.InvokeRequired || this.txtStatus.InvokeRequired)
                 {
                     SetTimeDelegate d = new SetTimeDelegate(SetTimePosUI);
-                    this.Invoke(d, new object[] { time_pos });
+
+                    // if Form1 is Disposing
+                    try { this.Invoke(d, new object[] { time_pos }); }
+                    catch { }
                 }
                 else
                     SetTimePosUI(time_pos);
@@ -2115,7 +2116,6 @@ namespace Power_Mplayer
 			this.Seek(val*len);
 
 			MBar_MouseDown = false;
-            this.needSyncTime = true;
 
             if(this.isPlaying)
 			    this.timer1.Start();
@@ -2310,7 +2310,7 @@ namespace Power_Mplayer
                 mi.Checked = false;
             }
 
-            MenuItem m = (MenuItem)sender;
+            MenuItem m = sender as MenuItem;
             mp.Audio_Select(m.Text);
             m.Checked = true;                     
         }

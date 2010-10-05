@@ -11,20 +11,22 @@ namespace Power_Mplayer
 	{
 		public const int BUFFER_SIZE = 128;
 
-        public StreamReader stream { get; set; }
+        private StreamReader stream;
         public byte[] Buffer { get; private set; }
         public StringBuilder RequestData { get; private set; }
 
-		public MyStreamReader()
+		public MyStreamReader(StreamReader sr)
 		{
 			Buffer = new byte[BUFFER_SIZE];
 			RequestData = new StringBuilder();
             LastLine = new StringBuilder();
+
+            _asyncResult = null;
+            stream = sr;
 		}
 
         private StringBuilder LastLine;
-
-        public void AppendChar(char c)
+        private void AppendChar(char c)
         {
             LastLine.Append(c);
 
@@ -34,11 +36,11 @@ namespace Power_Mplayer
 
                 if (sbuf != null)
                 {
-                    if (OnAppendNewLine != null)
-                        OnAppendNewLine(this, sbuf);
-
                     //if (!sbuf.StartsWith("ANS_TIME_POSITION"))
-                        RequestData.Append(LastLine.ToString());
+                    RequestData.Append(LastLine.ToString());
+
+                    if (OnAppendNewLine != null && _continueRead)
+                        OnAppendNewLine(this, sbuf);
                 }
 
                 LastLine.Remove(0, LastLine.Length);
@@ -47,5 +49,54 @@ namespace Power_Mplayer
 
         public delegate void NewLineEventHandler(MyStreamReader sender, string s);
         public event NewLineEventHandler OnAppendNewLine;
+
+        private IAsyncResult _asyncResult;
+        private bool _continueRead;
+
+        public void BeginRead()
+        {
+            _continueRead = true;
+            _asyncResult = this.stream.BaseStream.BeginRead(Buffer, 0, BUFFER_SIZE, new AsyncCallback(ReadCallBack), null);
+        }
+
+        private void EndRead()
+        {
+            _continueRead = false;
+
+            if (_asyncResult != null)
+            {
+                _asyncResult.AsyncWaitHandle.WaitOne();
+                _asyncResult = null;
+            }
+        }
+
+        public void Close()
+        {
+            EndRead();
+            stream.Close();
+            RequestData.Remove(0, RequestData.Length);
+        }
+
+        private void ReadCallBack(IAsyncResult asyncResult)
+        {
+            int read = stream.BaseStream.EndRead(asyncResult);
+
+            if (read > 0)
+            {
+                char[] charBuf = new char[read];
+                int len = Encoding.Default.GetDecoder().GetChars(Buffer, 0, read, charBuf, 0);
+
+                for (int i = 0; i < len; i++)
+                    AppendChar(charBuf[i]);
+
+                if (_continueRead)
+                    BeginRead();
+                else
+                    _asyncResult = null;
+            }
+
+            return;
+        }
+
 	}
 }

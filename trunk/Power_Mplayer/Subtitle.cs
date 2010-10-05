@@ -22,7 +22,7 @@ namespace Power_Mplayer
 			{
 				this.Filename = "";
 				this.SubType = SubtitleType.NoSubtitle;
-				this.Name = "µL¦r¹õ";
+				this.Name = "No Subtitle";
 			}
 			else
 			{

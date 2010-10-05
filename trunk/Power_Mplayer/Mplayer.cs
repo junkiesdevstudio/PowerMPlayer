@@ -71,12 +71,6 @@ namespace Power_Mplayer
 			this.BigScreen = f.BigScreen;
 
 			minfo = new MediaInfo(this);
-
-			stdout = new MyStreamReader();
-			stderr = new MyStreamReader();
-            stdout.OnAppendNewLine += minfo.SetState;
-            stdout.OnAppendNewLine += f.SetTimePos;
-
             Setting = ms;
 			
 			string fname = Setting[SetVars.MplayerExe];
@@ -93,34 +87,6 @@ namespace Power_Mplayer
 		public bool HasInstense()
 		{
 			return (mplayerProc != null && !mplayerProc.HasExited);
-		}
-
-		// receive data from mplayer 
-		private void ReadCallBack(IAsyncResult asyncResult)
-		{
-			MyStreamReader rs = asyncResult.AsyncState as MyStreamReader;
-			int read = rs.stream.BaseStream.EndRead(asyncResult);
-
-			if(read > 0)
-			{
-				char[] charBuf = new char[read];
-				int len = Encoding.Default.GetDecoder().GetChars(rs.Buffer, 0, read, charBuf, 0);
-
-				for(int i=0;i<len;i++)
-                    rs.AppendChar(charBuf[i]);
-				
-				rs.stream.BaseStream.BeginRead(rs.Buffer, 0, rs.Buffer.Length, new AsyncCallback(ReadCallBack), rs);
-			}
-
-			return ;
-		}
-
-		/// <summary>
-		/// wait for response
-		/// </summary>
-		private void WaitForReceive()
-		{
-			Thread.Sleep(50);
 		}
 
 		private bool tran2utf8(string src, string dest)
@@ -191,14 +157,13 @@ namespace Power_Mplayer
             // enable slave mode
             string slaveArgs = "-slave -quiet" + // salve mode
                 " -msglevel identify=6" +	// show ID_ tag , an easy way to extract information
-                " -nokeepaspect";
+                " -nokeepaspect -nofontconfig";
 
             // embed window
             string colorkey = "0x" + ColorTranslator.ToHtml(this.BigScreen.BackColor).TrimStart('#');
             string windowArgs = string.Format("-wid {0} -colorkey {1}", this.BigScreen.Handle.ToString(), colorkey);
 
             // setting arguements
-            //mplayerProc.StartInfo.Arguments += Setting.MplayerArguements;
             string args = string.Format("{0} {1} {2}", slaveArgs, windowArgs, Setting.MplayerArguements);
 
             // according MediaType
@@ -267,24 +232,22 @@ namespace Power_Mplayer
 
             // redirect in/output
             stdin = mplayerProc.StandardInput;
-            stdout.stream = mplayerProc.StandardOutput;
-            stderr.stream = mplayerProc.StandardError;
-
             stdin.AutoFlush = true;
 
+            stderr = new MyStreamReader(mplayerProc.StandardError);
+            stdout = new MyStreamReader(mplayerProc.StandardOutput);
+
+            stdout.OnAppendNewLine += minfo.SetState;
+            stdout.OnAppendNewLine += MainForm.SetTimePos;
             stdout.RequestData.Append(mplayerProc.StartInfo.FileName + " " + mplayerProc.StartInfo.Arguments + "\n\n");
-            stdout.stream.BaseStream.BeginRead(stdout.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stdout);
-            stderr.stream.BaseStream.BeginRead(stderr.Buffer, 0, MyStreamReader.BUFFER_SIZE, new AsyncCallback(ReadCallBack), stderr);
+            stdout.BeginRead();
+            stderr.BeginRead();
 
             // config show area
             //Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
             //Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
             this.BigScreen.BackgroundImage = null;
-
-            Pause();
-            System.Threading.Thread.Sleep(1000);
-            Pause();
-
+ 
             return true;
         }
 
@@ -317,14 +280,9 @@ namespace Power_Mplayer
                 SendSlaveCommand(SlaveCommandMode.None, "quit");
                 mplayerProc.WaitForExit();
 
-                // wait for last callback in stdout
-                this.WaitForReceive();
-
                 stdin.Close();
-                stdout.stream.Close();
-                stderr.stream.Close();
-                stdout.RequestData.Remove(0, stdout.RequestData.Length);
-                stderr.RequestData.Remove(0, stderr.RequestData.Length);
+                stdout.Close();
+                stderr.Close();
             }
 
             if (this.mediaType == MediaType.File && CurrentSubtitle != null)
@@ -337,7 +295,6 @@ namespace Power_Mplayer
                 this.SubList.Clear();
             }
 
-            
             CurrentSubtitle = null;
             AudioChannels.Clear();
             VideoChannels.Clear();
@@ -382,18 +339,12 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				if(this.HasInstense())
-				{
-					stdin.WriteLine("get_percent_pos ");
-					this.WaitForReceive();
-
-					return minfo.ToInt32("PERCENT_POSITION");
-				}
-				return 0;
+				return minfo.ToInt32("PERCENT_POSITION");
 			}
 			set
 			{
                 SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "seek {0} 1 ", value);
+                SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "get_percent_pos");
 			}
 		}
 
@@ -401,11 +352,13 @@ namespace Power_Mplayer
 		{
 			get
 			{
+                SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "get_time_pos");
                 return minfo.ToDouble("TIME_POSITION");
 			}
 			set
 			{
                 SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "seek {0} 2", value);
+                SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "get_time_pos");
 			}
 		}
 
@@ -441,23 +394,7 @@ namespace Power_Mplayer
 		{
 			get
 			{
-				double ret = minfo.ToDouble("VIDEO_ASPECT");
-
-                /*
-//                double ret = 0;
-
-				if(ret == 0)
-				{
-                    int wid = minfo.ToInt32("VIDEO_WIDTH");
-                    int hei = minfo.ToInt32("VIDEO_HEIGHT");
-
-                    if (hei == 0)
-                        ret = 0;
-                    else
-                        ret = (double)wid / hei;
-				}			
-                */
-				return ret ;
+				return minfo.ToDouble("VIDEO_ASPECT");
 			}
 			set
 			{
@@ -555,10 +492,7 @@ namespace Power_Mplayer
 
         public void Audio_Select(string id)
         {
-            if (this.HasInstense())
-            {
-                stdin.WriteLine("switch_audio {0} ", id);
-            }
+            SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "switch_audio {0}", id);
         }
 
         public static string[] getVCDTracks(string mpalyerPath, string VolumeLetter)
