@@ -75,6 +75,8 @@ namespace Power_Mplayer
                 else
                     SelectSub(_subList[0]);
             }
+            else
+                SelectSub(CurrentSub);
 
             return;
         }

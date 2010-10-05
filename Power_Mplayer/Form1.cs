@@ -786,6 +786,7 @@ namespace Power_Mplayer
             // 
             this.MI_SelectSubtitle.Index = 0;
             resources.ApplyResources(this.MI_SelectSubtitle, "MI_SelectSubtitle");
+            this.MI_SelectSubtitle.Popup += new System.EventHandler(this.AppendSubtitleMenuItem);
             // 
             // MI_OpenSubFile
             // 
@@ -1220,7 +1221,6 @@ namespace Power_Mplayer
 
         private bool isPlaying
         {
-            //get { return !(btn_pause.ImageIndex == 0); }
             get { return (btn_pause.Font == FontPause); }
         }
 
@@ -1237,7 +1237,7 @@ namespace Power_Mplayer
             if (new_volume != old_volume)
             {
                 mp.Volume = VolumeBar.Value * 10;
-                btn_mute.ImageIndex = 3;
+                drawMute();
             }
 
             this.txtShortcut.Focus();
@@ -1269,22 +1269,22 @@ namespace Power_Mplayer
             if (item == null)
                 return;
 
-			if(mp.Start(item))
+            // log last file
+            int start_pos = 0;
+            if (item.ItemType == MediaType.File)
+            {
+                string lastFile = (string)mp.Setting[SetVars.LastMedia];
+                if (lastFile != null && lastFile.StartsWith(item.SourcePath.ToLower()))
+                {
+                    int index = lastFile.IndexOf(':', 3);	// C:\XXXXX\xxxx.avi:123.12
+                    string buf = lastFile.Substring(index + 1);
+                    start_pos = (int) double.Parse(buf);
+                }
+            }
+
+			if(mp.Start(item, start_pos))
 			{
                 txtStatus.Text = string.Format("Start playing {0}", mp.Filename);
-
-				// log last file
-				if(mp.mediaType == MediaType.File)
-				{
-					string lastFile = (string) mp.Setting[SetVars.LastMedia];	
-					if(lastFile != null && lastFile.StartsWith(mp.Filename.ToLower()))
-					{
-						int index = lastFile.IndexOf(':', 3);	// C:\XXXXX\xxxx.avi:123.12
-						string buf = lastFile.Substring(index+1);
-						double time_pos = double.Parse(buf);
-						Seek(time_pos);
-					}
-				}
 
 				this.Text = System.IO.Path.GetFileName(mp.Filename);
 
@@ -1296,7 +1296,7 @@ namespace Power_Mplayer
 
 				this.VolumeBar_Scroll(null, null);
 			
-				this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
+				this.AppendSubtitleMenuItem(null, null);
                 this.AppendAudioIDMenuItem(this.MI_SelectAudio);
 
                 //this.MI_Zoom_Click(MI_Zoom100, null);
@@ -1384,11 +1384,6 @@ namespace Power_Mplayer
 
 		private void Restart()
 		{
-			this.Restart(mp.CurrentSubtitle);
-		}
-
-		private void Restart(Subtitle sub)
-		{
 			if(mp.HasInstense())
 			{
 				double pos = mp.Time_Pos - 0.5;
@@ -1396,7 +1391,6 @@ namespace Power_Mplayer
                 int movieBar = MovieBar.Value;
 
 				Quit();
-				mp.CurrentSubtitle = sub;
 
 				Start(Playlist_Current());
 
@@ -1457,10 +1451,17 @@ namespace Power_Mplayer
 			sl.Show();
 		}
 
+        private void drawMute()
+        {
+            // mute
+            btn_mute.Text = (mp.isMuted == true) ? "ƒè" : "ƒÅ";
+        }
+
 		private void btn_mute_Click(object sender, System.EventArgs e)
 		{
 			// mute
-            btn_mute.Text = (mp.Mute() == true) ? "ƒè" : "ƒÅ";
+            mp.Mute();
+            drawMute();
             this.txtShortcut.Focus();
 		}
 
@@ -1680,8 +1681,6 @@ namespace Power_Mplayer
             mp.minfo.SubMgr.SubEncoding = mp.Setting[SetVars.SubEncoding];
             string[] slaveArgs = mp.minfo.SubMgr.SelectSub(mp.minfo.SubMgr.CurrentSub);
             mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep, slaveArgs);
-
-			//Restart();
 		}
 
         private void MI_SubSetting_Click(object sender, System.EventArgs e)
@@ -1707,14 +1706,14 @@ namespace Power_Mplayer
 
 			if(this.openFileDialog1.FileName != null && this.openFileDialog1.FileName != "")
 			{
-				this.Restart(new Subtitle(this.openFileDialog1.FileName));
+                string[] cmds = mp.minfo.SubMgr.SelectSub(new Subtitle(this.openFileDialog1.FileName));
+                mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep, cmds);
 			}
 		}
 
 		private void MI_Subtitle_Click(object sender, System.EventArgs e)
 		{
 			MenuItem mi = (MenuItem) sender;
-
 			Subtitle sub = (Subtitle) mp.minfo.SubMgr.ListSubtitle()[mi.Index];
 
             string[] slaveCmds = mp.minfo.SubMgr.SelectSub(sub);
@@ -1724,15 +1723,17 @@ namespace Power_Mplayer
                 foreach (string s in slaveCmds)
                     mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep, s);
 
-                this.AppendSubtitleMenuItem(this.MI_SelectSubtitle);
+                this.AppendSubtitleMenuItem(null, null);
                 return;
             }
 			else
-				this.Restart(sub);
+				this.Restart();
 		}
 
-		private void AppendSubtitleMenuItem(MenuItem mi_selectsub)
+        private void AppendSubtitleMenuItem(object sender, System.EventArgs e)
 		{
+            MenuItem mi_selectsub = MI_SelectSubtitle;
+
 			mi_selectsub.MenuItems.Clear();
 
 			// if Subtitles.count <= 0 , will not enter the loop
@@ -1745,7 +1746,7 @@ namespace Power_Mplayer
 				mi.RadioCheck = true;
 				mi.Click += new System.EventHandler(this.MI_Subtitle_Click);
 
-				if(mp.CurrentSubtitle != null && mp.CurrentSubtitle.Name == mi.Text)
+				if(mp.minfo.SubMgr.CurrentSub.Name == mi.Text)
 					mi.Checked = true;
 				
 				mi_selectsub.MenuItems.Add(mi);
@@ -1771,7 +1772,6 @@ namespace Power_Mplayer
             mp.minfo.SubMgr.ChineseTransMode = int.Parse(mp.Setting[SetVars.SubChineseTrans]);
             string[] cmds = mp.minfo.SubMgr.SelectSub(mp.minfo.SubMgr.CurrentSub);
             mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep, cmds);
-            //Restart();
         }
 
 		#endregion
@@ -2454,5 +2454,6 @@ namespace Power_Mplayer
 
             Start(Playlist_First());
         }
+
     }
 }
