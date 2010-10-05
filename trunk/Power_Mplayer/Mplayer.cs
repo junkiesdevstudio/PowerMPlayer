@@ -32,8 +32,9 @@ namespace Power_Mplayer
 		// power mplayer info
         public MediaInfo minfo { get; private set; }
         public MplayerSetting Setting {get; private set;}
-        public List<Subtitle> SubList { get; private set; }
-        public Subtitle CurrentSubtitle {get; set;}
+
+        public Subtitle CurrentSubtitle { get; set; }
+
         private Dictionary<string, MShortcut> shortcuts;
 		private MKeyConverter mkconverter;
 
@@ -89,41 +90,6 @@ namespace Power_Mplayer
 			return (mplayerProc != null && !mplayerProc.HasExited);
 		}
 
-		private bool tran2utf8(string src, string dest)
-		{
-			try
-			{
-				Encoding code = Encoding.GetEncoding(this.Setting[SetVars.SubEncoding]);
-				using(StreamReader sr = new StreamReader(src, code))
-				{
-					StreamWriter sw = new StreamWriter(dest, false, Encoding.UTF8);
-
-					string buf = sr.ReadToEnd();
-
-                    if (Setting[SetVars.SubChineseTrans] == "1")
-                    {
-                        buf = Win32API.ToTraditional(buf);
-                    }
-                    else if (Setting[SetVars.SubChineseTrans] == "2")
-                    {
-                        buf = Win32API.ToSimplified(buf);
-                    }
-
-					sw.Write(buf);
-
-					sr.Close();
-					sw.Close();
-				}
-
-				return true;
-			}
-			catch(System.Exception ee)
-			{
-				System.Windows.Forms.MessageBox.Show(ee.Message);
-			}
-
-			return false;
-		}
 
 		#region controls of movie
 
@@ -166,37 +132,16 @@ namespace Power_Mplayer
             // setting arguements
             string args = string.Format("{0} {1} {2}", slaveArgs, windowArgs, Setting.MplayerArguements);
 
+            // load all subtitles
+            minfo.SubMgr.SubEncoding = Setting[SetVars.SubEncoding];
+            minfo.SubMgr.ChineseTransMode = int.Parse(Setting[SetVars.SubChineseTrans]);
+            minfo.SubMgr.FindSub(this.PlayItem);
+
             // according MediaType
             switch (this.mediaType)
             {
                 case MediaType.File:
-                    // load all subtitles
-                    SubList = Subtitle.FindSubtitle(this.Filename);
-                    if (this.CurrentSubtitle == null)
-                    {
-                        if (this.SubList.Count > 1)
-                            this.CurrentSubtitle = SubList[1];
-                        else
-                            this.CurrentSubtitle = SubList[0];
-                    }
-
-                    string subArgs = "";
-
-                    // use subtitle
-                    if (this.Setting[SetVars.SrtForceUTF8] != "1"
-                        || (CurrentSubtitle.SubType != SubtitleType.Ass && CurrentSubtitle.SubType != SubtitleType.Srt))
-                    {
-                        subArgs = CurrentSubtitle.MplayerStartArgs;
-                    }
-                    else
-                    {
-                        string ext = Path.GetExtension(CurrentSubtitle.Filename);
-                        string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + ext;
-                        this.tran2utf8(CurrentSubtitle.Filename, dest);
-
-                        Subtitle s = new Subtitle(dest);
-                        subArgs = s.MplayerStartArgs;
-                    }
+                    string subArgs = minfo.SubMgr.CurrentSub.MplayerStartArgs;
 
                     // create arugments
                     mplayerProc.StartInfo.Arguments = string.Format("{0} {1} \"{2}\"",
@@ -219,9 +164,6 @@ namespace Power_Mplayer
 
                     break;
             }
-
-            if (this.SubList == null || this.SubList.Count == 0)
-                SubList = Subtitle.FindSubtitle(null);  // create empty SubList
 
             // start mpayer
             if (mplayerProc.Start() == false)
@@ -291,8 +233,6 @@ namespace Power_Mplayer
                 string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(CurrentSubtitle.Filename);
                 if (File.Exists(dest))
                     File.Delete(dest);
-
-                this.SubList.Clear();
             }
 
             CurrentSubtitle = null;
@@ -304,6 +244,14 @@ namespace Power_Mplayer
         }
 
 		#endregion
+
+        public void SendSlaveCommand(SlaveCommandMode mode, string[] cmds)
+        {
+            foreach (string s in cmds)
+            {
+                SendSlaveCommand(mode, s);
+            }
+        }
 
         public bool SendSlaveCommand(SlaveCommandMode mode, string format, params object[] args)
         {
@@ -320,9 +268,22 @@ namespace Power_Mplayer
             return false;
         }
 
-		public string Read()
+		public string Read(bool isStderr)
 		{
-			return stdout.RequestData.ToString();
+            if (!isStderr)
+            {
+                if (stdout != null)
+                    return stdout.RequestData.ToString();
+                else
+                    return "";
+            }
+            else
+            {
+                if (stderr != null)
+                    return stderr.RequestData.ToString();
+                else
+                    return "";
+            }
 		}
 
 		public double Length
@@ -352,7 +313,6 @@ namespace Power_Mplayer
 		{
 			get
 			{
-                SendSlaveCommand(SlaveCommandMode.Pausing_Keep, "get_time_pos");
                 return minfo.ToDouble("TIME_POSITION");
 			}
 			set
@@ -415,18 +375,6 @@ namespace Power_Mplayer
 			get
 			{
 				return minfo.ToInt32("VIDEO_HEIGHT");
-			}
-		}
-
-		#endregion
-
-		#region Sub Property
-
-		public void SelectSub(Subtitle sub)
-		{
-			if(this.HasInstense())
-			{
-				stdin.WriteLine("sub_select " + sub.SubID + " ");
 			}
 		}
 
