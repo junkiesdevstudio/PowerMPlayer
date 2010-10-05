@@ -2,11 +2,10 @@ using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Power_Mplayer
 {
-	public enum SubtitleType {NoSubtitle, Srt, Ass, VobSubFile, VobSubID, DemuxSubID};
-
 	public class Subtitle
 	{
 		public SubtitleType SubType;
@@ -75,7 +74,7 @@ namespace Power_Mplayer
 						break;
 					case SubtitleType.Ass:
 					case SubtitleType.Srt:
-						ret = " -sub \"" + fname + "\"";
+                        ret = string.Format(" -sub \"{0}\"", SubManager.GetTempSubPath(fname));
 						break;
 
 					case SubtitleType.VobSubID:
@@ -98,81 +97,19 @@ namespace Power_Mplayer
 			}
 		}
 
-		/// <summary>Find all available subtitles</summary>
-		/// <param name="filename">Media filename</param>
-		/// <returns>Numbers of found subtitles.</returns>
-        public static List<Subtitle> FindSubtitle(string filename)
-		{
-            List<Subtitle> sublist = new List<Subtitle>();
+        public string getSlaveCommand()
+        {
+            switch(SubType)
+            {
+                case SubtitleType.NoSubtitle:
+                case SubtitleType.DemuxSubID:
+                case SubtitleType.VobSubID:
+                    return string.Format("sub_select {0}", SubID);
 
-			// add no subtitle			
-			sublist.Add(new Subtitle(null));
+                default:
+                    return null;
+            }
+        }
 
-			if(filename == null || !File.Exists(filename))
-				return sublist;
-
-			string subdir = Path.GetDirectoryName(filename);
-			filename = Path.GetFileNameWithoutExtension(filename).ToLower();
-
-			string[] files = System.IO.Directory.GetFiles(subdir);
-
-			for(int i=0;i<files.Length;i++)
-			{
-				if(!Path.GetFileName(files[i]).ToLower().StartsWith(filename))
-					continue;
-
-				switch(Path.GetExtension(files[i]).ToLower())
-				{
-					case ".ass":
-					case ".srt":
-					case ".idx":
-						sublist.Add(new Subtitle(files[i]));
-						break;
-				}
-			}
-
-			return sublist;
-		}
-
-		/// <summary>
-		/// Add a Vobsub
-		/// </summary>
-		/// <param name="sublist">An ArrayList of Subtitle List</param>
-		/// <param name="subfile">Vobsub Filename</param>
-		/// <param name="str">Mplayer -identify ID_ string</param>
-		/// <returns></returns>
-		public static bool AddVobSub(List<Subtitle> sublist, string subfile, string str)
-		{
-			if(!str.StartsWith("VSID_"))
-				return false;
-
-			string[] substr = str.Split('_', '=');
-			
-			int id = int.Parse(substr[1]);
-			string lang = substr[3];
-
-			sublist.Add(new Subtitle(subfile, id.ToString() + " : " + lang, id, SubtitleType.VobSubID));
-
-			return true;
-		}
-
-        public static bool AddDemuxSub(List<Subtitle> sublist, string subfile, string str)
-		{
-			if(!str.StartsWith("SID_"))
-				return false;
-
-			string[] substr = str.Split('_', '=');
-
-			// SID_0_LANG=chi , no need
-			if(substr[2] == "LANG")	
-				return false;
-
-			int id = int.Parse(substr[1]);
-			string lang = substr[3];
-
-			sublist.Add(new Subtitle(subfile, id.ToString() + " : " + lang, id, SubtitleType.DemuxSubID));
-
-			return true;
-		}
 	}
 }

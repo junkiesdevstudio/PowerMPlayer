@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
+
 namespace Power_Mplayer
 {
 	public class MValue
@@ -60,19 +61,22 @@ namespace Power_Mplayer
 	/// </summary>
 	public class MediaInfo
 	{       
-		private Mplayer mp;
+		//private Mplayer mp;
         private Dictionary<string, string> MInfo;
         public List<int> AudioChannel {get; private set;}
         public List<int> VideoChannel {get; private set;}
+//        public List<Subtitle> SubList { get; private set; }
+        public SubManager SubMgr { get; private set; }
 
 		// constructure
 		public MediaInfo(Mplayer m)
 		{
             MInfo = new Dictionary<string, string>();
-			mp = m;
+			//mp = m;
 
             AudioChannel = new List<int>();
             VideoChannel = new List<int>();
+            SubMgr = new SubManager();
 		}
 
         public void ClearValues()
@@ -100,16 +104,7 @@ namespace Power_Mplayer
 
 			if(str != null)
 			{
-				if(str.StartsWith("VSID"))
-				{
-					Subtitle.AddVobSub(mp.SubList, mp.CurrentSubtitle.Filename, str);
-					return;
-				}
-				else if(str.StartsWith("SID"))
-				{
-					Subtitle.AddDemuxSub(mp.SubList, mp.Filename, str);
-					return;
-				}
+                SubMgr.AddSub(str);
 
 				string[] cmds = str.Split('=');
 
@@ -126,7 +121,6 @@ namespace Power_Mplayer
 			}
 			// end of if
 		}
-
 
 		public string this[string dataname]
 		{
@@ -165,6 +159,6 @@ namespace Power_Mplayer
 
             return 0;
         }
- 
+
 	}
 }
