@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADs
-        SAAAAk1TRnQBSQFMAgEBBwEAASwBDQEsAQ0BGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
+        SAAAAk1TRnQBSQFMAgEBBwEAAVwBDQFcAQ0BGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
         AwABMAMAAQEBAAEgBgABSBUAAQEDBAEGAwoBDgMRARcDGAEhAx0BKQMhATADJAE1AyUBNwMjATMDHwEt
         AxoBJQMVAR0DDwEUAwkBDAMHAQkDCgEOAxIBGQMXASADGQEjAxYBHgMQARUDCAELAwIBAwQAAwIBAwMG
         AQgDCgENAw4BEwMSARkDFgEfAxoBJAMdASoDIAEuAyIBMgMkATUDJAE2AyMBMwMhATADHgErAxwBJwMY
@@ -716,7 +716,7 @@
     <value>Bottom</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 229</value>
+    <value>0, 230</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>583, 72</value>
@@ -760,6 +760,9 @@
   <metadata name="mainMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>240, 17</value>
   </metadata>
+  <data name="MI_File.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
   <data name="MI_OpenFile.Text" xml:space="preserve">
     <value>&amp;Open File</value>
   </data>
@@ -790,8 +793,8 @@
   <data name="MI_Exit.Text" xml:space="preserve">
     <value>&amp;Exit</value>
   </data>
-  <data name="MI_File.Text" xml:space="preserve">
-    <value>&amp;File</value>
+  <data name="MI_Play.Text" xml:space="preserve">
+    <value>&amp;Play</value>
   </data>
   <data name="MI_ShowPlaylist.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
     <value>CtrlL</value>
@@ -808,8 +811,11 @@
   <data name="MI_Fullscreen.Text" xml:space="preserve">
     <value>Fullscreen</value>
   </data>
-  <data name="MI_Play.Text" xml:space="preserve">
-    <value>&amp;Play</value>
+  <data name="MI_Video.Text" xml:space="preserve">
+    <value>&amp;Video</value>
+  </data>
+  <data name="MI_Zoom.Text" xml:space="preserve">
+    <value>Scale</value>
   </data>
   <data name="MI_Zoom50.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
     <value>Ctrl1</value>
@@ -835,11 +841,11 @@
   <data name="MI_FixSize.Text" xml:space="preserve">
     <value>Fix Scale</value>
   </data>
-  <data name="MI_Zoom.Text" xml:space="preserve">
-    <value>Scale</value>
-  </data>
   <data name="menuItem2.Text" xml:space="preserve">
     <value>-</value>
+  </data>
+  <data name="MI_Brightness.Text" xml:space="preserve">
+    <value>Brightness</value>
   </data>
   <data name="MI_BrightnessLess.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
     <value>CtrlE</value>
@@ -853,8 +859,8 @@
   <data name="MI_BrightnessMore.Text" xml:space="preserve">
     <value>Brightness +</value>
   </data>
-  <data name="MI_Brightness.Text" xml:space="preserve">
-    <value>Brightness</value>
+  <data name="MI_Contrast.Text" xml:space="preserve">
+    <value>Contrast</value>
   </data>
   <data name="MI_ContrastLess.Shortcut" type="System.Windows.Forms.Shortcut, System.Windows.Forms">
     <value>CtrlD</value>
@@ -868,8 +874,8 @@
   <data name="MI_ContrastMore.Text" xml:space="preserve">
     <value>Contrast +</value>
   </data>
-  <data name="MI_Contrast.Text" xml:space="preserve">
-    <value>Contrast</value>
+  <data name="MI_Gamma.Text" xml:space="preserve">
+    <value>Gamma</value>
   </data>
   <data name="MI_GammaLess.Text" xml:space="preserve">
     <value>Gamma -</value>
@@ -877,8 +883,8 @@
   <data name="MI_GammaMore.Text" xml:space="preserve">
     <value>Gamma +</value>
   </data>
-  <data name="MI_Gamma.Text" xml:space="preserve">
-    <value>Gamma</value>
+  <data name="MI_Hue.Text" xml:space="preserve">
+    <value>Hues</value>
   </data>
   <data name="MI_HueLess.Text" xml:space="preserve">
     <value>Hues -</value>
@@ -886,8 +892,8 @@
   <data name="MI_HueMore.Text" xml:space="preserve">
     <value>Hues +</value>
   </data>
-  <data name="MI_Hue.Text" xml:space="preserve">
-    <value>Hues</value>
+  <data name="MI_Saturation.Text" xml:space="preserve">
+    <value>Saturation</value>
   </data>
   <data name="MI_SaturationLess.Text" xml:space="preserve">
     <value>Saturation -</value>
@@ -895,20 +901,20 @@
   <data name="MI_SaturationMore.Text" xml:space="preserve">
     <value>Saturation +</value>
   </data>
-  <data name="MI_Saturation.Text" xml:space="preserve">
-    <value>Saturation</value>
-  </data>
   <data name="menuItem7.Text" xml:space="preserve">
     <value>-</value>
   </data>
   <data name="MI_Screenshot.Text" xml:space="preserve">
     <value>Take Screenshot</value>
   </data>
-  <data name="MI_Video.Text" xml:space="preserve">
-    <value>&amp;Video</value>
+  <data name="MI_Audio.Text" xml:space="preserve">
+    <value>&amp;Audio</value>
   </data>
   <data name="MI_SelectAudio.Text" xml:space="preserve">
     <value>Select Audio Channel</value>
+  </data>
+  <data name="MI_AudioBalance.Text" xml:space="preserve">
+    <value>Balance</value>
   </data>
   <data name="MI_AudioBalance_Center.Text" xml:space="preserve">
     <value>Center</value>
@@ -919,11 +925,8 @@
   <data name="MI_AudioBalance_Right.Text" xml:space="preserve">
     <value>Right</value>
   </data>
-  <data name="MI_AudioBalance.Text" xml:space="preserve">
-    <value>Balance</value>
-  </data>
-  <data name="MI_Audio.Text" xml:space="preserve">
-    <value>&amp;Audio</value>
+  <data name="MI_Subtitle.Text" xml:space="preserve">
+    <value>&amp;Subtitle</value>
   </data>
   <data name="MI_SelectSubtitle.Text" xml:space="preserve">
     <value>Choose Subtitle</value>
@@ -933,6 +936,9 @@
   </data>
   <data name="menuItem9.Text" xml:space="preserve">
     <value>-</value>
+  </data>
+  <data name="MI_SubEncoding.Text" xml:space="preserve">
+    <value>Subtitle Encoding</value>
   </data>
   <data name="menuItem18.Text" xml:space="preserve">
     <value>BIG5 (Traditional Chinese charset)</value>
@@ -958,8 +964,8 @@
   <data name="menuItem23.Text" xml:space="preserve">
     <value>Unicode (Unicode)</value>
   </data>
-  <data name="MI_SubEncoding.Text" xml:space="preserve">
-    <value>Subtitle Encoding</value>
+  <data name="MI_SubChineseTrans.Text" xml:space="preserve">
+    <value>Chinese Convert</value>
   </data>
   <data name="MI_ChineseNone.Text" xml:space="preserve">
     <value>None</value>
@@ -969,9 +975,6 @@
   </data>
   <data name="MI_ToSimpChinese.Text" xml:space="preserve">
     <value>To Simplified Chinese</value>
-  </data>
-  <data name="MI_SubChineseTrans.Text" xml:space="preserve">
-    <value>Chinese Convert</value>
   </data>
   <data name="menuItem3.Text" xml:space="preserve">
     <value>-</value>
@@ -1018,8 +1021,8 @@
   <data name="MI_SubScaleUp.Text" xml:space="preserve">
     <value>Scale +</value>
   </data>
-  <data name="MI_Subtitle.Text" xml:space="preserve">
-    <value>&amp;Subtitle</value>
+  <data name="MI_Tools.Text" xml:space="preserve">
+    <value>&amp;Tools</value>
   </data>
   <data name="menuItem11.Text" xml:space="preserve">
     <value>Mplayer Log</value>
@@ -1033,14 +1036,11 @@
   <data name="MI_Option.Text" xml:space="preserve">
     <value>Option</value>
   </data>
-  <data name="MI_Tools.Text" xml:space="preserve">
-    <value>&amp;Tools</value>
+  <data name="MI_Help.Text" xml:space="preserve">
+    <value>&amp;Help</value>
   </data>
   <data name="MI_About.Text" xml:space="preserve">
     <value>About</value>
-  </data>
-  <data name="MI_Help.Text" xml:space="preserve">
-    <value>&amp;Help</value>
   </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>348, 17</value>
@@ -1109,7 +1109,7 @@
     <value>5, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>583, 301</value>
+    <value>583, 302</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

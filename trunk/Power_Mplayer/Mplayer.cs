@@ -33,8 +33,6 @@ namespace Power_Mplayer
         public MediaInfo minfo { get; private set; }
         public MplayerSetting Setting {get; private set;}
 
-        public Subtitle CurrentSubtitle { get; set; }
-
         private Dictionary<string, MShortcut> shortcuts;
 		private MKeyConverter mkconverter;
 
@@ -94,7 +92,7 @@ namespace Power_Mplayer
 		#region controls of movie
 
 		// create process
-        public bool Start(MPlaylistItem item)
+        public bool Start(MPlaylistItem item, int start_pos)
         {
             if (this.HasInstense())
                 this.Quit();
@@ -124,6 +122,9 @@ namespace Power_Mplayer
             string slaveArgs = "-slave -quiet" + // salve mode
                 " -msglevel identify=6" +	// show ID_ tag , an easy way to extract information
                 " -nokeepaspect -nofontconfig";
+
+            if (start_pos > 0)
+                slaveArgs += string.Format(" -ss {0}", start_pos);
 
             // embed window
             string colorkey = "0x" + ColorTranslator.ToHtml(this.BigScreen.BackColor).TrimStart('#');
@@ -189,7 +190,10 @@ namespace Power_Mplayer
             //Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
             //Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
             this.BigScreen.BackgroundImage = null;
- 
+
+            isMuted = !isMuted;
+            Mute();
+
             return true;
         }
 
@@ -206,12 +210,13 @@ namespace Power_Mplayer
             SendSlaveCommand(SlaveCommandMode.Pausing, "seek 0 2");
 		}
 
-		private bool Muted = false;
+        public bool isMuted { get; private set; }
 		public bool Mute()
 		{
-			SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "mute {0}", (Muted) ? 0 : 1);
-			Muted = !Muted;
-			return Muted;
+            isMuted = !isMuted;
+			SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "mute {0}", (isMuted) ? 1 : 0);
+			
+			return isMuted;
 		}
 
         public void Quit()
@@ -227,15 +232,15 @@ namespace Power_Mplayer
                 stderr.Close();
             }
 
-            if (this.mediaType == MediaType.File && CurrentSubtitle != null)
+            if (this.mediaType == MediaType.File && minfo.SubMgr.CurrentSub != null)
             {
                 // delete temp_subtitle for ForeceUTF8
-                string dest = System.Windows.Forms.Application.StartupPath + @"\temp_subtitle" + Path.GetExtension(CurrentSubtitle.Filename);
+                string dest = SubManager.GetTempSubPath(minfo.SubMgr.CurrentSub.Filename);
                 if (File.Exists(dest))
                     File.Delete(dest);
             }
 
-            CurrentSubtitle = null;
+            //CurrentSubtitle = null;
             AudioChannels.Clear();
             VideoChannels.Clear();
 
@@ -340,7 +345,7 @@ namespace Power_Mplayer
 			{
                 _volume = value;
                 if (SendSlaveCommand(SlaveCommandMode.Pausing_Keep_Force, "volume {0} 1", value) == true)
-                    Muted = false;
+                    isMuted = false;
 			}
             get
             {
