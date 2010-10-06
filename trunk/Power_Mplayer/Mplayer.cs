@@ -252,6 +252,9 @@ namespace Power_Mplayer
 
         public void SendSlaveCommand(SlaveCommandMode mode, string[] cmds)
         {
+            if (cmds == null)
+                return;
+
             foreach (string s in cmds)
             {
                 SendSlaveCommand(mode, s);

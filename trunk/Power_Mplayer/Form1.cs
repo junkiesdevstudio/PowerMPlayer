@@ -1679,8 +1679,8 @@ namespace Power_Mplayer
 			mp.Setting.WriteSetting();
 
             mp.minfo.SubMgr.SubEncoding = mp.Setting[SetVars.SubEncoding];
-            string[] slaveArgs = mp.minfo.SubMgr.SelectSub(mp.minfo.SubMgr.CurrentSub);
-            mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep, slaveArgs);
+            string[] slaveCmds = mp.minfo.SubMgr.SelectSub(mp.minfo.SubMgr.CurrentSub);
+            mp.SendSlaveCommand(SlaveCommandMode.Pausing_Keep, slaveCmds);
 		}
 
         private void MI_SubSetting_Click(object sender, System.EventArgs e)
