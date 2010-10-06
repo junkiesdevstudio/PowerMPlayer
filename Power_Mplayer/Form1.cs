@@ -337,6 +337,7 @@ namespace Power_Mplayer
             this.VolumeBar.Maximum = 10;
             this.VolumeBar.Minimum = 0;
             this.VolumeBar.Name = "VolumeBar";
+            this.VolumeBar.TabStop = false;
             this.VolumeBar.Value = 10;
             this.VolumeBar.OnValueChanged += new System.EventHandler(this.VolumeBar_Scroll);
             // 
@@ -1248,15 +1249,16 @@ namespace Power_Mplayer
 		{
 			OpenURL urlForm = new OpenURL();
 
-            /*
 			if(urlForm.ShowDialog() == DialogResult.OK)
 			{
 				if(urlForm.URL.IndexOf("//") > 0)
 				{
-					this.Start(urlForm.URL);
+                    this.Playlist.Clear();
+                    this.Playlist_AddItem(new MPlaylistItem(MediaType.URL, urlForm.URL));
+
+                    Start(Playlist_First());
 				}
 			}
-            */
 		}
 
 		#region GUI Movie Control

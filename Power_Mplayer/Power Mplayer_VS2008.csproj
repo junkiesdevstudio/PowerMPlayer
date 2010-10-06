@@ -30,7 +30,7 @@
     <ManifestKeyFile>Power Mplayer_VS2008_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
-    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
