@@ -6,7 +6,46 @@ using System.IO;
 namespace Power_Mplayer
 {
     public enum SubtitleType { NoSubtitle, Srt, Ass, VobSubFile, VobSubID, DemuxSubID };
-
+    
+    /// <summary>
+    /// SubManager provide functions (API) that manage subtitle
+    /// 
+    /// Abstract:
+    /// since subtitle functions provide from mpalayer is not so good, so we handled all things from UI.
+    /// 
+    /// here is main principles: 
+    ///     * mplayer may know only one subtitle item (CurrentSub) from UI.
+    ///     * we try do everything (including change encoding) in slave mode, reduce restart player times.
+    /// 
+    /// For VOBSub:
+    ///     * select sub file restart player
+    ///     * select sub id using slave mode
+    /// 
+    /// For DemuxSub:
+    ///     * select sub id using slave mode
+    ///     
+    /// For SUB_FILE (SRT / SSA)
+    ///     * let mplayer eat only one encoding UTF8 (-utf8)
+    ///     * we translation encoding from user's setting to utf8 in a temp file, 
+    ///       then feed the temp file to mplayer.
+    ///     * so we can do anything without restart player.
+    ///     
+    /// API summary:
+    ///     public void FindSub(MPlaylistItem playitem): find the all sub files in the media folder
+    ///     public void AddSub(string str): for MediaInfo to add mplayer detected sub id
+    ///     public Subtitle[] ListSubtitle(): list all subs 
+    ///     public string[] SelectSub(Subtitle sub): 
+    ///         tell the manager use the sub before / after Mplayer.Start() and do preprocess.
+    ///         * before Mplayer.Start() : start playing with selected sub
+    ///         * after Mplayer.Start() : create slave commands that can switch to the sub 
+    ///                                   in slave mode without restart player
+    ///     public Subtitle CurrentSub: get using sub
+    ///     public string SubEncoding: set/get encoding
+    ///     public int ChineseTransMode: set/get chinese translation mode. 
+    ///         * 0: none 
+    ///         * 1: to Traditional Chinese
+    ///         * 2: to Simplified Chinese
+    /// </summary>
     public class SubManager
     {
         private MPlaylistItem _playItem;
@@ -155,6 +194,9 @@ namespace Power_Mplayer
 
         public string[] SelectSub(Subtitle sub)
         {
+            if (sub == null)
+                return null;
+
             List<string> slaveArgs = new List<string>();
 
             CurrentSub = sub;
