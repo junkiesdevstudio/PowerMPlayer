@@ -11,7 +11,7 @@ namespace Power_Mplayer
 	public enum SetVars 
 	{
 		// Power Mplayer Setting
-		MplayerExe, SrtForceUTF8,
+		MplayerExe, MplayerOtherArgs,
 		
 		//  subtitle
 		SubFont, SubEncoding, SubAutoScale, SubASS, SubChineseTrans, SubFontTextScale,
@@ -40,7 +40,7 @@ namespace Power_Mplayer
 
 			// Power Mplayer Setting
 			this.SettingValues.Add(new MValue(SetVars.MplayerExe.ToString(),	@".\mplayer.exe",		TypeCode.String));
-			this.SettingValues.Add(new MValue(SetVars.SrtForceUTF8.ToString(),	"1",			TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.MplayerOtherArgs.ToString(), "-vf screenshot,eq2", TypeCode.String));
 
 			// subtitle
 			this.SettingValues.Add(new MValue(SetVars.SubFont.ToString(),		@".\mplayer\subfont.ttf", TypeCode.String));
@@ -86,9 +86,7 @@ namespace Power_Mplayer
 				if(this[SetVars.Video_DR] == "1")
 					args += " -dr";
 
-                args += " -vf screenshot,eq2";
-
-				// using ass
+                // using ass
 				if(this[SetVars.SubASS] == "1")
 					args += " -ass";
 
@@ -97,14 +95,11 @@ namespace Power_Mplayer
 
                 args += " -subfont-text-scale " + this[SetVars.SubFontTextScale];
 
-				// subencoding				
-				if(this[SetVars.SrtForceUTF8] == "1")
-					args += " -utf8";
-				else
-					args += " -subcp " + this[SetVars.SubEncoding];
-
 				// sub autoscale
 				args += " -subfont-autoscale " + this[SetVars.SubAutoScale];
+
+                // append user specify args
+                args += " " + this[SetVars.MplayerOtherArgs];
 
 				return args;
 			}
@@ -139,11 +134,6 @@ namespace Power_Mplayer
 					}
 				}
 
-				/* add new vars
-				MValue newval = new MValue(sv.ToString(), value, TypeCode.String);
-				this.SettingValues.Add(newval);
-				*/
-				
 				return;
 			}
 		}
