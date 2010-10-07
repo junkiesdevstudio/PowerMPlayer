@@ -34,7 +34,7 @@ namespace Power_Mplayer
 
 		private List<MValue> SettingValues;
 		
-		private void CreateDefaultValue()
+		public void CreateDefaultValue()
 		{
 			this.SettingValues.Clear();
 
