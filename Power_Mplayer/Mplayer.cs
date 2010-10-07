@@ -121,7 +121,7 @@ namespace Power_Mplayer
             // enable slave mode
             string slaveArgs = "-slave -quiet" + // salve mode
                 " -msglevel identify=6" +	// show ID_ tag , an easy way to extract information
-                " -nokeepaspect -nofontconfig";
+                " -nokeepaspect -nofontconfig -utf8";
 
             if (start_pos > 0)
                 slaveArgs += string.Format(" -ss {0}", start_pos);
