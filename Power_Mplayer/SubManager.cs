@@ -134,9 +134,18 @@ namespace Power_Mplayer
                 sub = new Subtitle(CurrentSub.Filename, id.ToString() + " : " + lang, id, SubtitleType.VobSubID);
             }
             else if (str.StartsWith("SID"))
-            {
-                // SID_0_LANG=chi , no need
-                // ???
+            {               
+                // Example: 
+                // ID_SUBTITLE_ID=0
+                // ID_SID_0_LANG=chi
+                // ID_SID_0_NAME=chs    <== what we need
+                // ID_SUBTITLE_ID=1
+                // ID_SID_1_LANG=eng
+                // ID_SID_1_NAME=eng    <== what we need
+                // ID_SUBTITLE_ID=2
+                // ID_SID_2_LANG=chi
+                // ID_SID_2_NAME=cht    <== what we need
+
                 if (substr[2] == "LANG")
                     return;
 

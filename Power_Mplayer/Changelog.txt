@@ -1,12 +1,12 @@
-TODO:
-	* dvd support	
-
+Power Mplayer v0.7   2010/10/08:
+	* support dvd
+	* support vcd
 	* playlist change order
-	* 當播放完畢，重設該檔案位置 (=0)
-	* fullscreen hide cursor
-	* aspect 根據 width-height 自行計算
+	* Change UI
+	* fix a lot of little bugs
+	* rewrite subtitle process engine.
 
-Power Mplayer v0.6:
+Power Mplayer v0.6  beta:
 	* fullscreen in multi-screen environmnet 
 		- not finished, mplayer can't show in second screen)
 	* when fullscreen, hide mouse

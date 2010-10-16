@@ -1,0 +1,33 @@
+﻿Power Mplayer Installation
+==========================
+
+Power Mplayer is a GUI of mplayer in MS Windows, and written in C# , which is a Micorsoft techniquie.
+So you need the player, mplayer, to play videos, and .NET Framework to run the Power Mplayer as a GUI.
+
+1. If you are in Windows 7, you have .NET Framework 3.5 in your system, you can skip this step.
+   Or you should download .NET Framework 3.5 from Microsoft Download Center, which link is
+   
+   http://msdn.microsoft.com/en-us/netframework/cc378097.aspx
+   
+   and the file link is
+   
+   http://download.microsoft.com/download/2/0/e/20e90413-712f-438c-988e-fdaa79a8ac3d/dotnetfx35.exe
+   
+   
+
+2. You can download latest mplayer builds with different CPU at
+
+	http://oss.netfarm.it/mplayer-win32.php
+	
+then decompress it to a folder. 
+
+
+3. unzip the PowerMplaye compressed file to the same folder. 
+   (it means PowerMplayer.exe and mplayer.exe at the same folder)
+
+4. Double click "Power Mplayer.exe" and enjoy your videos.
+
+
+enjoy
+
+hialan	2010/10/08
