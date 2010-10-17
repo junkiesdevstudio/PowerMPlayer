@@ -102,8 +102,10 @@ namespace Power_Mplayer
             switch(SubType)
             {
                 case SubtitleType.NoSubtitle:
+                    return string.Format("sub_select {0}", -1);
+
                 case SubtitleType.VobSubID:
-                    return string.Format("sub_select {0}", SubID);
+                    return string.Format("sub_vob {0}", SubID);
 
                 case SubtitleType.DemuxSubID:
                     return string.Format("sub_demux {0}", SubID);
