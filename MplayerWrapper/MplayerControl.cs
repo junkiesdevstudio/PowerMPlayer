@@ -13,7 +13,7 @@ using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Power_Mplayer
+namespace MplayerWrapper
 {
 	public enum MediaType {None, File, DVD, VCD, URL, CDDA};
     public enum SlaveCommandMode { None, Pausing, Pausing_Keep, Pausing_Toggle, Pausing_Keep_Force };
@@ -21,7 +21,7 @@ namespace Power_Mplayer
 	/// <summary>
 	/// Mplayer Class
 	/// </summary>
-	public class Mplayer
+	public class MplayerControl : System.Windows.Forms.Panel
 	{
 		// process control
 		private Process mplayerProc;
@@ -31,14 +31,14 @@ namespace Power_Mplayer
 
 		// power mplayer info
         public MediaInfo minfo { get; private set; }
-        public MplayerSetting Setting {get; private set;}
+        
 
         private Dictionary<string, MShortcut> shortcuts;
 		private MKeyConverter mkconverter;
 
         private MPlaylistItem PlayItem { get; set; }
-        public Panel BigScreen { get; set; }
-        private Form1 MainForm;
+        //public Panel BigScreen { get; set; }
+        //private Form1 MainForm;
 
         public string Filename
         {
@@ -63,35 +63,58 @@ namespace Power_Mplayer
         }
 
 		// constructure
-		public Mplayer(Form1 f, MplayerSetting ms)
+        public MplayerControl() : base()
+        {
+            this.mkconverter = new MKeyConverter();
+            minfo = new MediaInfo();
+            mplayerProc = null;
+        }
+
+        private MplayerSetting _setting;
+        public MplayerSetting Setting
 		{
-			mplayerProc = null;
-            this.MainForm = f;
-			this.BigScreen = f.BigScreen;
+            set
+            {
+                //this.MainForm = f;
+                //this.BigScreen = screenPanel;
+                if (value == null)
+                    return;
 
-			minfo = new MediaInfo(this);
-            Setting = ms;
-			
-			string fname = Setting[SetVars.MplayerExe];
-			if(fname.IndexOf(Path.VolumeSeparatorChar) < 0)
-			{
-				fname = System.Windows.Forms.Application.StartupPath + @"\" + fname;
-			}
-			fname = Path.GetDirectoryName(fname) + @"\mplayer\input.conf";
+                _setting = value;
 
-			this.shortcuts = MShortcut.LoadShortcuts(fname);
-			this.mkconverter = new MKeyConverter();
+                string fname = _setting[SetVars.MplayerExe];
+                if (fname.IndexOf(Path.VolumeSeparatorChar) < 0)
+                {
+                    fname = System.Windows.Forms.Application.StartupPath + @"\" + fname;
+                }
+                fname = Path.GetDirectoryName(fname) + @"\mplayer\input.conf";
+
+                this.shortcuts = MShortcut.LoadShortcuts(fname);
+            }
+            get
+            {
+                return _setting;
+            }
 		}
 
 		public bool HasInstense()
 		{
 			return (mplayerProc != null && !mplayerProc.HasExited);
-		}
+        }
 
 
-		#region controls of movie
+        #region callback function
+        public event MyStreamReader.NewLineEventHandler OnReceiveMediaInfo;
+        private void ReceiveMediaInfo(MyStreamReader sender, string str)
+        {
+            minfo.SetState(sender, str);
+            OnReceiveMediaInfo(sender, str);
+        }
+        #endregion
 
-		// create process
+        #region controls of movie
+
+        // create process
         public bool Start(MPlaylistItem item, int start_pos)
         {
             if (this.HasInstense())
@@ -127,8 +150,8 @@ namespace Power_Mplayer
                 slaveArgs += string.Format(" -ss {0}", start_pos);
 
             // embed window
-            string colorkey = "0x" + ColorTranslator.ToHtml(this.BigScreen.BackColor).TrimStart('#');
-            string windowArgs = string.Format("-wid {0} -colorkey {1}", this.BigScreen.Handle.ToString(), colorkey);
+            string colorkey = "0x" + ColorTranslator.ToHtml(this.BackColor).TrimStart('#');
+            string windowArgs = string.Format("-wid {0} -colorkey {1}", this.Handle.ToString(), colorkey);
 
             // setting arguements
             string args = string.Format("{0} {1} {2}", slaveArgs, windowArgs, Setting.MplayerArguements);
@@ -180,8 +203,11 @@ namespace Power_Mplayer
             stderr = new MyStreamReader(mplayerProc.StandardError);
             stdout = new MyStreamReader(mplayerProc.StandardOutput);
 
+            /*
             stdout.OnAppendNewLine += minfo.SetState;
             stdout.OnAppendNewLine += MainForm.SetTimePos;
+            */
+            stdout.OnAppendNewLine += ReceiveMediaInfo;
             stdout.RequestData.Append(mplayerProc.StartInfo.FileName + " " + mplayerProc.StartInfo.Arguments + "\n\n");
             stdout.BeginRead();
             stderr.BeginRead();
@@ -189,7 +215,7 @@ namespace Power_Mplayer
             // config show area
             //Win32API.SetParent(mplayerProc.MainWindowHandle.ToInt32(), this.BigScreen.Handle.ToInt32());
             //Win32API.MoveWindow(mplayerProc.MainWindowHandle.ToInt32(), 0, 0, this.BigScreen.Width, this.BigScreen.Height, true);
-            this.BigScreen.BackgroundImage = null;
+            this.BackgroundImage = null;
 
             isMuted = !isMuted;
             Mute();
@@ -241,8 +267,8 @@ namespace Power_Mplayer
             }
 
             //CurrentSubtitle = null;
-            AudioChannels.Clear();
-            VideoChannels.Clear();
+            minfo.AudioChannel.Clear();
+            minfo.VideoChannel.Clear();
 
             PlayItem = null;
             this.minfo.ClearValues();
@@ -364,10 +390,12 @@ namespace Power_Mplayer
 			{
 				return minfo.ToDouble("VIDEO_ASPECT");
 			}
+            /*
 			set
 			{
 				stdin.WriteLine(" switch_ratio " + value.ToString() + " ");
 			}
+            */
 		}
 
 		public int Video_Width
@@ -436,6 +464,7 @@ namespace Power_Mplayer
             return;
         }
 
+        /*
         public List<int> AudioChannels
         {
             get { return minfo.AudioChannel; }
@@ -445,6 +474,7 @@ namespace Power_Mplayer
         {
             get { return minfo.VideoChannel; }
         }
+        */
 
         public void Audio_Select(string id)
         {

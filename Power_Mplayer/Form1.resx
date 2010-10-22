@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADs
-        SAAAAk1TRnQBSQFMAgEBBwEAAXwBDQF8AQ0BGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
+        SAAAAk1TRnQBSQFMAgEBBwEAAQQBDgEEAQ4BGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
         AwABMAMAAQEBAAEgBgABSBUAAQEDBAEGAwoBDgMRARcDGAEhAx0BKQMhATADJAE1AyUBNwMjATMDHwEt
         AxoBJQMVAR0DDwEUAwkBDAMHAQkDCgEOAxIBGQMXASADGQEjAxYBHgMQARUDCAELAwIBAwQAAwIBAwMG
         AQgDCgENAw4BEwMSARkDFgEfAxoBJAMdASoDIAEuAyIBMgMkATUDJAE2AyMBMwMhATADHgErAxwBJwMY
@@ -443,34 +443,13 @@
     <value>121, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BigScreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 36</value>
-  </data>
-  <data name="BigScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 136</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BigScreen.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;BigScreen.Name" xml:space="preserve">
-    <value>BigScreen</value>
-  </data>
-  <data name="&gt;&gt;BigScreen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BigScreen.Parent" xml:space="preserve">
-    <value>MainPanel</value>
-  </data>
-  <data name="&gt;&gt;BigScreen.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="VolumeBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>475, 5</value>
   </data>
   <data name="VolumeBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 30</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="VolumeBar.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
@@ -716,7 +695,7 @@
     <value>Bottom</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 230</value>
+    <value>0, 258</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>583, 72</value>
@@ -735,6 +714,27 @@
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="BigScreen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 33</value>
+  </data>
+  <data name="BigScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="BigScreen.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;BigScreen.Name" xml:space="preserve">
+    <value>BigScreen</value>
+  </data>
+  <data name="&gt;&gt;BigScreen.Type" xml:space="preserve">
+    <value>MplayerWrapper.MplayerControl, MplayerWrapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BigScreen.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;BigScreen.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="MainPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>36, 12</value>
@@ -1109,7 +1109,7 @@
     <value>5, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>583, 302</value>
+    <value>583, 330</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

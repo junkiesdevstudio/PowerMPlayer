@@ -7,11 +7,8 @@ using System.Resources;
 using System.Globalization;
 using System.Security.Principal;
 
-namespace Power_Mplayer
+namespace MplayerWrapper
 {
-	/// <summary>
-	/// OptionForm ªººK­n´y­z¡C
-	/// </summary>
 	public class OptionForm : System.Windows.Forms.Form
 	{
 		private System.Windows.Forms.TabControl tabControl1;
@@ -58,8 +55,7 @@ namespace Power_Mplayer
         private FontSelector fontSelect;
 
 		//Allow the use of MUI for this form
-		private CultureInfo culture;
-		private Label label10;
+        private CultureInfo culture;
         private LinkLabel linkLabel1;
         private Label label11;
         private TextBox tb_mplayer_args;
@@ -110,7 +106,6 @@ namespace Power_Mplayer
             this.tp_general = new System.Windows.Forms.TabPage();
             this.tb_mplayer_args = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -179,7 +174,6 @@ namespace Power_Mplayer
             // 
             this.tp_general.Controls.Add(this.tb_mplayer_args);
             this.tp_general.Controls.Add(this.label12);
-            this.tp_general.Controls.Add(this.label10);
             this.tp_general.Controls.Add(this.groupBox1);
             resources.ApplyResources(this.tp_general, "tp_general");
             this.tp_general.Name = "tp_general";
@@ -194,12 +188,6 @@ namespace Power_Mplayer
             // 
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
-            // 
-            // label10
-            // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Name = "label10";
             // 
             // groupBox1
             // 
@@ -733,11 +721,6 @@ namespace Power_Mplayer
 		private void OptionForm_Load(object sender, EventArgs e)
 		{
 			//set the settings for someone who uses the local version(msi)
-#if (!portable)
-			txt_mplayer_cmd.Enabled = false;
-			button2.Enabled = false;
-			label10.Visible = true;
-#endif
             btn_cancel.Enabled = true;
 
 			GetCurrentLanguage();

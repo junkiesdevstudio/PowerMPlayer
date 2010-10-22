@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Power_Mplayer
+namespace MplayerWrapper
 {
 	public struct MKey
 	{

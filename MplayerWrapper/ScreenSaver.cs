@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace Power_Mplayer
+namespace MplayerWrapper
 {
     public static class ScreenSaver
     {

@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-
-namespace Power_Mplayer
+namespace MplayerWrapper
 {
 	public class MValue
 	{
@@ -61,19 +60,15 @@ namespace Power_Mplayer
 	/// </summary>
 	public class MediaInfo
 	{       
-		//private Mplayer mp;
         private Dictionary<string, string> MInfo;
         public List<int> AudioChannel {get; private set;}
         public List<int> VideoChannel {get; private set;}
-//        public List<Subtitle> SubList { get; private set; }
         public SubManager SubMgr { get; private set; }
 
 		// constructure
-		public MediaInfo(Mplayer m)
+        public MediaInfo()
 		{
             MInfo = new Dictionary<string, string>();
-			//mp = m;
-
             AudioChannel = new List<int>();
             VideoChannel = new List<int>();
             SubMgr = new SubManager();
