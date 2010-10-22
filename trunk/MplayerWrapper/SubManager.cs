@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace Power_Mplayer
+namespace MplayerWrapper
 {
     public enum SubtitleType { NoSubtitle, Srt, Ass, VobSubFile, VobSubID, DemuxSubID };
     

@@ -3,7 +3,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace Power_Mplayer
+namespace MplayerWrapper
 {
 	/// <summary>
 	/// Win32API ªººK­n´y­z¡C

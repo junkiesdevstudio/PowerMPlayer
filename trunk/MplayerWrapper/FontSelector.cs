@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Power_Mplayer
+namespace MplayerWrapper
 {
 	/// <summary>
 	/// FontSelector ªººK­n´y­z¡C
