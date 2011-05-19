@@ -26,7 +26,10 @@ namespace MplayerWrapper
 		LastMedia,
 
 		//Language, will only be used in the .ini file
-		Language
+		Language,
+
+        // -forceidx , Force index rebuilding. 
+        ForceIDX
 	}
 	public class MplayerSetting
 	{
@@ -64,6 +67,9 @@ namespace MplayerWrapper
 
 			//Language
 			this.SettingValues.Add(new MValue(SetVars.Language.ToString(),		"",				TypeCode.String));
+
+            //ForceIDX
+            this.SettingValues.Add(new MValue(SetVars.ForceIDX.ToString(),      "0",            TypeCode.String));
 		}
 
 		public string MplayerArguements
@@ -97,6 +103,9 @@ namespace MplayerWrapper
 
 				// sub autoscale
 				args += " -subfont-autoscale " + this[SetVars.SubAutoScale];
+
+                if (this[SetVars.ForceIDX] == "1")
+                    args += " -forceidx";
 
                 // append user specify args
                 args += " " + this[SetVars.MplayerOtherArgs];

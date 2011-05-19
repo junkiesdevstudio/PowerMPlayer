@@ -117,12 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 12</value>
+  <data name="tp_general.Text" xml:space="preserve">
+    <value>一般</value>
   </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>你只能改變可攜式版本</value>
+  <data name="tp_Output.Text" xml:space="preserve">
+    <value>輸出</value>
+  </data>
+  <data name="tp_Subtitle.Text" xml:space="preserve">
+    <value>字幕</value>
+  </data>
+  <data name="tp_audio.Text" xml:space="preserve">
+    <value>檔案類型</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>語言</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="CB_ForceIDX.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="CB_ForceIDX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 28</value>
+  </data>
+  <data name="CB_ForceIDX.Text" xml:space="preserve">
+    <value>強制重建索引。
+(這會使得一些無法搜尋時間點的影片得以搜尋。)</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 171</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 12</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>其他 Mplayer 指令</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Mplayer 設定</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 12</value>
@@ -136,11 +167,8 @@
   <data name="button2.Text" xml:space="preserve">
     <value>瀏覽  </value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Mplayer 設定</value>
-  </data>
-  <data name="tp_general.Text" xml:space="preserve">
-    <value>一般</value>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>聲音</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>最大值(%)</value>
@@ -151,17 +179,11 @@
   <data name="label3.Text" xml:space="preserve">
     <value>聲音輸出驅動程式</value>
   </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>聲音</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>影像輸出驅動程式</value>
-  </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>影像</value>
   </data>
-  <data name="tp_Output.Text" xml:space="preserve">
-    <value>輸出</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>影像輸出驅動程式</value>
   </data>
   <data name="Srt_ChineseTrans.Items" xml:space="preserve">
     <value>無</value>
@@ -178,6 +200,9 @@
   <data name="label8.Text" xml:space="preserve">
     <value>中文繁簡轉換</value>
   </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>字型</value>
+  </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
   </data>
@@ -191,9 +216,6 @@
     <value>29, 12</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>字型</value>
-  </data>
-  <data name="groupBox4.Text" xml:space="preserve">
     <value>字型</value>
   </data>
   <data name="Srt_AutoScale.Items" xml:space="preserve">
@@ -220,14 +242,8 @@
   <data name="Srt_UseASS.Text" xml:space="preserve">
     <value>使用 SSA/ASS</value>
   </data>
-  <data name="tp_Subtitle.Text" xml:space="preserve">
-    <value>字幕</value>
-  </data>
   <data name="btn_SelectAllExt.Text" xml:space="preserve">
     <value>全選</value>
-  </data>
-  <data name="tp_audio.Text" xml:space="preserve">
-    <value>檔案類型</value>
   </data>
   <data name="chkLanguage.Items" xml:space="preserve">
     <value>系統預設 - System Default</value>
@@ -238,14 +254,14 @@
   <data name="label9.Text" xml:space="preserve">
     <value>選擇語言：</value>
   </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>語言</value>
-  </data>
   <data name="btn_close.Text" xml:space="preserve">
-    <value>關閉</value>
+    <value>確定</value>
   </data>
   <data name="btn_cancel.Text" xml:space="preserve">
     <value>取消</value>
+  </data>
+  <data name="btn_Reset.Text" xml:space="preserve">
+    <value>重設</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Power Mplayer 選項</value>
