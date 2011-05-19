@@ -1468,8 +1468,13 @@ namespace Power_Mplayer
         private bool needAppendAudioChannel = false;
         private bool needSyncTime = true;
         private int nowTimePos = 0;
+      
+        private delegate void SetTimeDelegate<T>(T newTimePos);
 
-        private delegate void SetTimeDelegate(int newTimePos);
+        private void SetTimePosUIStr(string strmsg)
+        {
+            this.txtStatus.Text = strmsg;
+        }
 
         private void SetTimePosUI(int newTimePos)
         {
@@ -1495,7 +1500,10 @@ namespace Power_Mplayer
         {
             str = MediaInfo.isStateString(str);
 
-            if (str != null && str.StartsWith("TIME_POSITION"))
+            if (str == null)
+                return;
+
+            if (str.StartsWith("TIME_POSITION"))
             {
                 mp.minfo.SetState(sender, str);
                 int time_pos = (int)double.Parse(str.Substring(str.IndexOf('=') + 1));
@@ -1503,7 +1511,7 @@ namespace Power_Mplayer
                 // safe Thread
                 if (this.MovieBar.InvokeRequired || this.txtStatus.InvokeRequired)
                 {
-                    SetTimeDelegate d = new SetTimeDelegate(SetTimePosUI);
+                    SetTimeDelegate<int> d = new SetTimeDelegate<int>(SetTimePosUI);
 
                     // if Form1 is Disposing
                     try { this.Invoke(d, new object[] { time_pos }); }
@@ -1511,6 +1519,20 @@ namespace Power_Mplayer
                 }
                 else
                     SetTimePosUI(time_pos);
+            }
+            else if (str.StartsWith("Generating Index"))
+            {
+                // safe Thread
+                if (this.MovieBar.InvokeRequired || this.txtStatus.InvokeRequired)
+                {
+                    SetTimeDelegate<string> d = new SetTimeDelegate<string>(SetTimePosUIStr);
+
+                    // if Form1 is Disposing
+                    try { this.Invoke(d, new object[] { str.Trim() }); }
+                    catch { }
+                }
+                else
+                    SetTimePosUIStr(str.Trim());
             }
             return;
         }
