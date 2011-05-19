@@ -30,7 +30,7 @@ namespace MplayerWrapper
         {
             LastLine.Append(c);
 
-            if (c == '\n')
+            if (c == '\r' || c=='\n')
             {
                 string sbuf = LastLine.ToString().Trim();
 
