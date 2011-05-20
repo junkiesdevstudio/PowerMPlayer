@@ -77,7 +77,7 @@ namespace MplayerWrapper
 			//get the current culture(language)
 			culture = CultureInfo.CurrentUICulture;
 			//Load the resourceManager for the current Form
-			rm = new ResourceManager("Power_Mplayer.Strings.OptionForm", typeof(OptionForm).Assembly);
+			rm = new ResourceManager("MplayerWrapper.Strings.OptionForm", typeof(OptionForm).Assembly);
 			
 		}
 

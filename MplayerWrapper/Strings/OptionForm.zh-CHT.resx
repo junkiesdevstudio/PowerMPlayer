@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LanguageChange_Restart_Message" xml:space="preserve">
-    <value>您已更改了默認語言。唯一的變化將發生在您重新啟動應用程序。
+    <value>您已更改了預設語言。此設定必須要在您重新啟動播放器後才會生效。
 你想重新啟動嗎？</value>
     <comment>The message to be displayed when the user changes the default laanguage</comment>
   </data>

@@ -55,6 +55,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenSaver.cs" />
+    <Compile Include="Strings\OptionForm.Designer.cs">
+      <DependentUpon>OptionForm.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="SubManager.cs" />
     <Compile Include="Subtitle.cs" />
     <Compile Include="Win32API.cs" />
@@ -83,6 +88,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OptionForm.zh-CHT.resx">
       <DependentUpon>OptionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StringResource.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\OptionForm.pt.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\OptionForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OptionForm.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\OptionForm.zh-CHT.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
