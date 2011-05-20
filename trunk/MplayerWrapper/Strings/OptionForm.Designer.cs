@@ -39,7 +39,7 @@ namespace Power_Mplayer.Strings {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Power_Mplayer.Strings.OptionForm", typeof(OptionForm).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MplayerWrapper.Strings.OptionForm", typeof(OptionForm).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

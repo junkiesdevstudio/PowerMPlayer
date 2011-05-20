@@ -158,11 +158,6 @@
     <Compile Include="ShowLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Strings\OptionForm.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OptionForm.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AboutDialog.pt.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -210,17 +205,6 @@
       <DependentUpon>ShowLog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Strings\OptionForm.pt.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Strings\OptionForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>OptionForm.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Strings\OptionForm.zh-CHT.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Content Include="Changelog.txt" />
     <Content Include="Docs\Installation.txt" />
     <Content Include="Icons\background.ico" />
@@ -264,6 +248,9 @@
       <Project>{5A38D409-B235-4998-AB4A-F3B9198CD2E9}</Project>
       <Name>MplayerWrapper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Strings\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
