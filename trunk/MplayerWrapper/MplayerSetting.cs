@@ -17,10 +17,11 @@ namespace MplayerWrapper
 		SubFont, SubEncoding, SubAutoScale, SubASS, SubChineseTrans, SubFontTextScale,
 		
 		// Audio
-		AO, dsoundDevice, Audio_Softvol, Audio_SoftvolMax, Audio_Volume, Audio_Volume_Val, Audio_Volume_Smooth,
+		AO, AC, AFM, dsoundDevice, Audio_Softvol, Audio_SoftvolMax, Audio_Volume, 
+        Audio_Volume_Val, Audio_Volume_Smooth,
 		
 		// Video
-		VO, Video_DR, VideoNativeDecoder,
+		VO, VC, VFM, Video_DR,
 
 		// LastMedia
 		LastMedia,
@@ -61,11 +62,14 @@ namespace MplayerWrapper
             this.SettingValues.Add(new MValue(SetVars.Audio_Volume.ToString(),  "0",            TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.Audio_Volume_Val.ToString(), "-1",        TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.Audio_Volume_Smooth.ToString(), "0",      TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.AFM.ToString(),           "",             TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.AC.ToString(),            "",             TypeCode.String));
 
 			// Video
 			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"direct3d",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"0",			TypeCode.String));
-            this.SettingValues.Add(new MValue(SetVars.VideoNativeDecoder.ToString(), "0",       TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.VFM.ToString(),           "",             TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.VC.ToString(),            "",             TypeCode.String));
 
 			// LastMedia
 			this.SettingValues.Add(new MValue(SetVars.LastMedia.ToString(),		"",				TypeCode.String));
@@ -91,6 +95,12 @@ namespace MplayerWrapper
                 else
                     args += string.Format(" -ao {0}", this[SetVars.AO]);
 
+                if(this[SetVars.AC] != "")
+                    args += string.Format(" -ac {0}", this[SetVars.AC]);
+
+                if (this[SetVars.AFM] != "")
+                    args += string.Format(" -afm {0}", this[SetVars.AFM]);
+
 				if(this[SetVars.Audio_Softvol] == "1")
 					args += " -softvol -softvol-max " + this[SetVars.Audio_SoftvolMax];
 
@@ -99,6 +109,12 @@ namespace MplayerWrapper
 
 				// Video
 				args += " -vo " + this[SetVars.VO];
+
+                if (this[SetVars.VC] != "")
+                    args += string.Format(" -vc {0}", this[SetVars.VC]);
+
+                if (this[SetVars.VFM] != "")
+                    args += string.Format(" -vfm {0}", this[SetVars.VFM]);
 
 				if(this[SetVars.Video_DR] == "1")
 					args += " -dr";
