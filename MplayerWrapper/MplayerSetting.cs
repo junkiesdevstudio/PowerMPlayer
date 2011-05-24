@@ -17,7 +17,7 @@ namespace MplayerWrapper
 		SubFont, SubEncoding, SubAutoScale, SubASS, SubChineseTrans, SubFontTextScale,
 		
 		// Audio
-		AO, Audio_Softvol, Audio_SoftvolMax, Audio_Volume, Audio_Volume_Val, Audio_Volume_Smooth,
+		AO, dsoundDevice, Audio_Softvol, Audio_SoftvolMax, Audio_Volume, Audio_Volume_Val, Audio_Volume_Smooth,
 		
 		// Video
 		VO, Video_DR, 
@@ -55,6 +55,7 @@ namespace MplayerWrapper
 
 			// Audio
 			this.SettingValues.Add(new MValue(SetVars.AO.ToString(),			"dsound",		TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.dsoundDevice.ToString(),  "0",            TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Audio_Softvol.ToString(),	"0",			TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Audio_SoftvolMax.ToString(), "110",		TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.Audio_Volume.ToString(),  "0",            TypeCode.String));
@@ -84,7 +85,10 @@ namespace MplayerWrapper
 				ReadSetting();
 
 				// Audio
-				args += " -ao " + this[SetVars.AO];
+                if (this[SetVars.AO].ToLower() == "dsound")
+                    args += string.Format(" -ao dsound:device={0}", this[SetVars.dsoundDevice]);
+                else
+                    args += string.Format(" -ao {0}", this[SetVars.AO]);
 
 				if(this[SetVars.Audio_Softvol] == "1")
 					args += " -softvol -softvol-max " + this[SetVars.Audio_SoftvolMax];

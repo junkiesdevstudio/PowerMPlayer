@@ -148,7 +148,7 @@
     <value>0</value>
   </data>
   <data name="tb_mplayer_args.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 186</value>
+    <value>14, 228</value>
   </data>
   <data name="tb_mplayer_args.Size" type="System.Drawing.Size, System.Drawing">
     <value>344, 22</value>
@@ -172,7 +172,7 @@
     <value>True</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 162</value>
+    <value>14, 204</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 12</value>
@@ -373,11 +373,62 @@
     <value>0</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 40</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 24</value>
+  </data>
+  <data name="label13.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>dsound device:</value>
+  </data>
+  <data name="label13.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cb_dsoundList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 44</value>
+  </data>
+  <data name="cb_dsoundList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 20</value>
+  </data>
+  <data name="cb_dsoundList.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;cb_dsoundList.Name" xml:space="preserve">
+    <value>cb_dsoundList</value>
+  </data>
+  <data name="&gt;&gt;cb_dsoundList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cb_dsoundList.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;cb_dsoundList.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="cb_VolumeSmooth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="cb_VolumeSmooth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 72</value>
+    <value>156, 102</value>
   </data>
   <data name="cb_VolumeSmooth.Size" type="System.Drawing.Size, System.Drawing">
     <value>190, 24</value>
@@ -398,7 +449,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;cb_VolumeSmooth.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="label10.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -407,7 +458,7 @@
     <value>NoControl</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 45</value>
+    <value>6, 75</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 24</value>
@@ -431,10 +482,10 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="nud_AudioVolumeVal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 72</value>
+    <value>88, 102</value>
   </data>
   <data name="nud_AudioVolumeVal.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 22</value>
@@ -452,13 +503,13 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;nud_AudioVolumeVal.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="cb_AudioVolume.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="cb_AudioVolume.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 71</value>
+    <value>28, 101</value>
   </data>
   <data name="cb_AudioVolume.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 24</value>
@@ -479,10 +530,10 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;cb_AudioVolume.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="Audio_Softvol_max.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 104</value>
+    <value>249, 134</value>
   </data>
   <data name="Audio_Softvol_max.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 22</value>
@@ -500,10 +551,10 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;Audio_Softvol_max.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 103</value>
+    <value>168, 133</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 24</value>
@@ -527,10 +578,10 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="Audio_Softvol.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 104</value>
+    <value>10, 134</value>
   </data>
   <data name="Audio_Softvol.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 24</value>
@@ -551,7 +602,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;Audio_Softvol.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="Audio_Output.Items" xml:space="preserve">
     <value>win32</value>
@@ -581,7 +632,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;Audio_Output.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 18</value>
@@ -596,7 +647,7 @@
     <value>Audio output driver:</value>
   </data>
   <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -608,13 +659,13 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 118</value>
+    <value>8, 80</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 139</value>
+    <value>352, 177</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
