@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Drawing;
-using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Resources;
 using System.Globalization;
 using System.Security.Principal;
+using Microsoft.DirectX;
+using Microsoft.DirectX.DirectSound;
 
 namespace MplayerWrapper
 {
@@ -66,6 +68,8 @@ namespace MplayerWrapper
         private NumericUpDown nud_AudioVolumeVal;
         private Label label10;
         private CheckBox cb_VolumeSmooth;
+        private ComboBox cb_dsoundList;
+        private Label label13;
 		private ResourceManager rm;
 
 		// constructure
@@ -82,7 +86,12 @@ namespace MplayerWrapper
 			culture = CultureInfo.CurrentUICulture;
 			//Load the resourceManager for the current Form
 			rm = new ResourceManager("MplayerWrapper.Strings.OptionForm", typeof(OptionForm).Assembly);
-			
+
+            // get dsound devices
+            Microsoft.DirectX.DirectSound.DevicesCollection dc = new DevicesCollection();
+
+            for (int i = 0; i < dc.Count; i++)
+                cb_dsoundList.Items.Add(dc[i].Description);
 		}
 
 		/// <summary>
@@ -120,6 +129,10 @@ namespace MplayerWrapper
             this.button2 = new System.Windows.Forms.Button();
             this.tp_Output = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cb_dsoundList = new System.Windows.Forms.ComboBox();
+            this.cb_VolumeSmooth = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.nud_AudioVolumeVal = new System.Windows.Forms.NumericUpDown();
             this.cb_AudioVolume = new System.Windows.Forms.CheckBox();
             this.Audio_Softvol_max = new System.Windows.Forms.NumericUpDown();
@@ -153,8 +166,6 @@ namespace MplayerWrapper
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cb_VolumeSmooth = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tp_general.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -256,6 +267,8 @@ namespace MplayerWrapper
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.cb_dsoundList);
             this.groupBox3.Controls.Add(this.cb_VolumeSmooth);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.nud_AudioVolumeVal);
@@ -268,6 +281,26 @@ namespace MplayerWrapper
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
+            // cb_dsoundList
+            // 
+            resources.ApplyResources(this.cb_dsoundList, "cb_dsoundList");
+            this.cb_dsoundList.Name = "cb_dsoundList";
+            // 
+            // cb_VolumeSmooth
+            // 
+            resources.ApplyResources(this.cb_VolumeSmooth, "cb_VolumeSmooth");
+            this.cb_VolumeSmooth.Name = "cb_VolumeSmooth";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
             // 
             // nud_AudioVolumeVal
             // 
@@ -328,6 +361,7 @@ namespace MplayerWrapper
             resources.GetString("Audio_Output.Items1")});
             resources.ApplyResources(this.Audio_Output, "Audio_Output");
             this.Audio_Output.Name = "Audio_Output";
+            this.Audio_Output.SelectedIndexChanged += new System.EventHandler(this.Audio_Output_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -592,16 +626,6 @@ namespace MplayerWrapper
             this.btn_Reset.UseVisualStyleBackColor = true;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
-            // label10
-            // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
-            // 
-            // cb_VolumeSmooth
-            // 
-            resources.ApplyResources(this.cb_VolumeSmooth, "cb_VolumeSmooth");
-            this.cb_VolumeSmooth.Name = "cb_VolumeSmooth";
-            // 
             // OptionForm
             // 
             this.AcceptButton = this.btn_close;
@@ -669,6 +693,7 @@ namespace MplayerWrapper
             this.Srt_SubFontTextScale.Value = int.Parse(msetting[SetVars.SubFontTextScale]);
 
 			this.Audio_Output.Text = this.msetting[SetVars.AO];
+            this.cb_dsoundList.SelectedIndex = int.Parse(this.msetting[SetVars.dsoundDevice]);
 			this.Audio_Softvol.Checked = (this.msetting[SetVars.Audio_Softvol] == "1") ? true : false;
 			this.Audio_Softvol_max.Enabled = this.Audio_Softvol.Checked;
 			this.Audio_Softvol_max.Value = decimal.Parse(this.msetting[SetVars.Audio_SoftvolMax]);
@@ -697,6 +722,7 @@ namespace MplayerWrapper
             this.msetting[SetVars.SubFontTextScale] = this.Srt_SubFontTextScale.Value.ToString();
 
 			this.msetting[SetVars.AO] = this.Audio_Output.Text;
+            this.msetting[SetVars.dsoundDevice] = this.cb_dsoundList.SelectedIndex.ToString();
 			this.msetting[SetVars.Audio_Softvol] = (this.Audio_Softvol.Checked) ? "1" : "0";
 			this.msetting[SetVars.Audio_SoftvolMax] = this.Audio_Softvol_max.Value.ToString();
             this.msetting[SetVars.Audio_Volume] = (this.cb_AudioVolume.Checked) ? "1" : "0";
@@ -791,12 +817,13 @@ namespace MplayerWrapper
 
 			GetCurrentLanguage();
 			GetExtPermition();
+
 		}
 
-		/// <summary>
-		/// Sets the dropdown menu in the language tab to be the same as the current language in the config file
-		/// </summary>
-		private void GetCurrentLanguage()
+        /// <summary>
+        /// Sets the dropdown menu in the language tab to be the same as the current language in the config file
+        /// </summary>
+        private void GetCurrentLanguage()
 		{
 			//Get the language information in the .config file and set the default value of the combobox 
 			switch (msetting[SetVars.Language])
@@ -896,6 +923,12 @@ namespace MplayerWrapper
         {
             CheckBox cb = sender as CheckBox;
             nud_AudioVolumeVal.Enabled = cb_VolumeSmooth.Enabled = cb.Checked;
+        }
+
+        private void Audio_Output_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            cb_dsoundList.Enabled = cb.Text == "dsound" ? true : false;            
         }
 
     }
