@@ -17,7 +17,7 @@ namespace MplayerWrapper
 		SubFont, SubEncoding, SubAutoScale, SubASS, SubChineseTrans, SubFontTextScale,
 		
 		// Audio
-		AO, Audio_Softvol, Audio_SoftvolMax,
+		AO, Audio_Softvol, Audio_SoftvolMax, Audio_Volume, Audio_Volume_Val, Audio_Volume_Smooth,
 		
 		// Video
 		VO, Video_DR, 
@@ -57,6 +57,9 @@ namespace MplayerWrapper
 			this.SettingValues.Add(new MValue(SetVars.AO.ToString(),			"dsound",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Audio_Softvol.ToString(),	"0",			TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Audio_SoftvolMax.ToString(), "110",		TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Audio_Volume.ToString(),  "0",            TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Audio_Volume_Val.ToString(), "-1",        TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Audio_Volume_Smooth.ToString(), "0",      TypeCode.String));
 
 			// Video
 			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"direct3d",		TypeCode.String));
@@ -85,6 +88,9 @@ namespace MplayerWrapper
 
 				if(this[SetVars.Audio_Softvol] == "1")
 					args += " -softvol -softvol-max " + this[SetVars.Audio_SoftvolMax];
+
+                if (this[SetVars.Audio_Volume] == "1")
+                    args += string.Format(" -af volume={0}:{1}", this[SetVars.Audio_Volume_Val], this[SetVars.Audio_Volume_Smooth]);
 
 				// Video
 				args += " -vo " + this[SetVars.VO];
@@ -178,9 +184,14 @@ namespace MplayerWrapper
 			using (TextReader tr = new StreamReader(this.SettingFile))
 			{
 				string str;
+                string[] cmds = new string[2];
+
 				while ((str = tr.ReadLine()) != null)
 				{
-					string[] cmds = str.Split('=');
+                    int pos = str.IndexOf('=');
+
+                    cmds[0] = str.Substring(0, pos);
+                    cmds[1] = (pos < str.Length) ? str.Substring(pos+1) : "";
 
 					if (cmds[1] == "")
 						continue;
