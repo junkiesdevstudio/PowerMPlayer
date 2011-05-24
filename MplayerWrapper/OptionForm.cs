@@ -8,6 +8,8 @@ using System.Globalization;
 using System.Security.Principal;
 using Microsoft.DirectX;
 using Microsoft.DirectX.DirectSound;
+using System.Diagnostics;
+using System.IO;
 
 namespace MplayerWrapper
 {
@@ -16,7 +18,7 @@ namespace MplayerWrapper
 		private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.TabPage tp_general;
 		private System.Windows.Forms.TabPage tp_Subtitle;
-		private System.Windows.Forms.TabPage tp_audio;
+		private System.Windows.Forms.TabPage tp_FileExtension;
 		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button button2;
@@ -51,7 +53,7 @@ namespace MplayerWrapper
         private CheckBox Audio_Softvol;
         private ComboBox Audio_Output;
         private Label label3;
-		private TabPage tabPage1;
+		private TabPage tp_Language;
 		private ComboBox chkLanguage;
 		private Label label9;
         private FontSelector fontSelect;
@@ -70,6 +72,18 @@ namespace MplayerWrapper
         private CheckBox cb_VolumeSmooth;
         private ComboBox cb_dsoundList;
         private Label label13;
+        private TabPage tp_Codec;
+        private GroupBox groupBox6;
+        private GroupBox groupBox5;
+        private Label label14;
+        private TextBox tb_vfm;
+        private Button btn_UseNativeCodec;
+        private Button btn_ShowAllVfm;
+        private Label label15;
+        private TextBox textBox1;
+        private Button btn_ListAllAfm;
+        private Button btn_ListAllVCodec;
+        private Button btn_ListAllAcodec;
 		private ResourceManager rm;
 
 		// constructure
@@ -144,6 +158,13 @@ namespace MplayerWrapper
             this.Video_DirectRandering = new System.Windows.Forms.CheckBox();
             this.Video_Output = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tp_Codec = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btn_ShowAllVfm = new System.Windows.Forms.Button();
+            this.btn_UseNativeCodec = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tb_vfm = new System.Windows.Forms.TextBox();
             this.tp_Subtitle = new System.Windows.Forms.TabPage();
             this.Srt_ChineseTrans = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -156,16 +177,21 @@ namespace MplayerWrapper
             this.Srt_AutoScale = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Srt_UseASS = new System.Windows.Forms.CheckBox();
-            this.tp_audio = new System.Windows.Forms.TabPage();
+            this.tp_FileExtension = new System.Windows.Forms.TabPage();
             this.btn_SelectAllExt = new System.Windows.Forms.Button();
             this.clb_FileAssociate = new System.Windows.Forms.CheckedListBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tp_Language = new System.Windows.Forms.TabPage();
             this.chkLanguage = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_ListAllAfm = new System.Windows.Forms.Button();
+            this.btn_ListAllVCodec = new System.Windows.Forms.Button();
+            this.btn_ListAllAcodec = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tp_general.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -174,20 +200,24 @@ namespace MplayerWrapper
             ((System.ComponentModel.ISupportInitialize)(this.nud_AudioVolumeVal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Audio_Softvol_max)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.tp_Codec.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.tp_Subtitle.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Srt_SubFontTextScale)).BeginInit();
-            this.tp_audio.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tp_FileExtension.SuspendLayout();
+            this.tp_Language.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tp_general);
             this.tabControl1.Controls.Add(this.tp_Output);
+            this.tabControl1.Controls.Add(this.tp_Codec);
             this.tabControl1.Controls.Add(this.tp_Subtitle);
-            this.tabControl1.Controls.Add(this.tp_audio);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tp_FileExtension);
+            this.tabControl1.Controls.Add(this.tp_Language);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -388,7 +418,8 @@ namespace MplayerWrapper
             resources.GetString("Video_Output.Items"),
             resources.GetString("Video_Output.Items1"),
             resources.GetString("Video_Output.Items2"),
-            resources.GetString("Video_Output.Items3")});
+            resources.GetString("Video_Output.Items3"),
+            resources.GetString("Video_Output.Items4")});
             resources.ApplyResources(this.Video_Output, "Video_Output");
             this.Video_Output.Name = "Video_Output";
             // 
@@ -396,6 +427,59 @@ namespace MplayerWrapper
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
+            // 
+            // tp_Codec
+            // 
+            this.tp_Codec.Controls.Add(this.groupBox6);
+            this.tp_Codec.Controls.Add(this.groupBox5);
+            resources.ApplyResources(this.tp_Codec, "tp_Codec");
+            this.tp_Codec.Name = "tp_Codec";
+            this.tp_Codec.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btn_ListAllAcodec);
+            this.groupBox6.Controls.Add(this.btn_ListAllAfm);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.textBox1);
+            resources.ApplyResources(this.groupBox6, "groupBox6");
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btn_ListAllVCodec);
+            this.groupBox5.Controls.Add(this.btn_ShowAllVfm);
+            this.groupBox5.Controls.Add(this.btn_UseNativeCodec);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.tb_vfm);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.TabStop = false;
+            // 
+            // btn_ShowAllVfm
+            // 
+            resources.ApplyResources(this.btn_ShowAllVfm, "btn_ShowAllVfm");
+            this.btn_ShowAllVfm.Name = "btn_ShowAllVfm";
+            this.btn_ShowAllVfm.UseVisualStyleBackColor = true;
+            this.btn_ShowAllVfm.Click += new System.EventHandler(this.btn_ShowAllVfm_Click);
+            // 
+            // btn_UseNativeCodec
+            // 
+            resources.ApplyResources(this.btn_UseNativeCodec, "btn_UseNativeCodec");
+            this.btn_UseNativeCodec.Name = "btn_UseNativeCodec";
+            this.btn_UseNativeCodec.UseVisualStyleBackColor = true;
+            this.btn_UseNativeCodec.Click += new System.EventHandler(this.btn_UseNativeCodec_Click);
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // tb_vfm
+            // 
+            resources.ApplyResources(this.tb_vfm, "tb_vfm");
+            this.tb_vfm.Name = "tb_vfm";
             // 
             // tp_Subtitle
             // 
@@ -489,13 +573,13 @@ namespace MplayerWrapper
             this.Srt_UseASS.Name = "Srt_UseASS";
             this.Srt_UseASS.UseVisualStyleBackColor = true;
             // 
-            // tp_audio
+            // tp_FileExtension
             // 
-            this.tp_audio.Controls.Add(this.btn_SelectAllExt);
-            this.tp_audio.Controls.Add(this.clb_FileAssociate);
-            resources.ApplyResources(this.tp_audio, "tp_audio");
-            this.tp_audio.Name = "tp_audio";
-            this.tp_audio.UseVisualStyleBackColor = true;
+            this.tp_FileExtension.Controls.Add(this.btn_SelectAllExt);
+            this.tp_FileExtension.Controls.Add(this.clb_FileAssociate);
+            resources.ApplyResources(this.tp_FileExtension, "tp_FileExtension");
+            this.tp_FileExtension.Name = "tp_FileExtension";
+            this.tp_FileExtension.UseVisualStyleBackColor = true;
             // 
             // btn_SelectAllExt
             // 
@@ -582,13 +666,13 @@ namespace MplayerWrapper
             resources.ApplyResources(this.clb_FileAssociate, "clb_FileAssociate");
             this.clb_FileAssociate.Name = "clb_FileAssociate";
             // 
-            // tabPage1
+            // tp_Language
             // 
-            this.tabPage1.Controls.Add(this.chkLanguage);
-            this.tabPage1.Controls.Add(this.label9);
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tp_Language.Controls.Add(this.chkLanguage);
+            this.tp_Language.Controls.Add(this.label9);
+            resources.ApplyResources(this.tp_Language, "tp_Language");
+            this.tp_Language.Name = "tp_Language";
+            this.tp_Language.UseVisualStyleBackColor = true;
             // 
             // chkLanguage
             // 
@@ -626,6 +710,37 @@ namespace MplayerWrapper
             this.btn_Reset.UseVisualStyleBackColor = true;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
+            // 
+            // btn_ListAllAfm
+            // 
+            resources.ApplyResources(this.btn_ListAllAfm, "btn_ListAllAfm");
+            this.btn_ListAllAfm.Name = "btn_ListAllAfm";
+            this.btn_ListAllAfm.UseVisualStyleBackColor = true;
+            this.btn_ListAllAfm.Click += new System.EventHandler(this.btn_ListAllAfm_Click);
+            // 
+            // btn_ListAllVCodec
+            // 
+            resources.ApplyResources(this.btn_ListAllVCodec, "btn_ListAllVCodec");
+            this.btn_ListAllVCodec.Name = "btn_ListAllVCodec";
+            this.btn_ListAllVCodec.UseVisualStyleBackColor = true;
+            this.btn_ListAllVCodec.Click += new System.EventHandler(this.btn_ListAllVCodec_Click);
+            // 
+            // btn_ListAllAcodec
+            // 
+            resources.ApplyResources(this.btn_ListAllAcodec, "btn_ListAllAcodec");
+            this.btn_ListAllAcodec.Name = "btn_ListAllAcodec";
+            this.btn_ListAllAcodec.UseVisualStyleBackColor = true;
+            this.btn_ListAllAcodec.Click += new System.EventHandler(this.btn_ListAllAcodec_Click);
+            // 
             // OptionForm
             // 
             this.AcceptButton = this.btn_close;
@@ -648,14 +763,19 @@ namespace MplayerWrapper
             ((System.ComponentModel.ISupportInitialize)(this.nud_AudioVolumeVal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Audio_Softvol_max)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.tp_Codec.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.tp_Subtitle.ResumeLayout(false);
             this.tp_Subtitle.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Srt_SubFontTextScale)).EndInit();
-            this.tp_audio.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tp_FileExtension.ResumeLayout(false);
+            this.tp_Language.ResumeLayout(false);
+            this.tp_Language.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -931,5 +1051,54 @@ namespace MplayerWrapper
             cb_dsoundList.Enabled = cb.Text == "dsound" ? true : false;            
         }
 
+        private void btn_UseNativeCodec_Click(object sender, EventArgs e)
+        {
+            tb_vfm.Text = "dsnative";
+        }
+
+        private void btn_ShowAllVfm_Click(object sender, EventArgs e)
+        {
+            getMplayerUsage("-vfm help");
+        }
+
+
+
+        private void btn_ListAllAfm_Click(object sender, EventArgs e)
+        {
+            getMplayerUsage("-afm help");
+        }
+
+        private void btn_ListAllAcodec_Click(object sender, EventArgs e)
+        {
+            getMplayerUsage("-ac help");
+        }
+
+        private void btn_ListAllVCodec_Click(object sender, EventArgs e)
+        {
+            getMplayerUsage("-vc help");
+        }
+
+        private void getMplayerUsage(string args)
+        {
+            Process p = new Process();
+
+            p.StartInfo.FileName = this.msetting[SetVars.MplayerExe];
+            p.StartInfo.Arguments = args;
+            p.StartInfo.CreateNoWindow = true;
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.Start();
+
+            using(TextWriter tw = new StreamWriter("tmp.txt"))
+            {
+                TextReader tr = p.StandardOutput as TextReader;
+                tw.Write(tr.ReadToEnd());
+                tw.Close();
+            }
+
+            p.Dispose();
+
+            Process.Start("notepad.exe", "tmp.txt");
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace MplayerWrapper
 		AO, dsoundDevice, Audio_Softvol, Audio_SoftvolMax, Audio_Volume, Audio_Volume_Val, Audio_Volume_Smooth,
 		
 		// Video
-		VO, Video_DR, 
+		VO, Video_DR, VideoNativeDecoder,
 
 		// LastMedia
 		LastMedia,
@@ -65,6 +65,7 @@ namespace MplayerWrapper
 			// Video
 			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"direct3d",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"0",			TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.VideoNativeDecoder.ToString(), "0",       TypeCode.String));
 
 			// LastMedia
 			this.SettingValues.Add(new MValue(SetVars.LastMedia.ToString(),		"",				TypeCode.String));
