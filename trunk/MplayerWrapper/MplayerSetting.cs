@@ -18,7 +18,7 @@ namespace MplayerWrapper
 		
 		// Audio
 		AO, AC, AFM, dsoundDevice, Audio_Softvol, Audio_SoftvolMax, Audio_Volume, 
-        Audio_Volume_Val, Audio_Volume_Smooth,
+        Audio_Volume_Val, Audio_Volume_Smooth, Audio_Filter_Karaoke,
 		
 		// Video
 		VO, VC, VFM, Video_DR,
@@ -64,6 +64,7 @@ namespace MplayerWrapper
             this.SettingValues.Add(new MValue(SetVars.Audio_Volume_Smooth.ToString(), "0",      TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.AFM.ToString(),           "",             TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.AC.ToString(),            "",             TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Audio_Filter_Karaoke.ToString(), "0",     TypeCode.String));
 
 			// Video
 			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"direct3d",		TypeCode.String));
@@ -85,7 +86,8 @@ namespace MplayerWrapper
 		{
 			get
 			{
-				string args = "";
+                List<string> AudioFilters = new List<string>();
+                string args = "";
 
 				ReadSetting();
 
@@ -105,7 +107,22 @@ namespace MplayerWrapper
 					args += " -softvol -softvol-max " + this[SetVars.Audio_SoftvolMax];
 
                 if (this[SetVars.Audio_Volume] == "1")
-                    args += string.Format(" -af volume={0}:{1}", this[SetVars.Audio_Volume_Val], this[SetVars.Audio_Volume_Smooth]);
+                    AudioFilters.Add(string.Format("volume={0}:{1}", this[SetVars.Audio_Volume_Val], this[SetVars.Audio_Volume_Smooth]));
+
+                if (this[SetVars.Audio_Filter_Karaoke] == "1")
+                    AudioFilters.Add("karaoke");
+
+                if (AudioFilters.Count > 0)
+                {
+                    args += " -af ";
+                    for(int i=0;i<AudioFilters.Count;i++)
+                    {
+                        args += AudioFilters[i];
+
+                        if (i + 1 < AudioFilters.Count)
+                            args += ",";
+                    }
+                }
 
 				// Video
 				args += " -vo " + this[SetVars.VO];
