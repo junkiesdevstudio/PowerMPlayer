@@ -109,27 +109,31 @@ namespace MplayerWrapper
                 return;
 
             ext = ext.ToLower();
-            RegistryKey rk = Registry.ClassesRoot;
 
+            RegistryKey rk = Registry.ClassesRoot.OpenSubKey("\\", true);
             RegistryKey rkTest = rk.CreateSubKey(ext);
-            rkTest.SetValue("", ProgramName);
+            rkTest.SetValue("", ProgramName, RegistryValueKind.String);
+            rkTest.Close();
 
             if (strIcon != null && strIcon != "")
             {
                 rkTest = rk.CreateSubKey(ProgramName + @"\DefaultIcon");
                 rkTest.SetValue("", strIcon);
+                rkTest.Close();
             }
 
             rkTest = rk.CreateSubKey(ProgramName + @"\shell\open");
             rkTest.SetValue("", "Open with PowerMplayer");
+            rkTest.Close();
 
             rkTest = rk.CreateSubKey(ProgramName + @"\shell\open\command");
-            rkTest.SetValue("", "\"" + System.Windows.Forms.Application.ExecutablePath + "\" \"%1\"");
+            rkTest.SetValue("", string.Format(@"""{0}"" ""%1""", System.Windows.Forms.Application.ExecutablePath), RegistryValueKind.ExpandString);
+            rkTest.Close();
         }
 
-        public static bool isAssociate(string ext)
+        public static bool isAssociate(string ProgramName, string ext)
         {
-            string ProgramName = "PowerMplayer";
+            //string ProgramName = "PowerMplayer";
 
             ext = ext.ToLower();
 
