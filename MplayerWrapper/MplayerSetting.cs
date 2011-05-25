@@ -22,7 +22,8 @@ namespace MplayerWrapper
         Audio_Filter_Karaoke, Audio_Filter_Volnorm, Audio_Filter_VolnormMethod,
 		
 		// Video
-		VO, VC, VFM, Video_DR, Video_DoubleBuffering,
+		VO, VC, VFM, Video_DR, Video_DoubleBuffering, Video_Slices, 
+        Video_Filter_pp, Video_Filter_ppQuality,
 
 		// LastMedia
 		LastMedia,
@@ -75,6 +76,9 @@ namespace MplayerWrapper
             this.SettingValues.Add(new MValue(SetVars.VFM.ToString(),           "",             TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.VC.ToString(),            "",             TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.Video_DoubleBuffering.ToString(), "0",    TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Video_Slices.ToString(), "1",             TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Video_Filter_pp.ToString(), "0",          TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Video_Filter_ppQuality.ToString(), "6",   TypeCode.String));
 
 			// LastMedia
 			this.SettingValues.Add(new MValue(SetVars.LastMedia.ToString(),		"",				TypeCode.String));
@@ -145,6 +149,8 @@ namespace MplayerWrapper
                 if (this[SetVars.Video_DoubleBuffering] == "1")
                     args += " -double";
 
+                args += (this[SetVars.Video_Slices] == "1") ? " -slices" : " -noslices";
+
                 // using ass
 				if(this[SetVars.SubASS] == "1")
 					args += " -ass";
@@ -162,6 +168,10 @@ namespace MplayerWrapper
 
                 // append user specify args
                 args += " " + this[SetVars.MplayerOtherArgs];
+
+                // video filters
+                if (this[SetVars.Video_Filter_pp] == "1")
+                    args += string.Format(" -vf-pre pp -autoq {0}", this[SetVars.Video_Filter_ppQuality]);
 
 				return args;
 			}
