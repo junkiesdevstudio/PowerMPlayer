@@ -90,6 +90,10 @@ namespace MplayerWrapper
         private TextBox tb_vc;
         private Label label18;
         private CheckBox cb_Karaoke;
+        private CheckBox cb_DoubleBuffering;
+        private CheckBox cb_Volnorm;
+        private Label label19;
+        private ComboBox cb_VolnormMethod;
 		private ResourceManager rm;
 
 		// constructure
@@ -150,6 +154,9 @@ namespace MplayerWrapper
             this.button2 = new System.Windows.Forms.Button();
             this.tp_Output = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cb_VolnormMethod = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cb_Volnorm = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cb_dsoundList = new System.Windows.Forms.ComboBox();
             this.cb_VolumeSmooth = new System.Windows.Forms.CheckBox();
@@ -162,6 +169,7 @@ namespace MplayerWrapper
             this.Audio_Output = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cb_DoubleBuffering = new System.Windows.Forms.CheckBox();
             this.Video_DirectRandering = new System.Windows.Forms.CheckBox();
             this.Video_Output = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -368,6 +376,9 @@ namespace MplayerWrapper
             this.groupBox3.AccessibleName = null;
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.BackgroundImage = null;
+            this.groupBox3.Controls.Add(this.cb_VolnormMethod);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.cb_Volnorm);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.cb_dsoundList);
             this.groupBox3.Controls.Add(this.cb_VolumeSmooth);
@@ -382,6 +393,36 @@ namespace MplayerWrapper
             this.groupBox3.Font = null;
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            // 
+            // cb_VolnormMethod
+            // 
+            this.cb_VolnormMethod.AccessibleDescription = null;
+            this.cb_VolnormMethod.AccessibleName = null;
+            resources.ApplyResources(this.cb_VolnormMethod, "cb_VolnormMethod");
+            this.cb_VolnormMethod.BackgroundImage = null;
+            this.cb_VolnormMethod.Font = null;
+            this.cb_VolnormMethod.Items.AddRange(new object[] {
+            resources.GetString("cb_VolnormMethod.Items"),
+            resources.GetString("cb_VolnormMethod.Items1")});
+            this.cb_VolnormMethod.Name = "cb_VolnormMethod";
+            // 
+            // label19
+            // 
+            this.label19.AccessibleDescription = null;
+            this.label19.AccessibleName = null;
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Font = null;
+            this.label19.Name = "label19";
+            // 
+            // cb_Volnorm
+            // 
+            this.cb_Volnorm.AccessibleDescription = null;
+            this.cb_Volnorm.AccessibleName = null;
+            resources.ApplyResources(this.cb_Volnorm, "cb_Volnorm");
+            this.cb_Volnorm.BackgroundImage = null;
+            this.cb_Volnorm.Font = null;
+            this.cb_Volnorm.Name = "cb_Volnorm";
+            this.cb_Volnorm.CheckedChanged += new System.EventHandler(this.cb_Volnorm_CheckedChanged);
             // 
             // label13
             // 
@@ -513,12 +554,22 @@ namespace MplayerWrapper
             this.groupBox2.AccessibleName = null;
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.BackgroundImage = null;
+            this.groupBox2.Controls.Add(this.cb_DoubleBuffering);
             this.groupBox2.Controls.Add(this.Video_DirectRandering);
             this.groupBox2.Controls.Add(this.Video_Output);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = null;
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // cb_DoubleBuffering
+            // 
+            this.cb_DoubleBuffering.AccessibleDescription = null;
+            this.cb_DoubleBuffering.AccessibleName = null;
+            resources.ApplyResources(this.cb_DoubleBuffering, "cb_DoubleBuffering");
+            this.cb_DoubleBuffering.BackgroundImage = null;
+            this.cb_DoubleBuffering.Font = null;
+            this.cb_DoubleBuffering.Name = "cb_DoubleBuffering";
             // 
             // Video_DirectRandering
             // 
@@ -1129,11 +1180,14 @@ namespace MplayerWrapper
             this.tb_afm.Text = this.msetting[SetVars.AFM];
             this.tb_ac.Text = this.msetting[SetVars.AC];
             this.cb_Karaoke.Checked = (this.msetting[SetVars.Audio_Filter_Karaoke] == "1") ? true : false;
+            this.cb_VolnormMethod.Enabled = this.cb_Volnorm.Checked = this.msetting[SetVars.Audio_Filter_Volnorm] == "1";
+            this.cb_VolnormMethod.SelectedIndex = this.msetting[SetVars.Audio_Filter_VolnormMethod] == "2" ? 1 : 0;
 
 			this.Video_Output.Text = this.msetting[SetVars.VO];
-			this.Video_DirectRandering.Checked = this.msetting[SetVars.Video_DR] == "1" ? true : false;
+            this.Video_DirectRandering.Checked = this.msetting[SetVars.Video_DR] == "1";
             this.tb_vfm.Text = this.msetting[SetVars.VFM];
             this.tb_vc.Text = this.msetting[SetVars.VC];
+            this.cb_DoubleBuffering.Checked = this.msetting[SetVars.Video_DoubleBuffering] == "1";
 
             this.CB_ForceIDX.Checked = (msetting[SetVars.ForceIDX] == "1") ? true : false;
 
@@ -1161,11 +1215,14 @@ namespace MplayerWrapper
             this.msetting[SetVars.AFM] = this.tb_afm.Text;
             this.msetting[SetVars.AC] = this.tb_ac.Text;
             this.msetting[SetVars.Audio_Filter_Karaoke] = (this.cb_Karaoke.Checked) ? "1" : "0";
+            this.msetting[SetVars.Audio_Filter_Volnorm] = (this.cb_Volnorm.Checked) ? "1" : "0";
+            this.msetting[SetVars.Audio_Filter_VolnormMethod] = (this.cb_VolnormMethod.SelectedIndex == 1) ? "2" : "1";
 
 			this.msetting[SetVars.VO] = this.Video_Output.Text;
 			this.msetting[SetVars.Video_DR] = this.Video_DirectRandering.Checked ? "1" : "0";
             this.msetting[SetVars.VFM] = this.tb_vfm.Text;
             this.msetting[SetVars.VC] = this.tb_vc.Text;
+            this.msetting[SetVars.Video_DoubleBuffering] = this.cb_DoubleBuffering.Checked ? "1" : "0";
 
             this.msetting[SetVars.ForceIDX] = this.CB_ForceIDX.Checked ? "1" : "0";
 
@@ -1412,6 +1469,12 @@ namespace MplayerWrapper
             p.Dispose();
 
             Process.Start("notepad.exe", "tmp.txt");
+        }
+
+        private void cb_Volnorm_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            cb_VolnormMethod.Enabled = cb.Checked;
         }
 
     }
