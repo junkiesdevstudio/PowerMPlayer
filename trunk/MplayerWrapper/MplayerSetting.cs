@@ -18,10 +18,11 @@ namespace MplayerWrapper
 		
 		// Audio
 		AO, AC, AFM, dsoundDevice, Audio_Softvol, Audio_SoftvolMax, Audio_Volume, 
-        Audio_Volume_Val, Audio_Volume_Smooth, Audio_Filter_Karaoke,
+        Audio_Volume_Val, Audio_Volume_Smooth, 
+        Audio_Filter_Karaoke, Audio_Filter_Volnorm, Audio_Filter_VolnormMethod,
 		
 		// Video
-		VO, VC, VFM, Video_DR,
+		VO, VC, VFM, Video_DR, Video_DoubleBuffering,
 
 		// LastMedia
 		LastMedia,
@@ -65,12 +66,15 @@ namespace MplayerWrapper
             this.SettingValues.Add(new MValue(SetVars.AFM.ToString(),           "",             TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.AC.ToString(),            "",             TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.Audio_Filter_Karaoke.ToString(), "0",     TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Audio_Filter_Volnorm.ToString(), "0",     TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Audio_Filter_VolnormMethod.ToString(), "1", TypeCode.String));
 
 			// Video
 			this.SettingValues.Add(new MValue(SetVars.VO.ToString(),			"direct3d",		TypeCode.String));
 			this.SettingValues.Add(new MValue(SetVars.Video_DR.ToString(),		"0",			TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.VFM.ToString(),           "",             TypeCode.String));
             this.SettingValues.Add(new MValue(SetVars.VC.ToString(),            "",             TypeCode.String));
+            this.SettingValues.Add(new MValue(SetVars.Video_DoubleBuffering.ToString(), "0",    TypeCode.String));
 
 			// LastMedia
 			this.SettingValues.Add(new MValue(SetVars.LastMedia.ToString(),		"",				TypeCode.String));
@@ -112,6 +116,9 @@ namespace MplayerWrapper
                 if (this[SetVars.Audio_Filter_Karaoke] == "1")
                     AudioFilters.Add("karaoke");
 
+                if(this[SetVars.Audio_Filter_Volnorm] == "1")
+                    AudioFilters.Add(string.Format("volnorm={0}", this[SetVars.Audio_Filter_VolnormMethod]));
+
                 if (AudioFilters.Count > 0)
                 {
                     args += " -af ";
@@ -133,8 +140,10 @@ namespace MplayerWrapper
                 if (this[SetVars.VFM] != "")
                     args += string.Format(" -vfm {0}", this[SetVars.VFM]);
 
-				if(this[SetVars.Video_DR] == "1")
-					args += " -dr";
+                args += (this[SetVars.Video_DR] == "1") ? " -dr" : " -nodr";
+
+                if (this[SetVars.Video_DoubleBuffering] == "1")
+                    args += " -double";
 
                 // using ass
 				if(this[SetVars.SubASS] == "1")
