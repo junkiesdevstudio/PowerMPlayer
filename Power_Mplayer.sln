@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Power Mplayer_VS2008", "Power_Mplayer\Power Mplayer_VS2008.csproj", "{EE4ED0C8-F043-477E-9FDD-0C60073A004C}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "powermplayerSetup_EN", "powermplayerSetup_EN\powermplayerSetup_EN.vdproj", "{A5CFC9DD-8170-4445-89D5-2C4F5909FF08}"

@@ -6,10 +6,10 @@ using System.Windows.Forms;
 using System.Resources;
 using System.Globalization;
 using System.Security.Principal;
-using Microsoft.DirectX;
-using Microsoft.DirectX.DirectSound;
 using System.Diagnostics;
 using System.IO;
+
+using SharpDX.DirectSound;
 
 namespace MplayerWrapper
 {
@@ -117,7 +117,7 @@ namespace MplayerWrapper
 			rm = new ResourceManager("MplayerWrapper.Strings.OptionForm", typeof(OptionForm).Assembly);
 
             // get dsound devices
-            Microsoft.DirectX.DirectSound.DevicesCollection dc = new DevicesCollection();
+            List<DeviceInformation> dc = DirectSound.GetDevices();
 
             for (int i = 0; i < dc.Count; i++)
                 cb_dsoundList.Items.Add(dc[i].Description);
